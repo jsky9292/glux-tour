@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLUX Admin 로그인</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#0f0f1a;display:flex;align-items:center;justify-content:center;min-height:100vh}
+.card{background:#fff;border-radius:16px;padding:44px 40px 36px;width:360px;box-shadow:0 24px 80px rgba(0,0,0,.6)}
+.logo{font-family:Arial,sans-serif;font-size:30px;font-weight:900;letter-spacing:5px;color:#0f0f1a;margin-bottom:4px}
+.logo b{color:#D9251C}
+.sub{font-size:12px;color:#9ca3af;margin-bottom:36px;letter-spacing:.5px}
+.field{margin-bottom:18px}
+label{display:block;font-size:11px;font-weight:700;color:#374151;margin-bottom:7px;letter-spacing:.5px;text-transform:uppercase}
+input{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:9px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;transition:border .15s;color:#1a1a2e}
+input:focus{border-color:#D9251C;box-shadow:0 0 0 3px rgba(217,37,28,.08)}
+input::placeholder{color:#d1d5db}
+.btn{width:100%;padding:13px;background:#D9251C;color:#fff;border:none;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;margin-top:6px;transition:background .15s;letter-spacing:.5px}
+.btn:hover{background:#b91c1c}
+.btn:active{transform:scale(.99)}
+.err{color:#D9251C;font-size:12px;text-align:center;margin-top:14px;min-height:18px;font-weight:500}
+.hint{font-size:11px;color:#d1d5db;text-align:center;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">GL<b>U</b>X</div>
+  <div class="sub">ADMIN — 관리자 전용</div>
+
+  <div class="field">
+    <label>아이디</label>
+    <input type="text" id="u" placeholder="admin" autocomplete="username">
+  </div>
+  <div class="field">
+    <label>비밀번호</label>
+    <input type="password" id="p" placeholder="••••••••" autocomplete="current-password"
+      onkeydown="if(event.key==='Enter')login()">
+  </div>
+  <button class="btn" onclick="login()" id="btn">로그인</button>
+  <div class="err" id="err"></div>
+  <div class="hint">© GLUX Tour 간사이 현지 직영</div>
+</div>
+
+<script>
+async function login() {
+  const u = document.getElementById('u').value.trim()
+  const p = document.getElementById('p').value
+  const err = document.getElementById('err')
+  const btn = document.getElementById('btn')
+  err.textContent = ''
+  if (!u || !p) { err.textContent = '아이디와 비밀번호를 입력하세요.'; return }
+  btn.disabled = true; btn.textContent = '확인 중...'
+  try {
+    const r = await fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: u, password: p })
+    })
+    const d = await r.json()
+    if (r.ok) {
+      window.location.href = '/admin'
+    } else {
+      err.textContent = d.error || '로그인 실패'
+      btn.disabled = false; btn.textContent = '로그인'
+    }
+  } catch {
+    err.textContent = '서버 연결 오류'
+    btn.disabled = false; btn.textContent = '로그인'
+  }
+}
+document.getElementById('u').focus()
+</script>
+</body>
+</html>
