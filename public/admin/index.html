@@ -132,12 +132,7 @@ body{font-family:'Noto Sans KR',sans-serif;font-size:13px;background:#f0f2f5;col
     </div>
   </div>
 
-  <div id="placeholder">
-    <div class="icon">📋</div>
-    <p>신청을 선택하면 바우처 빌더가 열립니다</p>
-    <small>왼쪽 목록에서 고객 신청을 클릭하세요</small>
-  </div>
-  <iframe id="voucher-frame" style="display:none" onload="onFrameLoad()"></iframe>
+  <iframe id="voucher-frame" src="/admin/voucher" onload="onFrameLoad()"></iframe>
 </div>
 
 </div>
@@ -214,21 +209,16 @@ function renderList(apps){
 
 function selectApp(id){
   selectedId=id
-  // 활성 카드 표시
   document.querySelectorAll('.app-card').forEach(c=>{
     const cid=parseInt(c.getAttribute('onclick').match(/\d+/)[0])
     c.classList.toggle('active',cid===id)
   })
-  // 오른쪽 패널 전환
   const app=allApps.find(a=>a.id===id)
   if(!app)return
   const st=STATUS[app.status]||{label:app.status,cls:''}
   document.getElementById('right-title').innerHTML=`<span class="badge ${st.cls}">${st.label}</span> &nbsp; <strong>${app.name}</strong> &nbsp; <span style="font-weight:400;color:#6b7280">${app.reservation_no||''}</span>`
   document.getElementById('right-actions').style.display='flex'
-  document.getElementById('placeholder').style.display='none'
-  const frame=document.getElementById('voucher-frame')
-  frame.style.display='block'
-  frame.src=`/admin/voucher?appId=${id}`
+  document.getElementById('voucher-frame').src=`/admin/voucher?appId=${id}`
 }
 
 function onFrameLoad(){
@@ -271,8 +261,7 @@ async function deleteApp(){
   selectedId=null
   document.getElementById('right-title').textContent='← 왼쪽에서 신청을 선택하세요'
   document.getElementById('right-actions').style.display='none'
-  document.getElementById('placeholder').style.display='flex'
-  document.getElementById('voucher-frame').style.display='none'
+  document.getElementById('voucher-frame').src='/admin/voucher'
   loadApps()
 }
 
