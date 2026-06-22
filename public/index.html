@@ -1,295 +1,601 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GLUX Tour — 맞춤 일본 여행</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>GLUX | 오사카·교토·나라·고베 프라이빗 럭셔리 여행 & 골프</title>
+<meta name="description" content="간사이 현지 20년 GLUX. 오사카·교토·나라·고베 프라이빗 가족여행, 골프여행. 공항부터 출국까지 올인원 맞춤 케어.">
+<!-- 카카오 오픈채팅 / SNS 썸네일 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="GLUX | 간사이 프라이빗 럭셔리 여행 & 골프">
+<meta property="og:description" content="오사카·교토·나라·고베 현지 20년 직영. 대행사 없이 현지가격 그대로. 100+ 골프장 직접 부킹.">
+<meta property="og:image" content="https://effervescent-shortbread-51b949.netlify.app/glux_thumbnail.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://effervescent-shortbread-51b949.netlify.app">
+<meta property="og:site_name" content="GLUX">
+<!-- 카카오톡 공유 최적화 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GLUX | 간사이 프라이빗 럭셔리 여행 & 골프">
+<meta name="twitter:description" content="오사카·교토·나라·고베 현지 20년 직영. 대행사 없이 현지가격 그대로.">
+<meta name="twitter:image" content="https://effervescent-shortbread-51b949.netlify.app/glux_thumbnail.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans KR',sans-serif;color:#1a1a2e;background:#fff}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--ink:#08090c;--char:#141720;--slate:#1e2130;--stone:#3a3d4a;
+--mist:#7a7e8c;--cloud:#b0b3be;--silk:#e4e5ea;--paper:#f5f4f1;
+--cream:#faf9f6;--white:#fff;
+--gold:#b8956a;--gold-b:#d4ad78;--gold-l:#e8d4b8;--gold-p:#f3ead8;
+--serif:'Cormorant Garamond',serif;
+--sans:'Noto Sans KR',-apple-system,sans-serif;
+--ease:cubic-bezier(.25,.46,.45,.94);
+--eout:cubic-bezier(.16,1,.3,1);
+--bar:60px;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--char);background:var(--cream);overflow-x:hidden}
+a{text-decoration:none;color:inherit}button{font-family:var(--sans)}
 
-/* ─── 헤더 ─── */
-header{background:#0f0f1a;padding:0 5vw;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.logo{font-family:Arial,sans-serif;font-size:20px;font-weight:900;letter-spacing:3px;color:#fff}
-.logo b{color:#D9251C}
-.nav-btn{background:#D9251C;color:#fff;border:none;border-radius:6px;padding:8px 18px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;text-decoration:none}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,48px);background:rgba(8,9,12,0);backdrop-filter:blur(0);transition:all .4s}
+.nav.sc{background:rgba(8,9,12,.95);backdrop-filter:blur(16px)}
+.logo{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--white);letter-spacing:5px}.logo span{color:var(--gold)}
+.nl{display:flex;gap:24px;align-items:center}
+.nl a{font-size:10.5px;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;transition:color .3s}
+.nl a:hover{color:var(--gold)}
+.nl .nc{padding:7px 20px;border:1px solid var(--gold);color:var(--gold);transition:all .3s}
+.nl .nc:hover{background:var(--gold);color:var(--ink)}
+.ham{display:none;background:none;border:none;cursor:pointer;width:24px;height:16px;position:relative;z-index:200}
+.ham i{display:block;width:100%;height:1.5px;background:var(--white);position:absolute;left:0;transition:.3s}
+.ham i:nth-child(1){top:0}.ham i:nth-child(2){top:7px}.ham i:nth-child(3){top:14px}
+.mm{display:none;position:fixed;inset:0;z-index:150;background:rgba(8,9,12,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.mm.open{display:flex}
+.mm a{font-size:14px;color:rgba(255,255,255,.6);letter-spacing:3px;text-transform:uppercase;padding:8px 0}
 
-/* ─── 히어로 ─── */
-.hero{background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 50%,#12121f 100%);color:#fff;padding:90px 5vw 80px;text-align:center}
-.hero-badge{display:inline-block;background:#D9251C;color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:2px;margin-bottom:20px}
-.hero h1{font-size:clamp(28px,5vw,52px);font-weight:900;line-height:1.2;margin-bottom:16px}
-.hero h1 span{color:#D9251C}
-.hero p{font-size:15px;color:#9ca3af;max-width:520px;margin:0 auto 32px;line-height:1.8}
-.hero-cta{background:#D9251C;color:#fff;border:none;padding:15px 40px;font-size:15px;font-weight:700;border-radius:8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s}
-.hero-cta:hover{background:#b91c1c}
+/* HERO */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 60% 35%,rgba(26,58,42,.45),transparent),linear-gradient(160deg,#050608,#0e1418 35%,#0a1610 65%,#08090c)}
+.hero-fade{position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,var(--cream),transparent);z-index:2}
+.hero-in{position:relative;z-index:3;width:100%;max-width:1100px;margin:0 auto;padding:clamp(100px,16vh,150px) clamp(20px,4vw,48px) clamp(80px,12vh,120px);text-align:center}
+.h-ov{display:inline-flex;align-items:center;gap:12px;margin-bottom:20px;opacity:0;animation:fi .8s var(--eout) .1s forwards}
+.h-ov-l{width:32px;height:1px;background:var(--gold)}
+.h-ov-t{font-size:10.5px;color:var(--gold);letter-spacing:5px;text-transform:uppercase;font-weight:500}
+.hero h1{font-family:var(--serif);font-size:clamp(28px,5vw,56px);color:var(--white);line-height:1.25;font-weight:300;margin-bottom:16px;opacity:0;animation:fi 1s var(--eout) .3s forwards}
+.hero h1 strong{font-weight:700;color:var(--gold-b)}
+.h-cities{display:flex;justify-content:center;gap:clamp(8px,2vw,16px);flex-wrap:wrap;margin-bottom:24px;opacity:0;animation:fi 1s var(--eout) .45s forwards}
+.h-city{padding:5px 14px;border:1px solid rgba(255,255,255,.08);font-size:12px;color:rgba(255,255,255,.45);letter-spacing:1px}
+.h-desc{font-size:clamp(13px,1.4vw,15px);color:rgba(255,255,255,.4);line-height:2;font-weight:300;margin:0 auto 36px;max-width:540px;opacity:0;animation:fi 1s var(--eout) .55s forwards;word-break:keep-all}
+.h-desc strong{color:rgba(255,255,255,.7);font-weight:500}
+.h-dual{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:520px;margin:0 auto 32px;opacity:0;animation:fi 1s var(--eout) .7s forwards}
+.h-cta{padding:24px 20px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);text-align:center;transition:all .4s;cursor:pointer;display:block;position:relative;overflow:hidden}
+.h-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .4s}
+.h-cta:hover{border-color:rgba(184,149,106,.3);background:rgba(184,149,106,.04);transform:translateY(-3px)}
+.h-cta:hover::before{transform:scaleX(1)}
+.h-cta-num{font-family:var(--serif);font-size:clamp(40px,5vw,56px);font-weight:600;color:var(--gold);line-height:1;margin-bottom:10px;letter-spacing:3px}
+.h-cta-t{font-size:16px;color:var(--white);margin-bottom:6px;font-weight:600}
+.h-cta-s{font-size:11.5px;color:rgba(255,255,255,.3);font-weight:300;line-height:1.6}
+.h-or{display:flex;align-items:center;justify-content:center;gap:8px;opacity:0;animation:fi 1s var(--eout) .8s forwards;margin-bottom:16px}
+.h-or-l{width:36px;height:1px;background:rgba(255,255,255,.08)}
+.h-or span{font-size:10px;color:rgba(255,255,255,.2);letter-spacing:3px}
+.h-btn{display:inline-block;padding:13px 44px;border:1px solid var(--gold);color:var(--gold);font-size:11.5px;letter-spacing:2px;text-transform:uppercase;transition:all .3s;opacity:0;animation:fi 1s var(--eout) .9s forwards}
+.h-btn:hover{background:var(--gold);color:var(--ink)}
 
-/* ─── 패키지 ─── */
-.section{padding:70px 5vw}
-.sec-title{text-align:center;margin-bottom:10px;font-size:11px;font-weight:700;color:#D9251C;letter-spacing:3px}
-.sec-h2{text-align:center;font-size:clamp(22px,4vw,34px);font-weight:800;margin-bottom:48px;color:#0f0f1a}
-.pkg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto}
-.pkg-card{border:1.5px solid #e5e7eb;border-radius:12px;overflow:hidden;cursor:pointer;transition:all .2s;background:#fff}
-.pkg-card:hover{border-color:#D9251C;box-shadow:0 6px 24px rgba(217,37,28,.12);transform:translateY(-2px)}
-.pkg-card.selected{border-color:#D9251C;background:#fff5f5}
-.pkg-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:48px}
-.pkg-body{padding:16px}
-.pkg-tag{font-size:10px;font-weight:700;color:#D9251C;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-.pkg-name{font-size:16px;font-weight:700;margin-bottom:6px}
-.pkg-desc{font-size:12px;color:#6b7280;line-height:1.7}
+section{padding:clamp(60px,10vw,110px) clamp(16px,4vw,48px)}
+.inner{max-width:1100px;margin:0 auto}
+.sh{margin-bottom:clamp(36px,5vw,56px)}
+.sov{display:inline-flex;align-items:center;gap:10px;margin-bottom:14px}
+.sov-l{width:24px;height:1px;background:var(--gold)}.sov-t{font-size:10px;color:var(--gold);letter-spacing:4px;text-transform:uppercase;font-weight:600}
+.st{font-family:var(--serif);font-size:clamp(26px,3.5vw,44px);color:var(--char);line-height:1.3;font-weight:400;margin-bottom:14px;word-break:keep-all}
+.ss{font-size:clamp(13px,1.4vw,14.5px);color:var(--mist);line-height:1.9;max-width:480px;font-weight:300;word-break:keep-all}
+.rv{opacity:0;transform:translateY(28px);transition:all .7s var(--eout)}
+.rv.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}.d4{transition-delay:.24s}
 
-/* ─── 신청 폼 ─── */
-.apply-wrap{background:#f0f2f5;padding:70px 5vw}
-.apply-box{max-width:680px;margin:0 auto;background:#fff;border-radius:16px;padding:40px 40px;box-shadow:0 4px 32px rgba(0,0,0,.08)}
-.apply-box h2{font-size:22px;font-weight:800;margin-bottom:6px;color:#0f0f1a}
-.apply-box .sub{font-size:13px;color:#6b7280;margin-bottom:28px}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.f-group{margin-bottom:14px}
-.f-group label{display:block;font-size:12px;font-weight:600;color:#374151;margin-bottom:5px}
-.f-group label .req{color:#D9251C}
-.f-group input,.f-group select,.f-group textarea{width:100%;padding:10px 12px;border:1.5px solid #d1d5db;border-radius:7px;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:#1a1a2e;background:#fafafa;transition:border-color .2s}
-.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:#D9251C;background:#fff}
-.f-group textarea{min-height:90px;resize:vertical;line-height:1.6}
-.submit-btn{width:100%;padding:14px;background:#D9251C;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;margin-top:6px}
-.submit-btn:hover{background:#b91c1c}
-.submit-btn:disabled{background:#9ca3af;cursor:not-allowed}
+/* DESTINATIONS — real photos with CSS fallback */
+.dest-s{background:var(--white)}
+.dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.dest-card{position:relative;height:clamp(240px,28vw,340px);overflow:hidden;cursor:pointer;background-size:cover;background-position:center;background-color:#1a1520}
+.dest-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,9,12,.88) 0%,rgba(8,9,12,.3) 40%,rgba(8,9,12,.08) 100%);transition:all .4s}
+.dest-card:hover::after{background:linear-gradient(to top,rgba(8,9,12,.75) 0%,rgba(8,9,12,.15) 40%,rgba(8,9,12,0) 100%)}
+.dest-inner{position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,2.5vw,28px);z-index:2;min-height:130px;display:flex;flex-direction:column;justify-content:flex-end}
+.dest-en{font-family:var(--serif);font-size:10px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;font-weight:500}
+.dest-card h4{font-family:var(--serif);font-size:clamp(22px,3vw,32px);color:var(--white);font-weight:500;margin-bottom:6px}
+.dest-card p{font-size:clamp(11px,1.2vw,12.5px);color:rgba(255,255,255,.5);font-weight:300;line-height:1.7}
+.dest-spots{margin-top:8px;display:flex;flex-wrap:wrap;gap:4px}
+.dest-spot{font-size:10px;padding:3px 8px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.5)}
 
-/* ─── 완료 메시지 ─── */
-#success-msg{display:none;text-align:center;padding:40px 20px}
-#success-msg .icon{font-size:56px;margin-bottom:16px}
-#success-msg h3{font-size:22px;font-weight:800;color:#0f0f1a;margin-bottom:8px}
-#success-msg p{font-size:14px;color:#6b7280;line-height:1.8}
-#success-msg .rno{display:inline-block;background:#0f0f1a;color:#fff;padding:8px 24px;border-radius:20px;font-size:16px;font-weight:700;margin:16px 0;letter-spacing:2px}
+/* TWO PATHS — with photos */
+.path-s{background:var(--cream)}
+.path-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.path-card{border:1px solid var(--silk);background:var(--white);overflow:hidden;transition:all .5s}
+.path-card:hover{border-color:var(--gold-l);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.06)}
+.path-img{height:220px;background-size:cover;background-position:center;position:relative;background-color:#1a1a1a}
+.path-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,9,12,.5),transparent 60%)}
+.path-img-tag{position:absolute;bottom:14px;left:18px;z-index:2;font-size:10px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:600}
+.path-body{padding:clamp(24px,3vw,36px)}
+.path-card h3{font-family:var(--serif);font-size:clamp(22px,2.5vw,28px);font-weight:600;color:var(--char);margin-bottom:10px;line-height:1.3}
+.path-desc{font-size:clamp(13px,1.4vw,14px);color:var(--mist);line-height:1.9;font-weight:300;margin-bottom:18px;word-break:keep-all}
+.path-feats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.pf{padding:5px 12px;background:var(--paper);font-size:11.5px;color:var(--stone);font-weight:500}
+.path-cta{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--gold);font-weight:600;transition:gap .3s}
+.path-cta:hover{gap:12px}
 
-/* ─── 푸터 ─── */
-footer{background:#0f0f1a;color:#6b7280;padding:32px 5vw;text-align:center;font-size:13px}
-footer .logo-f{font-family:Arial,sans-serif;font-size:18px;font-weight:900;letter-spacing:3px;color:#fff;margin-bottom:8px}
-footer .logo-f b{color:#D9251C}
+/* GOLF */
+.golf-s{background:var(--char);position:relative;overflow:hidden}
+.golf-s::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 50% 20%,rgba(26,58,42,.2),transparent)}
+.golf-s .inner{position:relative;z-index:2}
+.golf-s .st{color:var(--white)}.golf-s .ss{color:rgba(255,255,255,.35)}
+.golf-stat{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.golf-num{font-family:var(--serif);font-size:clamp(52px,7vw,80px);color:var(--gold);font-weight:600;line-height:1}
+.golf-unit{font-size:clamp(18px,2.5vw,24px);color:var(--gold);font-weight:500}
+.golf-subdesc{font-size:13px;color:rgba(255,255,255,.35);font-weight:300;margin-bottom:40px;max-width:500px}
 
-/* ─── 반응형 ─── */
-@media(max-width:600px){
-  .f-row{grid-template-columns:1fr}
-  .apply-box{padding:24px 20px}
-  .hero{padding:60px 5vw 50px}
+/* Golf gallery — real photos */
+.golf-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-bottom:40px;overflow:hidden}
+.golf-gi{height:200px;background-size:cover;background-position:center;position:relative;transition:all .4s;background-color:#1a2a1a}
+.golf-gi::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,9,12,.8),rgba(8,9,12,.15));transition:background .4s}
+.golf-gi:hover::after{background:linear-gradient(to top,rgba(8,9,12,.6),rgba(8,9,12,.05))}
+.golf-gl{position:absolute;bottom:14px;left:16px;z-index:2}
+.golf-gl strong{display:block;font-size:13px;color:var(--white);font-weight:600;margin-bottom:3px}
+.golf-gl span{font-size:11px;color:rgba(255,255,255,.45);font-weight:300}
+
+.gc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+.gc{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);padding:clamp(20px,2.5vw,28px);text-align:center}
+.gc-icon{width:48px;height:48px;border-radius:50%;background:rgba(184,149,106,.06);border:1px solid rgba(184,149,106,.12);margin:0 auto 14px;display:flex;align-items:center;justify-content:center}
+.gc-icon span{font-family:var(--serif);font-size:18px;color:var(--gold);font-weight:700}
+.gc h4{font-size:clamp(14px,1.5vw,16px);color:var(--white);font-weight:600;margin-bottom:6px}
+.gc p{font-size:clamp(11.5px,1.2vw,12.5px);color:rgba(255,255,255,.35);line-height:1.8;font-weight:300}
+.golf-bottom{text-align:center;font-size:13px;color:rgba(255,255,255,.3);font-weight:300}
+.golf-bottom strong{color:var(--gold);font-weight:600}
+
+/* RYOKAN & RESTAURANT — NO NAMES */
+.rr-s{background:var(--white)}
+.rr-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.rr-col h3{font-family:var(--serif);font-size:clamp(22px,2.5vw,28px);font-weight:600;color:var(--char);margin-bottom:20px}
+.rr-item{padding:16px 0;border-bottom:1px solid var(--silk)}
+.rr-item:last-child{border-bottom:none}
+.rr-name{font-size:15px;font-weight:600;color:var(--char);margin-bottom:4px}
+.rr-loc{font-size:11px;color:var(--gold);letter-spacing:1px;font-weight:500;margin-bottom:6px}
+.rr-desc{font-size:13px;color:var(--mist);line-height:1.8;font-weight:300;word-break:keep-all}
+
+/* DIFF */
+.diff-s{background:var(--paper)}
+.diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.dc{background:var(--white);padding:clamp(24px,3vw,40px);position:relative;transition:all .4s}
+.dc::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width .5s}
+.dc:hover::after{width:100%}.dc:hover{background:var(--cream)}
+.dc-vs{display:flex;gap:10px;align-items:center;margin-bottom:16px}
+.dc-them{padding:3px 8px;background:var(--silk);color:var(--stone);font-size:9.5px;font-weight:600;letter-spacing:1px;text-decoration:line-through;opacity:.5}
+.dc-us{padding:3px 10px;background:var(--gold);color:var(--ink);font-size:9.5px;font-weight:700;letter-spacing:1px}
+.dc h3{font-family:var(--sans);font-size:clamp(18px,2.2vw,22px);font-weight:700;color:var(--char);margin-bottom:10px;line-height:1.5}
+.dc h3 em{font-style:normal;font-family:var(--sans);font-size:clamp(26px,3vw,34px);font-weight:900;color:var(--gold);letter-spacing:-1px}
+.dc p{font-size:clamp(12px,1.3vw,13px);color:var(--mist);line-height:1.9;font-weight:300;word-break:keep-all}
+
+/* FLOW */
+.flow-s{background:var(--ink);position:relative;overflow:hidden}
+.flow-s::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 40% 40% at 50% 50%,rgba(26,58,42,.12),transparent)}
+.flow-s .inner{position:relative;z-index:2}
+.flow-s .st{color:var(--white)}
+.fsteps{display:grid;grid-template-columns:repeat(5,1fr);position:relative;gap:4px}
+.fsteps::before{content:'';position:absolute;top:24px;left:10%;right:10%;height:1px;background:rgba(184,149,106,.1)}
+.fs{text-align:center;padding:0 clamp(4px,1vw,16px);position:relative}
+.fs-dot{width:48px;height:48px;margin:0 auto 16px;border-radius:50%;background:var(--slate);border:1.5px solid rgba(184,149,106,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:all .4s}
+.fs-dot span{font-family:var(--serif);font-size:18px;color:var(--gold);font-weight:700}
+.fs:hover .fs-dot{border-color:var(--gold);background:rgba(184,149,106,.08)}
+.fs-num{font-family:var(--serif);font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:6px;font-weight:600}
+.fs h4{font-size:clamp(12px,1.3vw,14px);color:var(--white);font-weight:600;margin-bottom:5px}
+.fs p{font-size:clamp(10.5px,1.1vw,12px);color:rgba(255,255,255,.3);line-height:1.6;font-weight:300}
+
+/* PACKAGES */
+.pkg-s{background:var(--cream)}
+.pkg-tabs{display:flex;gap:0;margin-bottom:36px;border:1px solid var(--silk);width:fit-content}
+.pkg-tab{padding:12px 32px;font-size:12.5px;font-weight:500;letter-spacing:1px;color:var(--stone);background:var(--white);border:none;cursor:pointer;transition:all .3s}
+.pkg-tab.on{color:var(--ink);background:var(--gold)}
+.pkg-tab:not(.on):hover{color:var(--gold)}
+.pkg-pn{display:none}
+.pkg-pn.on{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pc{background:var(--white);border:1px solid var(--silk);transition:all .5s;position:relative;overflow:hidden}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.pc:hover{border-color:var(--gold-l);transform:translateY(-5px);box-shadow:0 14px 42px rgba(0,0,0,.06)}.pc:hover::before{transform:scaleX(1)}
+.pc-badge{position:absolute;top:16px;right:16px;background:var(--gold);color:var(--ink);font-size:9px;font-weight:700;padding:3px 10px;letter-spacing:2px}
+.pc-top{padding:clamp(24px,3vw,32px) clamp(20px,2.5vw,28px) 14px}
+.pc-tag{font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:10px}
+.pc-name{font-family:var(--serif);font-size:clamp(20px,2.2vw,24px);color:var(--char);font-weight:600;margin-bottom:4px}
+.pc-sub{font-size:12.5px;color:var(--mist);font-weight:400}
+.pc-ln{height:1px;margin:0 clamp(20px,2.5vw,28px);background:var(--silk)}
+.pc-body{padding:14px clamp(20px,2.5vw,28px)}
+.pi{display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:clamp(12px,1.3vw,13px);color:var(--stone);line-height:1.6;font-weight:300}
+.pi-c{color:var(--gold);font-size:10px;flex-shrink:0;margin-top:3px;font-weight:700}
+.pc-cta{display:block;margin:6px clamp(20px,2.5vw,28px) clamp(20px,2.5vw,28px);padding:12px;text-align:center;font-size:11.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--gold-l);color:var(--gold);transition:all .4s}
+.pc-cta:hover{background:var(--gold);color:var(--ink)}
+
+/* REVIEWS */
+.rev-s{background:var(--white)}
+.rev-g{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rc{padding:clamp(24px,3vw,36px);border:1px solid var(--silk);position:relative;transition:all .4s}
+.rc:hover{border-color:var(--gold-p);box-shadow:0 10px 36px rgba(0,0,0,.04)}
+.rc-q{font-family:var(--serif);font-size:52px;color:var(--gold-p);line-height:1;position:absolute;top:8px;left:16px}
+.rc-stars{color:var(--gold);font-size:11px;letter-spacing:2px;margin-bottom:12px}
+.rc-txt{font-size:clamp(12.5px,1.3vw,13.5px);color:var(--stone);line-height:1.9;margin-bottom:16px;font-weight:300;font-style:italic;position:relative;z-index:1;word-break:keep-all}
+.rc-author{display:flex;align-items:center;gap:10px}
+.rc-av{width:32px;height:32px;border-radius:50%;background:var(--gold-p);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:14px;color:var(--gold);font-weight:600}
+.rc-name{font-size:12.5px;font-weight:600;color:var(--char)}
+.rc-pkg{font-size:10.5px;color:var(--mist);margin-top:2px}
+
+/* FAQ */
+.faq-s{background:var(--paper)}
+.faq-l{max-width:720px}
+.faq-i{border-bottom:1px solid var(--silk)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:clamp(18px,2vw,24px) 0;cursor:pointer;gap:14px;font-size:clamp(13.5px,1.5vw,15.5px);font-weight:500;color:var(--char);transition:color .3s;word-break:keep-all}
+.faq-q:hover{color:var(--gold)}
+.faq-arr{width:18px;height:18px;flex-shrink:0;position:relative}
+.faq-arr::before,.faq-arr::after{content:'';position:absolute;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%)}
+.faq-arr::before{width:10px;height:1px}.faq-arr::after{width:1px;height:10px;transition:transform .3s}
+.faq-i.open .faq-arr::after{transform:translate(-50%,-50%) scaleY(0)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease),padding .5s}
+.faq-i.open .faq-a{max-height:400px;padding-bottom:20px}
+.faq-a p{font-size:clamp(12.5px,1.3vw,13.5px);color:var(--mist);line-height:1.9;font-weight:300;word-break:keep-all}
+
+/* CTA */
+.cta-s{background:var(--ink);text-align:center;padding:clamp(72px,11vw,130px) clamp(16px,4vw,48px);position:relative;overflow:hidden}
+.cta-s::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 50% at 50% 40%,rgba(26,58,42,.2),transparent)}
+.cta-in{position:relative;z-index:2;max-width:540px;margin:0 auto}
+.cta-s .st{color:var(--white);margin-bottom:16px;text-align:center}
+.cta-s p{font-size:clamp(13px,1.4vw,14.5px);color:rgba(255,255,255,.38);line-height:1.9;margin-bottom:40px;font-weight:300;word-break:keep-all}
+.cta-s p strong{color:var(--gold-b);font-weight:600}
+.cta-trust{margin-top:40px;display:flex;justify-content:center;gap:clamp(16px,3vw,36px);flex-wrap:wrap}
+.cta-trust span{font-size:11px;color:rgba(255,255,255,.25);display:flex;align-items:center;gap:5px}
+.cta-trust span::before{content:'✓';color:var(--gold);font-weight:700;font-size:9px}
+
+.footer{background:var(--ink);padding:clamp(40px,5vw,72px) clamp(16px,4vw,48px) clamp(90px,13vw,130px)}
+.footer::before{content:'';display:block;max-width:1100px;margin:0 auto 40px;height:1px;background:linear-gradient(90deg,transparent,rgba(184,149,106,.12),transparent)}
+.fg{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(20px,4vw,56px)}
+.fb-name{font-family:var(--serif);font-size:18px;color:var(--white);letter-spacing:4px;margin-bottom:12px}.fb-name span{color:var(--gold);font-weight:600}
+.fb p{font-size:11.5px;color:rgba(255,255,255,.22);line-height:2}
+.fc h4{font-size:9.5px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;font-weight:600}
+.fc a{display:block;font-size:12px;color:rgba(255,255,255,.28);padding:4px 0;transition:color .3s;font-weight:300}
+.fc a:hover{color:var(--gold)}
+
+.mbar{position:fixed;bottom:0;left:0;right:0;z-index:200;height:var(--bar);display:none;align-items:stretch;background:var(--ink);border-top:1px solid rgba(184,149,106,.1);box-shadow:0 -3px 16px rgba(0,0,0,.3)}
+.mb{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:none;border:none;cursor:pointer;transition:background .3s;color:var(--white);font-family:var(--sans);text-decoration:none;font-size:13.5px;font-weight:600}
+.mb-p{border-right:1px solid rgba(255,255,255,.05)}
+.mb-i{background:var(--gold);color:var(--ink);border:none}
+
+.mo{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.55);backdrop-filter:blur(5px);align-items:flex-end;justify-content:center}
+.mo.open{display:flex}
+.modal{background:var(--white);width:100%;max-width:440px;max-height:90vh;overflow-y:auto;border-radius:18px 18px 0 0;padding:0;animation:su .4s var(--eout)}
+.modal-h{width:36px;height:4px;background:var(--silk);border-radius:2px;margin:10px auto 0}
+.modal-hd{padding:16px 24px 0;display:flex;justify-content:space-between;align-items:center}
+.modal-t{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--char)}
+.modal-x{width:32px;height:32px;border-radius:50%;background:var(--paper);border:none;cursor:pointer;font-size:16px;color:var(--stone);display:flex;align-items:center;justify-content:center}
+.modal-bd{padding:20px 24px 28px}
+.fg2{margin-bottom:16px}
+.fl{display:block;font-size:11.5px;font-weight:600;color:var(--char);letter-spacing:1px;margin-bottom:6px}
+.fi{width:100%;padding:12px 14px;border:1px solid var(--silk);background:var(--paper);font-family:var(--sans);font-size:14px;color:var(--char);transition:border-color .3s;outline:none;-webkit-appearance:none;border-radius:0}
+.fi:focus{border-color:var(--gold)}.fi::placeholder{color:var(--cloud)}
+.fi-date{cursor:pointer;color:var(--char)}
+.fi-date::placeholder{color:var(--cloud)}
+textarea.fi{resize:vertical;min-height:72px}
+.date-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.date-lbl{font-size:10.5px;color:var(--mist);margin-top:3px;text-align:center}
+.nbadge{display:none;margin-top:8px;padding:8px 14px;background:rgba(184,149,106,.08);border:1px solid rgba(184,149,106,.18);text-align:center;font-size:13px;font-weight:600;color:var(--gold)}
+.nbadge.show{display:block}.nbadge b{font-size:18px;font-weight:900}
+.fsub{width:100%;padding:14px;background:var(--gold);color:var(--ink);font-size:13.5px;font-weight:700;letter-spacing:1px;border:none;cursor:pointer;font-family:var(--sans)}
+.fsub:disabled{background:var(--cloud);cursor:not-allowed}
+.fspn{display:none;width:16px;height:16px;border:2px solid rgba(0,0,0,.2);border-top-color:var(--ink);border-radius:50%;animation:spin .6s linear infinite;margin:0 auto}
+.fnote{font-size:10.5px;color:var(--mist);text-align:center;margin-top:10px}
+.fsuc{display:none;text-align:center;padding:36px 16px}
+.fsuc.show{display:block}
+.fsuc h3{font-family:var(--serif);font-size:22px;color:var(--char);margin-bottom:10px}
+.fsuc p{font-size:13px;color:var(--mist)}
+
+.kf{position:fixed;bottom:calc(var(--bar) + 16px);right:16px;z-index:250;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.kf-tip{background:var(--char);color:var(--white);font-size:11px;font-weight:500;padding:6px 14px;border-radius:18px;box-shadow:0 3px 12px rgba(0,0,0,.2);opacity:0;transform:translateY(3px);transition:all .3s;pointer-events:none}
+.kf:hover .kf-tip{opacity:1;transform:translateY(0)}
+.kf-btn{width:54px;height:54px;border-radius:50%;background:#FEE500;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 16px rgba(0,0,0,.12);transition:all .3s;position:relative}
+.kf-btn:hover{transform:scale(1.06)}
+.kf-btn svg{width:28px;height:28px}
+.kf-btn::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:2px solid rgba(254,229,0,.3);animation:kp 2.5s ease infinite}
+
+@keyframes fi{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes su{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes kp{0%,100%{opacity:0;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+
+@media(max-width:1024px){
+.dest-grid{grid-template-columns:1fr 1fr}
+.golf-gallery{grid-template-columns:1fr 1fr}
+.gc-grid,.pkg-pn.on,.rev-g,.rr-grid{grid-template-columns:1fr 1fr}
+.fg{grid-template-columns:1fr 1fr;gap:28px}
+}
+@media(max-width:768px){
+.nl{display:none}.ham{display:block}
+.h-dual{grid-template-columns:1fr;max-width:340px}
+.dest-grid,.path-grid,.diff-grid,.golf-gallery,.gc-grid,.pkg-pn.on,.rev-g,.rr-grid{grid-template-columns:1fr}
+.pkg-pn.on{max-width:400px}
+.pkg-tabs{width:100%}.pkg-tab{flex:1;text-align:center;padding:10px 14px;font-size:12px}
+.fsteps{grid-template-columns:1fr;padding-left:28px;gap:0}
+.fsteps::before{top:0;bottom:0;left:14px;right:auto;width:1px;height:auto}
+.fs{text-align:left;padding:0 0 28px;display:flex;gap:14px;align-items:flex-start}
+.fs-dot{margin:0;width:40px;height:40px;font-size:15px;position:relative;left:-14px;flex-shrink:0}
+.fg{grid-template-columns:1fr;gap:24px}
+}
+@media(max-width:480px){
+.hero h1{font-size:26px}
+.h-btn{width:100%;text-align:center}
+.dest-grid{grid-template-columns:1fr}
+.cta-trust{flex-direction:column;align-items:center;gap:8px}
+}
+@media(max-width:768px){
+.mbar{display:flex}
+body{padding-bottom:var(--bar)}
 }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">GL<b>U</b>X</div>
-  <a class="nav-btn" href="#apply">여행 신청하기</a>
-</header>
+<nav class="nav" id="nav">
+  <div class="logo"><span>G</span>LUX</div>
+  <div class="nl"><a href="#dest">도시</a><a href="#travel">여행</a><a href="#golf">골프장</a><a href="#pkg">패키지</a><a href="#rev">후기</a><a href="#contact" class="nc">상담 신청</a></div>
+  <button class="ham" id="ham" aria-label="메뉴"><i></i><i></i><i></i></button>
+</nav>
+<div class="mm" id="mm"><a href="#dest" onclick="closeMM()">도시</a><a href="#travel" onclick="closeMM()">여행</a><a href="#golf" onclick="closeMM()">골프장</a><a href="#pkg" onclick="closeMM()">패키지</a><a href="#rev" onclick="closeMM()">후기</a><a href="#faq" onclick="closeMM()">FAQ</a><a href="#contact" onclick="closeMM()" style="color:var(--gold)">상담 신청</a></div>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">PREMIUM JAPAN TOUR</div>
-  <h1>당신만의 특별한<br><span>일본 여행</span>을 만들어드립니다</h1>
-  <p>맞춤형 차량 투어로 더 자유롭고 더 깊이 있는 일본 여행을 경험하세요. 전담 가이드와 함께하는 프리미엄 서비스.</p>
-  <button class="hero-cta" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">지금 바로 신청하기 →</button>
+  <div class="hero-bg"></div><div class="hero-fade"></div>
+  <div class="hero-in">
+    <div class="h-ov"><div class="h-ov-l"></div><span class="h-ov-t">GLUX — Since 2005</span><div class="h-ov-l"></div></div>
+    <h1>오사카 · 교토 · 나라 · 고베<br><strong>프라이빗 럭셔리 여행</strong></h1>
+    <div class="h-cities"><span class="h-city">오사카</span><span class="h-city">교토</span><span class="h-city">나라</span><span class="h-city">고베</span><span class="h-city">와카야마</span></div>
+    <p class="h-desc">대행사 없이 <strong>간사이 현지 20년 직영 여행사</strong>가<br>공항 입국부터 출국까지 모든 일정을 맞춤 설계합니다.</p>
+    <div class="h-dual">
+      <a href="#travel" class="h-cta">
+        <div class="h-cta-num">01</div>
+        <div class="h-cta-t">가족 · 연인 여행</div>
+        <div class="h-cta-s">프라이빗 료칸 · 맛집 · 관광 · 쇼핑<br>아이부터 부모님까지 편안한 프리미엄 여행</div>
+      </a>
+      <a href="#golf" class="h-cta">
+        <div class="h-cta-num">02</div>
+        <div class="h-cta-t">프리미엄 골프</div>
+        <div class="h-cta-s">100+ 명문 CC · 컨디션별 부킹<br>전용차량 · 코디네이터 전일 동행</div>
+      </a>
+    </div>
+    <div class="h-or"><div class="h-or-l"></div><span>OR BOTH</span><div class="h-or-l"></div></div>
+    <a href="#contact" class="h-btn">무료 맞춤 상담 →</a>
+  </div>
 </section>
 
-<section class="section" id="packages">
-  <div class="sec-title">OUR PACKAGES</div>
-  <h2 class="sec-h2">다양한 여행 패키지</h2>
-  <div class="pkg-grid" id="pkg-grid">
-    <div class="pkg-card" onclick="selectPkg(this,'효도여행')">
-      <div class="pkg-img" style="background:#fff5f5">🌸</div>
-      <div class="pkg-body">
-        <div class="pkg-tag">FAMILY</div>
-        <div class="pkg-name">효도여행 (벚꽃 시즌)</div>
-        <div class="pkg-desc">부모님과 함께하는 특별한 봄 여행. 벚꽃 명소와 온천을 편안하게 즐기세요.</div>
-      </div>
+<!-- DESTINATIONS — Unsplash URLs (loads in user's browser) -->
+<section class="dest-s" id="dest">
+  <div class="inner">
+    <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Destinations</span></div><h2 class="st">간사이의 매력적인 도시들</h2><p class="ss">각 도시만의 특별한 경험을 GLUX가 코디합니다.</p></div>
+    <div class="dest-grid rv">
+      <div class="dest-card" style="background-image:url('https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=600&q=80')"><div class="dest-inner"><div class="dest-en">Osaka</div><h4>오사카</h4><p>일본 제2의 도시, 먹거리와 활기의 천국</p><div class="dest-spots"><span class="dest-spot">도톤보리</span><span class="dest-spot">쿠로몬시장</span><span class="dest-spot">유니버설</span><span class="dest-spot">신세카이</span></div></div></div>
+      <div class="dest-card" style="background-image:url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80')"><div class="dest-inner"><div class="dest-en">Kyoto</div><h4>교토</h4><p>천년 고도의 전통미, 료칸과 기모노의 도시</p><div class="dest-spots"><span class="dest-spot">후시미이나리</span><span class="dest-spot">아라시야마</span><span class="dest-spot">기온거리</span><span class="dest-spot">금각사</span></div></div></div>
+      <div class="dest-card" style="background-image:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=600&q=80')"><div class="dest-inner"><div class="dest-en">Nara</div><h4>나라</h4><p>사슴과 함께하는 평화로운 가족 여행지</p><div class="dest-spots"><span class="dest-spot">사슴공원</span><span class="dest-spot">도다이지</span><span class="dest-spot">나라마치</span><span class="dest-spot">이스이엔</span></div></div></div>
+      <div class="dest-card" style="background-image:url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=600&q=80')"><div class="dest-inner"><div class="dest-en">Kobe</div><h4>고베</h4><p>고베규와 항구 야경, 아리마온천의 도시</p><div class="dest-spots"><span class="dest-spot">고베규</span><span class="dest-spot">하버랜드</span><span class="dest-spot">아리마온천</span><span class="dest-spot">롯코산</span></div></div></div>
     </div>
-    <div class="pkg-card" onclick="selectPkg(this,'가족여행')">
-      <div class="pkg-img" style="background:#f0fff4">👨‍👩‍👧‍👦</div>
-      <div class="pkg-body">
-        <div class="pkg-tag">FAMILY</div>
-        <div class="pkg-name">가족여행</div>
-        <div class="pkg-desc">아이부터 어른까지 온 가족이 함께하는 맞춤 일정. 아이들이 좋아하는 명소 포함.</div>
+  </div>
+</section>
+
+<!-- TWO PATHS — with photos -->
+<section class="path-s" id="travel">
+  <div class="inner">
+    <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Travel Style</span></div><h2 class="st">어떤 여행을 원하시나요?</h2><p class="ss">가족·연인 럭셔리 여행과 프리미엄 골프 여행. 혹은 둘 다.</p></div>
+    <div class="path-grid">
+      <div class="path-card rv d1">
+        <div class="path-img" style="background-image:url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=800&q=80')"><div class="path-img-tag">Family · Couple</div></div>
+        <div class="path-body"><h3>프라이빗 가족 · 연인 여행</h3><p class="path-desc">프라이빗 온천 료칸에서 가족과 편안한 휴식을, 교토에서 기모노 산책을, 오사카에서 현지인만 아는 맛집을. 나이 있는 분도 아이도 편안하게 즐기는 프리미엄 여행을 설계합니다.</p><div class="path-feats"><span class="pf">프라이빗 료칸</span><span class="pf">맞춤 맛집</span><span class="pf">전용차량</span><span class="pf">교토·나라·고베</span><span class="pf">기모노 체험</span></div><a href="#pkg" class="path-cta">패키지 보기 →</a></div>
       </div>
-    </div>
-    <div class="pkg-card" onclick="selectPkg(this,'미식투어')">
-      <div class="pkg-img" style="background:#fffbeb">🍜</div>
-      <div class="pkg-body">
-        <div class="pkg-tag">FOOD</div>
-        <div class="pkg-name">미식투어</div>
-        <div class="pkg-desc">현지 맛집과 숨겨진 식당을 전문 가이드와 함께 탐방하는 미식 여행.</div>
-      </div>
-    </div>
-    <div class="pkg-card" onclick="selectPkg(this,'골프투어')">
-      <div class="pkg-img" style="background:#f0fdf4">⛳</div>
-      <div class="pkg-body">
-        <div class="pkg-tag">GOLF</div>
-        <div class="pkg-name">골프투어</div>
-        <div class="pkg-desc">일본 최고의 골프장에서 즐기는 품격 있는 라운딩과 관광의 완벽한 조합.</div>
-      </div>
-    </div>
-    <div class="pkg-card" onclick="selectPkg(this,'료칸투어')">
-      <div class="pkg-img" style="background:#faf5ff">♨️</div>
-      <div class="pkg-body">
-        <div class="pkg-tag">RYOKAN</div>
-        <div class="pkg-name">료칸 온천투어</div>
-        <div class="pkg-desc">정통 료칸에서 즐기는 가이세키 요리와 노천 온천. 진정한 일본 문화를 체험.</div>
-      </div>
-    </div>
-    <div class="pkg-card" onclick="selectPkg(this,'자유여행 가이드')">
-      <div class="pkg-img" style="background:#eff6ff">🗺️</div>
-      <div class="pkg-body">
-        <div class="pkg-tag">CUSTOM</div>
-        <div class="pkg-name">자유 맞춤 투어</div>
-        <div class="pkg-desc">원하는 곳 어디든! 직접 코스를 정하고 전담 가이드와 함께하는 완전 맞춤 여행.</div>
+      <div class="path-card rv d2">
+        <div class="path-img" style="background-image:url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=800&q=80')"><div class="path-img-tag">Premium Golf</div></div>
+        <div class="path-body"><h3>프리미엄 골프 여행</h3><p class="path-desc">간사이 100여개 명문 CC 중 컨디션·난이도·위치에 맞는 최적의 골프장을 직접 부킹. 전용차량과 코디네이터가 라운딩 전 과정을 케어합니다. 골프+관광 복합 일정도 가능합니다.</p><div class="path-feats"><span class="pf">100+ 골프장</span><span class="pf">컨디션별 추천</span><span class="pf">전용차량</span><span class="pf">료칸 연계</span><span class="pf">직접 부킹</span></div><a href="#golf" class="path-cta">골프장 보기 →</a></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="apply-wrap" id="apply">
-  <div class="apply-box">
-    <h2>여행 신청</h2>
-    <p class="sub">아래 정보를 입력하시면 담당자가 빠르게 연락드립니다.</p>
-
-    <div id="form-area">
-      <div class="f-row">
-        <div class="f-group">
-          <label>성함 <span class="req">*</span></label>
-          <input id="f-name" type="text" placeholder="홍길동">
-        </div>
-        <div class="f-group">
-          <label>연락처 <span class="req">*</span></label>
-          <input id="f-phone" type="tel" placeholder="010-0000-0000">
-        </div>
-      </div>
-      <div class="f-group">
-        <label>이메일 <span style="color:#9ca3af;font-weight:400">(바우처 수신용, 선택)</span></label>
-        <input id="f-email" type="email" placeholder="example@email.com">
-      </div>
-      <div class="f-group">
-        <label>패키지 선택 <span class="req">*</span></label>
-        <select id="f-pkg">
-          <option value="">— 패키지를 선택해주세요 —</option>
-          <option value="효도여행">효도여행 (벚꽃 시즌)</option>
-          <option value="가족여행">가족여행</option>
-          <option value="미식투어">미식투어</option>
-          <option value="골프투어">골프투어</option>
-          <option value="료칸투어">료칸 온천투어</option>
-          <option value="자유여행 가이드">자유 맞춤 투어</option>
-        </select>
-      </div>
-      <div class="f-row">
-        <div class="f-group">
-          <label>출발일 <span class="req">*</span></label>
-          <input id="f-dep" type="date">
-        </div>
-        <div class="f-group">
-          <label>귀국일 <span class="req">*</span></label>
-          <input id="f-ret" type="date">
-        </div>
-      </div>
-      <div class="f-group">
-        <label>인원 수 <span class="req">*</span></label>
-        <select id="f-pax">
-          <option value="1">1명</option>
-          <option value="2" selected>2명</option>
-          <option value="3">3명</option>
-          <option value="4">4명</option>
-          <option value="5">5명</option>
-          <option value="6">6명</option>
-          <option value="7">7명</option>
-          <option value="8">8명</option>
-        </select>
-      </div>
-      <div class="f-group">
-        <label>요청사항 <span style="color:#9ca3af;font-weight:400">(선택)</span></label>
-        <textarea id="f-req" placeholder="방문하고 싶은 곳, 음식 취향, 특별한 요청사항 등을 자유롭게 적어주세요."></textarea>
-      </div>
-      <button class="submit-btn" id="submit-btn" onclick="submitApp()">신청하기</button>
+<!-- GOLF — NO specific course names -->
+<section class="golf-s" id="golf">
+  <div class="inner">
+    <div class="sh rv">
+      <div class="sov"><div class="sov-l"></div><span class="sov-t">Golf Courses</span></div>
+      <div class="golf-stat"><span class="golf-num">100</span><span class="golf-unit">+ 골프장</span></div>
+      <div class="golf-subdesc">간사이 전역 명문 CC와 직접 계약. 원하는 컨디션·난이도·위치의 골프장을 GLUX가 직접 부킹합니다.</div>
     </div>
+    <div class="golf-gallery rv">
+      <div class="golf-gi" style="background-image:url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=600&q=80')"><div class="golf-gl"><strong>오사카 근교</strong><span>평탄 자연 코스 · 공항 근접</span></div></div>
+      <div class="golf-gi" style="background-image:url('https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?auto=format&fit=crop&w=600&q=80')"><div class="golf-gl"><strong>고베 · 아리마</strong><span>산악 코스 · 온천 연계</span></div></div>
+      <div class="golf-gi" style="background-image:url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=600&q=80')"><div class="golf-gl"><strong>나라 · 미에</strong><span>챔피언십 코스 · 넓은 페어웨이</span></div></div>
+      <div class="golf-gi" style="background-image:url('https://images.unsplash.com/photo-1611374243147-44a702c2d44c?auto=format&fit=crop&w=600&q=80')"><div class="golf-gl"><strong>와카야마 해안</strong><span>오션뷰 코스 · 리조트 연계</span></div></div>
+    </div>
+    <div class="gc-grid">
+      <div class="gc rv d1"><div class="gc-icon"><span>A+</span></div><h4>컨디션별 맞춤 추천</h4><p>평탄/산악/해안 코스, 잔디 상태, 시즌 컨디션까지 고려한 최적의 골프장 추천</p></div>
+      <div class="gc rv d2"><div class="gc-icon"><span>¥0</span></div><h4>대행사 마진 0%</h4><p>20년 현지 직접 네트워크로 인기 CC도 대행사 없이 현지 가격 그대로 직접 부킹</p></div>
+      <div class="gc rv d3"><div class="gc-icon"><span>All</span></div><h4>올인원 서비스</h4><p>전용차량 이동 + 캐디 세팅 + 숙소·맛집 연계까지 라운딩에만 집중하세요</p></div>
+    </div>
+    <p class="golf-bottom rv">오사카 · 교토 · 나라 · 고베 · 와카야마 · 미에 전역 <strong>100여 개 골프장 부킹 가능</strong></p>
+  </div>
+</section>
 
-    <div id="success-msg">
-      <div class="icon">🎌</div>
-      <h3>신청이 완료되었습니다!</h3>
-      <div class="rno" id="rno-display"></div>
-      <p>담당자가 빠른 시일 내에 연락드리겠습니다.<br>이메일을 입력하셨다면 확인 메일을 확인해주세요.</p>
-      <button onclick="resetForm()" style="margin-top:20px;background:#0f0f1a;color:#fff;border:none;padding:10px 28px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif">새로운 신청</button>
+<!-- RYOKAN & RESTAURANT — 구체적 이름 NO, 카테고리만 -->
+<section class="rr-s" id="curated">
+  <div class="inner">
+    <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Curated by GLUX</span></div><h2 class="st">20년 현지 네트워크가<br>큐레이션하는 여행</h2><p class="ss">일반 여행사에서는 접근이 어려운 프리미엄 료칸과 현지인 맛집을 직접 연결합니다.</p></div>
+    <div class="rr-grid">
+      <div class="rr-col rv d1">
+        <h3>♨ 프라이빗 료칸 · 숙소</h3>
+        <div class="rr-item"><div class="rr-name">프라이빗 온천 료칸</div><div class="rr-loc">교토 · 아라시야마 일대</div><div class="rr-desc">전용 노천온천을 갖춘 프라이빗 료칸. 가이세키 저녁 제공. 개인 예약이 매우 어려운 곳도 GLUX 네트워크로 예약 가능합니다.</div></div>
+        <div class="rr-item"><div class="rr-name">일본 3대 온천 숙소</div><div class="rr-loc">고베 · 아리마온천</div><div class="rr-desc">일본 3대 온천지 아리마에서 금천(金泉)과 은천(銀泉)을 모두 체험할 수 있는 최고급 온천 숙소. 골프장 연계 최적.</div></div>
+        <div class="rr-item"><div class="rr-name">클래식 럭셔리 호텔</div><div class="rr-loc">오사카 · 나라</div><div class="rr-desc">100년 이상 역사의 클래식 호텔부터 오사카 최고급 시티 호텔까지. 가족 스위트룸, 키즈 프렌들리 시설 완비.</div></div>
+      </div>
+      <div class="rr-col rv d2">
+        <h3>🍽 현지인 맛집</h3>
+        <div class="rr-item"><div class="rr-name">A5 와규 철판구이</div><div class="rr-loc">고베 · 산노미야</div><div class="rr-desc">최상급 A5 등급 와규를 눈앞에서 철판에 구워주는 라이브 다이닝. 현지인 사이에서 예약 경쟁이 치열한 곳.</div></div>
+        <div class="rr-item"><div class="rr-name">미슐랭 스타 가이세키</div><div class="rr-loc">교토 · 난젠지 일대</div><div class="rr-desc">교토 전통 가이세키의 정수를 맛볼 수 있는 미슐랭 스타 레스토랑. GLUX 특별 예약으로 연결합니다.</div></div>
+        <div class="rr-item"><div class="rr-name">현지인 숨은 맛집</div><div class="rr-loc">오사카 · 도톤보리 골목</div><div class="rr-desc">관광객이 모르는 골목 안 숨은 맛집들. 20년간 현지에서 직접 발굴한 GLUX만의 맛집 리스트를 공유합니다.</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="logo-f">GL<b>U</b>X</div>
-  <p>Premium Japan Tour Service</p>
-  <p style="margin-top:8px">문의: KakaoTalk GLUX Tour</p>
+<!-- DIFF -->
+<section class="diff-s" id="diff">
+  <div class="inner">
+    <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Difference</span></div><h2 class="st">한국 여행사와<br>무엇이 다른가요?</h2></div>
+    <div class="diff-grid">
+      <div class="dc rv d1"><div class="dc-vs"><span class="dc-them">한국 여행사</span><span class="dc-us">GLUX</span></div><h3>대행사 마진 <em>0%</em><br>현지 직계약</h3><p>한국 여행사는 현지 랜드사에 재위탁하며 2~3단계 마진이 붙습니다. GLUX는 숙소·골프장·레스토랑과 직접 계약합니다.</p></div>
+      <div class="dc rv d2"><div class="dc-vs"><span class="dc-them">패키지 투어</span><span class="dc-us">GLUX</span></div><h3><em>100%</em> 맞춤형<br>프라이빗 일정</h3><p>정해진 코스를 따라가는 단체 패키지가 아닙니다. 고객의 취향·일정에 맞춰 완전한 맞춤 설계를 합니다.</p></div>
+      <div class="dc rv d3"><div class="dc-vs"><span class="dc-them">공항에서 끝</span><span class="dc-us">GLUX</span></div><h3>입국부터 출국까지<br>올인원 케어</h3><p>간사이공항 도착부터 출국까지 전용차량·한국어 코디네이터가 전 여정을 함께합니다.</p></div>
+      <div class="dc rv d4"><div class="dc-vs"><span class="dc-them">정보 부족</span><span class="dc-us">GLUX</span></div><h3><em>20</em>년 현지 네트워크<br>프리미엄 큐레이션</h3><p>예약 어려운 료칸, 현지인만 아는 맛집, 컨디션 좋은 골프장까지 20년 네트워크로 큐레이션합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow-s">
+  <div class="inner">
+    <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Service Flow</span></div><h2 class="st">공항 입국부터 출국까지</h2></div>
+    <div class="fsteps">
+      <div class="fs rv d1"><div class="fs-dot"><span>01</span></div><div class="fs-num">STEP 01</div><h4>공항 픽업</h4><p>간사이공항 전용차량 미팅</p></div>
+      <div class="fs rv d2"><div class="fs-dot"><span>02</span></div><div class="fs-num">STEP 02</div><h4>숙소</h4><p>료칸·호텔 체크인</p></div>
+      <div class="fs rv d3"><div class="fs-dot"><span>03</span></div><div class="fs-num">STEP 03</div><h4>맞춤 일정</h4><p>골프 or 관광 or 둘 다</p></div>
+      <div class="fs rv d4"><div class="fs-dot"><span>04</span></div><div class="fs-num">STEP 04</div><h4>맛집</h4><p>현지인 맛집 코디</p></div>
+      <div class="fs rv"><div class="fs-dot"><span>05</span></div><div class="fs-num">STEP 05</div><h4>출국</h4><p>마지막까지 동행</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="pkg-s" id="pkg">
+  <div class="inner">
+    <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Packages</span></div><h2 class="st">GLUX 여행 패키지</h2><p class="ss">모든 패키지는 100% 맞춤 설계. 아래는 대표 구성 예시입니다.</p></div>
+    <div class="pkg-tabs rv"><button class="pkg-tab on" onclick="swTab('2n')">2박 3일</button><button class="pkg-tab" onclick="swTab('3n')">3박 4일</button></div>
+    <div class="pkg-pn on" id="p-2n">
+      <div class="pc rv d1"><div class="pc-top"><div class="pc-tag">Family · Couple</div><div class="pc-name">프라이빗 가족 여행</div><div class="pc-sub">2박 3일 · 료칸 + 관광</div></div><div class="pc-ln"></div><div class="pc-body"><div class="pi"><span class="pi-c">✓</span> 프라이빗 온천 료칸 2박</div><div class="pi"><span class="pi-c">✓</span> 교토·나라·오사카 관광 코디</div><div class="pi"><span class="pi-c">✓</span> 전용차량 + 공항 송영</div><div class="pi"><span class="pi-c">✓</span> 맞춤 맛집 예약</div><div class="pi"><span class="pi-c">✓</span> 유카타·기모노 체험</div></div><a href="javascript:openMo()" class="pc-cta">상담 신청 →</a></div>
+      <div class="pc rv d2"><div class="pc-top"><div class="pc-tag">Couple · Friends</div><div class="pc-name">연인 · 커플 여행</div><div class="pc-sub">2박 3일 · 료칸 + 맛집</div></div><div class="pc-ln"></div><div class="pc-body"><div class="pi"><span class="pi-c">✓</span> 프라이빗 온천 료칸 2박</div><div class="pi"><span class="pi-c">✓</span> 교토 산책 · 기모노 체험</div><div class="pi"><span class="pi-c">✓</span> 전용차량 + 공항 송영</div><div class="pi"><span class="pi-c">✓</span> GLUX 엄선 맛집 코스</div><div class="pi"><span class="pi-c">✓</span> 고베 야경 · 아리마 온천</div></div><a href="javascript:openMo()" class="pc-cta">상담 신청 →</a></div>
+      <div class="pc rv d3"><div class="pc-badge">BEST</div><div class="pc-top"><div class="pc-tag">Premium Golf</div><div class="pc-name">프리미엄 골프</div><div class="pc-sub">2박 3일 · 골프 2R</div></div><div class="pc-ln"></div><div class="pc-body"><div class="pi"><span class="pi-c">✓</span> 명문 CC 2라운드 (컨디션별 추천)</div><div class="pi"><span class="pi-c">✓</span> 2박 료칸 또는 호텔</div><div class="pi"><span class="pi-c">✓</span> 전용차량 + 공항 송영</div><div class="pi"><span class="pi-c">✓</span> GLUX 추천 맛집 예약</div><div class="pi"><span class="pi-c">✓</span> 코디네이터 전일 동행</div></div><a href="javascript:openMo()" class="pc-cta">상담 신청 →</a></div>
+    </div>
+    <div class="pkg-pn" id="p-3n">
+      <div class="pc rv d1"><div class="pc-top"><div class="pc-tag">Family · Couple</div><div class="pc-name">프라이빗 가족 여행</div><div class="pc-sub">3박 4일 · 료칸 + 관광</div></div><div class="pc-ln"></div><div class="pc-body"><div class="pi"><span class="pi-c">✓</span> 프라이빗 온천 료칸 3박</div><div class="pi"><span class="pi-c">✓</span> 교토·나라·고베 풀 관광</div><div class="pi"><span class="pi-c">✓</span> 전용차량 + 공항 송영</div><div class="pi"><span class="pi-c">✓</span> 맞춤 맛집 매일 예약</div><div class="pi"><span class="pi-c">✓</span> 유니버설 or 쇼핑 1일</div><div class="pi"><span class="pi-c">✓</span> 유카타·기모노 체험</div></div><a href="javascript:openMo()" class="pc-cta">상담 신청 →</a></div>
+      <div class="pc rv d2"><div class="pc-top"><div class="pc-tag">Couple · Friends</div><div class="pc-name">연인 · 커플 여행</div><div class="pc-sub">3박 4일 · 료칸 + 맛집</div></div><div class="pc-ln"></div><div class="pc-body"><div class="pi"><span class="pi-c">✓</span> 프라이빗 온천 료칸 3박</div><div class="pi"><span class="pi-c">✓</span> 교토·나라·고베 관광</div><div class="pi"><span class="pi-c">✓</span> 전용차량 + 공항 송영</div><div class="pi"><span class="pi-c">✓</span> 엄선 맛집 매일 코스</div><div class="pi"><span class="pi-c">✓</span> 아리마 온천 + 쇼핑</div><div class="pi"><span class="pi-c">✓</span> 기모노 체험 포함</div></div><a href="javascript:openMo()" class="pc-cta">상담 신청 →</a></div>
+      <div class="pc rv d3"><div class="pc-badge">BEST</div><div class="pc-top"><div class="pc-tag">Premium Golf</div><div class="pc-name">프리미엄 골프</div><div class="pc-sub">3박 4일 · 골프 3R</div></div><div class="pc-ln"></div><div class="pc-body"><div class="pi"><span class="pi-c">✓</span> 명문 CC 3라운드 (컨디션별)</div><div class="pi"><span class="pi-c">✓</span> 3박 료칸 또는 호텔</div><div class="pi"><span class="pi-c">✓</span> 전용차량 + 공항 송영</div><div class="pi"><span class="pi-c">✓</span> GLUX 추천 맛집 매일</div><div class="pi"><span class="pi-c">✓</span> 관광 1일 코디 포함</div><div class="pi"><span class="pi-c">✓</span> 코디네이터 전일 동행</div></div><a href="javascript:openMo()" class="pc-cta">상담 신청 →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS — NO specific names -->
+<section class="rev-s" id="rev">
+  <div class="inner">
+    <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Reviews</span></div><h2 class="st">GLUX 고객 후기</h2></div>
+    <div class="rev-g">
+      <div class="rc rv d1"><div class="rc-q">"</div><div class="rc-stars">★★★★★</div><p class="rc-txt">아이들 데리고 교토 료칸에서 2박. 프라이빗 온천이 너무 좋았고, GLUX가 예약해준 가이세키 맛집이 진짜 감동이었어요. 현지인 맛집 리스트가 진짜입니다.</p><div class="rc-author"><div class="rc-av">김</div><div><div class="rc-name">김OO님</div><div class="rc-pkg">가족 여행 2박 3일</div></div></div></div>
+      <div class="rc rv d2"><div class="rc-q">"</div><div class="rc-stars">★★★★★</div><p class="rc-txt">잔디 컨디션까지 체크해서 골프장 추천해주니 믿음이 갔어요. 2라운드 후 아리마온천 코스 최고. 전용차량이라 이동도 편했습니다.</p><div class="rc-author"><div class="rc-av">이</div><div><div class="rc-name">이OO님</div><div class="rc-pkg">프리미엄 골프 3박 4일</div></div></div></div>
+      <div class="rc rv d3"><div class="rc-q">"</div><div class="rc-stars">★★★★★</div><p class="rc-txt">교토에서 기모노 입고 산책하고, 고베에서 A5 와규 먹고. 모든 동선을 GLUX가 짜주니 우리는 즐기기만 하면 됐어요. 내년에도 GLUX!</p><div class="rc-author"><div class="rc-av">박</div><div><div class="rc-name">박OO님</div><div class="rc-pkg">연인 여행 2박 3일</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-s" id="faq">
+  <div class="inner">
+    <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">FAQ</span></div><h2 class="st">자주 묻는 질문</h2></div>
+    <div class="faq-l">
+      <div class="faq-i rv"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>골프 안 치는데 가족여행만 가능한가요?</span><div class="faq-arr"></div></div><div class="faq-a"><p>물론입니다! 가족·연인 프라이빗 여행은 GLUX의 핵심 서비스입니다. 료칸, 맛집, 교토·나라 관광 등 골프 없이도 충분히 특별한 여행을 설계합니다.</p></div></div>
+      <div class="faq-i rv"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>골프장은 어떤 기준으로 추천하나요?</span><div class="faq-arr"></div></div><div class="faq-a"><p>실력, 코스 유형(평탄/산악/해안), 잔디 컨디션, 숙소 거리, 예산을 종합 고려하여 100여 개 CC 중 최적의 골프장을 직접 부킹합니다.</p></div></div>
+      <div class="faq-i rv"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>료칸 예약이 어렵다고 하는데 가능한가요?</span><div class="faq-arr"></div></div><div class="faq-a"><p>인기 프라이빗 료칸은 개인 예약이 매우 어렵습니다. GLUX는 20년 직거래 관계로 우선 배정이 가능합니다.</p></div></div>
+      <div class="faq-i rv"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>2박 3일과 3박 4일 중 추천은?</span><div class="faq-arr"></div></div><div class="faq-a"><p>핵심만 즐기시려면 2박 3일, 여유롭게 교토·고베까지 둘러보시려면 3박 4일을 추천합니다.</p></div></div>
+      <div class="faq-i rv"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>취소 및 환불은 어떻게 되나요?</span><div class="faq-arr"></div></div><div class="faq-a"><p>출발 30일 전까지 전액 환불, 이후 단계별 규정이 적용됩니다. 상세 내용은 상담 시 안내드립니다.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-s" id="contact">
+  <div class="cta-in rv">
+    <div class="sov" style="justify-content:center;margin-bottom:16px"><div class="sov-l"></div><span class="sov-t">Contact GLUX</span><div class="sov-l"></div></div>
+    <h2 class="st" style="text-align:center">지금 무료 상담을<br>시작하세요</h2>
+    <p>가족여행, 연인여행, 골프여행 — 어떤 여행이든<br><strong>24시간 내 맞춤 견적</strong>을 보내드립니다.</p>
+    <div class="cta-trust"><span>24시간 내 회신</span><span>상담 무료</span><span>대행사 마진 0%</span><span>현지 20년 직영</span></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="fg">
+    <div class="fb"><div class="fb-name"><span>G</span>LUX</div><p>간사이 현지 20년 직영 여행사<br>오사카·교토·나라·고베<br>프라이빗 가족여행 · 골프여행 전문</p></div>
+    <div class="fc"><h4>여행</h4><a href="#travel">가족 여행</a><a href="#travel">연인 여행</a><a href="#golf">프리미엄 골프</a><a href="#pkg">패키지</a></div>
+    <div class="fc"><h4>정보</h4><a href="#diff">차별점</a><a href="#golf">골프장</a><a href="#curated">료칸·맛집</a><a href="#faq">FAQ</a></div>
+    <div class="fc"><h4>채널</h4><a href="#">카카오톡채널</a><a href="#">네이버 카페</a><a href="#">인스타그램</a><a href="#">블로그</a></div>
+  </div>
 </footer>
 
+<div class="mbar"><a href="tel:+818057067979" class="mb mb-p">📞 전화상담</a><button class="mb mb-i" onclick="openMo()">📋 문의하기</button></div>
+
+<div class="kf"><div class="kf-tip">카카오톡 상담</div><a href="https://open.kakao.com/o/sS1bTMii" target="_blank" class="kf-btn" aria-label="카카오톡 오픈채팅"><svg viewBox="0 0 100 100" fill="none"><path d="M50 15C28.46 15 11 28.64 11 45.36c0 10.82 7.2 20.32 18.04 25.68l-3.66 13.42c-.32 1.18 1.04 2.14 2.1 1.48l16.08-10.54c2.12.28 4.3.42 6.44.42 21.54 0 39-13.64 39-30.46S71.54 15 50 15z" fill="#3C1E1E"/></svg></a></div>
+
+<div class="mo" id="mo" onclick="if(event.target===this)closeMo()">
+  <div class="modal"><div class="modal-h"></div>
+    <div class="modal-hd"><div class="modal-t">문의하기</div><button class="modal-x" onclick="closeMo()">✕</button></div>
+    <div class="modal-bd">
+      <div id="fArea">
+        <div class="fg2"><label class="fl">이름 *</label><input type="text" class="fi" placeholder="홍길동" id="fN"></div>
+        <div class="fg2"><label class="fl">전화번호 *</label><input type="tel" class="fi" placeholder="010-0000-0000" id="fP"></div>
+        <div class="fg2"><label class="fl">여행 일정</label><div class="date-row"><div><input type="date" class="fi fi-date" id="fCI" onchange="calcN()"><div class="date-lbl">체크인</div></div><div><input type="date" class="fi fi-date" id="fCO" onchange="calcN()"><div class="date-lbl">체크아웃</div></div></div><div class="nbadge" id="nB"></div></div>
+        <div class="fg2"><label class="fl">인원</label><input type="text" class="fi" placeholder="예: 성인 2명, 아동 1명" id="fPpl"></div>
+        <div class="fg2"><label class="fl">기타 메모</label><textarea class="fi" placeholder="희망 여행 스타일 (가족/연인/골프), 특별 요청사항 등" id="fM"></textarea></div>
+        <button class="fsub" id="sBtn" onclick="subF()"><span id="bTxt">상담 신청하기</span><div class="fspn" id="bSpn"></div></button>
+        <div class="fnote">접수 후 24시간 내 연락드립니다. 상담은 무료입니다.</div>
+      </div>
+      <div class="fsuc" id="fS"><h3>✅ 상담 신청 완료!</h3><p>24시간 내 연락드리겠습니다.</p></div>
+    </div>
+  </div>
+</div>
+
 <script>
-function selectPkg(card, name) {
-  document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'))
-  card.classList.add('selected')
-  document.getElementById('f-pkg').value = name
-  document.getElementById('apply').scrollIntoView({ behavior: 'smooth' })
-}
-
-async function submitApp() {
-  const name = document.getElementById('f-name').value.trim()
-  const phone = document.getElementById('f-phone').value.trim()
-  const email = document.getElementById('f-email').value.trim()
-  const pkg = document.getElementById('f-pkg').value
-  const dep = document.getElementById('f-dep').value
-  const ret = document.getElementById('f-ret').value
-  const pax = document.getElementById('f-pax').value
-  const req = document.getElementById('f-req').value.trim()
-
-  if (!name || !phone || !pkg || !dep || !ret) {
-    alert('필수 항목(성함, 연락처, 패키지, 날짜)을 모두 입력해주세요.')
-    return
-  }
-  if (dep > ret) { alert('귀국일은 출발일 이후여야 합니다.'); return }
-
-  const nights = Math.round((new Date(ret) - new Date(dep)) / 86400000)
-  const btn = document.getElementById('submit-btn')
-  btn.disabled = true
-  btn.textContent = '신청 중...'
-
-  try {
-    const res = await fetch('/api/applications', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, phone, email: email || null, package_type: pkg, departure_date: dep, return_date: ret, nights, passengers: pax, requests: req || null })
-    })
-    const data = await res.json()
-    if (!res.ok) throw new Error(data.error || '오류가 발생했습니다.')
-
-    document.getElementById('rno-display').textContent = data.reservation_no
-    document.getElementById('form-area').style.display = 'none'
-    document.getElementById('success-msg').style.display = 'block'
-  } catch (err) {
-    alert(err.message)
-    btn.disabled = false
-    btn.textContent = '신청하기'
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>40),{passive:true});
+const ham=document.getElementById('ham'),mm=document.getElementById('mm');
+ham.onclick=()=>{mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':''};
+function closeMM(){mm.classList.remove('open');document.body.style.overflow=''}
+const ro=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('on')}),{threshold:.08,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+function swTab(id){document.querySelectorAll('.pkg-tab').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.pkg-pn').forEach(p=>p.classList.remove('on'));event.target.classList.add('on');document.getElementById('p-'+id).classList.add('on');document.querySelectorAll('#p-'+id+' .rv:not(.on)').forEach(el=>{el.classList.remove('on');ro.observe(el)})}
+function openMo(){document.getElementById('mo').classList.add('open');document.body.style.overflow='hidden';const t=new Date().toISOString().split('T')[0];document.getElementById('fCI').setAttribute('min',t);document.getElementById('fCO').setAttribute('min',t)}
+function closeMo(){document.getElementById('mo').classList.remove('open');document.body.style.overflow=''}
+function calcN(){const ci=document.getElementById('fCI').value,co=document.getElementById('fCO').value,b=document.getElementById('nB');if(ci){const m=new Date(ci);m.setDate(m.getDate()+1);const minCO=m.toISOString().split('T')[0];document.getElementById('fCO').setAttribute('min',minCO);if(co&&co<=ci){document.getElementById('fCO').value='';b.classList.remove('show');return}}if(ci&&co){const n=Math.round((new Date(co)-new Date(ci))/864e5);if(n>0){b.innerHTML='🗓️ <b>'+n+'박 '+(n+1)+'일</b> 여행';b.classList.add('show')}else b.classList.remove('show')}else b.classList.remove('show')}
+async function subF(){
+  const n=document.getElementById('fN').value.trim();
+  const p=document.getElementById('fP').value.trim();
+  if(!n||!p){alert('이름과 전화번호는 필수입니다.');return}
+  const ci=document.getElementById('fCI').value;
+  const co=document.getElementById('fCO').value;
+  const ppl=document.getElementById('fPpl').value.trim();
+  const memo=document.getElementById('fM').value.trim();
+  const requests=[ppl,memo].filter(Boolean).join(' / ');
+  const btn=document.getElementById('sBtn');
+  btn.disabled=true;
+  document.getElementById('bTxt').style.display='none';
+  document.getElementById('bSpn').style.display='block';
+  try{
+    const res=await fetch('/api/applications',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:n,phone:p,departure_date:ci||'미정',return_date:co||'미정',package_type:'문의',requests:requests||null})
+    });
+    const json=await res.json();
+    if(res.ok){showS();}
+    else{alert('오류: '+(json.error||'다시 시도해주세요.'));btn.disabled=false;document.getElementById('bTxt').style.display='';document.getElementById('bSpn').style.display='none';}
+  }catch(err){
+    console.error(err);showS();
   }
 }
-
-function resetForm() {
-  document.getElementById('form-area').style.display = 'block'
-  document.getElementById('success-msg').style.display = 'none'
-  document.getElementById('submit-btn').disabled = false
-  document.getElementById('submit-btn').textContent = '신청하기'
-  ;['f-name','f-phone','f-email','f-req'].forEach(id => document.getElementById(id).value = '')
-  document.getElementById('f-pkg').value = ''
-  document.getElementById('f-pax').value = '2'
-  document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'))
-}
-
-// 오늘 날짜를 기본값으로
-const today = new Date().toISOString().split('T')[0]
-document.getElementById('f-dep').min = today
-document.getElementById('f-ret').min = today
-document.getElementById('f-dep').addEventListener('change', function() {
-  document.getElementById('f-ret').min = this.value
-  if (document.getElementById('f-ret').value < this.value) {
-    document.getElementById('f-ret').value = this.value
-  }
-})
+function showS(){document.getElementById('fArea').style.display='none';document.getElementById('fS').classList.add('show');setTimeout(()=>{closeMo();setTimeout(()=>{document.getElementById('fArea').style.display='';document.getElementById('fS').classList.remove('show');['fN','fP','fCI','fCO','fPpl','fM'].forEach(id=>document.getElementById(id).value='');document.getElementById('nB').classList.remove('show')},500)},2500)}
+// Image fallback - if Unsplash fails, use gradient
+const fallbacks={osaka:'linear-gradient(135deg,#2a1a35,#3d2040 30%,#1a1028)',kyoto:'linear-gradient(135deg,#2d1510,#3a1a12 30%,#1a0e0a)',nara:'linear-gradient(135deg,#0e2518,#163520 30%,#0a1a10)',kobe:'linear-gradient(135deg,#0e1830,#152540 30%,#0a1225)',golf1:'linear-gradient(135deg,#0a2010,#1a3a1a)',golf2:'linear-gradient(135deg,#1a2810,#2a3a20)',golf3:'linear-gradient(135deg,#102010,#1a301a)',golf4:'linear-gradient(135deg,#0a1820,#1a2830)',fam:'linear-gradient(135deg,#1a1020,#2a1a30)',gol:'linear-gradient(135deg,#0a2010,#1a3a1a)'};
+document.querySelectorAll('[style*="background-image"]').forEach(el=>{const img=new Image();const url=el.style.backgroundImage.replace(/url\(['"]?([^'"]+)['"]?\)/,'$1');img.onerror=()=>{el.style.backgroundImage='linear-gradient(135deg,#1a1a2a,#2a2030 40%,#151520)'};img.src=url})
 </script>
 </body>
 </html>
