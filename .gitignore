@@ -1,0 +1,17 @@
+node_modules/
+.env
+db/data.json
+*.log
+.DS_Store
+deploy/
+glux-fixed/
+glux-fixed.zip
+*.lnk
+KakaoTalk_*
+*.mp4
+*.pdf
+*.doc
+*.zip
+*.png
+*.jpg
+*.docx

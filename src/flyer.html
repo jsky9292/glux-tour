@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GLUX 전단지 메이커</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Malgun Gothic','Noto Sans KR',sans-serif;background:#111827;color:#fff;display:flex;height:100vh;overflow:hidden}
+#panel{width:340px;min-width:340px;background:#1f2937;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:14px}
+#panel::-webkit-scrollbar{width:4px}
+#panel::-webkit-scrollbar-thumb{background:#374151;border-radius:2px}
+#preview{flex:1;display:flex;align-items:center;justify-content:center;overflow:auto;padding:20px;background:#0f172a}
+canvas{box-shadow:0 20px 60px rgba(0,0,0,0.7);border-radius:6px;max-height:calc(100vh - 40px)}
+.ph{font-size:17px;font-weight:700}
+.sec{background:#111827;border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.sec-t{font-size:10px;font-weight:700;color:#60a5fa;letter-spacing:1px;text-transform:uppercase}
+label{font-size:11px;color:#9ca3af;display:block;margin-bottom:3px}
+input,textarea{width:100%;padding:7px 9px;background:#374151;border:1px solid #4b5563;border-radius:5px;color:#fff;font-size:12px;font-family:inherit;outline:none}
+input:focus,textarea:focus{border-color:#3b82f6}
+textarea{resize:vertical}
+.btn{width:100%;padding:9px;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit}
+.btn-green{background:#10b981;color:#fff}
+.btn-gray{background:#374151;color:#9ca3af;font-size:12px;padding:7px}
+.tpl-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.tpl-btn{border:2px solid #374151;border-radius:8px;padding:9px 6px;cursor:pointer;text-align:center;font-size:11px;font-weight:700;font-family:inherit;background:#1f2937;color:#9ca3af;transition:.15s}
+.tpl-btn:hover{border-color:#6b7280;color:#fff}
+.tpl-btn.active{border-color:#3b82f6;color:#fff;background:#1e3a5f}
+.tpl-icon{font-size:20px;display:block;margin-bottom:3px}
+.day-card{background:#1f2937;border:1px solid #374151;border-radius:6px;padding:10px;display:flex;flex-direction:column;gap:6px}
+.day-hd{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;color:#fbbf24}
+.del-btn{background:#7f1d1d;color:#fca5a5;border:none;border-radius:3px;padding:2px 6px;cursor:pointer;font-size:11px}
+</style>
+</head>
+<body>
+<div id="panel">
+  <div class="ph">🗓 GLUX 전단지 메이커</div>
+  <div class="sec">
+    <div class="sec-t">템플릿 선택</div>
+    <div class="tpl-grid">
+      <button class="tpl-btn active" onclick="setTpl(0)"><span class="tpl-icon">🌸</span>벚꽃/자연</button>
+      <button class="tpl-btn" onclick="setTpl(1)"><span class="tpl-icon">🍣</span>미식 여행</button>
+      <button class="tpl-btn" onclick="setTpl(2)"><span class="tpl-icon">⛳</span>골프 투어</button>
+      <button class="tpl-btn" onclick="setTpl(3)"><span class="tpl-icon">🛁</span>료칸/온천</button>
+      <button class="tpl-btn" onclick="setTpl(4)"><span class="tpl-icon">🏨</span>호텔 패키지</button>
+      <button class="tpl-btn" onclick="setTpl(5)"><span class="tpl-icon">🚌</span>차량 투어</button>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="sec-t">전단지 내용</div>
+    <div><label>타이틀 1줄</label><input id="t1" value="GLUX 간사이 벚꽃" oninput="draw()"></div>
+    <div><label>타이틀 2줄</label><input id="t2" value="효도여행 일정표" oninput="draw()"></div>
+    <div><label>날짜</label><input id="tdate" value="2024년 3월 27일 ~ 3월 30일" oninput="draw()"></div>
+    <div><label>하단 태그라인</label><input id="ttag" value="벚꽃 감상 · 온천 힐링 · 미식 여행" oninput="draw()"></div>
+  </div>
+  <div class="sec">
+    <div class="sec-t">일정 카드 (최대 4일)</div>
+    <div id="dw"></div>
+    <button class="btn btn-gray" onclick="addDay()">+ 일차 추가</button>
+  </div>
+  <button class="btn btn-green" onclick="savePng()">💾 PNG로 저장</button>
+</div>
+<div id="preview"><canvas id="cv"></canvas></div>
+
+<script>
+const $=id=>document.getElementById(id);
+let tpl=0;
+
+// 실제 사진 URL (Unsplash 무료)
+const PHOTOS={
+  sakura:'https://images.unsplash.com/photo-1522383225653-ed111181a951?w=800&q=80',
+  food:'https://images.unsplash.com/photo-1553621042-f6e147245754?w=800&q=80',
+  golf:'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&q=80',
+  ryokan:'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80',
+  hotel:'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80',
+  bus:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80',
+};
+
+// 이미지 캐시
+const imgCache={};
+function loadImg(url){
+  return new Promise(res=>{
+    if(imgCache[url]){res(imgCache[url]);return;}
+    const img=new Image();img.crossOrigin='anonymous';
+    img.onload=()=>{imgCache[url]=img;res(img);};
+    img.onerror=()=>res(null);
+    img.src=url;
+  });
+}
+
+const TPLS=[
+  {name:'벚꽃_자연', photo:'sakura',
+   overlay:'rgba(180,20,80,0.38)',
+   accent:'#fff',labelBg:'rgba(210,30,60,0.9)',
+   cardBg:'rgba(255,255,255,0.88)',cardTxt:'#2d1b1b',routeC:'#c2185b'},
+  {name:'미식_여행', photo:'food',
+   overlay:'rgba(80,20,0,0.5)',
+   accent:'#ffd700',labelBg:'rgba(160,30,30,0.92)',
+   cardBg:'rgba(255,250,235,0.90)',cardTxt:'#3b1500',routeC:'#b45309'},
+  {name:'골프_투어', photo:'golf',
+   overlay:'rgba(0,50,20,0.45)',
+   accent:'#a3e635',labelBg:'rgba(22,101,52,0.92)',
+   cardBg:'rgba(240,255,240,0.90)',cardTxt:'#052e16',routeC:'#166534'},
+  {name:'료칸_온천', photo:'ryokan',
+   overlay:'rgba(60,20,0,0.48)',
+   accent:'#fcd34d',labelBg:'rgba(120,60,0,0.92)',
+   cardBg:'rgba(255,253,235,0.90)',cardTxt:'#3b1500',routeC:'#92400e'},
+  {name:'호텔_패키지', photo:'hotel',
+   overlay:'rgba(0,0,0,0.52)',
+   accent:'#ffd700',labelBg:'rgba(20,20,80,0.92)',
+   cardBg:'rgba(10,10,40,0.85)',cardTxt:'#f0f0ff',routeC:'#fbbf24'},
+  {name:'차량_투어', photo:'bus',
+   overlay:'rgba(0,20,80,0.50)',
+   accent:'#7dd3fc',labelBg:'rgba(30,58,138,0.92)',
+   cardBg:'rgba(240,248,255,0.90)',cardTxt:'#0c1445',routeC:'#1d4ed8'},
+];
+
+let days=[
+  {day:'DAY 1',date:'3월 27일 (수)',route:'간사이공항 → 와카야마',items:['규슈시오지 & 산단베키','시리하마 해변','와쇼쿠 정식 / 호텔 뷔페'],hotel:'시리하하 코게노이 리조트'},
+  {day:'DAY 2',date:'3월 28일 (목)',route:'나라 → 오사카',items:['나라의 벚꽃','토다이사 or 혼류지','나라 사슴공원','도부 정식 / 복어 코스'],hotel:'Henn na Hotel Osaka Namba'},
+  {day:'DAY 3',date:'3월 29일 (금)',route:'오사카 → 교토',items:['오미하치만 유람','라 코리나 빌룸','카이세키 정식'],hotel:'오고토 온천 홍간 오고토스'},
+  {day:'DAY 4',date:'3월 30일 (토)',route:'교토 → 간사이공항',items:['산젠인','철학의 길','장어덮밥','귀국'],hotel:''},
+];
+
+function setTpl(i){
+  tpl=i;
+  document.querySelectorAll('.tpl-btn').forEach((b,j)=>b.classList.toggle('active',i===j));
+  draw();
+}
+
+function buildDayUI(){
+  const w=$('dw');w.innerHTML='';
+  days.forEach((d,i)=>{
+    const div=document.createElement('div');div.className='day-card';
+    div.innerHTML=`
+      <div class="day-hd"><span>📅 ${i+1}일차</span><button class="del-btn" onclick="removeDay(${i})">삭제</button></div>
+      <div><label>DAY 라벨</label><input value="${d.day}" oninput="days[${i}].day=this.value;draw()"></div>
+      <div><label>날짜</label><input value="${d.date}" oninput="days[${i}].date=this.value;draw()"></div>
+      <div><label>이동 경로</label><input value="${d.route}" oninput="days[${i}].route=this.value;draw()"></div>
+      <div><label>일정 내용 (한 줄에 하나씩)</label>
+        <textarea style="min-height:70px" oninput="days[${i}].items=this.value.split('\\n').filter(l=>l.trim());draw()">${d.items.join('\n')}</textarea></div>
+      <div><label>호텔/식사</label><input value="${d.hotel||''}" oninput="days[${i}].hotel=this.value;draw()"></div>`;
+    w.appendChild(div);
+  });
+}
+function addDay(){if(days.length>=4){alert('최대 4일');return;}days.push({day:`DAY ${days.length+1}`,date:'날짜',route:'출발 → 도착',items:['일정 내용'],hotel:''});buildDayUI();draw();}
+function removeDay(i){days.splice(i,1);buildDayUI();draw();}
+
+function rr(ctx,x,y,w,h,r){
+  if(typeof r==='number')r={tl:r,tr:r,bl:r,br:r};
+  else r=Object.assign({tl:0,tr:0,bl:0,br:0},r);
+  ctx.beginPath();
+  ctx.moveTo(x+r.tl,y);ctx.lineTo(x+w-r.tr,y);ctx.arcTo(x+w,y,x+w,y+r.tr,r.tr);
+  ctx.lineTo(x+w,y+h-r.br);ctx.arcTo(x+w,y+h,x+w-r.br,y+h,r.br);
+  ctx.lineTo(x+r.bl,y+h);ctx.arcTo(x,y+h,x,y+h-r.bl,r.bl);
+  ctx.lineTo(x,y+r.tl);ctx.arcTo(x,y,x+r.tl,y,r.tl);
+  ctx.closePath();
+}
+
+let _drawing=false;
+let _pending=false;
+async function draw(){
+  if(_drawing){_pending=true;return;}
+  _drawing=true;_pending=false;
+  try{
+  const cv=$('cv'),ctx=cv.getContext('2d');
+  const W=750;cv.width=W;
+  const T=TPLS[tpl];
+
+  // ── 높이를 그리기 전에 미리 계산 (재귀 방지)
+  const cnt=Math.min(days.length,4);
+  const cols=cnt<=2?cnt:2;
+  const rows=Math.ceil(cnt/cols);
+  const gap=10,padX=26;
+  const cardW=cols===1?W-padX*2:(W-padX*2-gap)/2;
+
+  function calcCardH(d){
+    const hasHotel=d.hotel?1:0;
+    const itemLines=Math.min(d.items.length,6);
+    return 44+22+10+itemLines*24+(hasHotel?34:10)+14;
+  }
+
+  let rowHeights=[];
+  for(let r=0;r<rows;r++){
+    let maxH=0;
+    for(let c=0;c<cols;c++){
+      const idx=r*cols+c;
+      if(idx<cnt) maxH=Math.max(maxH,calcCardH(days[idx]));
+    }
+    rowHeights.push(Math.max(maxH,160));
+  }
+
+  const startY=240;
+  const totalCardsHpre=rowHeights.reduce((a,b)=>a+b,0)+gap*(rows-1);
+  const tagYpre=startY+totalCardsHpre+20;
+  const H=tagYpre+52+26;
+  cv.height=H;
+
+  // 배경: 실제 사진 (없으면 어두운 단색)
+  ctx.fillStyle='#1a1a2e';ctx.fillRect(0,0,W,H);
+  const photo=await loadImg(PHOTOS[T.photo]);
+  if(photo){
+    const r=Math.max(W/photo.width,H/photo.height);
+    const bw=photo.width*r,bh=photo.height*r;
+    ctx.drawImage(photo,(W-bw)/2,(H-bh)/2,bw,bh);
+  }
+
+  // 컬러 오버레이 (가독성)
+  ctx.fillStyle=T.overlay;ctx.fillRect(0,0,W,H);
+
+  // 상단 반투명 박스
+  ctx.fillStyle='rgba(0,0,0,0.25)';rr(ctx,26,22,W-52,205,20);ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,0.08)';rr(ctx,26,22,W-52,205,20);ctx.fill();
+
+  // 타이틀
+  ctx.textAlign='center';
+  ctx.shadowColor='rgba(0,0,0,0.8)';ctx.shadowBlur=12;
+  ctx.fillStyle='#fff';
+  ctx.font=`bold 52px 'Malgun Gothic','Noto Sans KR',sans-serif`;
+  ctx.fillText($('t1').value,W/2,108);
+  ctx.fillStyle=T.accent;
+  ctx.font=`bold 44px 'Malgun Gothic','Noto Sans KR',sans-serif`;
+  ctx.fillText($('t2').value,W/2,168);
+  ctx.fillStyle='rgba(255,255,255,0.9)';
+  ctx.font=`19px 'Malgun Gothic','Noto Sans KR',sans-serif`;
+  ctx.fillText($('tdate').value,W/2,202);
+  ctx.shadowBlur=0;
+
+  days.slice(0,4).forEach((d,i)=>{
+    const col=i%cols,row=Math.floor(i/cols);
+    const x=padX+col*(cardW+gap);
+    const y=startY+rowHeights.slice(0,row).reduce((a,b)=>a+b+gap,0);
+    const cardH=rowHeights[row];
+
+    // 카드 배경
+    ctx.fillStyle=T.cardBg;
+    rr(ctx,x,y,cardW,cardH,14);ctx.fill();
+
+    // 카드 테두리
+    ctx.strokeStyle='rgba(255,255,255,0.25)';ctx.lineWidth=1.5;
+    rr(ctx,x,y,cardW,cardH,14);ctx.stroke();
+
+    // DAY 라벨
+    ctx.fillStyle=T.labelBg;
+    rr(ctx,x,y,130,38,{tl:14,tr:4,bl:0,br:14});ctx.fill();
+    ctx.fillStyle='#fff';ctx.font=`bold 15px Arial,sans-serif`;
+    ctx.textAlign='left';ctx.shadowBlur=0;
+    ctx.fillText(d.day,x+12,y+26);
+
+    // 날짜
+    ctx.fillStyle=T.cardTxt;
+    ctx.font=`bold 13px 'Malgun Gothic','Noto Sans KR',sans-serif`;
+    ctx.fillText(d.date,x+140,y+26);
+
+    // 경로
+    ctx.fillStyle=T.routeC;
+    ctx.font=`bold 14px 'Malgun Gothic','Noto Sans KR',sans-serif`;
+    const route=d.route.length>22?d.route.substring(0,22)+'…':d.route;
+    ctx.fillText(route,x+12,y+56);
+
+    // 구분선
+    ctx.strokeStyle=tpl===4?'rgba(255,215,0,0.25)':'rgba(0,0,0,0.1)';ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(x+10,y+64);ctx.lineTo(x+cardW-10,y+64);ctx.stroke();
+
+    // 일정 항목
+    ctx.font=`14px 'Malgun Gothic','Noto Sans KR',sans-serif`;
+    d.items.slice(0,6).forEach((item,j)=>{
+      ctx.fillStyle=T.accent;ctx.fillText('•',x+12,y+86+j*24);
+      ctx.fillStyle=T.cardTxt;
+      const txt=item.length>24?item.substring(0,24)+'…':item;
+      ctx.fillText(txt,x+26,y+86+j*24);
+    });
+
+    // 호텔 바닥
+    if(d.hotel){
+      ctx.fillStyle=tpl===4?'rgba(255,215,0,0.12)':'rgba(0,0,0,0.55)';
+      rr(ctx,x,y+cardH-30,cardW,30,{tl:0,tr:0,bl:14,br:14});ctx.fill();
+      ctx.fillStyle=tpl===4?'#ffd700':'#fff';
+      ctx.font=`12px 'Malgun Gothic','Noto Sans KR',sans-serif`;
+      ctx.textAlign='center';
+      const hotel=d.hotel.length>28?d.hotel.substring(0,28)+'…':d.hotel;
+      ctx.fillText('🏨 '+hotel,x+cardW/2,y+cardH-10);
+    }
+  });
+
+  // 하단 태그라인
+  const tagBarH=52;
+  ctx.fillStyle='rgba(0,0,0,0.3)';rr(ctx,26,tagYpre,W-52,tagBarH,26);ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,0.1)';rr(ctx,26,tagYpre,W-52,tagBarH,26);ctx.fill();
+  ctx.fillStyle=T.accent;
+  ctx.font=`bold 22px 'Malgun Gothic','Noto Sans KR',sans-serif`;
+  ctx.textAlign='center';
+  ctx.shadowColor='rgba(0,0,0,0.6)';ctx.shadowBlur=8;
+  ctx.fillText($('ttag').value,W/2,tagYpre+34);
+  ctx.shadowBlur=0;
+  }finally{
+    _drawing=false;
+    if(_pending){_pending=false;draw();}
+  }
+}
+
+async function savePng(){
+  const filename='GLUX_전단지_'+TPLS[tpl].name+'.png';
+  const cv=$('cv');
+  if(window.showSaveFilePicker){
+    try{
+      const fh=await window.showSaveFilePicker({
+        suggestedName:filename,
+        types:[{description:'PNG 이미지',accept:{'image/png':['.png']}}]
+      });
+      const blob=await new Promise(res=>cv.toBlob(res,'image/png'));
+      const writable=await fh.createWritable();
+      await writable.write(blob);
+      await writable.close();
+    }catch(e){
+      if(e.name!=='AbortError'){const a=document.createElement('a');a.download=filename;a.href=cv.toDataURL('image/png');a.click();}
+    }
+  }else{
+    const a=document.createElement('a');a.download=filename;a.href=cv.toDataURL('image/png');a.click();
+  }
+}
+
+buildDayUI();draw();
+['t1','t2','tdate','ttag'].forEach(id=>$(id).addEventListener('input',draw));
+</script>
+</body>
+</html>

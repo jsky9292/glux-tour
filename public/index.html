@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLUX Tour — 맞춤 일본 여행</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;color:#1a1a2e;background:#fff}
+
+/* ─── 헤더 ─── */
+header{background:#0f0f1a;padding:0 5vw;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:Arial,sans-serif;font-size:20px;font-weight:900;letter-spacing:3px;color:#fff}
+.logo b{color:#D9251C}
+.nav-btn{background:#D9251C;color:#fff;border:none;border-radius:6px;padding:8px 18px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;text-decoration:none}
+
+/* ─── 히어로 ─── */
+.hero{background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 50%,#12121f 100%);color:#fff;padding:90px 5vw 80px;text-align:center}
+.hero-badge{display:inline-block;background:#D9251C;color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:2px;margin-bottom:20px}
+.hero h1{font-size:clamp(28px,5vw,52px);font-weight:900;line-height:1.2;margin-bottom:16px}
+.hero h1 span{color:#D9251C}
+.hero p{font-size:15px;color:#9ca3af;max-width:520px;margin:0 auto 32px;line-height:1.8}
+.hero-cta{background:#D9251C;color:#fff;border:none;padding:15px 40px;font-size:15px;font-weight:700;border-radius:8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s}
+.hero-cta:hover{background:#b91c1c}
+
+/* ─── 패키지 ─── */
+.section{padding:70px 5vw}
+.sec-title{text-align:center;margin-bottom:10px;font-size:11px;font-weight:700;color:#D9251C;letter-spacing:3px}
+.sec-h2{text-align:center;font-size:clamp(22px,4vw,34px);font-weight:800;margin-bottom:48px;color:#0f0f1a}
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.pkg-card{border:1.5px solid #e5e7eb;border-radius:12px;overflow:hidden;cursor:pointer;transition:all .2s;background:#fff}
+.pkg-card:hover{border-color:#D9251C;box-shadow:0 6px 24px rgba(217,37,28,.12);transform:translateY(-2px)}
+.pkg-card.selected{border-color:#D9251C;background:#fff5f5}
+.pkg-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:48px}
+.pkg-body{padding:16px}
+.pkg-tag{font-size:10px;font-weight:700;color:#D9251C;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.pkg-name{font-size:16px;font-weight:700;margin-bottom:6px}
+.pkg-desc{font-size:12px;color:#6b7280;line-height:1.7}
+
+/* ─── 신청 폼 ─── */
+.apply-wrap{background:#f0f2f5;padding:70px 5vw}
+.apply-box{max-width:680px;margin:0 auto;background:#fff;border-radius:16px;padding:40px 40px;box-shadow:0 4px 32px rgba(0,0,0,.08)}
+.apply-box h2{font-size:22px;font-weight:800;margin-bottom:6px;color:#0f0f1a}
+.apply-box .sub{font-size:13px;color:#6b7280;margin-bottom:28px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.f-group{margin-bottom:14px}
+.f-group label{display:block;font-size:12px;font-weight:600;color:#374151;margin-bottom:5px}
+.f-group label .req{color:#D9251C}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:10px 12px;border:1.5px solid #d1d5db;border-radius:7px;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:#1a1a2e;background:#fafafa;transition:border-color .2s}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:#D9251C;background:#fff}
+.f-group textarea{min-height:90px;resize:vertical;line-height:1.6}
+.submit-btn{width:100%;padding:14px;background:#D9251C;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;margin-top:6px}
+.submit-btn:hover{background:#b91c1c}
+.submit-btn:disabled{background:#9ca3af;cursor:not-allowed}
+
+/* ─── 완료 메시지 ─── */
+#success-msg{display:none;text-align:center;padding:40px 20px}
+#success-msg .icon{font-size:56px;margin-bottom:16px}
+#success-msg h3{font-size:22px;font-weight:800;color:#0f0f1a;margin-bottom:8px}
+#success-msg p{font-size:14px;color:#6b7280;line-height:1.8}
+#success-msg .rno{display:inline-block;background:#0f0f1a;color:#fff;padding:8px 24px;border-radius:20px;font-size:16px;font-weight:700;margin:16px 0;letter-spacing:2px}
+
+/* ─── 푸터 ─── */
+footer{background:#0f0f1a;color:#6b7280;padding:32px 5vw;text-align:center;font-size:13px}
+footer .logo-f{font-family:Arial,sans-serif;font-size:18px;font-weight:900;letter-spacing:3px;color:#fff;margin-bottom:8px}
+footer .logo-f b{color:#D9251C}
+
+/* ─── 반응형 ─── */
+@media(max-width:600px){
+  .f-row{grid-template-columns:1fr}
+  .apply-box{padding:24px 20px}
+  .hero{padding:60px 5vw 50px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">GL<b>U</b>X</div>
+  <a class="nav-btn" href="#apply">여행 신청하기</a>
+</header>
+
+<section class="hero">
+  <div class="hero-badge">PREMIUM JAPAN TOUR</div>
+  <h1>당신만의 특별한<br><span>일본 여행</span>을 만들어드립니다</h1>
+  <p>맞춤형 차량 투어로 더 자유롭고 더 깊이 있는 일본 여행을 경험하세요. 전담 가이드와 함께하는 프리미엄 서비스.</p>
+  <button class="hero-cta" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">지금 바로 신청하기 →</button>
+</section>
+
+<section class="section" id="packages">
+  <div class="sec-title">OUR PACKAGES</div>
+  <h2 class="sec-h2">다양한 여행 패키지</h2>
+  <div class="pkg-grid" id="pkg-grid">
+    <div class="pkg-card" onclick="selectPkg(this,'효도여행')">
+      <div class="pkg-img" style="background:#fff5f5">🌸</div>
+      <div class="pkg-body">
+        <div class="pkg-tag">FAMILY</div>
+        <div class="pkg-name">효도여행 (벚꽃 시즌)</div>
+        <div class="pkg-desc">부모님과 함께하는 특별한 봄 여행. 벚꽃 명소와 온천을 편안하게 즐기세요.</div>
+      </div>
+    </div>
+    <div class="pkg-card" onclick="selectPkg(this,'가족여행')">
+      <div class="pkg-img" style="background:#f0fff4">👨‍👩‍👧‍👦</div>
+      <div class="pkg-body">
+        <div class="pkg-tag">FAMILY</div>
+        <div class="pkg-name">가족여행</div>
+        <div class="pkg-desc">아이부터 어른까지 온 가족이 함께하는 맞춤 일정. 아이들이 좋아하는 명소 포함.</div>
+      </div>
+    </div>
+    <div class="pkg-card" onclick="selectPkg(this,'미식투어')">
+      <div class="pkg-img" style="background:#fffbeb">🍜</div>
+      <div class="pkg-body">
+        <div class="pkg-tag">FOOD</div>
+        <div class="pkg-name">미식투어</div>
+        <div class="pkg-desc">현지 맛집과 숨겨진 식당을 전문 가이드와 함께 탐방하는 미식 여행.</div>
+      </div>
+    </div>
+    <div class="pkg-card" onclick="selectPkg(this,'골프투어')">
+      <div class="pkg-img" style="background:#f0fdf4">⛳</div>
+      <div class="pkg-body">
+        <div class="pkg-tag">GOLF</div>
+        <div class="pkg-name">골프투어</div>
+        <div class="pkg-desc">일본 최고의 골프장에서 즐기는 품격 있는 라운딩과 관광의 완벽한 조합.</div>
+      </div>
+    </div>
+    <div class="pkg-card" onclick="selectPkg(this,'료칸투어')">
+      <div class="pkg-img" style="background:#faf5ff">♨️</div>
+      <div class="pkg-body">
+        <div class="pkg-tag">RYOKAN</div>
+        <div class="pkg-name">료칸 온천투어</div>
+        <div class="pkg-desc">정통 료칸에서 즐기는 가이세키 요리와 노천 온천. 진정한 일본 문화를 체험.</div>
+      </div>
+    </div>
+    <div class="pkg-card" onclick="selectPkg(this,'자유여행 가이드')">
+      <div class="pkg-img" style="background:#eff6ff">🗺️</div>
+      <div class="pkg-body">
+        <div class="pkg-tag">CUSTOM</div>
+        <div class="pkg-name">자유 맞춤 투어</div>
+        <div class="pkg-desc">원하는 곳 어디든! 직접 코스를 정하고 전담 가이드와 함께하는 완전 맞춤 여행.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="apply-wrap" id="apply">
+  <div class="apply-box">
+    <h2>여행 신청</h2>
+    <p class="sub">아래 정보를 입력하시면 담당자가 빠르게 연락드립니다.</p>
+
+    <div id="form-area">
+      <div class="f-row">
+        <div class="f-group">
+          <label>성함 <span class="req">*</span></label>
+          <input id="f-name" type="text" placeholder="홍길동">
+        </div>
+        <div class="f-group">
+          <label>연락처 <span class="req">*</span></label>
+          <input id="f-phone" type="tel" placeholder="010-0000-0000">
+        </div>
+      </div>
+      <div class="f-group">
+        <label>이메일 <span style="color:#9ca3af;font-weight:400">(바우처 수신용, 선택)</span></label>
+        <input id="f-email" type="email" placeholder="example@email.com">
+      </div>
+      <div class="f-group">
+        <label>패키지 선택 <span class="req">*</span></label>
+        <select id="f-pkg">
+          <option value="">— 패키지를 선택해주세요 —</option>
+          <option value="효도여행">효도여행 (벚꽃 시즌)</option>
+          <option value="가족여행">가족여행</option>
+          <option value="미식투어">미식투어</option>
+          <option value="골프투어">골프투어</option>
+          <option value="료칸투어">료칸 온천투어</option>
+          <option value="자유여행 가이드">자유 맞춤 투어</option>
+        </select>
+      </div>
+      <div class="f-row">
+        <div class="f-group">
+          <label>출발일 <span class="req">*</span></label>
+          <input id="f-dep" type="date">
+        </div>
+        <div class="f-group">
+          <label>귀국일 <span class="req">*</span></label>
+          <input id="f-ret" type="date">
+        </div>
+      </div>
+      <div class="f-group">
+        <label>인원 수 <span class="req">*</span></label>
+        <select id="f-pax">
+          <option value="1">1명</option>
+          <option value="2" selected>2명</option>
+          <option value="3">3명</option>
+          <option value="4">4명</option>
+          <option value="5">5명</option>
+          <option value="6">6명</option>
+          <option value="7">7명</option>
+          <option value="8">8명</option>
+        </select>
+      </div>
+      <div class="f-group">
+        <label>요청사항 <span style="color:#9ca3af;font-weight:400">(선택)</span></label>
+        <textarea id="f-req" placeholder="방문하고 싶은 곳, 음식 취향, 특별한 요청사항 등을 자유롭게 적어주세요."></textarea>
+      </div>
+      <button class="submit-btn" id="submit-btn" onclick="submitApp()">신청하기</button>
+    </div>
+
+    <div id="success-msg">
+      <div class="icon">🎌</div>
+      <h3>신청이 완료되었습니다!</h3>
+      <div class="rno" id="rno-display"></div>
+      <p>담당자가 빠른 시일 내에 연락드리겠습니다.<br>이메일을 입력하셨다면 확인 메일을 확인해주세요.</p>
+      <button onclick="resetForm()" style="margin-top:20px;background:#0f0f1a;color:#fff;border:none;padding:10px 28px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif">새로운 신청</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo-f">GL<b>U</b>X</div>
+  <p>Premium Japan Tour Service</p>
+  <p style="margin-top:8px">문의: KakaoTalk GLUX Tour</p>
+</footer>
+
+<script>
+function selectPkg(card, name) {
+  document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'))
+  card.classList.add('selected')
+  document.getElementById('f-pkg').value = name
+  document.getElementById('apply').scrollIntoView({ behavior: 'smooth' })
+}
+
+async function submitApp() {
+  const name = document.getElementById('f-name').value.trim()
+  const phone = document.getElementById('f-phone').value.trim()
+  const email = document.getElementById('f-email').value.trim()
+  const pkg = document.getElementById('f-pkg').value
+  const dep = document.getElementById('f-dep').value
+  const ret = document.getElementById('f-ret').value
+  const pax = document.getElementById('f-pax').value
+  const req = document.getElementById('f-req').value.trim()
+
+  if (!name || !phone || !pkg || !dep || !ret) {
+    alert('필수 항목(성함, 연락처, 패키지, 날짜)을 모두 입력해주세요.')
+    return
+  }
+  if (dep > ret) { alert('귀국일은 출발일 이후여야 합니다.'); return }
+
+  const nights = Math.round((new Date(ret) - new Date(dep)) / 86400000)
+  const btn = document.getElementById('submit-btn')
+  btn.disabled = true
+  btn.textContent = '신청 중...'
+
+  try {
+    const res = await fetch('/api/applications', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone, email: email || null, package_type: pkg, departure_date: dep, return_date: ret, nights, passengers: pax, requests: req || null })
+    })
+    const data = await res.json()
+    if (!res.ok) throw new Error(data.error || '오류가 발생했습니다.')
+
+    document.getElementById('rno-display').textContent = data.reservation_no
+    document.getElementById('form-area').style.display = 'none'
+    document.getElementById('success-msg').style.display = 'block'
+  } catch (err) {
+    alert(err.message)
+    btn.disabled = false
+    btn.textContent = '신청하기'
+  }
+}
+
+function resetForm() {
+  document.getElementById('form-area').style.display = 'block'
+  document.getElementById('success-msg').style.display = 'none'
+  document.getElementById('submit-btn').disabled = false
+  document.getElementById('submit-btn').textContent = '신청하기'
+  ;['f-name','f-phone','f-email','f-req'].forEach(id => document.getElementById(id).value = '')
+  document.getElementById('f-pkg').value = ''
+  document.getElementById('f-pax').value = '2'
+  document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'))
+}
+
+// 오늘 날짜를 기본값으로
+const today = new Date().toISOString().split('T')[0]
+document.getElementById('f-dep').min = today
+document.getElementById('f-ret').min = today
+document.getElementById('f-dep').addEventListener('change', function() {
+  document.getElementById('f-ret').min = this.value
+  if (document.getElementById('f-ret').value < this.value) {
+    document.getElementById('f-ret').value = this.value
+  }
+})
+</script>
+</body>
+</html>

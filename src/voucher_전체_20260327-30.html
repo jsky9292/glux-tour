@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>GLUX Tour Voucher — 벚꽃효도여행 2026.03.27~30</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;background:#e5e7eb;padding:20px}
+
+.print-btn{
+  display:block;margin:0 auto 24px;padding:14px 48px;
+  background:#D9251C;color:#fff;border:none;border-radius:8px;
+  font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;
+  letter-spacing:1px;-webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+.print-btn:hover{background:#b91c1c}
+.print-btn:active{background:#991b1b}
+
+.a4{
+  width:100%;
+  max-width:794px;
+  background:#fff;
+  box-shadow:0 3px 20px rgba(0,0,0,.15);
+  padding:60px 68px 60px 76px;
+  margin:0 auto 32px;
+  page-break-after:always;break-after:page;
+}
+
+/* 헤더 */
+.vh{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.vlogo{font-family:Arial,'Arial Black',sans-serif;font-size:28px;font-weight:900;letter-spacing:2px;color:#0f0f1a}
+.vlogo b{color:#D9251C}
+.vtr{text-align:right}
+.vtit{font-family:Arial,'Arial Black',sans-serif;font-size:18px;font-weight:900;letter-spacing:3px;color:#0f0f1a}
+.vtit b{color:#D9251C}
+.vsub{font-size:9px;color:#6b7280;line-height:1.7;margin-top:3px}
+.vline{border:none;border-top:2px solid #0f0f1a;margin:10px 0 20px}
+
+/* 일차 헤더 */
+.dh{
+  background:#0f0f1a;color:#fff;
+  padding:10px 16px;font-size:15px;font-weight:700;
+  margin-bottom:20px;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+.dh b{color:#D9251C}
+
+/* 섹션 레이블 */
+.vlb{
+  font-size:11px;font-weight:800;letter-spacing:1.5px;
+  color:#D9251C;border-left:3px solid #D9251C;
+  padding-left:8px;margin:20px 0 8px;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+
+/* 테이블 */
+.vt{width:100%;border-collapse:collapse;font-size:12px}
+.vt th,.vt td{border:1px solid #D1D5DB;padding:8px 10px;vertical-align:middle}
+.vt th{background:#F3F4F6;font-weight:700;font-size:10px;color:#374151;text-align:center;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.lc{background:#F9FAFB;font-weight:700;font-size:11px;color:#374151;text-align:center;white-space:nowrap;width:88px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.vs{display:block;font-weight:400;font-size:9px;color:#9ca3af}
+.tc{text-align:center;white-space:nowrap;width:70px}
+
+/* 노트 박스 */
+.vnote{
+  background:#FEF2F2;border:1px solid #FECACA;
+  border-radius:4px;padding:12px 14px;
+  font-size:12px;line-height:2;color:#374151;
+  margin-top:8px;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+.vnote p{margin-bottom:4px}
+
+/* 예약 안내 하단 */
+.vinfo{
+  margin-top:18px;font-size:11px;line-height:2;color:#374151;
+  border-top:1px solid #e5e7eb;padding-top:14px;
+}
+.vinfo p{padding-left:4px}
+.vinfo .bold{font-weight:700;color:#D9251C}
+
+/* 스케줄 시간 없는 행 */
+.notime{color:#6b7280;font-size:11px}
+.section-label td{color:#374151;font-weight:700;background:#f9f9f9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* ===== 반응형 (iPad / 모바일) ===== */
+@media screen and (max-width:860px){
+  body{padding:12px 8px}
+  .a4{padding:28px 18px 28px 20px}
+  .vlogo{font-size:22px}
+  .vtit{font-size:14px;letter-spacing:1px}
+  .vsub{font-size:8px}
+  .dh{font-size:13px;padding:8px 12px}
+  .lc{width:72px;font-size:10px}
+  .tc{width:54px}
+  .vt th,.vt td{padding:6px 7px;font-size:11px}
+  .vnote{font-size:11px;line-height:1.9}
+  .vinfo{font-size:10px;line-height:1.9}
+  .print-btn{padding:12px 32px;font-size:14px;width:90%;margin-bottom:16px}
+}
+@media screen and (max-width:480px){
+  .a4{padding:20px 12px}
+  .vt th,.vt td{padding:5px 5px;font-size:10px}
+  .lc{width:60px;font-size:9px;white-space:normal}
+  .tc{width:44px;font-size:10px}
+  .vlogo{font-size:18px}
+  .vtit{font-size:12px}
+}
+
+/* ===== 인쇄 ===== */
+@media print{
+  @page{size:A4 portrait;margin:0}
+  body{background:none!important;padding:0!important}
+  .print-btn{display:none!important}
+  .a4{
+    width:210mm!important;
+    max-width:none!important;
+    padding:14mm 18mm 14mm 20mm!important;
+    box-shadow:none!important;margin:0!important;
+  }
+  .dh,.vlb,.lc,.vnote,.section-label td,.vt th{
+    -webkit-print-color-adjust:exact!important;
+    print-color-adjust:exact!important;
+    color-adjust:exact!important;
+  }
+}
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.focus();setTimeout(function(){window.print()},150)">🖨️ PDF저장 / 인쇄 (전체 5페이지)</button>
+
+<!-- ========================================================== -->
+<!-- PAGE 1: 예약 정보 (RESERVATION)                            -->
+<!-- ========================================================== -->
+<div class="a4">
+  <div class="vh">
+    <div class="vlogo">GL<b>U</b>X</div>
+    <div class="vtr">
+      <div class="vtit">TOUR <b>VOUCHER</b></div>
+      <div class="vsub">
+        저희 GLUX 투어를 예약해 주셔서 진심으로 감사드립니다.<br>
+        여행자님의 예약이 확정되었으며, 하기의 상세 정보들을 확인해주세요.
+      </div>
+    </div>
+  </div>
+  <hr class="vline">
+
+  <div class="vlb" style="margin-top:0">RESERVATION</div>
+  <table class="vt">
+    <tbody>
+      <tr>
+        <td class="lc">예약 채널<span class="vs">Reservation channel</span></td>
+        <td>GLUX</td>
+        <td class="lc">예약 번호<span class="vs">Reservation number</span></td>
+        <td>202603270330</td>
+      </tr>
+      <tr>
+        <td class="lc">예약자 성함<span class="vs">Reservation name</span></td>
+        <td>칸사이벚꽃효도여행</td>
+        <td class="lc">여행 날짜<span class="vs">travel date</span></td>
+        <td>2026년 3월 27일(금) ~ 2026년 3월 30일(월)</td>
+      </tr>
+      <tr>
+        <td class="lc">예약자 연락처<span class="vs">Reservation Contact</span></td>
+        <td></td>
+        <td class="lc">인원 수<span class="vs">number of people</span></td>
+        <td>12명</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="vlb">INFORMATION</div>
+  <table class="vt">
+    <tbody>
+      <tr>
+        <td class="lc">차량<span class="vs">car type</span></td>
+        <td>토요타 알파드 (8인승) 하이에이스 (10인승)</td>
+        <td class="lc">잔금(현장결제)<span class="vs">balance</span></td>
+        <td style="text-align:center">
+          <strong style="font-size:14px">¥774,000</strong><br>
+          <span style="font-size:9px;color:#6b7280">현장에서 가이드님께 결제</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="lc" style="vertical-align:top;padding-top:10px">포함 내역<span class="vs">Inclusions</span></td>
+        <td style="vertical-align:top;padding:9px;line-height:2">
+          · 운전/여행 가이드님<br>
+          · 차량 &amp; 차량실비<br>
+          &nbsp;&nbsp;- 토요타 알파드 8인승, 하이에이스 10인승<br>
+          &nbsp;&nbsp;- 주유비, 톨비, 주차비 등<br>
+          · 픽업/드랍 서비스<br>
+          · 스냅 사진촬영<br>
+          ＊호텔, 식사비 포함
+        </td>
+        <td class="lc" style="vertical-align:top;padding-top:10px">불포함 내역<span class="vs">Exclusions</span></td>
+        <td style="vertical-align:top;padding:9px;line-height:2">
+          · 항공권, 해외여행자보험<br>
+          · 현장 개인 지출 비용 (간식, 쇼핑 등)<br>
+          · 관광지입장료, 온천입탕세, 숙박세<br>
+          · 식사 시 주류, 음료는 별도
+        </td>
+      </tr>
+      <tr>
+        <td class="lc" style="vertical-align:top;padding-top:10px">여행자 요청사항<span class="vs">Requests</span></td>
+        <td colspan="3" style="font-size:12px;line-height:2;vertical-align:top;padding:9px">
+          벚꽃+온천 힐링가족여행입니다.<br>
+          부모님들 만족하실만한 여행이 되시기를 기대합니다.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="vinfo">
+    <p><span class="bold">＊＊</span> 여행 떠나기 하루 전, 담당 가이드님께서 카카오톡을 통해 연락드릴 예정입니다. (카카오톡 친구 추가 허용을 꼭 켜주시기 바랍니다.)</p>
+    <p><span class="bold">＊＊</span> 여행 당일 출발 시간에 맞춰 픽업 장소로 마중 갈 예정이오니 실시간 카카오톡을 통해 소통하시면서 만나시면 됩니다.</p>
+    <p><span class="bold">＊＊</span> 관광지 입장료, 간식, 쇼핑 등 현장 개인 지출 비용은 현장에서 직접 결제해주시길 바랍니다.</p>
+    <p><span class="bold">＊＊</span> 해외여행자보험은 불포함 사항이므로 현지에서 꼭 가입 확인 바랍니다.</p>
+    <p><span class="bold">＊＊</span> 벚꽃시즌 관광지는 많이 혼잡합니다. 상기 일정은 현지 사정에 의해 다소 변경될 수 있음을 알려드립니다. 최대한 맞춤으로 진행할 예정입니다.</p>
+    <p><span class="bold">＊＊</span> 일본은 호텔과 료칸 모든 숙박시설에는 숙박세 외 온천은 입탕세가 있습니다. 1인당 ¥150~200 정도 별도 청구됩니다.</p>
+    <p><span class="bold">＊＊</span> 담당가이드 유이 &nbsp; 카톡ID: <strong>gogoyui</strong> &nbsp; 비상연락처: <strong>+81-80-5706-7979</strong></p>
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- PAGE 2: 1일차 — 2026년 3월 27일 (금)                       -->
+<!-- ========================================================== -->
+<div class="a4">
+  <div class="vh">
+    <div class="vlogo">GL<b>U</b>X</div>
+    <div class="vtr">
+      <div class="vtit">TOUR <b>VOUCHER</b></div>
+      <div class="vsub">
+        저희 GLUX 투어를 예약해 주셔서 진심으로 감사드립니다.<br>
+        여행자님의 예약이 확정되었으며, 하기의 상세 정보들을 확인해주세요.
+      </div>
+    </div>
+  </div>
+  <hr class="vline">
+
+  <div class="dh">■ <b>1일차</b> — 2026년 3월 27일 (금)</div>
+
+  <div class="vlb" style="margin-top:0">PICK UP / DROP</div>
+  <table class="vt">
+    <thead>
+      <tr>
+        <th style="width:88px"></th>
+        <th style="width:70px">시간<br><span style="font-weight:400;font-size:9px">Time</span></th>
+        <th>장소<br><span style="font-weight:400;font-size:9px">Location</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="lc">픽업<span class="vs">Pick up</span></td>
+        <td class="tc">10:55</td>
+        <td>간사이 국제공항 입국장</td>
+      </tr>
+      <tr>
+        <td class="lc">드랍<span class="vs">Drop</span></td>
+        <td class="tc">18:30</td>
+        <td>시라하마 고가노이 온천호텔&amp;리조트</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="vlb">SCHEDULE</div>
+  <table class="vt">
+    <thead>
+      <tr>
+        <th style="width:60px">시간<br><span style="font-weight:400;font-size:9px">time</span></th>
+        <th>일정 내용<br><span style="font-weight:400;font-size:9px">schedule</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tc">10:55</td>
+        <td>칸사이 국제공항 도착 수속 후 가이드와 만남</td>
+      </tr>
+      <tr>
+        <td class="tc">11:30</td>
+        <td>[중식] 와쇼쿠 정식</td>
+      </tr>
+      <tr class="section-label">
+        <td class="tc notime"></td>
+        <td>오후</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td>토레토레시장 : 서일본 최대규모의 수산시장</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td>센조지키 : 수천 장의 다다미를 깐 듯한 암반</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td>산단베키 : 웅장한 절벽과 해식동굴 체험 (입장료 ¥1,500)</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td>엔케츠도 : 시라하마의 상징, 일몰 명소</td>
+      </tr>
+      <tr>
+        <td class="tc">16:30</td>
+        <td>호텔 체크인 &amp; 온천 휴식</td>
+      </tr>
+      <tr>
+        <td class="tc">17:30</td>
+        <td>[석식] 호텔 디너 뷔페</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="vlb">NOTE</div>
+  <div class="vnote">
+    ● 시라하마 온천은 일본 3대 고온천수 중의 하나입니다. 이동의 피로를 라이트업 일루미네이션을 보면서 온천욕으로 풀어보세요!!!
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- PAGE 3: 2일차 — 2026년 3월 28일 (토)                       -->
+<!-- ========================================================== -->
+<div class="a4">
+  <div class="vh">
+    <div class="vlogo">GL<b>U</b>X</div>
+    <div class="vtr">
+      <div class="vtit">TOUR <b>VOUCHER</b></div>
+      <div class="vsub">
+        저희 GLUX 투어를 예약해 주셔서 진심으로 감사드립니다.<br>
+        여행자님의 예약이 확정되었으며, 하기의 상세 정보들을 확인해주세요.
+      </div>
+    </div>
+  </div>
+  <hr class="vline">
+
+  <div class="dh">■ <b>2일차</b> — 2026년 3월 28일 (토)</div>
+
+  <div class="vlb" style="margin-top:0">PICK UP / DROP</div>
+  <table class="vt">
+    <thead>
+      <tr>
+        <th style="width:88px"></th>
+        <th style="width:70px">시간<br><span style="font-weight:400;font-size:9px">Time</span></th>
+        <th>장소<br><span style="font-weight:400;font-size:9px">Location</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="lc">픽업<span class="vs">Pick up</span></td>
+        <td class="tc">09:00</td>
+        <td>고가노이 온천호텔&amp;리조트</td>
+      </tr>
+      <tr>
+        <td class="lc">드랍<span class="vs">Drop</span></td>
+        <td class="tc">18:00</td>
+        <td>Henn na Hotel Express Osaka Nanba niponbashi Annex</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="vlb">SCHEDULE</div>
+  <table class="vt">
+    <thead>
+      <tr>
+        <th style="width:60px">시간<br><span style="font-weight:400;font-size:9px">time</span></th>
+        <th>일정 내용<br><span style="font-weight:400;font-size:9px">schedule</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-label">
+        <td class="tc notime"></td>
+        <td>오전</td>
+      </tr>
+      <tr>
+        <td class="tc">09:00</td>
+        <td>조식 후 호텔 앞 가이드와 만남 간단한 미팅 후 나라현으로 이동</td>
+      </tr>
+      <tr>
+        <td class="tc">11:30</td>
+        <td>호류지 : 일본 최대의 목조건축 (입장료 ¥2,000)</td>
+      </tr>
+      <tr class="section-label">
+        <td class="tc notime"></td>
+        <td>오후</td>
+      </tr>
+      <tr>
+        <td class="tc">13:00</td>
+        <td>[중식] 가마메시(솥밥) 정식</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td>＊동대사 &amp; 사슴공원 (입장료 ¥800)</td>
+      </tr>
+      <tr>
+        <td class="tc">16:30</td>
+        <td>오사카 이동 &amp; 호텔 체크인</td>
+      </tr>
+      <tr>
+        <td class="tc">18:30</td>
+        <td>[석식] 복어 코스요리</td>
+      </tr>
+      <tr>
+        <td class="tc">20:00</td>
+        <td>호텔 이동 : 자유시간</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="vlb">NOTE</div>
+  <div class="vnote">
+    ● 벚꽃시즌이라 교통상황을 예측할 수 없습니다. 당일 사정에 맞춰 일정을 조절할 예정이오니 양해 바랍니다.
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- PAGE 4: 3일차 — 2026년 3월 29일 (일)                       -->
+<!-- ========================================================== -->
+<div class="a4">
+  <div class="vh">
+    <div class="vlogo">GL<b>U</b>X</div>
+    <div class="vtr">
+      <div class="vtit">TOUR <b>VOUCHER</b></div>
+      <div class="vsub">
+        저희 GLUX 투어를 예약해 주셔서 진심으로 감사드립니다.<br>
+        여행자님의 예약이 확정되었으며, 하기의 상세 정보들을 확인해주세요.
+      </div>
+    </div>
+  </div>
+  <hr class="vline">
+
+  <div class="dh">■ <b>3일차</b> — 2026년 3월 29일 (일)</div>
+
+  <div class="vlb" style="margin-top:0">PICK UP / DROP</div>
+  <table class="vt">
+    <thead>
+      <tr>
+        <th style="width:88px"></th>
+        <th style="width:70px">시간<br><span style="font-weight:400;font-size:9px">Time</span></th>
+        <th>장소<br><span style="font-weight:400;font-size:9px">Location</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="lc">픽업<span class="vs">Pick up</span></td>
+        <td class="tc">09:00</td>
+        <td>Henn na Hotel Express Osaka Nanba niponbashi Annex</td>
+      </tr>
+      <tr>
+        <td class="lc">드랍<span class="vs">Drop</span></td>
+        <td class="tc">17:30</td>
+        <td>오고토온천 오고토소</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="vlb">SCHEDULE</div>
+  <table class="vt">
+    <thead>
+      <tr>
+        <th style="width:60px">시간<br><span style="font-weight:400;font-size:9px">time</span></th>
+        <th>일정 내용<br><span style="font-weight:400;font-size:9px">schedule</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-label">
+        <td class="tc notime"></td>
+        <td>오전</td>
+      </tr>
+      <tr>
+        <td class="tc">08:20</td>
+        <td>[조식] 호텔 조식 담당 가이드 가준비</td>
+      </tr>
+      <tr>
+        <td class="tc">09:00</td>
+        <td>가이드와 간단한 미팅 후 비와호 출발</td>
+      </tr>
+      <tr>
+        <td class="tc">10:30</td>
+        <td>라코리나 오미하치만 주변관광</td>
+      </tr>
+      <tr class="section-label">
+        <td class="tc notime"></td>
+        <td>오후</td>
+      </tr>
+      <tr>
+        <td class="tc">12:00</td>
+        <td>[중식] 와규 오미규 갈비정식</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td>오미하치만보리 (수로산책)</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td>＊나룻배체험 (하치만보리메구리) ¥1,500 내외</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td>시라히게신사</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td>우키미도 (망월루) : 호수 위에 떠있는 듯한 사 입장료 ¥300</td>
+      </tr>
+      <tr>
+        <td class="tc">17:00</td>
+        <td>료칸 오고토소 체크인 후 온천 휴식</td>
+      </tr>
+      <tr>
+        <td class="tc">18:00</td>
+        <td>[석식] 료칸 카이세키 코스요리</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="vlb">NOTE</div>
+  <div class="vnote">
+    ● 하치만보리 나룻배체험은 선택사항입니다. 체험일정에 따라 다소 당일 일정이 변경될 수 있음을 알려드립니다. 최대한 맞춤으로 노력하겠습니다.
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- PAGE 5: 4일차 — 2026년 3월 30일 (월)                       -->
+<!-- ========================================================== -->
+<div class="a4">
+  <div class="vh">
+    <div class="vlogo">GL<b>U</b>X</div>
+    <div class="vtr">
+      <div class="vtit">TOUR <b>VOUCHER</b></div>
+      <div class="vsub">
+        저희 GLUX 투어를 예약해 주셔서 진심으로 감사드립니다.<br>
+        여행자님의 예약이 확정되었으며, 하기의 상세 정보들을 확인해주세요.
+      </div>
+    </div>
+  </div>
+  <hr class="vline">
+
+  <div class="dh">■ <b>4일차</b> — 2026년 3월 30일 (월)</div>
+
+  <div class="vlb" style="margin-top:0">PICK UP / DROP</div>
+  <table class="vt">
+    <thead>
+      <tr>
+        <th style="width:88px"></th>
+        <th style="width:70px">시간<br><span style="font-weight:400;font-size:9px">Time</span></th>
+        <th>장소<br><span style="font-weight:400;font-size:9px">Location</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="lc">픽업<span class="vs">Pick up</span></td>
+        <td class="tc">09:00</td>
+        <td>오고토온천 오고토소</td>
+      </tr>
+      <tr>
+        <td class="lc">드랍<span class="vs">Drop</span></td>
+        <td class="tc">17:00</td>
+        <td>칸사이 국제공항</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="vlb">SCHEDULE</div>
+  <table class="vt">
+    <thead>
+      <tr>
+        <th style="width:60px">시간<br><span style="font-weight:400;font-size:9px">time</span></th>
+        <th>일정 내용<br><span style="font-weight:400;font-size:9px">schedule</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-label">
+        <td class="tc notime"></td>
+        <td>오전</td>
+      </tr>
+      <tr>
+        <td class="tc">09:00</td>
+        <td>조식 후 가이드와 만남, 교토로 이동</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td>산젠인 &amp; 호센인 : 이끼정원 (입장료 ¥700) + 액자정원 (입장료 + 말차체험 ¥800)</td>
+      </tr>
+      <tr class="section-label">
+        <td class="tc notime"></td>
+        <td>오후</td>
+      </tr>
+      <tr>
+        <td class="tc">12:00</td>
+        <td>[중식] 장어덮밥 정식</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td>은각사 &amp; 철학의길 (입장료 ¥500) : 일본 정원의 절제된 미학 감상</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td>난젠지 &amp; 수로각, 헤이안신궁</td>
+      </tr>
+      <tr>
+        <td class="tc">15:00</td>
+        <td>칸사이 국제공항 이동</td>
+      </tr>
+      <tr>
+        <td class="tc">17:00</td>
+        <td>수속 후 출국 ✈ 따뜻한 추억을 안고 집으로</td>
+      </tr>
+      <tr>
+        <td class="tc notime"></td>
+        <td style="font-weight:600">수고많으셨습니다. 안녕히 가세요 🙏</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="vlb">NOTE</div>
+  <div class="vnote">
+    ● GLUX와 함께하는 이번 여행이 부모님께 최고의 선물이 되기를 바랍니다.
+  </div>
+</div>
+
+</body>
+</html>
