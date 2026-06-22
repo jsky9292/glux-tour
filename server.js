@@ -19,7 +19,18 @@ function parseCookies(req) {
 }
 
 app.use(cors())
-app.use(express.json())
+app.use(express.json({ type: ['application/json', 'text/plain'] }))
+
+// 모든 응답에 UTF-8 명시
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff')
+  const orig = res.json.bind(res)
+  res.json = function(body) {
+    res.setHeader('Content-Type', 'application/json; charset=utf-8')
+    return orig(body)
+  }
+  next()
+})
 
 // 로그인/로그아웃 (인증 미들웨어보다 먼저)
 app.post('/api/admin/login', (req, res) => {
