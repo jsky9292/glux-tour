@@ -3,384 +3,275 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GLUX Tour — 관리자</title>
+<title>GLUX Admin</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans KR',sans-serif;font-size:13px;background:#f0f2f5;color:#1a1a2e}
-
-/* 레이아웃 */
+body{font-family:'Noto Sans KR',sans-serif;font-size:13px;background:#f0f2f5;color:#1a1a2e;height:100vh;overflow:hidden}
 #wrap{display:flex;height:100vh}
-#side{width:220px;min-width:220px;background:#0f0f1a;display:flex;flex-direction:column;overflow-y:auto}
-#main{flex:1;overflow-y:auto;padding:24px}
 
-/* 사이드바 */
-.s-logo{padding:20px 18px 16px;border-bottom:1px solid #1f1f30}
-.s-logo .logo{font-family:Arial,sans-serif;font-size:18px;font-weight:900;letter-spacing:3px;color:#fff}
-.s-logo .logo b{color:#D9251C}
-.s-logo p{font-size:10px;color:#4b5563;margin-top:3px}
-.s-nav{padding:16px 10px;flex:1}
-.s-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:#9ca3af;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;margin-bottom:4px;transition:all .15s}
-.s-item:hover,.s-item.on{background:#1f1f30;color:#fff}
-.s-item.on{color:#D9251C}
-.s-footer{padding:14px 16px;border-top:1px solid #1f1f30;font-size:11px;color:#4b5563}
-.s-footer a{color:#6b7280;text-decoration:none}
+/* 왼쪽 패널 */
+#left{width:360px;min-width:360px;background:#fff;display:flex;flex-direction:column;border-right:1px solid #e5e7eb}
+#left-head{background:#0f0f1a;padding:14px 16px;flex-shrink:0}
+#left-head .logo{font-family:Arial,sans-serif;font-size:17px;font-weight:900;letter-spacing:3px;color:#fff}
+#left-head .logo b{color:#D9251C}
+#left-head p{font-size:10px;color:#6b7280;margin-top:2px}
 
-/* 상단 */
-.top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-.top-bar h1{font-size:20px;font-weight:700}
-.btn{padding:8px 16px;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
-.btn-red{background:#D9251C;color:#fff}
-.btn-dark{background:#0f0f1a;color:#fff}
-.btn-gray{background:#f3f4f6;color:#374151;border:1px solid #e5e7eb}
-.btn-green{background:#166534;color:#fff}
-.btn-sm{padding:5px 12px;font-size:11px}
-.btn:disabled{background:#d1d5db;cursor:not-allowed;color:#9ca3af}
-
-/* 통계 카드 */
-.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:22px}
-.stat{background:#fff;border-radius:10px;padding:16px 18px;border:1px solid #e5e7eb}
-.stat .n{font-size:26px;font-weight:800;color:#0f0f1a;margin-bottom:3px}
-.stat .l{font-size:11px;color:#6b7280;font-weight:500}
+/* 통계 */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px 12px;border-bottom:1px solid #f3f4f6;flex-shrink:0}
+.stat{background:#f9fafb;border-radius:7px;padding:8px 10px;text-align:center}
+.stat .n{font-size:20px;font-weight:800;color:#0f0f1a}
+.stat .l{font-size:9px;color:#9ca3af;font-weight:500}
 .stat.red .n{color:#D9251C}
 .stat.green .n{color:#166534}
 .stat.blue .n{color:#1d4ed8}
 
-/* 필터 탭 */
-.filter-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
-.ftab{padding:7px 16px;border-radius:20px;border:1.5px solid #e5e7eb;background:#fff;font-size:12px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;color:#6b7280;transition:all .15s}
+/* 필터/검색 */
+.toolbar{padding:10px 12px;border-bottom:1px solid #f3f4f6;flex-shrink:0}
+.filter-row{display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap}
+.ftab{padding:5px 12px;border-radius:16px;border:1.5px solid #e5e7eb;background:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;color:#6b7280;transition:all .15s}
 .ftab.on{border-color:#D9251C;background:#D9251C;color:#fff}
+.search-inp{width:100%;padding:8px 11px;border:1.5px solid #e5e7eb;border-radius:7px;font-size:12px;font-family:'Noto Sans KR',sans-serif;outline:none}
+.search-inp:focus{border-color:#D9251C}
 
-/* 검색 */
-.search-bar{display:flex;gap:8px;margin-bottom:14px}
-.search-bar input{flex:1;padding:9px 12px;border:1.5px solid #e5e7eb;border-radius:7px;font-size:13px;font-family:'Noto Sans KR',sans-serif}
-.search-bar input:focus{outline:none;border-color:#D9251C}
-
-/* 테이블 */
-.tbl-wrap{background:#fff;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden}
-table{width:100%;border-collapse:collapse}
-th{background:#f9fafb;padding:10px 14px;text-align:left;font-size:11px;font-weight:700;color:#6b7280;border-bottom:1px solid #e5e7eb;white-space:nowrap}
-td{padding:12px 14px;border-bottom:1px solid #f3f4f6;font-size:13px;vertical-align:middle}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:#fafafa}
-.badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700}
+/* 신청 목록 */
+#app-list{flex:1;overflow-y:auto}
+#app-list::-webkit-scrollbar{width:4px}
+#app-list::-webkit-scrollbar-thumb{background:#e5e7eb;border-radius:2px}
+.app-card{padding:12px 14px;border-bottom:1px solid #f3f4f6;cursor:pointer;transition:background .1s}
+.app-card:hover{background:#fafafa}
+.app-card.active{background:#fff5f5;border-left:3px solid #D9251C}
+.app-card:not(.active){border-left:3px solid transparent}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.card-name{font-size:13px;font-weight:700;color:#1a1a2e}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700}
 .b-pending{background:#fef3c7;color:#92400e}
 .b-confirmed{background:#d1fae5;color:#065f46}
 .b-voucher_sent{background:#dbeafe;color:#1e40af}
 .b-completed{background:#f3f4f6;color:#374151}
-.actions{display:flex;gap:5px;flex-wrap:wrap}
-
-/* 모달 */
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center}
-.modal-bg.open{display:flex}
-.modal{background:#fff;border-radius:14px;width:min(620px,94vw);max-height:88vh;overflow-y:auto;padding:28px 28px}
-.modal h3{font-size:17px;font-weight:700;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center}
-.modal-close{background:none;border:none;font-size:20px;cursor:pointer;color:#9ca3af;line-height:1}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
-.info-item .lbl{font-size:11px;font-weight:700;color:#D9251C;letter-spacing:.5px;margin-bottom:3px}
-.info-item .val{font-size:13px;color:#1a1a2e}
-.sep{border:none;border-top:1px solid #e5e7eb;margin:16px 0}
-.itin-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
-.itin-table th{background:#0f0f1a;color:#fff;padding:7px 10px;text-align:left}
-.itin-table td{padding:7px 10px;border-bottom:1px solid #f3f4f6}
-.itin-table tr:last-child td{border-bottom:none}
-.modal-acts{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
-.status-sel{padding:7px 12px;border:1.5px solid #e5e7eb;border-radius:6px;font-size:12px;font-family:'Noto Sans KR',sans-serif}
+.card-info{font-size:11px;color:#6b7280;line-height:1.6}
+.card-rno{font-size:10px;color:#D9251C;font-weight:700;margin-top:3px}
 
 /* 빈 상태 */
-.empty{text-align:center;padding:60px 20px;color:#9ca3af}
-.empty p{font-size:14px;margin-top:10px}
+.empty{text-align:center;padding:40px 20px;color:#9ca3af}
+.loading{text-align:center;padding:30px;color:#9ca3af;font-size:12px}
 
-/* 로딩 */
-.loading{text-align:center;padding:40px;color:#9ca3af;font-size:13px}
+/* 좌측 하단 버튼 */
+.left-footer{padding:10px 12px;border-top:1px solid #f3f4f6;display:flex;gap:6px;flex-shrink:0}
+.btn{padding:7px 14px;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .15s}
+.btn-red{background:#D9251C;color:#fff}
+.btn-gray{background:#f3f4f6;color:#374151;border:1px solid #e5e7eb}
+.btn:hover{opacity:.85}
+
+/* 오른쪽 패널 */
+#right{flex:1;display:flex;flex-direction:column;background:#f0f2f5}
+#right-head{background:#fff;border-bottom:1px solid #e5e7eb;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;min-height:48px}
+#right-title{font-size:13px;font-weight:700;color:#374151}
+#right-actions{display:flex;gap:6px}
+.btn-sm{padding:5px 12px;font-size:11px}
+.btn-green{background:#166534;color:#fff}
+.btn-dark{background:#0f0f1a;color:#fff}
+
+#voucher-frame{flex:1;border:none;width:100%;background:#fff}
+
+#placeholder{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:#9ca3af}
+#placeholder .icon{font-size:48px}
+#placeholder p{font-size:14px}
+#placeholder small{font-size:12px;color:#d1d5db}
 
 /* toast */
-#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0f0f1a;color:#fff;padding:9px 22px;border-radius:24px;font-size:12px;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f0f1a;color:#fff;padding:8px 20px;border-radius:20px;font-size:12px;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none}
 </style>
 </head>
 <body>
 <div id="wrap">
 
-<!-- 사이드바 -->
-<div id="side">
-  <div class="s-logo">
+<!-- 왼쪽: 신청 목록 -->
+<div id="left">
+  <div id="left-head">
     <div class="logo">GL<b>U</b>X</div>
-    <p>Admin Dashboard</p>
+    <p>Admin — 신청 관리</p>
   </div>
-  <nav class="s-nav">
-    <a class="s-item on" onclick="setView('apps')">📋 신청 관리</a>
-    <a class="s-item" href="/" target="_blank">🌐 고객 사이트</a>
-    <a class="s-item" href="/admin/voucher" target="_blank">📄 바우처 빌더</a>
-  </nav>
-  <div class="s-footer">
-    <a href="/">고객 페이지로 이동 →</a>
+
+  <div class="stats">
+    <div class="stat red"><div class="n" id="s-pending">—</div><div class="l">대기</div></div>
+    <div class="stat green"><div class="n" id="s-confirmed">—</div><div class="l">확정</div></div>
+    <div class="stat blue"><div class="n" id="s-sent">—</div><div class="l">발송</div></div>
+  </div>
+
+  <div class="toolbar">
+    <div class="filter-row">
+      <button class="ftab on" onclick="filterBy('',this)">전체</button>
+      <button class="ftab" onclick="filterBy('pending',this)">대기</button>
+      <button class="ftab" onclick="filterBy('confirmed',this)">확정</button>
+      <button class="ftab" onclick="filterBy('voucher_sent',this)">발송</button>
+      <button class="ftab" onclick="filterBy('completed',this)">완료</button>
+    </div>
+    <input class="search-inp" type="text" id="search-inp" placeholder="이름·연락처·예약번호 검색" oninput="applySearch()">
+  </div>
+
+  <div id="app-list"><div class="loading">불러오는 중...</div></div>
+
+  <div class="left-footer">
+    <button class="btn btn-red" onclick="loadApps()" style="flex:1">🔄 새로고침</button>
+    <a class="btn btn-gray" href="/" target="_blank">🌐 고객사이트</a>
   </div>
 </div>
 
-<!-- 메인 -->
-<div id="main">
-  <div class="top-bar">
-    <h1>신청 관리</h1>
-    <button class="btn btn-red" onclick="loadApps()">🔄 새로고침</button>
+<!-- 오른쪽: 바우처 빌더 -->
+<div id="right">
+  <div id="right-head">
+    <div id="right-title">← 왼쪽에서 신청을 선택하세요</div>
+    <div id="right-actions" style="display:none">
+      <button class="btn btn-gray btn-sm" onclick="updateStatus('confirmed')">✅ 확정</button>
+      <button class="btn btn-green btn-sm" id="email-btn" onclick="sendEmail()">✉️ 이메일 발송</button>
+      <button class="btn btn-gray btn-sm" style="color:#D9251C" onclick="deleteApp()">🗑️ 삭제</button>
+    </div>
   </div>
 
-  <!-- 통계 -->
-  <div class="stats" id="stats-wrap">
-    <div class="stat"><div class="n" id="s-total">—</div><div class="l">전체 신청</div></div>
-    <div class="stat red"><div class="n" id="s-pending">—</div><div class="l">대기 중</div></div>
-    <div class="stat green"><div class="n" id="s-confirmed">—</div><div class="l">일정 확정</div></div>
-    <div class="stat blue"><div class="n" id="s-sent">—</div><div class="l">바우처 발송</div></div>
-    <div class="stat"><div class="n" id="s-completed">—</div><div class="l">완료</div></div>
+  <div id="placeholder">
+    <div class="icon">📋</div>
+    <p>신청을 선택하면 바우처 빌더가 열립니다</p>
+    <small>왼쪽 목록에서 고객 신청을 클릭하세요</small>
   </div>
-
-  <!-- 필터 -->
-  <div class="filter-tabs">
-    <button class="ftab on" onclick="filterBy('',this)">전체</button>
-    <button class="ftab" onclick="filterBy('pending',this)">대기 중</button>
-    <button class="ftab" onclick="filterBy('confirmed',this)">일정 확정</button>
-    <button class="ftab" onclick="filterBy('voucher_sent',this)">바우처 발송</button>
-    <button class="ftab" onclick="filterBy('completed',this)">완료</button>
-  </div>
-
-  <!-- 검색 -->
-  <div class="search-bar">
-    <input type="text" id="search-inp" placeholder="이름, 연락처, 예약번호로 검색..." oninput="applySearch()">
-  </div>
-
-  <!-- 테이블 -->
-  <div class="tbl-wrap">
-    <div id="tbl-content"><div class="loading">데이터를 불러오는 중...</div></div>
-  </div>
+  <iframe id="voucher-frame" style="display:none" onload="onFrameLoad()"></iframe>
 </div>
 
-</div><!-- #wrap -->
+</div>
 <div id="toast"></div>
-
-<!-- 상세 모달 -->
-<div class="modal-bg" id="detail-modal">
-  <div class="modal">
-    <h3 id="modal-title">신청 상세 <button class="modal-close" onclick="closeModal()">✕</button></h3>
-    <div id="modal-body"></div>
-  </div>
-</div>
 
 <script>
 let allApps = []
 let currentFilter = ''
-let currentApp = null
+let selectedId = null
 
-const STATUS_MAP = {
-  pending: { label: '대기 중', cls: 'b-pending' },
-  confirmed: { label: '일정 확정', cls: 'b-confirmed' },
-  voucher_sent: { label: '바우처 발송', cls: 'b-voucher_sent' },
-  completed: { label: '완료', cls: 'b-completed' }
+const STATUS = {
+  pending:{label:'대기',cls:'b-pending'},
+  confirmed:{label:'확정',cls:'b-confirmed'},
+  voucher_sent:{label:'발송',cls:'b-voucher_sent'},
+  completed:{label:'완료',cls:'b-completed'}
 }
 
-function toast(msg) {
-  const t = document.getElementById('toast')
-  t.textContent = msg; t.style.opacity = '1'
-  clearTimeout(t._t)
-  t._t = setTimeout(() => t.style.opacity = '0', 2500)
+function toast(msg){
+  const t=document.getElementById('toast')
+  t.textContent=msg;t.style.opacity='1'
+  clearTimeout(t._t);t._t=setTimeout(()=>t.style.opacity='0',2500)
 }
 
-async function loadStats() {
-  try {
-    const r = await fetch('/api/applications/stats')
-    const d = await r.json()
-    document.getElementById('s-total').textContent = d.total
-    document.getElementById('s-pending').textContent = d.pending
-    document.getElementById('s-confirmed').textContent = d.confirmed
-    document.getElementById('s-sent').textContent = d.sent
-    document.getElementById('s-completed').textContent = d.completed
-  } catch {}
+async function loadStats(){
+  try{
+    const r=await fetch('/api/applications/stats')
+    const d=await r.json()
+    document.getElementById('s-pending').textContent=d.pending
+    document.getElementById('s-confirmed').textContent=d.confirmed
+    document.getElementById('s-sent').textContent=d.sent
+  }catch{}
 }
 
-async function loadApps() {
-  document.getElementById('tbl-content').innerHTML = '<div class="loading">불러오는 중...</div>'
-  try {
-    const r = await fetch('/api/applications')
-    allApps = await r.json()
+async function loadApps(){
+  document.getElementById('app-list').innerHTML='<div class="loading">불러오는 중...</div>'
+  try{
+    const r=await fetch('/api/applications')
+    allApps=await r.json()
     loadStats()
-    renderTable(allApps)
-  } catch (err) {
-    document.getElementById('tbl-content').innerHTML = '<div class="empty"><div style="font-size:40px">⚠️</div><p>데이터를 불러오지 못했습니다. 서버 연결을 확인하세요.</p></div>'
+    renderList(allApps)
+  }catch{
+    document.getElementById('app-list').innerHTML='<div class="empty">⚠️ 서버 연결 실패</div>'
   }
 }
 
-function filterBy(status, btn) {
-  currentFilter = status
-  document.querySelectorAll('.ftab').forEach(b => b.classList.remove('on'))
+function filterBy(status,btn){
+  currentFilter=status
+  document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('on'))
   btn.classList.add('on')
   applySearch()
 }
 
-function applySearch() {
-  const q = document.getElementById('search-inp').value.toLowerCase()
-  let filtered = currentFilter ? allApps.filter(a => a.status === currentFilter) : allApps
-  if (q) {
-    filtered = filtered.filter(a =>
-      (a.name||'').toLowerCase().includes(q) ||
-      (a.phone||'').includes(q) ||
-      (a.reservation_no||'').toLowerCase().includes(q) ||
-      (a.package_type||'').includes(q)
-    )
-  }
-  renderTable(filtered)
+function applySearch(){
+  const q=document.getElementById('search-inp').value.toLowerCase()
+  let list=currentFilter?allApps.filter(a=>a.status===currentFilter):allApps
+  if(q)list=list.filter(a=>(a.name||'').toLowerCase().includes(q)||(a.phone||'').includes(q)||(a.reservation_no||'').toLowerCase().includes(q))
+  renderList(list)
 }
 
-function renderTable(apps) {
-  if (!apps.length) {
-    document.getElementById('tbl-content').innerHTML = '<div class="empty"><div style="font-size:40px">📭</div><p>신청 내역이 없습니다.</p></div>'
-    return
-  }
-  const rows = apps.map(a => {
-    const st = STATUS_MAP[a.status] || { label: a.status, cls: '' }
-    return `<tr>
-      <td><strong>${a.reservation_no || '—'}</strong></td>
-      <td>${a.name}</td>
-      <td>${a.phone}</td>
-      <td>${a.package_type}</td>
-      <td>${a.departure_date} ~ ${a.return_date}</td>
-      <td>${a.passengers}명</td>
-      <td><span class="badge ${st.cls}">${st.label}</span></td>
-      <td>
-        <div class="actions">
-          <button class="btn btn-gray btn-sm" onclick="openDetail(${a.id})">상세</button>
-          <button class="btn btn-dark btn-sm" onclick="openVoucher(${a.id})">바우처</button>
-          ${a.status !== 'completed' ? `<button class="btn btn-sm" style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0" onclick="quickStatus(${a.id},'completed')">완료✓</button>` : ''}
-        </div>
-      </td>
-    </tr>`
+function renderList(apps){
+  if(!apps.length){document.getElementById('app-list').innerHTML='<div class="empty">📭 신청이 없습니다</div>';return}
+  document.getElementById('app-list').innerHTML=apps.map(a=>{
+    const st=STATUS[a.status]||{label:a.status,cls:''}
+    return `<div class="app-card${a.id===selectedId?' active':''}" onclick="selectApp(${a.id})">
+      <div class="card-top">
+        <span class="card-name">${a.name} <span style="font-weight:400;color:#6b7280">${a.passengers}명</span></span>
+        <span class="badge ${st.cls}">${st.label}</span>
+      </div>
+      <div class="card-info">${a.phone} · ${a.departure_date}~${a.return_date}<br>${a.package_type}${a.has_voucher?' <span style="color:#D9251C;font-weight:700">·바우처✓</span>':''}</div>
+      <div class="card-rno">${a.reservation_no||''}</div>
+    </div>`
   }).join('')
-
-  document.getElementById('tbl-content').innerHTML = `
-    <table>
-      <thead><tr>
-        <th>예약번호</th><th>성함</th><th>연락처</th><th>패키지</th><th>날짜</th><th>인원</th><th>상태</th><th>액션</th>
-      </tr></thead>
-      <tbody>${rows}</tbody>
-    </table>`
 }
 
-async function openDetail(id) {
-  try {
-    const r = await fetch(`/api/applications/${id}`)
-    const d = await r.json()
-    currentApp = d
-    const st = STATUS_MAP[d.status] || { label: d.status, cls: '' }
+function selectApp(id){
+  selectedId=id
+  // 활성 카드 표시
+  document.querySelectorAll('.app-card').forEach(c=>{
+    const cid=parseInt(c.getAttribute('onclick').match(/\d+/)[0])
+    c.classList.toggle('active',cid===id)
+  })
+  // 오른쪽 패널 전환
+  const app=allApps.find(a=>a.id===id)
+  if(!app)return
+  const st=STATUS[app.status]||{label:app.status,cls:''}
+  document.getElementById('right-title').innerHTML=`<span class="badge ${st.cls}">${st.label}</span> &nbsp; <strong>${app.name}</strong> &nbsp; <span style="font-weight:400;color:#6b7280">${app.reservation_no||''}</span>`
+  document.getElementById('right-actions').style.display='flex'
+  document.getElementById('placeholder').style.display='none'
+  const frame=document.getElementById('voucher-frame')
+  frame.style.display='block'
+  frame.src=`/admin/voucher?appId=${id}`
+}
 
-    const itinHtml = d.itinerary && d.itinerary.length
-      ? `<table class="itin-table">
-          <thead><tr><th>일차</th><th>날짜</th><th>픽업</th><th>드랍</th></tr></thead>
-          <tbody>${d.itinerary.map(day => `<tr>
-            <td>${day.day_number}일차</td>
-            <td>${day.date_label}</td>
-            <td>${day.pickup_time} ${day.pickup_loc}</td>
-            <td>${day.dropoff_time} ${day.dropoff_loc}</td>
-          </tr>`).join('')}</tbody>
-        </table>`
-      : '<p style="color:#9ca3af;font-size:12px">아직 일정이 없습니다. 바우처 빌더에서 일정을 작성하세요.</p>'
+function onFrameLoad(){
+  // iframe 로드 후 저장 시 목록 갱신
+}
 
-    document.getElementById('modal-title').innerHTML = `
-      신청 상세 — <span class="badge ${st.cls}">${st.label}</span>
-      <button class="modal-close" onclick="closeModal()">✕</button>`
+async function updateStatus(status){
+  if(!selectedId)return
+  await fetch(`/api/applications/${selectedId}`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({status})})
+  toast('✅ 상태 업데이트됨')
+  await loadApps()
+  // 선택 유지
+  document.querySelectorAll('.app-card').forEach(c=>{
+    const cid=parseInt(c.getAttribute('onclick').match(/\d+/)[0])
+    c.classList.toggle('active',cid===selectedId)
+  })
+}
 
-    document.getElementById('modal-body').innerHTML = `
-      <div class="info-grid">
-        <div class="info-item"><div class="lbl">예약번호</div><div class="val"><strong>${d.reservation_no || '—'}</strong></div></div>
-        <div class="info-item"><div class="lbl">패키지</div><div class="val">${d.package_type}</div></div>
-        <div class="info-item"><div class="lbl">성함</div><div class="val">${d.name}</div></div>
-        <div class="info-item"><div class="lbl">연락처</div><div class="val">${d.phone}</div></div>
-        <div class="info-item"><div class="lbl">이메일</div><div class="val">${d.email || '미입력'}</div></div>
-        <div class="info-item"><div class="lbl">인원</div><div class="val">${d.passengers}명</div></div>
-        <div class="info-item"><div class="lbl">출발일</div><div class="val">${d.departure_date}</div></div>
-        <div class="info-item"><div class="lbl">귀국일</div><div class="val">${d.return_date}</div></div>
-        <div class="info-item" style="grid-column:1/-1"><div class="lbl">신청 채널</div><div class="val">${d.channel}</div></div>
-        ${d.requests ? `<div class="info-item" style="grid-column:1/-1"><div class="lbl">요청사항</div><div class="val" style="line-height:1.7">${d.requests}</div></div>` : ''}
-        ${d.voucher?.sent_at ? `<div class="info-item" style="grid-column:1/-1"><div class="lbl">바우처 발송일시</div><div class="val">${d.voucher.sent_at}</div></div>` : ''}
-      </div>
-
-      <hr class="sep">
-      <div style="font-size:12px;font-weight:700;color:#6b7280;margin-bottom:8px">여행 일정</div>
-      ${itinHtml}
-
-      <hr class="sep">
-      <div style="font-size:12px;font-weight:700;color:#6b7280;margin-bottom:8px">상태 변경</div>
-      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-        <select class="status-sel" id="status-sel">
-          <option value="pending" ${d.status==='pending'?'selected':''}>대기 중</option>
-          <option value="confirmed" ${d.status==='confirmed'?'selected':''}>일정 확정</option>
-          <option value="voucher_sent" ${d.status==='voucher_sent'?'selected':''}>바우처 발송</option>
-          <option value="completed" ${d.status==='completed'?'selected':''}>완료</option>
-        </select>
-        <button class="btn btn-dark btn-sm" onclick="updateStatus(${d.id})">상태 저장</button>
-        <button class="btn btn-sm" style="background:#fee2e2;color:#D9251C" onclick="deleteApp(${d.id})">삭제</button>
-      </div>
-
-      <div class="modal-acts">
-        <button class="btn btn-dark" onclick="openVoucher(${d.id});closeModal()">📄 바우처 빌더로 이동</button>
-        ${d.email ? `<button class="btn btn-green" onclick="sendVoucherEmail(${d.id})" ${!d.voucher?'disabled title="먼저 바우처를 저장하세요"':''}>✉️ 바우처 이메일 발송</button>` : '<span style="font-size:12px;color:#9ca3af">이메일 미입력 (발송 불가)</span>'}
-      </div>
-    `
-
-    document.getElementById('detail-modal').classList.add('open')
-  } catch (err) {
-    toast('상세 정보를 불러오지 못했습니다.')
+async function sendEmail(){
+  if(!selectedId)return
+  const btn=document.getElementById('email-btn')
+  btn.disabled=true;btn.textContent='발송 중...'
+  try{
+    const r=await fetch(`/api/vouchers/${selectedId}/send`,{method:'POST'})
+    const d=await r.json()
+    if(!r.ok)throw new Error(d.error)
+    toast('✉️ 이메일 발송 완료!')
+    loadApps()
+  }catch(err){
+    alert('발송 실패: '+err.message)
+  }finally{
+    btn.disabled=false;btn.textContent='✉️ 이메일 발송'
   }
 }
 
-function closeModal() {
-  document.getElementById('detail-modal').classList.remove('open')
+async function deleteApp(){
+  if(!selectedId||!confirm('이 신청을 삭제하시겠습니까?'))return
+  await fetch(`/api/applications/${selectedId}`,{method:'DELETE'})
+  toast('🗑️ 삭제됨')
+  selectedId=null
+  document.getElementById('right-title').textContent='← 왼쪽에서 신청을 선택하세요'
+  document.getElementById('right-actions').style.display='none'
+  document.getElementById('placeholder').style.display='flex'
+  document.getElementById('voucher-frame').style.display='none'
   loadApps()
 }
-
-function openVoucher(id) {
-  window.open(`/admin/voucher?appId=${id}`, '_blank')
-}
-
-async function quickStatus(id, status) {
-  await fetch(`/api/applications/${id}`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ status }) })
-  toast('✅ 상태가 업데이트되었습니다.')
-  loadApps()
-}
-
-async function updateStatus(id) {
-  const status = document.getElementById('status-sel').value
-  await fetch(`/api/applications/${id}`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ status }) })
-  toast('✅ 상태가 저장되었습니다.')
-}
-
-async function deleteApp(id) {
-  if (!confirm('이 신청을 삭제하시겠습니까? 일정과 바우처 데이터도 함께 삭제됩니다.')) return
-  await fetch(`/api/applications/${id}`, { method: 'DELETE' })
-  toast('🗑️ 삭제되었습니다.')
-  closeModal()
-}
-
-async function sendVoucherEmail(id) {
-  const btn = event.target
-  btn.disabled = true; btn.textContent = '발송 중...'
-  try {
-    const r = await fetch(`/api/vouchers/${id}/send`, { method: 'POST' })
-    const d = await r.json()
-    if (!r.ok) throw new Error(d.error)
-    toast('✉️ 바우처 이메일이 발송되었습니다!')
-    closeModal()
-  } catch (err) {
-    alert('이메일 발송 실패: ' + err.message)
-    btn.disabled = false; btn.textContent = '✉️ 바우처 이메일 발송'
-  }
-}
-
-function setView(v) {
-  document.querySelectorAll('.s-item').forEach(i => i.classList.remove('on'))
-  event.target.classList.add('on')
-}
-
-// 모달 바깥 클릭 닫기
-document.getElementById('detail-modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal()
-})
 
 loadApps()
 </script>
