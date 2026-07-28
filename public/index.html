@@ -248,6 +248,8 @@ section{padding:clamp(60px,10vw,110px) clamp(16px,4vw,48px)}
 .cta-trust{margin-top:40px;display:flex;justify-content:center;gap:clamp(16px,3vw,36px);flex-wrap:wrap}
 .cta-trust span{font-size:11px;color:rgba(255,255,255,.25);display:flex;align-items:center;gap:5px}
 .cta-trust span::before{content:'✓';color:var(--gold);font-weight:700;font-size:9px}
+.cta-form{background:var(--white);max-width:440px;margin:40px auto 0;padding:28px 26px;border-radius:14px;text-align:left;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.cta-form .fsuc{padding:28px 8px}
 
 .footer{background:var(--ink);padding:clamp(40px,5vw,72px) clamp(16px,4vw,48px) clamp(90px,13vw,130px)}
 .footer::before{content:'';display:block;max-width:1100px;margin:0 auto 40px;height:1px;background:linear-gradient(90deg,transparent,rgba(184,149,106,.12),transparent)}
@@ -520,6 +522,19 @@ body{padding-bottom:var(--bar)}
     <h2 class="st" style="text-align:center">지금 무료 상담을<br>시작하세요</h2>
     <p>가족여행, 연인여행, 골프여행 — 어떤 여행이든<br><strong>24시간 내 맞춤 견적</strong>을 보내드립니다.</p>
     <div class="cta-trust"><span>24시간 내 회신</span><span>상담 무료</span><span>대행사 마진 0%</span><span>현지 20년 직영</span></div>
+
+    <div class="cta-form">
+      <div id="cfArea">
+        <div class="fg2"><label class="fl">이름 *</label><input type="text" class="fi" placeholder="홍길동" id="cN"></div>
+        <div class="fg2"><label class="fl">전화번호 *</label><input type="tel" class="fi" placeholder="010-0000-0000" id="cP"></div>
+        <div class="fg2"><label class="fl">여행 일정</label><div class="date-row"><div><input type="date" class="fi fi-date" id="cCI" onchange="cCalc()"><div class="date-lbl">체크인</div></div><div><input type="date" class="fi fi-date" id="cCO" onchange="cCalc()"><div class="date-lbl">체크아웃</div></div></div><div class="nbadge" id="cnB"></div></div>
+        <div class="fg2"><label class="fl">인원</label><input type="text" class="fi" placeholder="예: 성인 2명, 아동 1명" id="cPpl"></div>
+        <div class="fg2"><label class="fl">기타 메모</label><textarea class="fi" placeholder="희망 여행 스타일 (가족/연인/골프), 특별 요청사항 등" id="cM"></textarea></div>
+        <button class="fsub" id="cBtn" onclick="subFc()"><span id="cbTxt">상담 신청하기</span></button>
+        <div class="fnote">접수 후 24시간 내 연락드립니다. 상담은 무료입니다.</div>
+      </div>
+      <div class="fsuc" id="cS"><h3>✅ 상담 신청 완료!</h3><p>24시간 내 연락드리겠습니다.</p></div>
+    </div>
   </div>
 </section>
 
@@ -613,6 +628,34 @@ async function subF(){
   }
 }
 function showS(){document.getElementById('fArea').style.display='none';document.getElementById('fS').classList.add('show');setTimeout(()=>{closeMo();setTimeout(()=>{document.getElementById('fArea').style.display='';document.getElementById('fS').classList.remove('show');['fN','fP','fCI','fCO','fPpl','fM'].forEach(id=>document.getElementById(id).value='');document.getElementById('nB').classList.remove('show')},500)},2500)}
+// ── 인라인 상담폼 (#contact) ──────────────────────────────
+async function postInquiry(n,p,ci,co,ppl,memo){
+  const requests=[ppl,memo].filter(Boolean).join(' / ');
+  return fetch('/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name:n,phone:p,departure_date:ci||'미정',return_date:co||'미정',package_type:'문의',requests:requests||null})});
+}
+function cCalc(){
+  const ci=document.getElementById('cCI').value,co=document.getElementById('cCO').value,b=document.getElementById('cnB');
+  if(ci){const m=new Date(ci);m.setDate(m.getDate()+1);const minCO=m.toISOString().split('T')[0];document.getElementById('cCO').setAttribute('min',minCO);if(co&&co<=ci){document.getElementById('cCO').value='';b.classList.remove('show');return}}
+  if(ci&&co){const n=Math.round((new Date(co)-new Date(ci))/864e5);if(n>0){b.innerHTML='🗓️ <b>'+n+'박 '+(n+1)+'일</b> 여행';b.classList.add('show')}else b.classList.remove('show')}else b.classList.remove('show')
+}
+async function subFc(){
+  const n=document.getElementById('cN').value.trim();
+  const p=document.getElementById('cP').value.trim();
+  if(!n||!p){alert('이름과 전화번호는 필수입니다.');return}
+  const ci=document.getElementById('cCI').value,co=document.getElementById('cCO').value;
+  const ppl=document.getElementById('cPpl').value.trim(),memo=document.getElementById('cM').value.trim();
+  const btn=document.getElementById('cBtn');
+  btn.disabled=true;document.getElementById('cbTxt').textContent='신청 중...';
+  try{
+    const res=await postInquiry(n,p,ci,co,ppl,memo);
+    const json=await res.json().catch(()=>({}));
+    if(res.ok){document.getElementById('cfArea').style.display='none';document.getElementById('cS').classList.add('show');}
+    else{alert('오류: '+(json.error||'다시 시도해주세요.'));btn.disabled=false;document.getElementById('cbTxt').textContent='상담 신청하기';}
+  }catch(err){console.error(err);document.getElementById('cfArea').style.display='none';document.getElementById('cS').classList.add('show');}
+}
+(function(){const t=new Date().toISOString().split('T')[0];const a=document.getElementById('cCI'),b=document.getElementById('cCO');if(a)a.setAttribute('min',t);if(b)b.setAttribute('min',t);})();
+
 // Image fallback - if Unsplash fails, use gradient
 const fallbacks={osaka:'linear-gradient(135deg,#2a1a35,#3d2040 30%,#1a1028)',kyoto:'linear-gradient(135deg,#2d1510,#3a1a12 30%,#1a0e0a)',nara:'linear-gradient(135deg,#0e2518,#163520 30%,#0a1a10)',kobe:'linear-gradient(135deg,#0e1830,#152540 30%,#0a1225)',golf1:'linear-gradient(135deg,#0a2010,#1a3a1a)',golf2:'linear-gradient(135deg,#1a2810,#2a3a20)',golf3:'linear-gradient(135deg,#102010,#1a301a)',golf4:'linear-gradient(135deg,#0a1820,#1a2830)',fam:'linear-gradient(135deg,#1a1020,#2a1a30)',gol:'linear-gradient(135deg,#0a2010,#1a3a1a)'};
 document.querySelectorAll('[style*="background-image"]').forEach(el=>{const img=new Image();const url=el.style.backgroundImage.replace(/url\(['"]?([^'"]+)['"]?\)/,'$1');img.onerror=()=>{el.style.backgroundImage='linear-gradient(135deg,#1a1a2a,#2a2030 40%,#151520)'};img.src=url})
