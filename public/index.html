@@ -255,9 +255,9 @@ section{padding:clamp(60px,10vw,110px) clamp(16px,4vw,48px)}
 .footer::before{content:'';display:block;max-width:1100px;margin:0 auto 40px;height:1px;background:linear-gradient(90deg,transparent,rgba(184,149,106,.12),transparent)}
 .fg{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(20px,4vw,56px)}
 .fb-name{font-family:var(--serif);font-size:18px;color:var(--white);letter-spacing:4px;margin-bottom:12px}.fb-name span{color:var(--gold);font-weight:600}
-.fb p{font-size:11.5px;color:rgba(255,255,255,.22);line-height:2}
+.fb p{font-size:11.5px;color:rgba(255,255,255,.5);line-height:2}
 .fc h4{font-size:9.5px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;font-weight:600}
-.fc a{display:block;font-size:12px;color:rgba(255,255,255,.28);padding:4px 0;transition:color .3s;font-weight:300}
+.fc a{display:block;font-size:12px;color:rgba(255,255,255,.58);padding:4px 0;transition:color .3s;font-weight:300}
 .fc a:hover{color:var(--gold)}
 
 .mbar{position:fixed;bottom:0;left:0;right:0;z-index:200;height:var(--bar);display:none;align-items:stretch;background:var(--ink);border-top:1px solid rgba(184,149,106,.1);box-shadow:0 -3px 16px rgba(0,0,0,.3)}
@@ -293,7 +293,7 @@ textarea.fi{resize:vertical;min-height:72px}
 .fsuc h3{font-family:var(--serif);font-size:22px;color:var(--char);margin-bottom:10px}
 .fsuc p{font-size:13px;color:var(--mist)}
 
-.kf{position:fixed;bottom:calc(var(--bar) + 16px);right:16px;z-index:250;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.kf{position:fixed;bottom:42vh;right:16px;z-index:250;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
 .kf-tip{background:var(--char);color:var(--white);font-size:11px;font-weight:500;padding:6px 14px;border-radius:18px;box-shadow:0 3px 12px rgba(0,0,0,.2);opacity:0;transform:translateY(3px);transition:all .3s;pointer-events:none}
 .kf:hover .kf-tip{opacity:1;transform:translateY(0)}
 .kf-btn{width:54px;height:54px;border-radius:50%;background:#FEE500;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 16px rgba(0,0,0,.12);transition:all .3s;position:relative}
@@ -546,23 +546,23 @@ body{padding-bottom:var(--bar)}
     <div class="fc"><h4>채널</h4><a href="#">카카오톡채널</a><a href="#">네이버 카페</a><a href="#">인스타그램</a><a href="#">블로그</a></div>
   </div>
   <div style="max-width:1100px;margin:36px auto 0;padding-top:28px;border-top:1px solid rgba(184,149,106,.1);display:flex;flex-wrap:wrap;gap:10px 32px;align-items:flex-start">
-    <div style="font-size:10.5px;color:rgba(255,255,255,.18);line-height:2.1;flex:1;min-width:280px">
-      <span style="color:rgba(184,149,106,.5);font-size:9px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px">COMPANY INFO</span>
-      <b style="color:rgba(255,255,255,.35);font-weight:500">Fifty Five株式会社</b>（商号：GAJA旅行）<br>
+    <div style="font-size:10.5px;color:rgba(255,255,255,.6);line-height:2.1;flex:1;min-width:280px">
+      <span style="color:rgba(184,149,106,.85);font-size:9px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px">COMPANY INFO</span>
+      <b style="color:rgba(255,255,255,.92);font-weight:600">Fifty Five株式会社</b>（商号：GAJA旅行）<br>
       代表取締役　若松 優依<br>
       〒 大阪市中央区東心斎橋二丁目1番5号<br>
       ゴールデン第一プラザビル2階202号室<br>
       大阪府知事登録　旅行サービス手配業　第7415号
     </div>
-    <div style="font-size:10.5px;color:rgba(255,255,255,.18);line-height:2.1">
-      <span style="color:rgba(184,149,106,.5);font-size:9px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px">CONTACT</span>
+    <div style="font-size:10.5px;color:rgba(255,255,255,.6);line-height:2.1">
+      <span style="color:rgba(184,149,106,.85);font-size:9px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px">CONTACT</span>
       TEL: +81-80-5706-7979<br>
       KAKAO: GLUX Tour<br>
       E-mail: jsky9292@gmail.com
     </div>
-    <div style="width:100%;font-size:10px;color:rgba(255,255,255,.1);margin-top:8px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <div style="width:100%;font-size:10px;color:rgba(255,255,255,.4);margin-top:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center">
       <span>© 2024 Fifty Five株式会社 / GLUX Tour. All rights reserved.</span>
-      <a href="/admin" style="color:rgba(255,255,255,.18);text-decoration:none">관리자</a>
+      <a href="/admin" style="position:relative;z-index:260;color:rgba(255,255,255,.5);text-decoration:none;border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:6px 14px;font-size:11px">관리자</a>
     </div>
   </div>
 </footer>
