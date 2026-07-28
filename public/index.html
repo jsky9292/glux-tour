@@ -22,6 +22,43 @@
 <meta name="twitter:title" content="GLUX | 간사이 프라이빗 럭셔리 여행 & 골프">
 <meta name="twitter:description" content="오사카·교토·나라·고베 현지 20년 직영. 대행사 없이 현지가격 그대로.">
 <meta name="twitter:image" content="https://gluxtour.com/glux_thumbnail.png">
+<!-- 구조화 데이터 (검색 리치결과용) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "GLUX Tour",
+  "alternateName": "그럭스 투어",
+  "url": "https://gluxtour.com/",
+  "image": "https://gluxtour.com/glux_thumbnail.png",
+  "description": "오사카·교토·나라·고베 간사이 지방 현지 직영 여행사. 프라이빗 골프·가족·온천·테마 소도시 여행 전문. 일본생활 30년, 가이드 10년 경력의 한국어 가능 현지인이 직접 운영합니다.",
+  "telephone": "+81-80-5706-7979",
+  "email": "jsky9292@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "東心斎橋二丁目1番5号 ゴールデン第一プラザビル2階202号室",
+    "addressLocality": "大阪市中央区",
+    "addressRegion": "大阪府",
+    "addressCountry": "JP"
+  },
+  "areaServed": ["Osaka", "Kyoto", "Nara", "Kobe", "Kansai"],
+  "knowsLanguage": ["ko", "ja"],
+  "priceRange": "$$"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "골프 안 치는데 가족여행만 가능한가요?", "acceptedAnswer": {"@type": "Answer", "text": "물론입니다! 가족·연인 프라이빗 여행은 GLUX의 핵심 서비스입니다. 료칸, 맛집, 교토·나라 관광 등 골프 없이도 충분히 특별한 여행을 설계합니다."}},
+    {"@type": "Question", "name": "골프장은 어떤 기준으로 추천하나요?", "acceptedAnswer": {"@type": "Answer", "text": "실력, 코스 유형(평탄/산악/해안), 잔디 컨디션, 숙소 거리, 예산을 종합 고려하여 100여 개 CC 중 최적의 골프장을 직접 부킹합니다."}},
+    {"@type": "Question", "name": "료칸 예약이 어렵다고 하는데 가능한가요?", "acceptedAnswer": {"@type": "Answer", "text": "인기 프라이빗 료칸은 개인 예약이 매우 어렵습니다. GLUX는 20년 직거래 관계로 우선 배정이 가능합니다."}},
+    {"@type": "Question", "name": "2박 3일과 3박 4일 중 추천은?", "acceptedAnswer": {"@type": "Answer", "text": "핵심만 즐기시려면 2박 3일, 여유롭게 교토·고베까지 둘러보시려면 3박 4일을 추천합니다."}},
+    {"@type": "Question", "name": "취소 및 환불은 어떻게 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "출발 30일 전까지 전액 환불, 이후 단계별 규정이 적용됩니다. 상세 내용은 상담 시 안내드립니다."}}
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
@@ -491,6 +528,29 @@ body{padding-bottom:var(--bar)}
   </div>
 </section>
 
+<!-- CTA (신청폼) — 패키지 직후 배치 -->
+<section class="cta-s" id="contact">
+  <div class="cta-in rv">
+    <div class="sov" style="justify-content:center;margin-bottom:16px"><div class="sov-l"></div><span class="sov-t">Contact GLUX</span><div class="sov-l"></div></div>
+    <h2 class="st" style="text-align:center">지금 무료 상담을<br>시작하세요</h2>
+    <p>가족여행, 연인여행, 골프여행 — 어떤 여행이든<br><strong>24시간 내 맞춤 견적</strong>을 보내드립니다.</p>
+    <div class="cta-trust"><span>24시간 내 회신</span><span>상담 무료</span><span>대행사 마진 0%</span><span>현지 20년 직영</span></div>
+
+    <div class="cta-form">
+      <div id="cfArea">
+        <div class="fg2"><label class="fl">이름 *</label><input type="text" class="fi" placeholder="홍길동" id="cN"></div>
+        <div class="fg2"><label class="fl">전화번호 *</label><input type="tel" class="fi" placeholder="010-0000-0000" id="cP"></div>
+        <div class="fg2"><label class="fl">여행 일정</label><div class="date-row"><div><input type="date" class="fi fi-date" id="cCI" onchange="cCalc()"><div class="date-lbl">체크인</div></div><div><input type="date" class="fi fi-date" id="cCO" onchange="cCalc()"><div class="date-lbl">체크아웃</div></div></div><div class="nbadge" id="cnB"></div></div>
+        <div class="fg2"><label class="fl">인원</label><input type="text" class="fi" placeholder="예: 성인 2명, 아동 1명" id="cPpl"></div>
+        <div class="fg2"><label class="fl">기타 메모</label><textarea class="fi" placeholder="희망 여행 스타일 (가족/연인/골프), 특별 요청사항 등" id="cM"></textarea></div>
+        <button class="fsub" id="cBtn" onclick="subFc()"><span id="cbTxt">상담 신청하기</span></button>
+        <div class="fnote">접수 후 24시간 내 연락드립니다. 상담은 무료입니다.</div>
+      </div>
+      <div class="fsuc" id="cS"><h3>✅ 상담 신청 완료!</h3><p>24시간 내 연락드리겠습니다.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- REVIEWS — NO specific names -->
 <section class="rev-s" id="rev">
   <div class="inner">
@@ -517,28 +577,6 @@ body{padding-bottom:var(--bar)}
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-s" id="contact">
-  <div class="cta-in rv">
-    <div class="sov" style="justify-content:center;margin-bottom:16px"><div class="sov-l"></div><span class="sov-t">Contact GLUX</span><div class="sov-l"></div></div>
-    <h2 class="st" style="text-align:center">지금 무료 상담을<br>시작하세요</h2>
-    <p>가족여행, 연인여행, 골프여행 — 어떤 여행이든<br><strong>24시간 내 맞춤 견적</strong>을 보내드립니다.</p>
-    <div class="cta-trust"><span>24시간 내 회신</span><span>상담 무료</span><span>대행사 마진 0%</span><span>현지 20년 직영</span></div>
-
-    <div class="cta-form">
-      <div id="cfArea">
-        <div class="fg2"><label class="fl">이름 *</label><input type="text" class="fi" placeholder="홍길동" id="cN"></div>
-        <div class="fg2"><label class="fl">전화번호 *</label><input type="tel" class="fi" placeholder="010-0000-0000" id="cP"></div>
-        <div class="fg2"><label class="fl">여행 일정</label><div class="date-row"><div><input type="date" class="fi fi-date" id="cCI" onchange="cCalc()"><div class="date-lbl">체크인</div></div><div><input type="date" class="fi fi-date" id="cCO" onchange="cCalc()"><div class="date-lbl">체크아웃</div></div></div><div class="nbadge" id="cnB"></div></div>
-        <div class="fg2"><label class="fl">인원</label><input type="text" class="fi" placeholder="예: 성인 2명, 아동 1명" id="cPpl"></div>
-        <div class="fg2"><label class="fl">기타 메모</label><textarea class="fi" placeholder="희망 여행 스타일 (가족/연인/골프), 특별 요청사항 등" id="cM"></textarea></div>
-        <button class="fsub" id="cBtn" onclick="subFc()"><span id="cbTxt">상담 신청하기</span></button>
-        <div class="fnote">접수 후 24시간 내 연락드립니다. 상담은 무료입니다.</div>
-      </div>
-      <div class="fsuc" id="cS"><h3>✅ 상담 신청 완료!</h3><p>24시간 내 연락드리겠습니다.</p></div>
-    </div>
-  </div>
-</section>
 
 <footer class="footer">
   <div class="fg">
