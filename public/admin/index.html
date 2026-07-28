@@ -7,8 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans KR',sans-serif;font-size:13px;background:#f0f2f5;color:#1a1a2e;height:100vh;overflow:hidden}
-#wrap{display:flex;height:100vh}
+body{font-family:'Noto Sans KR',sans-serif;font-size:13px;background:#f0f2f5;color:#1a1a2e;height:100vh;height:100dvh;overflow:hidden}
+#wrap{display:flex;height:100vh;height:100dvh}
 
 /* 왼쪽 패널 */
 #left{width:360px;min-width:360px;background:#fff;display:flex;flex-direction:column;border-right:1px solid #e5e7eb}
@@ -45,6 +45,9 @@ body{font-family:'Noto Sans KR',sans-serif;font-size:13px;background:#f0f2f5;col
 .card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
 .card-name{font-size:13px;font-weight:700;color:#1a1a2e}
 .badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700}
+.card-right{display:flex;align-items:center;gap:6px}
+.card-del{border:none;background:transparent;cursor:pointer;font-size:13px;line-height:1;padding:3px 5px;border-radius:6px;opacity:.5;transition:opacity .1s,background .1s}
+.card-del:hover{opacity:1;background:#fee2e2}
 .b-pending{background:#fef3c7;color:#92400e}
 .b-confirmed{background:#d1fae5;color:#065f46}
 .b-voucher_sent{background:#dbeafe;color:#1e40af}
@@ -64,7 +67,7 @@ body{font-family:'Noto Sans KR',sans-serif;font-size:13px;background:#f0f2f5;col
 .btn:hover{opacity:.85}
 
 /* 오른쪽 패널 */
-#right{flex:1;display:flex;flex-direction:column;background:#f0f2f5}
+#right{flex:1;display:flex;flex-direction:column;background:#f0f2f5;min-height:0}
 #right-head{background:#fff;border-bottom:1px solid #e5e7eb;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;min-height:48px}
 #right-title{font-size:13px;font-weight:700;color:#374151}
 #right-actions{display:flex;gap:6px}
@@ -72,7 +75,7 @@ body{font-family:'Noto Sans KR',sans-serif;font-size:13px;background:#f0f2f5;col
 .btn-green{background:#166534;color:#fff}
 .btn-dark{background:#0f0f1a;color:#fff}
 
-#voucher-frame{flex:1;border:none;width:100%;background:#fff}
+#voucher-frame{flex:1;border:none;width:100%;height:100%;min-height:0;background:#fff}
 
 #placeholder{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:#9ca3af}
 #placeholder .icon{font-size:48px}
@@ -199,7 +202,10 @@ function renderList(apps){
     return `<div class="app-card${a.id===selectedId?' active':''}" onclick="selectApp(${a.id})">
       <div class="card-top">
         <span class="card-name">${a.name} <span style="font-weight:400;color:#6b7280">${a.passengers}명</span></span>
-        <span class="badge ${st.cls}">${st.label}</span>
+        <span class="card-right">
+          <span class="badge ${st.cls}">${st.label}</span>
+          <button class="card-del" onclick="delFromList(event,${a.id})" title="신청 삭제">🗑️</button>
+        </span>
       </div>
       <div class="card-info">${a.phone} · ${a.departure_date}~${a.return_date}<br>${a.package_type}${a.has_voucher?' <span style="color:#D9251C;font-weight:700">·바우처✓</span>':''}</div>
       <div class="card-rno">${a.reservation_no||''}</div>
@@ -262,6 +268,21 @@ async function deleteApp(){
   document.getElementById('right-title').textContent='← 왼쪽에서 신청을 선택하세요'
   document.getElementById('right-actions').style.display='none'
   document.getElementById('voucher-frame').src='/admin/voucher'
+  loadApps()
+}
+
+async function delFromList(e,id){
+  e.stopPropagation()
+  const app=allApps.find(a=>a.id===id)
+  if(!confirm(`'${app?app.name:''}' 신청을 삭제하시겠습니까?`))return
+  await fetch(`/api/applications/${id}`,{method:'DELETE'})
+  toast('🗑️ 삭제됨')
+  if(selectedId===id){
+    selectedId=null
+    document.getElementById('right-title').textContent='← 왼쪽에서 신청을 선택하세요'
+    document.getElementById('right-actions').style.display='none'
+    document.getElementById('voucher-frame').src='/admin/voucher'
+  }
   loadApps()
 }
 

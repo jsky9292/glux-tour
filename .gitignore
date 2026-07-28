@@ -15,3 +15,6 @@ KakaoTalk_*
 *.png
 *.jpg
 *.docx
+
+.vercel
+.env*
