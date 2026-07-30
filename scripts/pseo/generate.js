@@ -1,7 +1,7 @@
 /**
- * GLUX pSEO 랜딩페이지 생성기
+ * GLUX pSEO 랜딩페이지 생성기 (v2 - 풍성한 버전)
  * 데이터(PAGES) → public/tour/{slug}/index.html 생성
- * 각 페이지: 브랜드 디자인 + 신청폼(관리자로 취합) + SEO 메타 + JSON-LD
+ * 구성: 히어로(실사진) + 소개 + 하이라이트 + 사진갤러리 + 포함사항 + 추천일정 + 고객후기 + FAQ + 신청폼
  * 실행: node scripts/pseo/generate.js
  */
 const fs = require('fs')
@@ -10,7 +10,8 @@ const path = require('path')
 const KAKAO = 'https://open.kakao.com/o/gjyncvGi'
 const OUT_ROOT = path.join(__dirname, '..', '..', 'public', 'tour')
 
-// ── 공통 CSS (kansai-golf와 동일 톤) ──────────────────────────
+const INCLUDED = ['전용차량 공항 픽업 · 송영', '한국어 가능 현지 코디 · 가이드', '100% 맞춤 일정 설계', '숙소 · 맛집 예약 대행', '여행 중 실시간 카톡 지원']
+
 const STYLE = `*{margin:0;padding:0;box-sizing:border-box}
 :root{--ink:#08090c;--char:#141720;--slate:#1e2130;--mist:#7a7e8c;--silk:#e4e5ea;--paper:#f5f4f1;--cream:#faf9f6;--white:#fff;--gold:#b8956a;--gold-b:#d4ad78;--serif:'Cormorant Garamond',serif;--sans:'Noto Sans KR',-apple-system,sans-serif}
 body{font-family:var(--sans);color:var(--char);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -19,48 +20,61 @@ a{color:inherit;text-decoration:none}
 .logo{font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:5px;color:var(--white)}.logo span{color:var(--gold)}
 .top{position:sticky;top:0;z-index:50;background:rgba(8,9,12,.92);backdrop-filter:blur(8px)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
-.top a.home{color:rgba(255,255,255,.6);font-size:12.5px}
-.hero{background:linear-gradient(180deg,#08090c,#141720);color:var(--white);padding:64px 0 56px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(184,149,106,.16),transparent)}
+.top a.home{color:rgba(255,255,255,.65);font-size:12.5px}
+.hero{color:var(--white);padding:78px 0 66px;position:relative;overflow:hidden}
 .hero .wrap{position:relative}
-.crumb{font-size:11.5px;color:rgba(255,255,255,.4);letter-spacing:1px;margin-bottom:18px}
-.crumb a{color:rgba(184,149,106,.85)}
-.tag{display:inline-block;font-size:11px;letter-spacing:2px;color:var(--gold-b);border:1px solid rgba(184,149,106,.4);border-radius:20px;padding:5px 14px;margin-bottom:20px}
+.crumb{font-size:11.5px;color:rgba(255,255,255,.6);letter-spacing:1px;margin-bottom:18px}
+.crumb a{color:var(--gold-b)}
+.tag{display:inline-block;font-size:11px;letter-spacing:2px;color:var(--gold-b);border:1px solid rgba(184,149,106,.5);border-radius:20px;padding:5px 14px;margin-bottom:20px}
 h1{font-family:var(--serif);font-weight:300;font-size:clamp(30px,6vw,52px);line-height:1.22;margin-bottom:18px}
 h1 b{font-weight:600;color:var(--gold-b)}
-.lead{font-size:clamp(14px,2vw,16px);color:rgba(255,255,255,.62);max-width:620px;font-weight:300;word-break:keep-all}
+.lead{font-size:clamp(14px,2vw,16px);color:rgba(255,255,255,.82);max-width:640px;font-weight:300;word-break:keep-all}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:transform .2s}
 .btn:hover{transform:translateY(-2px)}
 .btn-gold{background:var(--gold);color:var(--ink)}
-.btn-line{border:1px solid rgba(255,255,255,.25);color:var(--white)}
-.trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;font-size:12.5px;color:rgba(255,255,255,.5)}
-.trust span::before{content:'✓ ';color:var(--gold)}
+.btn-line{border:1px solid rgba(255,255,255,.4);color:var(--white)}
+.trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;font-size:12.5px;color:rgba(255,255,255,.7)}
+.trust span::before{content:'✓ ';color:var(--gold-b)}
 section.blk{padding:52px 0;border-bottom:1px solid #ececec}
 .sov{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
 h2{font-family:var(--serif);font-size:clamp(24px,4vw,36px);font-weight:500;color:var(--char);margin-bottom:20px;line-height:1.3;word-break:keep-all}
-p.body{font-size:15px;color:#40434f;margin-bottom:14px;word-break:keep-all}
+p.body{font-size:15px;color:#3a3d4a;margin-bottom:14px;word-break:keep-all;line-height:1.85}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px}
 .card{background:var(--white);border:1px solid #ececec;border-radius:12px;padding:22px}
 .card h3{font-size:16px;color:var(--char);margin-bottom:8px}
-.card p{font-size:13.5px;color:var(--mist);line-height:1.7}
+.card p{font-size:13.5px;color:#5a5d68;line-height:1.7}
 .card .pin{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:1px;margin-bottom:10px}
 ul.pl{list-style:none;margin-top:16px}
-ul.pl li{padding:9px 0 9px 26px;position:relative;font-size:14.5px;color:#40434f;border-bottom:1px solid #f0f0f0}
+ul.pl li{padding:10px 0 10px 26px;position:relative;font-size:14.5px;color:#3a3d4a;border-bottom:1px solid #f0f0f0}
 ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.gi{padding-top:70%;background-size:cover;background-position:center;border-radius:10px;background-color:#e9e7e2}
+.gal-note{font-size:12px;color:var(--mist);margin-top:12px}
+.inc{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:20px}
+.inc div{background:var(--paper);border:1px solid #ececec;border-radius:8px;padding:13px 15px;font-size:13.5px;color:#3a3d4a}
+.inc div::before{content:'✓ ';color:var(--gold);font-weight:700}
 .day{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #f0f0f0}
 .day .d{flex-shrink:0;width:64px;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--gold)}
-.day .t{font-size:14.5px;color:#40434f}
+.day .t{font-size:14.5px;color:#3a3d4a}
+.rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:22px}
+.rc{background:var(--white);border:1px solid #ececec;border-radius:12px;padding:22px}
+.rc .stars{color:#e0a93c;font-size:14px;letter-spacing:2px;margin-bottom:10px}
+.rc .rtxt{font-size:14px;color:#3a3d4a;line-height:1.75;margin-bottom:14px;word-break:keep-all}
+.rc .rau{display:flex;align-items:center;gap:10px}
+.rc .rav{width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.rc .rname{font-size:13px;font-weight:600;color:var(--char)}
+.rc .rtrip{font-size:11px;color:var(--mist)}
 .faq{border:1px solid #ececec;border-radius:12px;overflow:hidden;margin-top:10px}
 .faq details{border-bottom:1px solid #ececec}.faq details:last-child{border-bottom:none}
 .faq summary{padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;background:var(--white)}
 .faq summary::-webkit-details-marker{display:none}
-.faq p{padding:0 20px 18px;font-size:14px;color:var(--mist);line-height:1.7}
+.faq p{padding:0 20px 18px;font-size:14px;color:#5a5d68;line-height:1.7}
 .cta{background:linear-gradient(180deg,#141720,#08090c);color:var(--white);text-align:center;padding:60px 20px}
 .cta h2{color:var(--white)}
-.cta>.wrap>p{color:rgba(255,255,255,.55);font-size:15px;margin-bottom:26px}
-footer{background:var(--ink);color:rgba(255,255,255,.4);font-size:12px;padding:28px 0;text-align:center}
-footer a{color:rgba(184,149,106,.7)}
+.cta>.wrap>p{color:rgba(255,255,255,.72);font-size:15px;margin-bottom:26px}
+footer{background:var(--ink);color:rgba(255,255,255,.55);font-size:12px;padding:28px 0;text-align:center}
+footer a{color:var(--gold-b)}
 #apply{scroll-margin-top:70px}
 .lform{background:var(--white);max-width:440px;margin:28px auto 0;padding:26px 24px;border-radius:14px;text-align:left;box-shadow:0 20px 60px rgba(0,0,0,.35)}
 .lform label{display:block;font-size:11.5px;font-weight:600;color:var(--char);letter-spacing:.5px;margin:14px 0 6px}
@@ -74,7 +88,8 @@ footer a{color:rgba(184,149,106,.7)}
 .lform .note{font-size:11px;color:var(--mist);text-align:center;margin-top:10px}
 .lform .ok{display:none;text-align:center;padding:24px 8px}
 .lform .ok h3{font-family:var(--serif);font-size:22px;color:var(--char);margin-bottom:8px}
-.lform .ok p{color:var(--mist);font-size:13px}`
+.lform .ok p{color:var(--mist);font-size:13px}
+@media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}`
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 const jstr = s => JSON.stringify(s)
@@ -84,8 +99,13 @@ function render(p) {
   const areas = p.areas.map(a => `    <div class="card"><div class="pin">${a.pin}</div><h3>${a.h3}</h3><p>${a.p}</p></div>`).join('\n')
   const why = p.whyGlux.map(li => `    <li>${li}</li>`).join('\n')
   const days = p.itinerary.map((d, i) => `  <div class="day"><div class="d">DAY ${i + 1}</div><div class="t">${d}</div></div>`).join('\n')
+  const inc = (p.included || INCLUDED).map(x => `    <div>${x}</div>`).join('\n')
+  const gal = [1, 2, 3].map(i => `    <div class="gi" style="background-image:url(../img/gallery/${p.slug}-${i}.jpg)"></div>`).join('\n')
+  const galNote = p.galleryReal ? '* GLUX 고객의 실제 여행 사진입니다.' : '* 이미지는 이해를 돕기 위한 예시입니다.'
+  const revs = p.reviews.map(r => `    <div class="rc"><div class="stars">${'★'.repeat(r.s)}</div><p class="rtxt">"${r.txt}"</p><div class="rau"><div class="rav">${r.name.slice(0, 1)}</div><div><div class="rname">${r.name}</div><div class="rtrip">${r.trip}</div></div></div></div>`).join('\n')
   const faqHtml = p.faq.map(f => `    <details><summary>${f.q}</summary><p>${f.a}</p></details>`).join('\n')
   const faqLd = p.faq.map(f => `    {"@type":"Question","name":${jstr(f.q)},"acceptedAnswer":{"@type":"Answer","text":${jstr(f.a)}}}`).join(',\n')
+  const revLd = p.reviews.map(r => `    {"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":${r.s},"bestRating":5},"author":{"@type":"Person","name":${jstr(r.name)}},"reviewBody":${jstr(r.txt)}}`).join(',\n')
 
   return `<!DOCTYPE html>
 <html lang="ko">
@@ -98,7 +118,7 @@ function render(p) {
 <meta property="og:type" content="article">
 <meta property="og:title" content="${esc(p.ogTitle || p.title)}">
 <meta property="og:description" content="${esc(p.description)}">
-<meta property="og:image" content="https://gluxtour.com/glux_thumbnail.png">
+<meta property="og:image" content="https://gluxtour.com/tour/img/${p.slug}.jpg">
 <meta property="og:url" content="${url}">
 <meta property="og:site_name" content="GLUX Tour">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -119,7 +139,7 @@ ${STYLE}
 
 <div class="top"><div class="wrap"><a href="https://gluxtour.com/" class="logo">GL<span>U</span>X</a><a href="https://gluxtour.com/" class="home">← GLUX 홈</a></div></div>
 
-<header class="hero" style="background:linear-gradient(rgba(8,9,12,.66),rgba(8,9,12,.82)),url(../img/${p.slug}.jpg) center/cover">
+<header class="hero" style="background:linear-gradient(rgba(8,9,12,.62),rgba(8,9,12,.8)),url(../img/${p.slug}.jpg) center/cover">
   <div class="wrap">
     <div class="crumb"><a href="https://gluxtour.com/">홈</a> › 여행 테마 › ${esc(p.kw)}</div>
     <span class="tag">${esc(p.tag)}</span>
@@ -134,7 +154,7 @@ ${STYLE}
 </header>
 
 <section class="blk"><div class="wrap">
-  <div class="sov">${esc(p.whyLabel || 'Why')}</div>
+  <div class="sov">${esc(p.whyLabel || 'About')}</div>
   <h2>${esc(p.whyTitle)}</h2>
   ${p.whyBody.map(b => `<p class="body">${b}</p>`).join('\n  ')}
 </div></section>
@@ -149,18 +169,35 @@ ${areas}
 </div></section>
 
 <section class="blk"><div class="wrap">
-  <div class="sov">Why GLUX</div>
-  <h2>GLUX가 다른 점</h2>
-  <ul class="pl">
-${why}
-  </ul>
+  <div class="sov">Gallery</div>
+  <h2>사진으로 미리 보기</h2>
+  <div class="gal">
+${gal}
+  </div>
+  <p class="gal-note">${galNote}</p>
+</div></section>
+
+<section class="blk"><div class="wrap">
+  <div class="sov">Included</div>
+  <h2>이 여행에 포함됩니다</h2>
+  <div class="inc">
+${inc}
+  </div>
 </div></section>
 
 <section class="blk"><div class="wrap">
   <div class="sov">Sample Course</div>
   <h2>추천 일정 예시</h2>
 ${days}
-  <p class="body" style="margin-top:18px;font-size:13.5px;color:var(--mist)">* 일정·박수·인원은 100% 맞춤 설계됩니다.</p>
+  <p class="body" style="margin-top:18px;font-size:13.5px;color:var(--mist)">* 일정 · 박수 · 인원은 100% 맞춤 설계됩니다.</p>
+</div></section>
+
+<section class="blk"><div class="wrap">
+  <div class="sov">Reviews</div>
+  <h2>고객 후기</h2>
+  <div class="rev">
+${revs}
+  </div>
 </div></section>
 
 <section class="blk"><div class="wrap">
@@ -182,7 +219,7 @@ ${faqHtml}
         <label>여행 일정 (선택)</label>
         <div class="row2"><input type="date" id="lCI"><input type="date" id="lCO"></div>
         <label>인원 (선택)</label><input type="text" id="lPpl" placeholder="예: 성인 2명, 아동 1명">
-        <label>메모 (선택)</label><textarea id="lM" placeholder="희망 일정·예산·요청사항을 편하게 적어주세요"></textarea>
+        <label>메모 (선택)</label><textarea id="lM" placeholder="희망 일정 · 예산 · 요청사항을 편하게 적어주세요"></textarea>
         <button id="lBtn" onclick="submitLead()">무료 상담 신청하기</button>
         <div class="note">접수 후 24시간 내 연락드립니다 · 상담 무료</div>
       </div>
@@ -220,20 +257,64 @@ async function submitLead(){
 `
 }
 
-// ── 페이지 데이터 ────────────────────────────────────────────
 const PAGES = [
   {
-    slug: 'osaka-family', kw: '오사카 가족여행',
+    slug: 'kansai-golf', kw: '간사이 골프여행', galleryReal: false,
+    title: '간사이 골프여행 | 오사카·고베·시가 명문 CC 프라이빗 부킹 — GLUX Tour',
+    ogTitle: '간사이 골프여행 | 명문 CC 프라이빗 부킹 — GLUX Tour',
+    description: '간사이 골프여행 전문 GLUX. 오사카·고베·시가·와카야마 100여 개 명문 CC를 컨디션별로 직접 부킹. 현지 30년 직영, 대행사 마진 0. 골프+온천 연계, 전용차량·한국어 현지인 케어.',
+    tag: 'KANSAI GOLF · 현지 직영', h1a: '간사이 골프여행', h1b: '명문 CC 프라이빗 부킹',
+    lead: '오사카·고베·시가·와카야마의 100여 개 골프장을 컨디션별로 직접 부킹합니다. 현지 30년 직영, 대행사 마진 0. 라운드부터 온천·미식까지 전용차량으로 올인원 케어해 드립니다.',
+    whyTitle: '왜 간사이에서 골프인가', whyLabel: 'Why Kansai Golf',
+    whyBody: [
+      '간사이는 <b>간사이국제공항(KIX)에서 1~2시간 거리에 명문 코스가 밀집</b>해 있어, 짧은 일정에도 라운드 효율이 가장 좋은 골프 여행지입니다. 도착 당일 라운드도 무리가 없습니다.',
+      '평탄한 챔피언십 코스부터 산악·해안 코스, 비와코(호수) 뷰 코스까지 <b>다양한 코스를 실력과 취향에 맞춰</b> 고를 수 있습니다.',
+      '무엇보다 <b>라운드 후 온천·미식과의 연계</b>가 뛰어납니다. 고베 A5 와규, 아리마·시라하마 온천이 골프장과 가까워 "낮엔 골프, 저녁엔 힐링"이 한 번에 됩니다.'
+    ],
+    areasTitle: '간사이 골프 추천 권역',
+    areas: [
+      { pin: 'OSAKA · KOBE', h3: '오사카·고베 근교', p: '공항·시내 접근성 최상. 짧은 일정, 도심 숙소 연계에 적합. 라운드 후 고베 미식·야경으로 연결하기 좋습니다.' },
+      { pin: 'SHIGA · BIWAKO', h3: '시가·비와코', p: '골프장 밀집 지역. 호수 뷰의 명문 코스가 많아 라운드 만족도가 높습니다. 2라운드 이상 일정에 추천.' },
+      { pin: 'WAKAYAMA', h3: '와카야마', p: '해안·산악 코스와 시라하마 온천 연계. 골프+온천 힐링 조합을 원하는 분께 인기입니다.' },
+      { pin: 'NARA · MIE', h3: '나라·미에 근교', p: '한적하고 자연 경관이 좋은 코스. 관광을 곁들인 여유로운 골프 여행에 어울립니다.' }
+    ],
+    whyGlux: [
+      '일본 생활 30년 · 가이드 10년 내공의 <b>한국어 잘하는 현지인</b>이 직접 운영',
+      '대행사를 거치지 않는 <b>현지 직영 — 현지 가격 그대로</b>',
+      '100여 개 CC 중 <b>잔디 컨디션까지 확인해 직접 부킹</b>',
+      '공항 픽업부터 라운드·온천·미식까지 <b>전용차량 올인원</b>',
+      '골프 안 하는 동반 가족을 위한 <b>관광 코스 병행</b> 가능'
+    ],
+    itinerary: [
+      '간사이공항 도착 → 전용차량 픽업 → 숙소 체크인 → 고베 와규 만찬',
+      '오전 명문 CC 라운드 → 점심 → 오후 온천/휴식 또는 2라운드 (선택)',
+      '오전 라운드 또는 관광·쇼핑 → 공항 송영 → 출국'
+    ],
+    reviews: [
+      { s: 5, txt: '잔디 컨디션까지 체크해서 골프장 추천해주니 믿음이 갔어요. 2라운드 후 아리마온천 코스가 최고였습니다. 전용차량이라 이동도 편했어요.', name: '이OO님', trip: '프리미엄 골프 3박4일' },
+      { s: 5, txt: '부킹부터 픽업, 식당까지 다 알아서 해주셔서 저희는 라운드만 즐기면 됐습니다. 현지 가격 그대로라 만족도 최고.', name: '정OO님', trip: '골프+온천 2박3일' },
+      { s: 5, txt: '골프 초보 아내와 함께 갔는데 코스 난이도까지 배려해주셔서 둘 다 즐겁게 쳤어요. 다음에 또 부탁드립니다.', name: '김OO님', trip: '부부 골프 2박3일' }
+    ],
+    faq: [
+      { q: '간사이 골프여행은 어디 공항으로 가나요?', a: '간사이국제공항(KIX)이 관문입니다. 공항에서 골프장·숙소까지 전용차량으로 픽업해 드려 이동이 편리합니다.' },
+      { q: '골프장은 어떻게 골라주나요?', a: '실력, 코스 유형(평탄/산악/해안), 잔디 컨디션, 숙소 거리, 예산을 종합 고려해 간사이 100여 개 CC 중 최적의 골프장을 직접 부킹합니다.' },
+      { q: '골프만 하나요, 관광·온천도 되나요?', a: '골프+온천, 골프+가족관광 등 자유롭게 조합됩니다. 라운드 후 아리마·시라하마 온천이나 고베 미식 코스를 연계해 드립니다.' },
+      { q: '몇 명부터 가능한가요?', a: '소규모 프라이빗부터 단체까지 인원에 맞춰 전용차량과 일정을 설계합니다. 편하게 상담 남겨 주세요.' }
+    ],
+    ctaSub: '간사이 골프여행, 어떤 일정이든 24시간 내 맞춤 견적을 보내드립니다.'
+  },
+  {
+    slug: 'osaka-family', kw: '오사카 가족여행', galleryReal: true,
     title: '오사카 가족여행 | 아이·부모님 맞춤 프라이빗 여행 — GLUX Tour',
     ogTitle: '오사카 가족여행 | 프라이빗 맞춤 — GLUX Tour',
     description: '오사카 가족여행 전문 GLUX. 아이·부모님까지 편안한 프라이빗 맞춤 일정, 전용차량 공항 픽업, 현지 30년 직영. 교토·나라·고베 연계, 한국어 현지인 케어.',
-    tag: 'OSAKA FAMILY · 현지 직영',
-    h1a: '오사카 가족여행', h1b: '아이도 부모님도 편안하게',
+    tag: 'OSAKA FAMILY · 현지 직영', h1a: '오사카 가족여행', h1b: '아이도 부모님도 편안하게',
     lead: '유니버설·도톤보리부터 교토·나라 관광까지, 가족 구성원 모두에게 맞춘 프라이빗 일정을 설계합니다. 전용차량 공항 픽업으로 짐·이동 걱정 없이 편안하게.',
     whyTitle: '왜 오사카 가족여행인가', whyLabel: 'Why Osaka',
     whyBody: [
-      '오사카는 <b>간사이국제공항에서 가깝고 볼거리·먹거리가 집약</b>돼 있어 아이·어르신과 함께하기에 이동 부담이 적습니다.',
-      '유니버설 스튜디오, 도톤보리, 교토·나라 관광까지 <b>하루 단위로 완급 조절</b>이 가능해 가족 여행의 베이스캠프로 최적입니다.'
+      '오사카는 <b>간사이국제공항에서 가깝고 볼거리·먹거리가 집약</b>돼 있어 아이·어르신과 함께하기에 이동 부담이 가장 적은 도시입니다.',
+      '유니버설 스튜디오, 도톤보리, 교토·나라 관광까지 <b>하루 단위로 완급을 조절</b>할 수 있어, 아이의 컨디션과 부모님의 체력에 맞춰 무리 없는 여행이 가능합니다.',
+      'GLUX는 <b>전용차량과 현지 코디</b>로 이동·식당·티켓을 모두 챙겨, 가족은 즐기기만 하면 되는 여행을 만들어 드립니다.'
     ],
     areasTitle: '가족여행 하이라이트',
     areas: [
@@ -243,16 +324,21 @@ const PAGES = [
       { pin: 'KOBE', h3: '고베 미식·야경', p: 'A5 와규와 항구 야경으로 어른들의 만족까지 챙깁니다.' }
     ],
     whyGlux: [
-      '일본 생활 30년·가이드 10년의 <b>한국어 잘하는 현지인</b>이 직접 운영',
-      '유아·어르신 동반을 고려한 <b>완급 있는 맞춤 일정</b>',
-      '<b>전용차량 공항 픽업</b>으로 짐·이동 스트레스 최소화',
-      '맛집·료칸을 현지 관계로 <b>우선 예약</b>',
+      '일본 생활 30년 · 가이드 10년의 <b>한국어 잘하는 현지인</b>이 직접 운영',
+      '유아 · 어르신 동반을 고려한 <b>완급 있는 맞춤 일정</b>',
+      '<b>전용차량 공항 픽업</b>으로 짐 · 이동 스트레스 최소화',
+      '맛집 · 료칸을 현지 관계로 <b>우선 예약</b>',
       '대행사 마진 0 — <b>현지 가격 그대로</b>'
     ],
     itinerary: [
       '간사이공항 도착 → 전용차량 픽업 → 숙소 → 도톤보리 저녁',
       '유니버설 스튜디오 또는 교토·나라 관광 (선택)',
       '오전 쇼핑·자유시간 → 공항 송영 → 출국'
+    ],
+    reviews: [
+      { s: 5, txt: '아이 둘 데리고 갔는데 유모차 이동까지 배려해주셔서 편했어요. 도톤보리·유니버설 동선을 알아서 짜주셔서 하나도 안 힘들었습니다.', name: '박OO님', trip: '가족여행 3박4일' },
+      { s: 5, txt: '부모님 모시고 간 여행. 어르신 페이스에 맞춰 완만하게 일정 짜주시고 맛집도 입맛에 맞게 예약해주셔서 감동이었어요.', name: '최OO님', trip: '효도 가족여행 2박3일' },
+      { s: 5, txt: '현지인만 아는 맛집 리스트가 진짜였습니다. 아이들도 어른들도 다 만족한 여행이었어요.', name: '한OO님', trip: '가족여행 2박3일' }
     ],
     faq: [
       { q: '아이가 어린데 일정이 힘들지 않을까요?', a: '유아·어린이 동반에 맞춰 이동과 휴식을 조절한 일정을 설계합니다. 전용차량이라 유모차·짐도 문제없습니다.' },
@@ -263,16 +349,16 @@ const PAGES = [
     ctaSub: '오사카 가족여행, 아이·부모님 상황에 맞춰 24시간 내 맞춤 견적을 보내드립니다.'
   },
   {
-    slug: 'kyoto-ryokan', kw: '교토 온천 료칸 여행',
+    slug: 'kyoto-ryokan', kw: '교토 온천 료칸 여행', galleryReal: true,
     title: '교토 온천·료칸 여행 | 프라이빗 료칸 우선 예약 — GLUX Tour',
     ogTitle: '교토 온천·료칸 여행 | 프라이빗 — GLUX Tour',
     description: '교토 온천·료칸 여행 전문 GLUX. 예약 어려운 프라이빗 료칸 우선 배정, 가이세키·기모노 체험 연계, 현지 20년 직거래. 전용차량·한국어 현지인 케어.',
-    tag: 'KYOTO RYOKAN · 현지 직영',
-    h1a: '교토 온천·료칸 여행', h1b: '예약 어려운 료칸, 우선 배정',
+    tag: 'KYOTO RYOKAN · 현지 직영', h1a: '교토 온천·료칸 여행', h1b: '예약 어려운 료칸, 우선 배정',
     lead: '개인 예약이 어려운 프라이빗 온천 료칸을 20년 직거래 관계로 우선 배정해 드립니다. 가이세키 만찬·기모노 체험·사찰 산책까지 교토의 정취를 한 번에.',
     whyTitle: '교토 료칸 여행의 매력', whyLabel: 'Why Kyoto',
     whyBody: [
       '교토는 <b>일본 전통의 정수</b>가 살아있는 도시입니다. 프라이빗 온천이 딸린 료칸에서의 하룻밤은 여행의 격을 완전히 바꿔 줍니다.',
+      '벚꽃의 봄, 단풍의 가을은 물론 <b>사계절 언제 와도 다른 얼굴</b>을 보여주는 곳이 교토입니다. 아라시야마 대나무숲, 기요미즈데라, 기온 거리까지 걸음마다 그림이 됩니다.',
       '다만 인기 료칸은 <b>개인 예약이 매우 어렵습니다.</b> GLUX는 현지 직거래로 우선 배정이 가능합니다.'
     ],
     areasTitle: '교토 료칸 여행 하이라이트',
@@ -284,15 +370,20 @@ const PAGES = [
     ],
     whyGlux: [
       '<b>예약 어려운 프라이빗 료칸 우선 배정</b> (20년 직거래)',
-      '가이세키·기모노 등 <b>정통 체험 코디</b>',
-      '일본 30년·가이드 10년 <b>한국어 현지인</b> 케어',
-      '<b>전용차량</b>으로 료칸·명소 이동 편안하게',
+      '가이세키 · 기모노 등 <b>정통 체험 코디</b>',
+      '일본 30년 · 가이드 10년 <b>한국어 현지인</b> 케어',
+      '<b>전용차량</b>으로 료칸 · 명소 이동 편안하게',
       '대행사 마진 0 — <b>현지 가격 그대로</b>'
     ],
     itinerary: [
       '간사이공항 → 교토 이동 → 아라시야마 → 프라이빗 료칸 체크인·가이세키',
       '기모노 체험 → 기요미즈데라·후시미이나리 → 온천 휴식',
       '우지 말차·쇼핑 → 공항 송영 → 출국'
+    ],
+    reviews: [
+      { s: 5, txt: '개인적으로 예약이 안 되던 료칸을 잡아주셔서 놀랐어요. 객실 노천탕과 가이세키가 인생 경험이었습니다.', name: '윤OO님', trip: '교토 료칸 2박3일' },
+      { s: 5, txt: '기모노 입고 기요미즈데라 산책, 저녁엔 료칸 온천. 교토의 정취를 제대로 느꼈어요. 코디가 완벽했습니다.', name: '서OO님', trip: '커플 여행 2박3일' },
+      { s: 5, txt: '조용하고 프라이빗한 료칸을 원했는데 딱 맞게 추천해주셨어요. 다시 가고 싶은 여행.', name: '임OO님', trip: '가족 여행 3박4일' }
     ],
     faq: [
       { q: '료칸 예약이 정말 어렵다던데 가능한가요?', a: '인기 프라이빗 료칸은 개인 예약이 매우 어렵습니다. GLUX는 현지 20년 직거래 관계로 우선 배정이 가능합니다.' },
@@ -303,17 +394,17 @@ const PAGES = [
     ctaSub: '교토 온천·료칸 여행, 원하시는 분위기에 맞춰 24시간 내 맞춤 견적을 보내드립니다.'
   },
   {
-    slug: 'arima-onsen', kw: '아리마온천 여행',
+    slug: 'arima-onsen', kw: '아리마온천 여행', galleryReal: true,
     title: '아리마온천 여행 | 일본 3대 온천 힐링 패키지 — GLUX Tour',
     ogTitle: '아리마온천 여행 | 힐링 패키지 — GLUX Tour',
     description: '아리마온천 여행 전문 GLUX. 일본 3대 온천 아리마의 프라이빗 료칸, 고베 미식·야경 연계, 전용차량 공항 픽업. 현지 30년 직영, 한국어 현지인 케어.',
-    tag: 'ARIMA ONSEN · 현지 직영',
-    h1a: '아리마온천 여행', h1b: '일본 3대 온천에서의 힐링',
+    tag: 'ARIMA ONSEN · 현지 직영', h1a: '아리마온천 여행', h1b: '일본 3대 온천에서의 힐링',
     lead: '고베 근교 아리마온천은 일본 3대 온천으로 꼽히는 대표 온천지입니다. 금탕·은탕과 프라이빗 료칸, 고베 미식·야경을 함께 즐기는 힐링 여행을 설계합니다.',
     whyTitle: '왜 아리마온천인가', whyLabel: 'Why Arima',
     whyBody: [
       '아리마온천은 <b>오사카·고베에서 가까워 접근성이 뛰어난 온천지</b>입니다. 짧은 일정에도 진짜 온천 힐링이 가능합니다.',
-      '<b>금탕(철분)·은탕(탄산)</b>의 독특한 온천과 전통 료칸, 그리고 고베 미식·야경 연계로 어른들의 힐링 여행에 특히 인기입니다.'
+      '<b>금탕(철분)·은탕(탄산)</b>의 독특한 온천과 전통 료칸, 유카타 차림의 온천 마을 산책은 일상에서 완전히 벗어난 휴식을 선사합니다.',
+      '고베 A5 와규와 롯코·마야산 야경까지 연계되어, <b>어른들의 힐링 여행과 효도여행</b>에 특히 인기입니다.'
     ],
     areasTitle: '아리마온천 여행 하이라이트',
     areas: [
@@ -324,8 +415,8 @@ const PAGES = [
     ],
     whyGlux: [
       '<b>아리마 프라이빗 료칸 우선 배정</b>',
-      '고베 미식·야경 <b>연계 코스</b> 설계',
-      '일본 30년·가이드 10년 <b>한국어 현지인</b> 케어',
+      '고베 미식 · 야경 <b>연계 코스</b> 설계',
+      '일본 30년 · 가이드 10년 <b>한국어 현지인</b> 케어',
       '<b>전용차량 공항 픽업</b>으로 이동 편안하게',
       '대행사 마진 0 — <b>현지 가격 그대로</b>'
     ],
@@ -334,6 +425,11 @@ const PAGES = [
       '온천 마을 산책 → 고베 와규 점심 → 롯코/마야산 야경',
       '오전 휴식·쇼핑 → 공항 송영 → 출국'
     ],
+    reviews: [
+      { s: 5, txt: '금탕·은탕 둘 다 경험하고 왔어요. 아리마 료칸이 정말 좋았고 고베 와규 저녁까지 완벽했습니다.', name: '조OO님', trip: '아리마온천 2박3일' },
+      { s: 5, txt: '부모님 효도여행으로 갔는데 온천 중심 완만한 일정이라 너무 만족하셨어요. 감사합니다.', name: '강OO님', trip: '효도 온천여행 2박3일' },
+      { s: 5, txt: '공항 픽업부터 끝까지 케어받는 느낌. 힐링이 필요했는데 제대로 쉬고 왔습니다.', name: '오OO님', trip: '커플 힐링여행 2박3일' }
+    ],
     faq: [
       { q: '아리마온천은 어디에 있나요?', a: '고베 근교에 위치해 오사카·간사이공항에서 전용차량으로 편하게 이동할 수 있는 대표 온천지입니다.' },
       { q: '금탕·은탕이 뭔가요?', a: '아리마 특유의 철분 함유 온천(금탕)과 탄산·라듐 온천(은탕)을 말합니다. 두 온천 모두 경험하실 수 있게 안내합니다.' },
@@ -341,10 +437,54 @@ const PAGES = [
       { q: '부모님 효도여행으로 좋을까요?', a: '완만한 일정과 온천 중심 구성으로 효도여행에 특히 인기입니다. 어르신 페이스에 맞춰 설계해 드립니다.' }
     ],
     ctaSub: '아리마온천 힐링 여행, 원하시는 일정에 맞춰 24시간 내 맞춤 견적을 보내드립니다.'
+  },
+  {
+    slug: 'nara-family', kw: '나라 여행', galleryReal: true,
+    title: '나라 여행 | 사슴공원·도다이지 가족여행 — GLUX Tour',
+    ogTitle: '나라 여행 | 사슴공원·도다이지 — GLUX Tour',
+    description: '나라 여행 전문 GLUX. 사슴공원·도다이지 대불·나라마치까지, 오사카·교토에서 편하게 연계하는 가족여행. 전용차량·한국어 현지인 케어, 현지 30년 직영.',
+    tag: 'NARA · 현지 직영', h1a: '나라 여행', h1b: '사슴공원과 천년 고찰',
+    lead: '오사카·교토에서 가까운 나라는 사슴공원과 도다이지 대불로 유명한 가족여행 명소입니다. 아이도 어른도 좋아하는 여유로운 하루를 전용차량으로 편하게 설계해 드립니다.',
+    whyTitle: '왜 나라 여행인가', whyLabel: 'Why Nara',
+    whyBody: [
+      '나라는 <b>오사카·교토에서 당일치기로 다녀오기 좋은</b> 천년 고도입니다. 이동이 짧아 가족여행 일정에 부담 없이 넣을 수 있습니다.',
+      '<b>나라공원의 사슴</b>은 아이들에게 잊지 못할 경험을 선사하고, <b>도다이지의 거대한 대불</b>은 어른들에게도 깊은 인상을 남깁니다.',
+      '전통 거리 나라마치 산책과 현지 맛집까지, GLUX가 <b>동선과 시간을 알아서 챙겨</b> 여유로운 하루를 만들어 드립니다.'
+    ],
+    areasTitle: '나라 여행 하이라이트',
+    areas: [
+      { pin: 'NARA PARK', h3: '나라 사슴공원', p: '자유롭게 노니는 사슴에게 먹이 주기. 아이들이 가장 좋아하는 코스.' },
+      { pin: 'TODAIJI', h3: '도다이지 대불', p: '세계 최대 목조 건축과 거대한 청동 대불. 나라의 상징.' },
+      { pin: 'NARAMACHI', h3: '나라마치', p: '전통 가옥이 늘어선 옛 거리. 카페·공예 산책이 즐겁습니다.' },
+      { pin: 'CONNECT', h3: '오사카·교토 연계', p: '오사카·교토 일정에 반나절~하루로 자연스럽게 연결됩니다.' }
+    ],
+    whyGlux: [
+      '오사카·교토와 <b>매끄럽게 연계</b>하는 맞춤 동선',
+      '아이 · 어르신 모두 편안한 <b>여유로운 페이스</b>',
+      '<b>전용차량</b>으로 사슴공원·도다이지 이동 편리',
+      '현지 맛집 · 카페 <b>코디</b>',
+      '일본 30년 · 가이드 10년 <b>한국어 현지인</b> 케어'
+    ],
+    itinerary: [
+      '오사카/교토 출발 → 전용차량 → 나라공원 사슴 먹이주기',
+      '도다이지 대불 관람 → 점심 → 나라마치 산책',
+      '오후 카페·쇼핑 → 오사카/교토 복귀 (또는 다음 일정 연계)'
+    ],
+    reviews: [
+      { s: 5, txt: '사슴공원에서 아이들이 너무 좋아했어요. 오사카에서 당일치기로 편하게 다녀왔습니다.', name: '백OO님', trip: '가족여행 (나라 당일)' },
+      { s: 5, txt: '도다이지 대불 규모에 놀랐고, 가이드님 설명 덕에 더 뜻깊었어요. 사진도 예쁘게 찍어주셨습니다.', name: '신OO님', trip: '가족여행 2박3일' },
+      { s: 5, txt: '어른 아이 모두 만족한 여유로운 하루. 나라마치 산책도 좋았어요.', name: '황OO님', trip: '가족여행 3박4일' }
+    ],
+    faq: [
+      { q: '나라만 따로 가나요, 오사카·교토와 함께 가나요?', a: '보통 오사카·교토 일정에 반나절~하루로 연계합니다. 물론 나라 중심 일정도 설계 가능합니다.' },
+      { q: '사슴에게 먹이를 줘도 안전한가요?', a: '지정된 사슴센베이로 안전하게 먹이 주기가 가능합니다. 아이들과 함께 즐기기 좋은 체험입니다.' },
+      { q: '아이·부모님과 가기 좋은가요?', a: '이동이 짧고 코스가 완만해 유아·어르신 동반에 특히 좋습니다. 페이스에 맞춰 설계해 드립니다.' },
+      { q: '전용차량으로 이동하나요?', a: '네, 전용차량으로 공항·숙소·나라를 편하게 이동합니다. 대중교통 환승 걱정이 없습니다.' }
+    ],
+    ctaSub: '나라 여행, 오사카·교토 연계까지 24시간 내 맞춤 견적을 보내드립니다.'
   }
 ]
 
-// ── 실행 ─────────────────────────────────────────────────────
 let count = 0
 for (const p of PAGES) {
   const dir = path.join(OUT_ROOT, p.slug)
@@ -354,5 +494,3 @@ for (const p of PAGES) {
   count++
 }
 console.log(`\n생성 완료: ${count}개 페이지`)
-console.log('sitemap에 추가할 URL:')
-PAGES.forEach(p => console.log(`  https://gluxtour.com/tour/${p.slug}/`))

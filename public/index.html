@@ -422,6 +422,29 @@ body{padding-bottom:var(--bar)}
   </div>
 </section>
 
+<!-- 여행 테마 링크 (검색 유입 · 탐색) -->
+<style>
+.tsec{background:var(--white);border-top:1px solid #f0eee9}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:10px;margin-top:8px}
+.tcard{position:relative;height:172px;border-radius:12px;overflow:hidden;background-size:cover;background-position:center;display:flex;align-items:flex-end;transition:transform .2s}
+.tcard::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,9,12,.85),rgba(8,9,12,.08))}
+.tcard span{position:relative;z-index:2;padding:14px 16px;color:#fff;font-weight:600;font-size:15px}
+.tcard span small{display:block;font-weight:400;font-size:10px;color:var(--gold-b);letter-spacing:2px;margin-bottom:3px}
+.tcard:hover{transform:translateY(-3px)}
+</style>
+<section class="dest-s tsec">
+  <div class="inner">
+    <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Travel Themes</span></div><h2 class="st">테마별 여행 자세히 보기</h2></div>
+    <div class="tgrid rv">
+      <a class="tcard" href="/tour/kansai-golf/" style="background-image:url('/tour/img/kansai-golf.jpg')"><span><small>GOLF</small>간사이 골프여행</span></a>
+      <a class="tcard" href="/tour/osaka-family/" style="background-image:url('/tour/img/osaka-family.jpg')"><span><small>FAMILY</small>오사카 가족여행</span></a>
+      <a class="tcard" href="/tour/kyoto-ryokan/" style="background-image:url('/tour/img/kyoto-ryokan.jpg')"><span><small>RYOKAN</small>교토 온천·료칸</span></a>
+      <a class="tcard" href="/tour/arima-onsen/" style="background-image:url('/tour/img/arima-onsen.jpg')"><span><small>ONSEN</small>아리마온천 여행</span></a>
+      <a class="tcard" href="/tour/nara-family/" style="background-image:url('/tour/img/nara-family.jpg')"><span><small>NARA</small>나라 여행</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- TWO PATHS — with photos -->
 <section class="path-s" id="travel">
   <div class="inner">
