@@ -100,6 +100,21 @@ ul.pl li::before{content:'⛳';position:absolute;left:0}
 /* footer */
 footer{background:var(--ink);color:rgba(255,255,255,.4);font-size:12px;padding:28px 0;text-align:center}
 footer a{color:rgba(184,149,106,.7)}
+/* 페이지 내 신청폼 */
+#apply{scroll-margin-top:70px}
+.lform{background:var(--white);max-width:440px;margin:28px auto 0;padding:26px 24px;border-radius:14px;text-align:left;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.lform label{display:block;font-size:11.5px;font-weight:600;color:var(--char);letter-spacing:.5px;margin:14px 0 6px}
+.lform label:first-child{margin-top:0}
+.lform input,.lform textarea{width:100%;padding:12px 13px;border:1px solid var(--silk);background:var(--paper);font-family:var(--sans);font-size:14px;color:var(--char);border-radius:6px;outline:none}
+.lform input:focus,.lform textarea:focus{border-color:var(--gold)}
+.lform textarea{min-height:70px;resize:vertical}
+.lform .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lform button{width:100%;margin-top:18px;padding:14px;background:var(--gold);color:var(--ink);font-size:14px;font-weight:700;border:none;border-radius:8px;cursor:pointer;font-family:var(--sans)}
+.lform button:disabled{opacity:.6;cursor:not-allowed}
+.lform .note{font-size:11px;color:var(--mist);text-align:center;margin-top:10px}
+.lform .ok{display:none;text-align:center;padding:24px 8px}
+.lform .ok h3{font-family:var(--serif);font-size:22px;color:var(--char);margin-bottom:8px}
+.lform .ok p{color:var(--mist);font-size:13px}
 </style>
 </head>
 <body>
@@ -113,7 +128,7 @@ footer a{color:rgba(184,149,106,.7)}
     <h1>간사이 골프여행<br><b>명문 CC 프라이빗 부킹</b></h1>
     <p class="lead">오사카·고베·시가·와카야마의 100여 개 골프장을 컨디션별로 직접 부킹합니다. 현지 30년 직영, 대행사 마진 0. 라운드부터 온천·미식까지 전용차량으로 올인원 케어해 드립니다.</p>
     <div class="hero-cta">
-      <a href="https://gluxtour.com/#contact" class="btn btn-gold">무료 상담 신청하기 →</a>
+      <a href="#apply" class="btn btn-gold">무료 상담 신청하기 →</a>
       <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-line">카카오톡 상담</a>
     </div>
     <div class="trust"><span>현지 20년+ 직영</span><span>한국어 현지인 케어</span><span>전용차량 픽업</span><span>골프+온천 연계</span></div>
@@ -171,16 +186,47 @@ footer a{color:rgba(184,149,106,.7)}
   </div>
 </div></section>
 
-<section class="cta">
+<section class="cta" id="apply">
   <div class="wrap">
     <h2>지금 무료 상담을 시작하세요</h2>
     <p>간사이 골프여행, 어떤 일정이든 24시간 내 맞춤 견적을 보내드립니다.</p>
-    <div class="hero-cta">
-      <a href="https://gluxtour.com/#contact" class="btn btn-gold">무료 상담 신청하기 →</a>
-      <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-line">카카오톡 상담</a>
+    <div class="lform">
+      <div id="lfArea">
+        <label>이름 *</label><input type="text" id="lN" placeholder="홍길동">
+        <label>연락처 *</label><input type="tel" id="lP" placeholder="010-0000-0000">
+        <label>여행 일정 (선택)</label>
+        <div class="row2"><input type="date" id="lCI"><input type="date" id="lCO"></div>
+        <label>인원 (선택)</label><input type="text" id="lPpl" placeholder="예: 성인 4명">
+        <label>메모 (선택)</label><textarea id="lM" placeholder="희망 골프장·일정·예산 등 편하게 적어주세요"></textarea>
+        <button id="lBtn" onclick="submitLead()">무료 상담 신청하기</button>
+        <div class="note">접수 후 24시간 내 연락드립니다 · 상담 무료</div>
+      </div>
+      <div class="ok" id="lOk"><h3>✅ 상담 신청 완료!</h3><p>24시간 내 연락드리겠습니다.</p></div>
+    </div>
+    <div class="hero-cta" style="justify-content:center;margin-top:20px">
+      <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-line">카카오톡으로 문의</a>
     </div>
   </div>
 </section>
+
+<script>
+async function submitLead(){
+  var n=document.getElementById('lN').value.trim();
+  var p=document.getElementById('lP').value.trim();
+  if(!n||!p){alert('이름과 연락처는 필수입니다.');return;}
+  var ci=document.getElementById('lCI').value, co=document.getElementById('lCO').value;
+  var ppl=document.getElementById('lPpl').value.trim(), memo=document.getElementById('lM').value.trim();
+  var requests=[ppl,memo].filter(Boolean).join(' / ');
+  var btn=document.getElementById('lBtn'); btn.disabled=true; btn.textContent='신청 중...';
+  try{
+    var res=await fetch('https://gluxtour.com/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:n,phone:p,departure_date:ci||'미정',return_date:co||'미정',package_type:'간사이 골프여행',requests:requests||null})});
+    if(res.ok){document.getElementById('lfArea').style.display='none';document.getElementById('lOk').style.display='block';}
+    else{var j=await res.json().catch(function(){return{};});alert('오류: '+(j.error||'다시 시도해주세요.'));btn.disabled=false;btn.textContent='무료 상담 신청하기';}
+  }catch(e){document.getElementById('lfArea').style.display='none';document.getElementById('lOk').style.display='block';}
+}
+(function(){var t=new Date().toISOString().split('T')[0];var a=document.getElementById('lCI'),b=document.getElementById('lCO');if(a)a.setAttribute('min',t);if(b)b.setAttribute('min',t);})();
+</script>
 
 <footer>
   © 2024 GLUX Tour · 오사카·간사이 현지 직영 여행사 · <a href="https://gluxtour.com/">gluxtour.com</a>
