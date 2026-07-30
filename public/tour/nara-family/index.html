@@ -71,6 +71,11 @@ ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold)}
 .day{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #f0f0f0}
 .day .d{flex-shrink:0;width:64px;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--gold)}
 .day .t{font-size:16px;color:#3a3d4a}
+.itin-wrap{overflow-x:auto;margin-top:10px;-webkit-overflow-scrolling:touch}
+.itin{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.itin th{background:#0f0f1a;color:#fff;font-weight:600;padding:11px 12px;font-size:13px;text-align:left;letter-spacing:.5px}
+.itin td{border:1px solid #ececec;padding:13px 12px;color:#3a3d4a;vertical-align:top;line-height:1.55}
+.itin .dc{background:var(--paper);font-weight:700;color:var(--char);white-space:nowrap;font-family:var(--serif);font-size:17px;width:74px}
 .rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:22px}
 .rc{background:var(--white);border:1px solid #ececec;border-radius:12px;padding:22px}
 .rc .stars{color:#e0a93c;font-size:14px;letter-spacing:2px;margin-bottom:10px}
@@ -186,9 +191,16 @@ footer a{color:var(--gold-b)}
 <section class="blk"><div class="wrap">
   <div class="sov">Sample Course</div>
   <h2>추천 일정 예시</h2>
-  <div class="day"><div class="d">DAY 1</div><div class="t">(오전) 오사카/교토 숙소로 전용차량 픽업 → 이른 시간 나라 공원 도착, 한적할 때 사슴센베이 주기·기념사진 (오후) 도다이지 대불전·나라 대불 관람, 대불 콧구멍 통과 체험 → 나라마치 골목 현지 맛집에서 점심 (저녁) 가스가타이샤 참배길 산책 후 숙소 복귀, 오사카 도톤보리 야경</div></div>
-  <div class="day"><div class="d">DAY 2</div><div class="t">(오전) 나라마치 전통거리 여유롭게 산책, 옛 찻집에서 말차·화과자 → 공방·잡화점 구경 (오후) 이스이엔 정원 또는 나라국립박물관 관람 → 오사카로 이동, 우메다·신사이바시 쇼핑 (저녁) 현지인 추천 이자카야에서 가족 저녁 식사</div></div>
-  <div class="day"><div class="d">DAY 3</div><div class="t">(오전) 교토 연계 — 후시미이나리 천 개의 도리이, 아이와 함께 걷기 좋은 완만한 코스 (오후) 기요미즈데라·산넨자카 골목 산책, 부모님 보폭에 맞춘 여유 동선 (저녁) 전용차량으로 간사이공항 배웅, 마지막까지 한국어 케어</div></div>
+<div class="itin-wrap">
+    <table class="itin">
+      <thead><tr><th></th><th>오전</th><th>오후</th><th>저녁</th></tr></thead>
+      <tbody>
+        <tr><td class="dc">DAY 1</td><td>오사카/교토 숙소로 전용차량 픽업 → 이른 시간 나라 공원 도착, 한적할 때 사슴센베이 주기·기념사진</td><td>도다이지 대불전·나라 대불 관람, 대불 콧구멍 통과 체험 → 나라마치 골목 현지 맛집에서 점심</td><td>가스가타이샤 참배길 산책 후 숙소 복귀, 오사카 도톤보리 야경</td></tr>
+        <tr><td class="dc">DAY 2</td><td>나라마치 전통거리 여유롭게 산책, 옛 찻집에서 말차·화과자 → 공방·잡화점 구경</td><td>이스이엔 정원 또는 나라국립박물관 관람 → 오사카로 이동, 우메다·신사이바시 쇼핑</td><td>현지인 추천 이자카야에서 가족 저녁 식사</td></tr>
+        <tr><td class="dc">DAY 3</td><td>교토 연계 — 후시미이나리 천 개의 도리이, 아이와 함께 걷기 좋은 완만한 코스</td><td>기요미즈데라·산넨자카 골목 산책, 부모님 보폭에 맞춘 여유 동선</td><td>전용차량으로 간사이공항 배웅, 마지막까지 한국어 케어</td></tr>
+      </tbody>
+    </table>
+  </div>
   <p class="body" style="margin-top:18px;font-size:14px;color:var(--mist)">* 위 일정은 추천 예시입니다. 실제 일정과 박 수는 맞춤형으로 진행되어 추천 일정과 달라질 수 있습니다.</p>
 </div></section>
 

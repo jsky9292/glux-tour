@@ -71,6 +71,11 @@ ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold)}
 .day{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #f0f0f0}
 .day .d{flex-shrink:0;width:64px;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--gold)}
 .day .t{font-size:16px;color:#3a3d4a}
+.itin-wrap{overflow-x:auto;margin-top:10px;-webkit-overflow-scrolling:touch}
+.itin{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.itin th{background:#0f0f1a;color:#fff;font-weight:600;padding:11px 12px;font-size:13px;text-align:left;letter-spacing:.5px}
+.itin td{border:1px solid #ececec;padding:13px 12px;color:#3a3d4a;vertical-align:top;line-height:1.55}
+.itin .dc{background:var(--paper);font-weight:700;color:var(--char);white-space:nowrap;font-family:var(--serif);font-size:17px;width:74px}
 .rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:22px}
 .rc{background:var(--white);border:1px solid #ececec;border-radius:12px;padding:22px}
 .rc .stars{color:#e0a93c;font-size:14px;letter-spacing:2px;margin-bottom:10px}
@@ -186,9 +191,16 @@ footer a{color:var(--gold-b)}
 <section class="blk"><div class="wrap">
   <div class="sov">Sample Course</div>
   <h2>추천 일정 예시</h2>
-  <div class="day"><div class="d">DAY 1</div><div class="t">1일차: (오전) 오사카/간사이공항에서 전용차량으로 픽업, 고베 경유해 아리마온천으로 이동 (오후) 프라이빗 료칸 체크인 후 붉은 금탕에서 첫 온천, 유카타로 갈아입고 온천 마을 골목 산책 (저녁) 료칸 가이세키 정찬과 객실 노천탕에서 여유로운 밤</div></div>
-  <div class="day"><div class="d">DAY 2</div><div class="t">2일차: (오전) 관광객 없는 이른 시간 은탕에서 탄산천 온천, 탕본 거리와 온천사·족욕탕 둘러보기 (오후) 전용차량으로 고베로 이동, 항구·구거류지 산책과 카페 타임 (저녁) 철판구이 A5 고베 와규 만찬 후 롯코산·마야산 전망대에서 1000만 불 야경 감상</div></div>
-  <div class="day"><div class="d">DAY 3</div><div class="t">3일차: (오전) 료칸 조식 후 마지막 온천, 아리마 명물 탄산 센베·기념품 쇼핑 (오후) 전용차량으로 고베·오사카 시내 또는 공항까지 편안하게 이동, 여행 마무리</div></div>
+<div class="itin-wrap">
+    <table class="itin">
+      <thead><tr><th></th><th>오전</th><th>오후</th><th>저녁</th></tr></thead>
+      <tbody>
+        <tr><td class="dc">DAY 1</td><td>오사카/간사이공항에서 전용차량으로 픽업, 고베 경유해 아리마온천으로 이동</td><td>프라이빗 료칸 체크인 후 붉은 금탕에서 첫 온천, 유카타로 갈아입고 온천 마을 골목 산책</td><td>료칸 가이세키 정찬과 객실 노천탕에서 여유로운 밤</td></tr>
+        <tr><td class="dc">DAY 2</td><td>관광객 없는 이른 시간 은탕에서 탄산천 온천, 탕본 거리와 온천사·족욕탕 둘러보기</td><td>전용차량으로 고베로 이동, 항구·구거류지 산책과 카페 타임</td><td>철판구이 A5 고베 와규 만찬 후 롯코산·마야산 전망대에서 1000만 불 야경 감상</td></tr>
+        <tr><td class="dc">DAY 3</td><td>료칸 조식 후 마지막 온천, 아리마 명물 탄산 센베·기념품 쇼핑</td><td>전용차량으로 고베·오사카 시내 또는 공항까지 편안하게 이동, 여행 마무리</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
   <p class="body" style="margin-top:18px;font-size:14px;color:var(--mist)">* 위 일정은 추천 예시입니다. 실제 일정과 박 수는 맞춤형으로 진행되어 추천 일정과 달라질 수 있습니다.</p>
 </div></section>
 

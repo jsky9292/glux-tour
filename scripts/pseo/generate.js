@@ -57,6 +57,11 @@ ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold)}
 .day{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #f0f0f0}
 .day .d{flex-shrink:0;width:64px;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--gold)}
 .day .t{font-size:16px;color:#3a3d4a}
+.itin-wrap{overflow-x:auto;margin-top:10px;-webkit-overflow-scrolling:touch}
+.itin{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.itin th{background:#0f0f1a;color:#fff;font-weight:600;padding:11px 12px;font-size:13px;text-align:left;letter-spacing:.5px}
+.itin td{border:1px solid #ececec;padding:13px 12px;color:#3a3d4a;vertical-align:top;line-height:1.55}
+.itin .dc{background:var(--paper);font-weight:700;color:var(--char);white-space:nowrap;font-family:var(--serif);font-size:17px;width:74px}
 .rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:22px}
 .rc{background:var(--white);border:1px solid #ececec;border-radius:12px;padding:22px}
 .rc .stars{color:#e0a93c;font-size:14px;letter-spacing:2px;margin-bottom:10px}
@@ -98,7 +103,18 @@ function render(p) {
   const url = `https://gluxtour.com/tour/${p.slug}/`
   const areas = p.areas.map(a => `    <div class="card"><div class="pin">${a.pin}</div><h3>${a.h3}</h3><p>${a.p}</p></div>`).join('\n')
   const why = p.whyGlux.map(li => `    <li>${li}</li>`).join('\n')
-  const days = p.itinerary.map((d, i) => `  <div class="day"><div class="d">DAY ${i + 1}</div><div class="t">${d}</div></div>`).join('\n')
+  const _cols = ['오전', '오후', '저녁']
+  const _rows = p.itinerary.map((d, i) => {
+    const seg = {}
+    const re = /\((오전|오후|저녁|종일)\)\s*([\s\S]*?)(?=\((?:오전|오후|저녁|종일)\)|$)/g
+    let m
+    while ((m = re.exec(d))) seg[m[1]] = m[2].trim().replace(/\s+/g, ' ')
+    const day = 'DAY ' + (i + 1)
+    if (seg['종일']) return `        <tr><td class="dc">${day}</td><td colspan="3">${seg['종일']}</td></tr>`
+    if (!seg['오전'] && !seg['오후'] && !seg['저녁']) return `        <tr><td class="dc">${day}</td><td colspan="3">${d}</td></tr>`
+    return `        <tr><td class="dc">${day}</td>` + _cols.map(c => `<td>${seg[c] || '—'}</td>`).join('') + `</tr>`
+  }).join('\n')
+  const days = `<div class="itin-wrap">\n    <table class="itin">\n      <thead><tr><th></th><th>오전</th><th>오후</th><th>저녁</th></tr></thead>\n      <tbody>\n${_rows}\n      </tbody>\n    </table>\n  </div>`
   const inc = (p.included || INCLUDED).map(x => `    <div>${x}</div>`).join('\n')
   const forWhomHtml = p.forWhom ? ('<section class="blk"><div class="wrap">\n  <div class="sov">For You</div>\n  <h2>이런 여행자께 추천합니다</h2>\n  <ul class="pl">\n' + p.forWhom.map(x => '    <li>' + x + '</li>').join('\n') + '\n  </ul>\n</div></section>\n\n') : ''
   const gal = Array.from({ length: p.galCount || 6 }, (_, k) => k + 1).map(i => `    <div class="gi" style="background-image:url(../img/gallery/${p.slug}-${i}.jpg)"></div>`).join('\n')

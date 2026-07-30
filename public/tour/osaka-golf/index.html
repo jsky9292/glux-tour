@@ -71,6 +71,11 @@ ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold)}
 .day{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #f0f0f0}
 .day .d{flex-shrink:0;width:64px;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--gold)}
 .day .t{font-size:16px;color:#3a3d4a}
+.itin-wrap{overflow-x:auto;margin-top:10px;-webkit-overflow-scrolling:touch}
+.itin{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.itin th{background:#0f0f1a;color:#fff;font-weight:600;padding:11px 12px;font-size:13px;text-align:left;letter-spacing:.5px}
+.itin td{border:1px solid #ececec;padding:13px 12px;color:#3a3d4a;vertical-align:top;line-height:1.55}
+.itin .dc{background:var(--paper);font-weight:700;color:var(--char);white-space:nowrap;font-family:var(--serif);font-size:17px;width:74px}
 .rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:22px}
 .rc{background:var(--white);border:1px solid #ececec;border-radius:12px;padding:22px}
 .rc .stars{color:#e0a93c;font-size:14px;letter-spacing:2px;margin-bottom:10px}
@@ -184,9 +189,16 @@ footer a{color:var(--gold-b)}
 <section class="blk"><div class="wrap">
   <div class="sov">Sample Course</div>
   <h2>추천 일정 예시</h2>
-  <div class="day"><div class="d">DAY 1</div><div class="t">1일차: (오전) 간사이국제공항(KIX) 도착·전용차량 픽업 → 공항 근교 명문 CC로 이동 (오후) 도착 당일 18홀 라운드 → 클럽하우스 온천으로 마무리 (저녁) 도톤보리 노포에서 오코노미야키·생맥주 첫날 회식</div></div>
-  <div class="day"><div class="d">DAY 2</div><div class="t">2일차: (오전) 산자락 챔피언십 코스에서 본 라운드 (오후) 라운드 후 구로몬시장으로 이동, 참치·와규·성게 등 제철 해산물 미식 (저녁) 신사이바시·도톤보리 쇼핑과 자유 시간, 동반 가족과 합류</div></div>
-  <div class="day"><div class="d">DAY 3</div><div class="t">3일차: (오전) 여유 있는 조식 후 시내 근교 코스 하프 라운드 또는 오사카성·시내 관광 (오후) 구로몬시장에서 마지막 미식과 기념품 쇼핑 (저녁) 전용차량으로 KIX 이동·출국</div></div>
+<div class="itin-wrap">
+    <table class="itin">
+      <thead><tr><th></th><th>오전</th><th>오후</th><th>저녁</th></tr></thead>
+      <tbody>
+        <tr><td class="dc">DAY 1</td><td>간사이국제공항(KIX) 도착·전용차량 픽업 → 공항 근교 명문 CC로 이동</td><td>도착 당일 18홀 라운드 → 클럽하우스 온천으로 마무리</td><td>도톤보리 노포에서 오코노미야키·생맥주 첫날 회식</td></tr>
+        <tr><td class="dc">DAY 2</td><td>산자락 챔피언십 코스에서 본 라운드</td><td>라운드 후 구로몬시장으로 이동, 참치·와규·성게 등 제철 해산물 미식</td><td>신사이바시·도톤보리 쇼핑과 자유 시간, 동반 가족과 합류</td></tr>
+        <tr><td class="dc">DAY 3</td><td>여유 있는 조식 후 시내 근교 코스 하프 라운드 또는 오사카성·시내 관광</td><td>구로몬시장에서 마지막 미식과 기념품 쇼핑</td><td>전용차량으로 KIX 이동·출국</td></tr>
+      </tbody>
+    </table>
+  </div>
   <p class="body" style="margin-top:18px;font-size:14px;color:var(--mist)">* 위 일정은 추천 예시입니다. 실제 일정과 박 수는 맞춤형으로 진행되어 추천 일정과 달라질 수 있습니다.</p>
 </div></section>
 

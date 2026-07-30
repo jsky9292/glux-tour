@@ -71,6 +71,11 @@ ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold)}
 .day{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #f0f0f0}
 .day .d{flex-shrink:0;width:64px;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--gold)}
 .day .t{font-size:16px;color:#3a3d4a}
+.itin-wrap{overflow-x:auto;margin-top:10px;-webkit-overflow-scrolling:touch}
+.itin{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.itin th{background:#0f0f1a;color:#fff;font-weight:600;padding:11px 12px;font-size:13px;text-align:left;letter-spacing:.5px}
+.itin td{border:1px solid #ececec;padding:13px 12px;color:#3a3d4a;vertical-align:top;line-height:1.55}
+.itin .dc{background:var(--paper);font-weight:700;color:var(--char);white-space:nowrap;font-family:var(--serif);font-size:17px;width:74px}
 .rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:22px}
 .rc{background:var(--white);border:1px solid #ececec;border-radius:12px;padding:22px}
 .rc .stars{color:#e0a93c;font-size:14px;letter-spacing:2px;margin-bottom:10px}
@@ -186,9 +191,16 @@ footer a{color:var(--gold-b)}
 <section class="blk"><div class="wrap">
   <div class="sov">Sample Course</div>
   <h2>추천 일정 예시</h2>
-  <div class="day"><div class="d">DAY 1</div><div class="t">(오전) 간사이공항 도착 → 한국어 가이드·전용차량 픽업 (오후) 숙소 체크인·휴식 (저녁) 도톤보리 길거리 미식 & 글리코 사인 인증샷</div></div>
-  <div class="day"><div class="d">DAY 2</div><div class="t">(종일) 유니버설 스튜디오 재팬 — 익스프레스 동선으로 알차게 / 또는 나라 사슴공원 + 도다이지 (가족 취향대로 선택)</div></div>
-  <div class="day"><div class="d">DAY 3</div><div class="t">(오전) 구로몬시장·신사이바시 쇼핑 또는 교토 기모노 체험 (오후) 공항 송영 → 따뜻한 추억 안고 출국</div></div>
+<div class="itin-wrap">
+    <table class="itin">
+      <thead><tr><th></th><th>오전</th><th>오후</th><th>저녁</th></tr></thead>
+      <tbody>
+        <tr><td class="dc">DAY 1</td><td>간사이공항 도착 → 한국어 가이드·전용차량 픽업</td><td>숙소 체크인·휴식</td><td>도톤보리 길거리 미식 & 글리코 사인 인증샷</td></tr>
+        <tr><td class="dc">DAY 2</td><td colspan="3">유니버설 스튜디오 재팬 — 익스프레스 동선으로 알차게 / 또는 나라 사슴공원 + 도다이지 (가족 취향대로 선택)</td></tr>
+        <tr><td class="dc">DAY 3</td><td>구로몬시장·신사이바시 쇼핑 또는 교토 기모노 체험</td><td>공항 송영 → 따뜻한 추억 안고 출국</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
   <p class="body" style="margin-top:18px;font-size:14px;color:var(--mist)">* 위 일정은 추천 예시입니다. 실제 일정과 박 수는 맞춤형으로 진행되어 추천 일정과 달라질 수 있습니다.</p>
 </div></section>
 
