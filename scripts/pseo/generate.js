@@ -119,7 +119,7 @@ ${STYLE}
 
 <div class="top"><div class="wrap"><a href="https://gluxtour.com/" class="logo">GL<span>U</span>X</a><a href="https://gluxtour.com/" class="home">← GLUX 홈</a></div></div>
 
-<header class="hero">
+<header class="hero" style="background:linear-gradient(rgba(8,9,12,.66),rgba(8,9,12,.82)),url(../img/${p.slug}.jpg) center/cover">
   <div class="wrap">
     <div class="crumb"><a href="https://gluxtour.com/">홈</a> › 여행 테마 › ${esc(p.kw)}</div>
     <span class="tag">${esc(p.tag)}</span>
