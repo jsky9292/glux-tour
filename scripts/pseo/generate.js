@@ -94,6 +94,7 @@ footer a{color:var(--gold-b)}
 .lform .ok{display:none;text-align:center;padding:24px 8px}
 .lform .ok h3{font-family:var(--serif);font-size:22px;color:var(--char);margin-bottom:8px}
 .lform .ok p{color:var(--mist);font-size:13px}
+.gmap{width:100%;height:360px;border:0;border-radius:12px;display:block;margin-top:8px}
 @media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}`
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -117,6 +118,7 @@ function render(p) {
   const days = `<div class="itin-wrap">\n    <table class="itin">\n      <thead><tr><th></th><th>오전</th><th>오후</th><th>저녁</th></tr></thead>\n      <tbody>\n${_rows}\n      </tbody>\n    </table>\n  </div>`
   const inc = (p.included || INCLUDED).map(x => `    <div>${x}</div>`).join('\n')
   const forWhomHtml = p.forWhom ? ('<section class="blk"><div class="wrap">\n  <div class="sov">For You</div>\n  <h2>이런 여행자께 추천합니다</h2>\n  <ul class="pl">\n' + p.forWhom.map(x => '    <li>' + x + '</li>').join('\n') + '\n  </ul>\n</div></section>\n\n') : ''
+  const mapHtml = p.mapPlace ? ('<section class="blk"><div class="wrap">\n  <div class="sov">Location</div>\n  <h2>위치</h2>\n  <iframe class="gmap" src="https://maps.google.com/maps?q=' + encodeURIComponent(p.mapPlace) + '&z=12&hl=ko&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>\n</div></section>\n\n') : ''
   const gal = Array.from({ length: p.galCount || 6 }, (_, k) => k + 1).map(i => `    <div class="gi" style="background-image:url(../img/gallery/${p.slug}-${i}.jpg)"></div>`).join('\n')
   const galNote = p.galleryReal ? '* GLUX 고객의 실제 여행 사진입니다.' : '* 이미지는 이해를 돕기 위한 예시입니다.'
   const revs = p.reviews.map(r => `    <div class="rc"><div class="stars">${'★'.repeat(r.s)}</div><p class="rtxt">"${r.txt}"</p><div class="rau"><div class="rav">${r.name.slice(0, 1)}</div><div><div class="rname">${r.name}</div><div class="rtrip">${r.trip}</div></div></div></div>`).join('\n')
@@ -209,7 +211,7 @@ ${days}
   <p class="body" style="margin-top:18px;font-size:14px;color:var(--mist)">* 위 일정은 추천 예시입니다. 실제 일정과 박 수는 맞춤형으로 진행되어 추천 일정과 달라질 수 있습니다.</p>
 </div></section>
 
-<section class="blk"><div class="wrap">
+${mapHtml}<section class="blk"><div class="wrap">
   <div class="sov">Reviews</div>
   <h2>고객 후기</h2>
   <div class="rev">
