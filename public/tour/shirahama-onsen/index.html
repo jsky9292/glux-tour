@@ -12,8 +12,7 @@
 <meta property="og:image" content="https://gluxtour.com/tour/img/shirahama-onsen.jpg">
 <meta property="og:url" content="https://gluxtour.com/tour/shirahama-onsen/">
 <meta property="og:site_name" content="GLUX Tour">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"TouristTrip","name":"시라하마 온천여행","description":"시라하마 온천여행 전문 GLUX. 와카야마 바다 절경 엔게츠토, 백사장, 노천 온천 힐링. 전용차량 공항 픽업, 현지 30년 직영, 한국어 현지인 케어.","provider":{"@type":"TravelAgency","name":"GLUX Tour","url":"https://gluxtour.com/","telephone":"+81-80-5706-7979"}}
 </script>
@@ -26,89 +25,87 @@
 ]}
 </script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--ink:#08090c;--char:#141720;--slate:#1e2130;--mist:#7a7e8c;--silk:#e4e5ea;--paper:#f5f4f1;--cream:#faf9f6;--white:#fff;--gold:#b8956a;--gold-b:#d4ad78;--serif:'Cormorant Garamond',serif;--sans:'Noto Sans KR',-apple-system,sans-serif}
-body{font-family:var(--sans);color:var(--char);background:var(--cream);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+*{margin:0;padding:0;box-sizing:border-box;font-variant-numeric:lining-nums}
+:root{--ink:#0c0d12;--char:#141720;--sub:#3a3d4a;--mist:#6b7079;--line:#eceae4;--paper:#f7f5f1;--white:#fff;--gold:#b98a3e;--goldd:#8a6427;--gold-b:#e0bd6e;--sans:'Pretendard','Pretendard Variable',-apple-system,sans-serif}
+body{font-family:var(--sans);color:var(--char);background:var(--white);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:920px;margin:0 auto;padding:0 20px}
-.logo{font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:5px;color:var(--white)}.logo span{color:var(--gold)}
-.top{position:sticky;top:0;z-index:50;background:rgba(8,9,12,.92);backdrop-filter:blur(8px)}
+.logo{font-weight:800;font-size:19px;letter-spacing:3px;color:var(--white)}.logo span{color:var(--gold-b)}
+.top{position:sticky;top:0;z-index:50;background:rgba(12,13,18,.94);backdrop-filter:blur(8px)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
-.top a.home{color:rgba(255,255,255,.65);font-size:12.5px}
+.top a.home{color:rgba(255,255,255,.72);font-size:12.5px}
 .hero{color:var(--white);padding:78px 0 66px;position:relative;overflow:hidden}
 .hero .wrap{position:relative}
-.crumb{font-size:11.5px;color:rgba(255,255,255,.6);letter-spacing:1px;margin-bottom:18px}
+.crumb{font-size:12px;color:rgba(255,255,255,.75);letter-spacing:.5px;margin-bottom:18px}
 .crumb a{color:var(--gold-b)}
-.tag{display:inline-block;font-size:11px;letter-spacing:2px;color:var(--gold-b);border:1px solid rgba(184,149,106,.5);border-radius:20px;padding:5px 14px;margin-bottom:20px}
-h1{font-family:var(--serif);font-weight:300;font-size:clamp(30px,6vw,52px);line-height:1.22;margin-bottom:18px}
-h1 b{font-weight:600;color:var(--gold-b)}
-.lead{font-size:clamp(15px,2.2vw,18px);color:rgba(255,255,255,.82);max-width:640px;font-weight:300;word-break:keep-all}
+.tag{display:inline-block;font-size:12px;letter-spacing:1.5px;color:var(--gold-b);border:1px solid rgba(224,189,110,.5);border-radius:20px;padding:6px 14px;margin-bottom:20px}
+h1{font-weight:800;font-size:clamp(28px,6vw,46px);line-height:1.24;margin-bottom:18px;letter-spacing:-.5px;text-shadow:0 2px 16px rgba(0,0,0,.4)}
+h1 b{font-weight:800;color:var(--gold-b)}
+.lead{font-size:clamp(15px,2.2vw,18px);color:rgba(255,255,255,.9);max-width:640px;font-weight:400;line-height:1.75}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:transform .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-gold{background:var(--gold);color:var(--ink)}
-.btn-line{border:1px solid rgba(255,255,255,.4);color:var(--white)}
-.trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;font-size:13.5px;color:rgba(255,255,255,.7)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:12px;font-size:14.5px;font-weight:700;cursor:pointer;transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.btn-gold{background:linear-gradient(135deg,#e0bd6e,#b98a3e);color:#231a08;box-shadow:0 5px 14px rgba(0,0,0,.25)}
+.btn-line{border:1px solid rgba(255,255,255,.45);color:var(--white)}
+.trust{display:flex;gap:20px;flex-wrap:wrap;margin-top:30px;font-size:13.5px;color:rgba(255,255,255,.8)}
 .trust span::before{content:'✓ ';color:var(--gold-b)}
-section.blk{padding:52px 0;border-bottom:1px solid #ececec}
-.sov{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
-h2{font-family:var(--serif);font-size:clamp(24px,4vw,36px);font-weight:500;color:var(--char);margin-bottom:20px;line-height:1.3;word-break:keep-all}
-p.body{font-size:16.5px;color:#3a3d4a;margin-bottom:14px;word-break:keep-all;line-height:1.85}
+section.blk{padding:52px 0;border-bottom:1px solid var(--line)}
+.sov{font-size:12px;letter-spacing:1.5px;color:var(--goldd);font-weight:800;text-transform:uppercase;margin-bottom:12px}
+h2{font-weight:800;font-size:clamp(23px,4vw,32px);color:var(--char);margin-bottom:20px;line-height:1.34;letter-spacing:-.4px}
+p.body{font-size:16.5px;color:var(--sub);margin-bottom:14px;line-height:1.85}
+p.body b{color:var(--char);font-weight:700}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px}
-.card{background:var(--white);border:1px solid #ececec;border-radius:12px;padding:22px}
-.card h3{font-size:17.5px;color:var(--char);margin-bottom:8px}
-.card p{font-size:15px;color:#5a5d68;line-height:1.7}
-.card .pin{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:1px;margin-bottom:10px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{font-size:18px;font-weight:800;color:var(--char);margin-bottom:8px}
+.card p{font-size:15px;color:var(--sub);line-height:1.7}
+.card .pin{font-size:12px;color:var(--goldd);font-weight:800;letter-spacing:1px;margin-bottom:10px}
 ul.pl{list-style:none;margin-top:16px}
-ul.pl li{padding:10px 0 10px 26px;position:relative;font-size:16px;color:#3a3d4a;border-bottom:1px solid #f0f0f0}
-ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold)}
+ul.pl li{padding:12px 0 12px 24px;position:relative;font-size:16px;color:var(--sub);border-bottom:1px solid var(--line)}
+ul.pl li::before{content:'';position:absolute;left:3px;top:20px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
-.gi{padding-top:70%;background-size:cover;background-position:center;border-radius:10px;background-color:#e9e7e2}
+.gi{padding-top:70%;background-size:cover;background-position:center;border-radius:12px;background-color:#e9e7e2}
 .gal-note{font-size:12px;color:var(--mist);margin-top:12px}
 .inc{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:20px}
-.inc div{background:var(--paper);border:1px solid #ececec;border-radius:8px;padding:14px 16px;font-size:15px;color:#3a3d4a}
-.inc div::before{content:'✓ ';color:var(--gold);font-weight:700}
-.day{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #f0f0f0}
-.day .d{flex-shrink:0;width:64px;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--gold)}
-.day .t{font-size:16px;color:#3a3d4a}
+.inc div{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:15px;color:var(--sub)}
+.inc div::before{content:'✓ ';color:var(--goldd);font-weight:800}
 .itin-wrap{overflow-x:auto;margin-top:10px;-webkit-overflow-scrolling:touch}
 .itin{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
-.itin th{background:#0f0f1a;color:#fff;font-weight:600;padding:11px 12px;font-size:13px;text-align:left;letter-spacing:.5px}
-.itin td{border:1px solid #ececec;padding:13px 12px;color:#3a3d4a;vertical-align:top;line-height:1.55}
-.itin .dc{background:var(--paper);font-weight:700;color:var(--char);white-space:nowrap;font-family:var(--serif);font-size:17px;width:74px}
+.itin th{background:#141720;color:#fff;font-weight:700;padding:11px 12px;font-size:13px;text-align:left;letter-spacing:.3px}
+.itin td{border:1px solid var(--line);padding:13px 12px;color:var(--sub);vertical-align:top;line-height:1.55}
+.itin .dc{background:var(--paper);font-weight:800;color:var(--char);white-space:nowrap;font-size:14px;width:66px}
 .rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:22px}
-.rc{background:var(--white);border:1px solid #ececec;border-radius:12px;padding:22px}
+.rc{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px}
 .rc .stars{color:#e0a93c;font-size:14px;letter-spacing:2px;margin-bottom:10px}
-.rc .rtxt{font-size:15.5px;color:#3a3d4a;line-height:1.75;margin-bottom:14px;word-break:keep-all}
+.rc .rtxt{font-size:15.5px;color:var(--sub);line-height:1.75;margin-bottom:14px}
 .rc .rau{display:flex;align-items:center;gap:10px}
-.rc .rav{width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
-.rc .rname{font-size:13px;font-weight:600;color:var(--char)}
-.rc .rtrip{font-size:11px;color:var(--mist)}
-.faq{border:1px solid #ececec;border-radius:12px;overflow:hidden;margin-top:10px}
-.faq details{border-bottom:1px solid #ececec}.faq details:last-child{border-bottom:none}
-.faq summary{padding:17px 20px;font-size:16.5px;font-weight:600;cursor:pointer;list-style:none;background:var(--white)}
+.rc .rav{width:34px;height:34px;border-radius:50%;background:var(--goldd);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.rc .rname{font-size:13px;font-weight:700;color:var(--char)}
+.rc .rtrip{font-size:12px;color:var(--mist)}
+.faq{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:10px}
+.faq details{border-bottom:1px solid var(--line)}.faq details:last-child{border-bottom:none}
+.faq summary{padding:17px 20px;font-size:16.5px;font-weight:700;cursor:pointer;list-style:none;background:var(--white)}
 .faq summary::-webkit-details-marker{display:none}
-.faq p{padding:0 20px 18px;font-size:15.5px;color:#5a5d68;line-height:1.7}
-.cta{background:linear-gradient(180deg,#141720,#08090c);color:var(--white);text-align:center;padding:60px 20px}
+.faq p{padding:0 20px 18px;font-size:15.5px;color:var(--sub);line-height:1.7}
+.cta{background:linear-gradient(180deg,#141720,#0c0d12);color:var(--white);text-align:center;padding:60px 20px}
 .cta h2{color:var(--white)}
-.cta>.wrap>p{color:rgba(255,255,255,.72);font-size:15px;margin-bottom:26px}
-footer{background:var(--ink);color:rgba(255,255,255,.55);font-size:12px;padding:28px 0;text-align:center}
+.cta>.wrap>p{color:rgba(255,255,255,.8);font-size:15px;margin-bottom:26px}
+footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:12px;padding:28px 0;text-align:center}
 footer a{color:var(--gold-b)}
 #apply{scroll-margin-top:70px}
-.lform{background:var(--white);max-width:440px;margin:28px auto 0;padding:26px 24px;border-radius:14px;text-align:left;box-shadow:0 20px 60px rgba(0,0,0,.35)}
-.lform label{display:block;font-size:11.5px;font-weight:600;color:var(--char);letter-spacing:.5px;margin:14px 0 6px}
+.lform{background:var(--white);max-width:440px;margin:28px auto 0;padding:26px 24px;border-radius:16px;text-align:left;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.lform label{display:block;font-size:12px;font-weight:600;color:var(--char);margin:14px 0 6px}
 .lform label:first-child{margin-top:0}
-.lform input,.lform textarea{width:100%;padding:12px 13px;border:1px solid var(--silk);background:var(--paper);font-family:var(--sans);font-size:14px;color:var(--char);border-radius:6px;outline:none}
+.lform input,.lform textarea{width:100%;padding:13px 14px;border:1px solid #e2ddd2;background:var(--paper);font-family:var(--sans);font-size:15px;color:var(--char);border-radius:9px;outline:none}
 .lform input:focus,.lform textarea:focus{border-color:var(--gold)}
 .lform textarea{min-height:70px;resize:vertical}
 .lform .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.lform button{width:100%;margin-top:18px;padding:14px;background:var(--gold);color:var(--ink);font-size:14px;font-weight:700;border:none;border-radius:8px;cursor:pointer;font-family:var(--sans)}
+.lform button{width:100%;margin-top:18px;padding:15px;background:linear-gradient(135deg,#e0bd6e,#b98a3e);color:#231a08;font-size:15px;font-weight:800;border:none;border-radius:12px;cursor:pointer;font-family:var(--sans)}
 .lform button:disabled{opacity:.6;cursor:not-allowed}
-.lform .note{font-size:11px;color:var(--mist);text-align:center;margin-top:10px}
+.lform .note{font-size:12px;color:var(--mist);text-align:center;margin-top:10px}
 .lform .ok{display:none;text-align:center;padding:24px 8px}
-.lform .ok h3{font-family:var(--serif);font-size:22px;color:var(--char);margin-bottom:8px}
+.lform .ok h3{font-size:22px;font-weight:800;color:var(--char);margin-bottom:8px}
 .lform .ok p{color:var(--mist);font-size:13px}
-.gmap{width:100%;height:360px;border:0;border-radius:12px;display:block;margin-top:8px}
+.gmap{width:100%;height:360px;border:0;border-radius:14px;display:block;margin-top:8px}
 @media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -116,7 +113,7 @@ footer a{color:var(--gold-b)}
 
 <div class="top"><div class="wrap"><a href="https://gluxtour.com/" class="logo">GL<span>U</span>X</a><a href="https://gluxtour.com/" class="home">← GLUX 홈</a></div></div>
 
-<header class="hero" style="background:linear-gradient(rgba(8,9,12,.62),rgba(8,9,12,.8)),url(../img/shirahama-onsen.jpg) center/cover">
+<header class="hero" style="background:linear-gradient(rgba(8,7,14,.72),rgba(8,7,14,.87)),url(../img/shirahama-onsen.jpg) center/cover">
   <div class="wrap">
     <div class="crumb"><a href="https://gluxtour.com/">홈</a> › 여행 테마 › 시라하마 온천여행</div>
     <span class="tag">SHIRAHAMA ONSEN · 현지 직영</span>
