@@ -71,6 +71,8 @@ app.get('/admin/voucher', (req, res) =>
   res.sendFile(path.join(__dirname, 'public/admin/voucher.html')))
 app.get('/admin/estimate', (req, res) =>
   res.sendFile(path.join(__dirname, 'public/admin/estimate.html')))
+app.get('/admin/quote', (req, res) =>
+  res.sendFile(path.join(__dirname, 'public/admin/quote.html')))
 
 app.get('/health', (req, res) => res.json({ status: 'ok', time: new Date().toISOString() }))
 
