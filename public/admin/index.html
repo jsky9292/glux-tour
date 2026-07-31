@@ -61,7 +61,8 @@ body{font-family:'Noto Sans KR',sans-serif;font-size:13px;background:#f0f2f5;col
 .loading{text-align:center;padding:30px;color:#9ca3af;font-size:12px}
 
 /* 좌측 하단 버튼 */
-.left-footer{padding:10px 12px;border-top:1px solid #f3f4f6;display:flex;gap:6px;flex-shrink:0}
+.left-footer{padding:10px 12px;border-top:1px solid #f3f4f6;display:flex;flex-wrap:wrap;gap:6px;flex-shrink:0}
+.left-footer .btn{font-size:11px;white-space:nowrap;padding:8px 4px;text-align:center;display:flex;align-items:center;justify-content:center;gap:3px;line-height:1}
 .btn{padding:7px 14px;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .15s}
 .btn-red{background:#D9251C;color:#fff}
 .btn-gray{background:#f3f4f6;color:#374151;border:1px solid #e5e7eb}
@@ -120,10 +121,10 @@ body{font-family:'Noto Sans KR',sans-serif;font-size:13px;background:#f0f2f5;col
   <div id="app-list"><div class="loading">불러오는 중...</div></div>
 
   <div class="left-footer">
-    <button class="btn btn-red" onclick="loadApps()" style="flex:1">🔄 새로고침</button>
-    <a class="btn btn-gray" href="/admin/quote" target="_blank">📄 고객 견적서</a>
-    <a class="btn btn-gray" href="/admin/estimate" target="_blank">🧾 내부 원가명세</a>
-    <a class="btn btn-gray" href="/" target="_blank">🌐 고객사이트</a>
+    <button class="btn btn-red" onclick="loadApps()" style="flex:1 1 100%">🔄 새로고침</button>
+    <a class="btn btn-gray" href="/admin/quote" target="_blank" style="flex:1">📄 고객견적서</a>
+    <a class="btn btn-gray" href="/admin/estimate" target="_blank" style="flex:1">🧾 원가명세</a>
+    <a class="btn btn-gray" href="/" target="_blank" style="flex:1">🌐 고객사이트</a>
   </div>
 </div>
 
