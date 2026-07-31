@@ -46,6 +46,13 @@
 4. 색 배경 위 회색 글자 → **대비 확보한 잉크색**
 5. 튕기는 바운스 → **짧고 자연스러운 정지**
 
+## impeccable이 잡는 추가 패턴 (실전 확인)
+- **kicker-above-heading**: 제목 위 영문 대문자 라벨("Why ~", "Reviews" 등)은 AI 템플릿 신호 → 제거하거나 한글 키커로. (한글 키커는 통과)
+- **line-length**: 본문 한 줄 80자 초과 금지 → 읽기 컨테이너 `max-width` ~600px.
+- **wide-tracking**: 본문/라벨 letter-spacing 0.1em 초과 금지 → 0.4~0.5px 수준.
+- **cramped-padding**: 12px 텍스트는 좌우 패딩 ≥8px. 푸터 등 전폭 텍스트에 좌우 패딩 필수.
+- **old-style 숫자**: 세리프(Cormorant 등)의 올드스타일 숫자는 "3박 4일"에서 이상하게 보임 → Pretendard + `font-variant-numeric:lining-nums`.
+
 ## 기계 검사 (선택)
 ```bash
 # 배포된 페이지 검사 (AI 티 자동 탐지)
