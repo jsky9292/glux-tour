@@ -71,6 +71,9 @@ article ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold
 .btn-line{border:1px solid rgba(255,255,255,.3);color:#fff}
 .related{margin:28px 0;font-size:14.5px;color:var(--mist)}
 .related a{color:var(--gold);font-weight:600}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:34px 0}
+.gi{padding-top:68%;background-size:cover;background-position:center;border-radius:10px;background:#e9e7e2}
+@media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}
 footer{background:var(--ink);color:rgba(255,255,255,.55);font-size:12px;padding:30px 0;text-align:center;margin-top:40px}
 footer a{color:var(--gold-b)}
 </style>
@@ -79,7 +82,7 @@ footer a{color:var(--gold-b)}
 
 <div class="top"><div class="wrap"><a href="https://gluxtour.com/" class="logo">GL<span>U</span>X</a><a href="https://gluxtour.com/" class="home">← GLUX 홈</a></div></div>
 
-<header class="hero"><div class="wrap">
+<header class="hero" style="background:linear-gradient(rgba(15,15,26,.7),rgba(15,15,26,.86)),url(/tour/img/kansai-golf.jpg) center/cover"><div class="wrap">
   <div class="crumb"><a href="https://gluxtour.com/">홈</a> › 여행 가이드 › 간사이 골프장 추천</div>
   <span class="tag">TRAVEL GUIDE</span>
   <h1>간사이 골프 여행 완벽 가이드: 오사카·고베 명문 골프장 추천과 예약 팁</h1>
@@ -118,6 +121,8 @@ footer a{color:var(--gold-b)}
       <li><b>라운딩 후 온천 즐기기</b>: 간사이 지역에는 아리마 온천 등 유명 온천이 많습니다. 라운딩 후 피로를 풀기 위해 온천 일정을 함께 계획해 보는 것을 추천합니다.</li>
       <li><b>날씨 변화 대비</b>: 산악 지형이 많은 간사이 골프장은 날씨 변화가 심할 수 있습니다. 방수 기능이 있는 외투나 여벌 옷을 준비하여 갑작스러운 기온 변화에 대비하세요.</li>
     </ul></div>
+
+    <div class="gal"><div class="gi" style="background-image:url(/tour/img/gallery/kansai-golf-1.jpg)"></div><div class="gi" style="background-image:url(/tour/img/gallery/kansai-golf-2.jpg)"></div><div class="gi" style="background-image:url(/tour/img/gallery/kansai-golf-3.jpg)"></div></div>
 
     <div class="sec-t">FAQ</div>
     <div class="sec-h">자주 묻는 질문</div>

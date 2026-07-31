@@ -56,6 +56,9 @@ article ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold
 .btn-line{border:1px solid rgba(255,255,255,.3);color:#fff}
 .related{margin:28px 0;font-size:14.5px;color:var(--mist)}
 .related a{color:var(--gold);font-weight:600}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:34px 0}
+.gi{padding-top:68%;background-size:cover;background-position:center;border-radius:10px;background:#e9e7e2}
+@media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}
 footer{background:var(--ink);color:rgba(255,255,255,.55);font-size:12px;padding:30px 0;text-align:center;margin-top:40px}
 footer a{color:var(--gold-b)}`
 
@@ -64,6 +67,9 @@ const jstr = s => JSON.stringify(s)
 
 function render(a) {
   const url = `https://gluxtour.com/guide/${a.slug}/`
+  const tour = (a.related || '').replace('/tour/', '').replace(/\//g, '')
+  const heroImg = tour ? `/tour/img/${tour}.jpg` : '/glux_thumbnail.png'
+  const gal = tour ? `\n    <div class="gal">${[1, 2, 3].map(i => `<div class="gi" style="background-image:url(/tour/img/gallery/${tour}-${i}.jpg)"></div>`).join('')}</div>` : ''
   const body = (a.sections || []).map(s => {
     const ps = (s.body || []).map(p => `    <p>${p}</p>`).join('\n')
     const list = (s.list && s.list.length) ? `\n    <ul class="pl">\n${s.list.map(x => `      <li>${x}</li>`).join('\n')}\n    </ul>` : ''
@@ -105,7 +111,7 @@ ${STYLE}
 
 <div class="top"><div class="wrap"><a href="https://gluxtour.com/" class="logo">GL<span>U</span>X</a><a href="https://gluxtour.com/" class="home">← GLUX 홈</a></div></div>
 
-<header class="hero"><div class="wrap">
+<header class="hero" style="background:linear-gradient(rgba(15,15,26,.7),rgba(15,15,26,.86)),url(${heroImg}) center/cover"><div class="wrap">
   <div class="crumb"><a href="https://gluxtour.com/">홈</a> › 여행 가이드 › ${esc(a.kw)}</div>
   <span class="tag">TRAVEL GUIDE</span>
   <h1>${esc(a.title)}</h1>
@@ -116,6 +122,7 @@ ${STYLE}
   <article>
 ${body}
 ${tips}
+${gal}
 
     <div class="sec-t">FAQ</div>
     <div class="sec-h">자주 묻는 질문</div>

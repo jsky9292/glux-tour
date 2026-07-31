@@ -71,6 +71,9 @@ article ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold
 .btn-line{border:1px solid rgba(255,255,255,.3);color:#fff}
 .related{margin:28px 0;font-size:14.5px;color:var(--mist)}
 .related a{color:var(--gold);font-weight:600}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:34px 0}
+.gi{padding-top:68%;background-size:cover;background-position:center;border-radius:10px;background:#e9e7e2}
+@media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}
 footer{background:var(--ink);color:rgba(255,255,255,.55);font-size:12px;padding:30px 0;text-align:center;margin-top:40px}
 footer a{color:var(--gold-b)}
 </style>
@@ -79,7 +82,7 @@ footer a{color:var(--gold-b)}
 
 <div class="top"><div class="wrap"><a href="https://gluxtour.com/" class="logo">GL<span>U</span>X</a><a href="https://gluxtour.com/" class="home">← GLUX 홈</a></div></div>
 
-<header class="hero"><div class="wrap">
+<header class="hero" style="background:linear-gradient(rgba(15,15,26,.7),rgba(15,15,26,.86)),url(/tour/img/osaka-family.jpg) center/cover"><div class="wrap">
   <div class="crumb"><a href="https://gluxtour.com/">홈</a> › 여행 가이드 › 오사카 가족여행 코스</div>
   <span class="tag">TRAVEL GUIDE</span>
   <h1>오사카 3박4일 가족여행 코스: 유니버설·도톤보리·교토/나라 완벽 가이드</h1>
@@ -128,6 +131,8 @@ footer a{color:var(--gold-b)}
       <li><b>현금 준비:</b> 카드 사용이 보편화되었지만, 소규모 상점이나 길거리 음식점은 현금만 받는 곳이 많으니 소액의 현금을 준비하는 것이 좋습니다.</li>
       <li><b>날씨와 복장:</b> 간사이 지역은 사계절이 뚜렷합니다. 여행 시기에 맞춰 옷차림을 준비하고, 많이 걷는 일정이므로 편안한 신발은 필수입니다.</li>
     </ul></div>
+
+    <div class="gal"><div class="gi" style="background-image:url(/tour/img/gallery/osaka-family-1.jpg)"></div><div class="gi" style="background-image:url(/tour/img/gallery/osaka-family-2.jpg)"></div><div class="gi" style="background-image:url(/tour/img/gallery/osaka-family-3.jpg)"></div></div>
 
     <div class="sec-t">FAQ</div>
     <div class="sec-h">자주 묻는 질문</div>

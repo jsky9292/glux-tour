@@ -72,6 +72,9 @@ article ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold
 .btn-line{border:1px solid rgba(255,255,255,.3);color:#fff}
 .related{margin:28px 0;font-size:14.5px;color:var(--mist)}
 .related a{color:var(--gold);font-weight:600}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:34px 0}
+.gi{padding-top:68%;background-size:cover;background-position:center;border-radius:10px;background:#e9e7e2}
+@media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}
 footer{background:var(--ink);color:rgba(255,255,255,.55);font-size:12px;padding:30px 0;text-align:center;margin-top:40px}
 footer a{color:var(--gold-b)}
 </style>
@@ -80,7 +83,7 @@ footer a{color:var(--gold-b)}
 
 <div class="top"><div class="wrap"><a href="https://gluxtour.com/" class="logo">GL<span>U</span>X</a><a href="https://gluxtour.com/" class="home">← GLUX 홈</a></div></div>
 
-<header class="hero"><div class="wrap">
+<header class="hero" style="background:linear-gradient(rgba(15,15,26,.7),rgba(15,15,26,.86)),url(/tour/img/kobe-food.jpg) center/cover"><div class="wrap">
   <div class="crumb"><a href="https://gluxtour.com/">홈</a> › 여행 가이드 › 고베 와규 맛집</div>
   <span class="tag">TRAVEL GUIDE</span>
   <h1>고베 와규 A5 철판구이 맛집: 예약 팁부터 하버랜드 야경 연계까지 완벽 가이드</h1>
@@ -120,6 +123,8 @@ footer a{color:var(--gold-b)}
       <li>고베규 외에도 <b>현지 식당에서 추천하는 사이드 메뉴</b>(제철 채소, 해산물 등)를 함께 즐겨보세요. 풍미를 더해줍니다.</li>
       <li>고베규 전문점은 <b>신용카드 결제가 가능한 경우가 많지만</b>, 소규모 식당은 현금만 받는 곳도 있으니 소액의 현금을 준비하는 것이 안전합니다.</li>
     </ul></div>
+
+    <div class="gal"><div class="gi" style="background-image:url(/tour/img/gallery/kobe-food-1.jpg)"></div><div class="gi" style="background-image:url(/tour/img/gallery/kobe-food-2.jpg)"></div><div class="gi" style="background-image:url(/tour/img/gallery/kobe-food-3.jpg)"></div></div>
 
     <div class="sec-t">FAQ</div>
     <div class="sec-h">자주 묻는 질문</div>

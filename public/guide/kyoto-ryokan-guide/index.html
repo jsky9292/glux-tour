@@ -71,6 +71,9 @@ article ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold
 .btn-line{border:1px solid rgba(255,255,255,.3);color:#fff}
 .related{margin:28px 0;font-size:14.5px;color:var(--mist)}
 .related a{color:var(--gold);font-weight:600}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:34px 0}
+.gi{padding-top:68%;background-size:cover;background-position:center;border-radius:10px;background:#e9e7e2}
+@media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}
 footer{background:var(--ink);color:rgba(255,255,255,.55);font-size:12px;padding:30px 0;text-align:center;margin-top:40px}
 footer a{color:var(--gold-b)}
 </style>
@@ -79,7 +82,7 @@ footer a{color:var(--gold-b)}
 
 <div class="top"><div class="wrap"><a href="https://gluxtour.com/" class="logo">GL<span>U</span>X</a><a href="https://gluxtour.com/" class="home">← GLUX 홈</a></div></div>
 
-<header class="hero"><div class="wrap">
+<header class="hero" style="background:linear-gradient(rgba(15,15,26,.7),rgba(15,15,26,.86)),url(/tour/img/kyoto-ryokan.jpg) center/cover"><div class="wrap">
   <div class="crumb"><a href="https://gluxtour.com/">홈</a> › 여행 가이드 › 교토 료칸 추천</div>
   <span class="tag">TRAVEL GUIDE</span>
   <h1>교토 료칸 추천: 완벽한 온천 여행을 위한 예약 팁과 필수 가이드</h1>
@@ -120,6 +123,8 @@ footer a{color:var(--gold-b)}
       <li><b>GLUX Tour와 상담</b>하여 현지 전문가의 맞춤형 료칸 추천과 예약 도움을 받으세요.</li>
       <li>객실 내 전용 온천이 있는 료칸은 <b>프라이빗한 휴식</b>을 선호하는 분들께 특히 좋습니다.</li>
     </ul></div>
+
+    <div class="gal"><div class="gi" style="background-image:url(/tour/img/gallery/kyoto-ryokan-1.jpg)"></div><div class="gi" style="background-image:url(/tour/img/gallery/kyoto-ryokan-2.jpg)"></div><div class="gi" style="background-image:url(/tour/img/gallery/kyoto-ryokan-3.jpg)"></div></div>
 
     <div class="sec-t">FAQ</div>
     <div class="sec-h">자주 묻는 질문</div>
