@@ -65,10 +65,8 @@ article ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold
 .keyfacts li:last-child{border-bottom:none}
 .keyfacts li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
 .mapbox{margin:34px 0}
-.map-ph{border:1.5px dashed #d8cdb6;border-radius:14px;background:#faf8f2;padding:30px 20px;text-align:center}
-.map-ph .mt{font-size:15px;font-weight:700;color:var(--ink)}
-.map-ph .mp{font-size:14px;color:#5a5d68;margin-top:6px}.map-ph .mp span{color:var(--gold-b)}
-.map-ph .ms{font-size:12px;color:var(--mist);margin-top:8px}
+.map-t{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:10px}.map-t span{color:var(--gold-b);font-weight:400}
+.gmap{width:100%;height:340px;border:0;border-radius:12px;display:block}
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:34px 0}
 .gi{padding-top:68%;background-size:cover;background-position:center;border-radius:10px;background:#e9e7e2}
 @media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}
@@ -85,7 +83,10 @@ function render(a) {
   const gal = tour ? `\n    <div class="gal">${[1, 2, 3].map(i => `<div class="gi" style="background-image:url(/tour/img/gallery/${tour}-${i}.jpg)"></div>`).join('')}</div>` : ''
   const summaryHtml = a.summary ? `    <div class="summary"><span class="lbl">핵심 요약</span>${a.summary}</div>\n` : ''
   const keyFactsHtml = (a.keyFacts && a.keyFacts.length) ? `    <div class="keyfacts"><h3>한눈에 보기</h3><ul>\n${a.keyFacts.map(f => `      <li>${f}</li>`).join('\n')}\n    </ul></div>\n` : ''
-  const mapHtml = a.place ? `\n    <div class="mapbox" data-place="${esc(a.place)}"><div class="map-ph"><div class="mt">📍 위치 &amp; 구글 리뷰</div><div class="mp">${esc(a.kw)} · <span>${esc(a.place)}</span></div><div class="ms">구글 지도·리뷰 연동 예정</div></div></div>\n` : ''
+  const mapHtml = a.place ? `\n    <div class="mapbox">
+      <div class="map-t">📍 ${esc(a.kw)} <span>· ${esc(a.place)}</span></div>
+      <iframe class="gmap" src="https://maps.google.com/maps?q=${encodeURIComponent(a.place)}&z=15&hl=ko&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>\n` : ''
   const body = (a.sections || []).map(s => {
     const ps = (s.body || []).map(p => `    <p>${p}</p>`).join('\n')
     const list = (s.list && s.list.length) ? `\n    <ul class="pl">\n${s.list.map(x => `      <li>${x}</li>`).join('\n')}\n    </ul>` : ''
