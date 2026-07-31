@@ -56,6 +56,19 @@ article ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold
 .btn-line{border:1px solid rgba(255,255,255,.3);color:#fff}
 .related{margin:28px 0;font-size:14.5px;color:var(--mist)}
 .related a{color:var(--gold);font-weight:600}
+.summary{background:#fbf6ec;border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:18px 22px;margin:0 0 24px;font-size:16.5px;color:#33363f;line-height:1.85;word-break:keep-all}
+.summary .lbl{display:block;font-size:11px;letter-spacing:2px;color:var(--gold-b);font-weight:700;margin-bottom:6px}
+.keyfacts{background:var(--white);border:1px solid #eee;border-radius:12px;padding:18px 22px;margin:0 0 30px}
+.keyfacts h3{font-size:15px;color:var(--ink);font-weight:700;margin-bottom:8px}
+.keyfacts ul{list-style:none}
+.keyfacts li{position:relative;padding:9px 0 9px 24px;font-size:15.5px;color:#3f424c;border-bottom:1px dashed #efefef}
+.keyfacts li:last-child{border-bottom:none}
+.keyfacts li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+.mapbox{margin:34px 0}
+.map-ph{border:1.5px dashed #d8cdb6;border-radius:14px;background:#faf8f2;padding:30px 20px;text-align:center}
+.map-ph .mt{font-size:15px;font-weight:700;color:var(--ink)}
+.map-ph .mp{font-size:14px;color:#5a5d68;margin-top:6px}.map-ph .mp span{color:var(--gold-b)}
+.map-ph .ms{font-size:12px;color:var(--mist);margin-top:8px}
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:34px 0}
 .gi{padding-top:68%;background-size:cover;background-position:center;border-radius:10px;background:#e9e7e2}
 @media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}
@@ -70,6 +83,9 @@ function render(a) {
   const tour = (a.related || '').replace('/tour/', '').replace(/\//g, '')
   const heroImg = tour ? `/tour/img/${tour}.jpg` : '/glux_thumbnail.png'
   const gal = tour ? `\n    <div class="gal">${[1, 2, 3].map(i => `<div class="gi" style="background-image:url(/tour/img/gallery/${tour}-${i}.jpg)"></div>`).join('')}</div>` : ''
+  const summaryHtml = a.summary ? `    <div class="summary"><span class="lbl">핵심 요약</span>${a.summary}</div>\n` : ''
+  const keyFactsHtml = (a.keyFacts && a.keyFacts.length) ? `    <div class="keyfacts"><h3>한눈에 보기</h3><ul>\n${a.keyFacts.map(f => `      <li>${f}</li>`).join('\n')}\n    </ul></div>\n` : ''
+  const mapHtml = a.place ? `\n    <div class="mapbox" data-place="${esc(a.place)}"><div class="map-ph"><div class="mt">📍 위치 &amp; 구글 리뷰</div><div class="mp">${esc(a.kw)} · <span>${esc(a.place)}</span></div><div class="ms">구글 지도·리뷰 연동 예정</div></div></div>\n` : ''
   const body = (a.sections || []).map(s => {
     const ps = (s.body || []).map(p => `    <p>${p}</p>`).join('\n')
     const list = (s.list && s.list.length) ? `\n    <ul class="pl">\n${s.list.map(x => `      <li>${x}</li>`).join('\n')}\n    </ul>` : ''
@@ -120,10 +136,10 @@ ${STYLE}
 
 <div class="wrap">
   <article>
-${body}
+${summaryHtml}${keyFactsHtml}${body}
 ${tips}
 ${gal}
-
+${mapHtml}
     <div class="sec-t">FAQ</div>
     <div class="sec-h">자주 묻는 질문</div>
     <div class="faq">
