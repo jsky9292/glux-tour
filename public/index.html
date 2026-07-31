@@ -414,10 +414,10 @@ body{padding-bottom:var(--bar)}
   <div class="inner">
     <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Destinations</span></div><h2 class="st">간사이의 매력적인 도시들</h2><p class="ss">각 도시만의 특별한 경험을 GLUX가 코디합니다.</p></div>
     <div class="dest-grid rv">
-      <div class="dest-card" style="background-image:url('/img/city-osaka.jpg')"><div class="dest-inner"><div class="dest-en">Osaka</div><h4>오사카</h4><p>일본 제2의 도시, 먹거리와 활기의 천국</p><div class="dest-spots"><span class="dest-spot">도톤보리</span><span class="dest-spot">쿠로몬시장</span><span class="dest-spot">유니버설</span><span class="dest-spot">신세카이</span></div></div></div>
-      <div class="dest-card" style="background-image:url('/img/city-kyoto.jpg')"><div class="dest-inner"><div class="dest-en">Kyoto</div><h4>교토</h4><p>천년 고도의 전통미, 료칸과 기모노의 도시</p><div class="dest-spots"><span class="dest-spot">후시미이나리</span><span class="dest-spot">아라시야마</span><span class="dest-spot">기온거리</span><span class="dest-spot">금각사</span></div></div></div>
-      <div class="dest-card" style="background-image:url('/img/city-nara.jpg')"><div class="dest-inner"><div class="dest-en">Nara</div><h4>나라</h4><p>사슴과 함께하는 평화로운 가족 여행지</p><div class="dest-spots"><span class="dest-spot">사슴공원</span><span class="dest-spot">도다이지</span><span class="dest-spot">나라마치</span><span class="dest-spot">이스이엔</span></div></div></div>
-      <div class="dest-card" style="background-image:url('/img/city-kobe.jpg')"><div class="dest-inner"><div class="dest-en">Kobe</div><h4>고베</h4><p>고베규와 항구 야경, 아리마온천의 도시</p><div class="dest-spots"><span class="dest-spot">고베규</span><span class="dest-spot">하버랜드</span><span class="dest-spot">아리마온천</span><span class="dest-spot">롯코산</span></div></div></div>
+      <a href="/tour/osaka-family/" class="dest-card" style="background-image:url('/img/city-osaka.jpg')"><div class="dest-inner"><div class="dest-en">Osaka</div><h4>오사카</h4><p>일본 제2의 도시, 먹거리와 활기의 천국</p><div class="dest-spots"><span class="dest-spot">도톤보리</span><span class="dest-spot">쿠로몬시장</span><span class="dest-spot">유니버설</span><span class="dest-spot">신세카이</span></div></div></a>
+      <a href="/tour/kyoto-ryokan/" class="dest-card" style="background-image:url('/img/city-kyoto.jpg')"><div class="dest-inner"><div class="dest-en">Kyoto</div><h4>교토</h4><p>천년 고도의 전통미, 료칸과 기모노의 도시</p><div class="dest-spots"><span class="dest-spot">후시미이나리</span><span class="dest-spot">아라시야마</span><span class="dest-spot">기온거리</span><span class="dest-spot">금각사</span></div></div></a>
+      <a href="/tour/nara-family/" class="dest-card" style="background-image:url('/img/city-nara.jpg')"><div class="dest-inner"><div class="dest-en">Nara</div><h4>나라</h4><p>사슴과 함께하는 평화로운 가족 여행지</p><div class="dest-spots"><span class="dest-spot">사슴공원</span><span class="dest-spot">도다이지</span><span class="dest-spot">나라마치</span><span class="dest-spot">이스이엔</span></div></div></a>
+      <a href="/tour/kobe-food/" class="dest-card" style="background-image:url('/img/city-kobe.jpg')"><div class="dest-inner"><div class="dest-en">Kobe</div><h4>고베</h4><p>고베규와 항구 야경, 아리마온천의 도시</p><div class="dest-spots"><span class="dest-spot">고베규</span><span class="dest-spot">하버랜드</span><span class="dest-spot">아리마온천</span><span class="dest-spot">롯코산</span></div></div></a>
     </div>
   </div>
 </section>
@@ -604,6 +604,30 @@ body{padding-bottom:var(--bar)}
 </section>
 
 
+<!-- 여행 가이드 (정보 콘텐츠 → 검색 유입) -->
+<style>
+.gsec{background:var(--paper)}
+.gguide{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:8px}
+.gguide a{display:block;background:#fff;border:1px solid #ece9e2;border-radius:12px;padding:18px 20px;transition:all .2s}
+.gguide a:hover{border-color:var(--gold);transform:translateY(-3px)}
+.gguide .gk{font-size:10px;letter-spacing:2px;color:var(--gold);font-weight:700;margin-bottom:7px}
+.gguide .gt{font-size:15.5px;font-weight:600;color:var(--char);line-height:1.45;word-break:keep-all}
+.gguide .gm{font-size:12px;color:var(--gold);margin-top:8px;font-weight:600}
+</style>
+<section class="dest-s gsec">
+  <div class="inner">
+    <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Travel Guide</span></div><h2 class="st">여행 가이드 · 정보</h2><p class="ss">현지 30년 베테랑이 알려주는 간사이 여행 정보</p></div>
+    <div class="gguide rv">
+      <a href="/guide/osaka-family-3d4n-course/"><div class="gk">FAMILY</div><div class="gt">오사카 3박 4일 가족여행 코스</div><div class="gm">읽어보기 →</div></a>
+      <a href="/guide/kansai-golf-course-guide/"><div class="gk">GOLF</div><div class="gt">간사이 골프장 추천 가이드</div><div class="gm">읽어보기 →</div></a>
+      <a href="/guide/arima-onsen-guide/"><div class="gk">ONSEN</div><div class="gt">아리마온천 완벽 가이드</div><div class="gm">읽어보기 →</div></a>
+      <a href="/guide/kyoto-ryokan-guide/"><div class="gk">RYOKAN</div><div class="gt">교토 료칸 추천 &amp; 예약 팁</div><div class="gm">읽어보기 →</div></a>
+      <a href="/guide/kobe-beef-guide/"><div class="gk">GOURMET</div><div class="gt">고베 와규 맛집 가이드</div><div class="gm">읽어보기 →</div></a>
+      <a href="/guide/nara-day-trip/"><div class="gk">NARA</div><div class="gt">나라 당일치기 코스</div><div class="gm">읽어보기 →</div></a>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="fg">
     <div class="fb"><div class="fb-name"><span>G</span>LUX</div><p>간사이 현지 20년 직영 여행사<br>오사카·교토·나라·고베<br>프라이빗 가족여행 · 골프여행 전문</p></div>
@@ -614,7 +638,7 @@ body{padding-bottom:var(--bar)}
   <div style="max-width:1100px;margin:36px auto 0;padding-top:28px;border-top:1px solid rgba(184,149,106,.1);display:flex;flex-wrap:wrap;gap:10px 32px;align-items:flex-start">
     <div style="font-size:10.5px;color:rgba(255,255,255,.6);line-height:2.1;flex:1;min-width:280px">
       <span style="color:rgba(184,149,106,.85);font-size:9px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px">COMPANY INFO</span>
-      <b style="color:rgba(255,255,255,.92);font-weight:600">Fifty Five株式会社</b>（商号：GAJA旅行）<br>
+      <b style="color:rgba(255,255,255,.92);font-weight:600">Fifty Five株式会社</b>（商号：GLUX (premium Japan Travel)）<br>
       代表取締役　若松 優依<br>
       〒 大阪市中央区東心斎橋二丁目1番5号<br>
       ゴールデン第一プラザビル2階202号室<br>
