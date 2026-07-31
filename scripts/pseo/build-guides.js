@@ -38,7 +38,7 @@ article ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold
 .tips h3{font-size:16px;color:var(--gold);font-weight:700;margin-bottom:12px;letter-spacing:.5px}
 .tips li{list-style:none;position:relative;padding:8px 0 8px 26px;font-size:15.5px;color:#4a4d57;border-bottom:1px dashed #ecdcc0}
 .tips li:last-child{border-bottom:none}
-.tips li::before{content:'💡';position:absolute;left:0}
+.tips li::before{content:'·';position:absolute;left:0;color:var(--gold);font-weight:900}
 .faq{border:1px solid #ececec;border-radius:14px;overflow:hidden;margin:26px 0}
 .faq details{border-bottom:1px solid #ececec;background:var(--white)}.faq details:last-child{border-bottom:none}
 .faq summary{padding:17px 20px;font-size:16.5px;font-weight:600;cursor:pointer;list-style:none}
@@ -84,7 +84,7 @@ function render(a) {
   const summaryHtml = a.summary ? `    <div class="summary"><span class="lbl">핵심 요약</span>${a.summary}</div>\n` : ''
   const keyFactsHtml = (a.keyFacts && a.keyFacts.length) ? `    <div class="keyfacts"><h3>한눈에 보기</h3><ul>\n${a.keyFacts.map(f => `      <li>${f}</li>`).join('\n')}\n    </ul></div>\n` : ''
   const mapHtml = a.place ? `\n    <div class="mapbox">
-      <div class="map-t">📍 ${esc(a.kw)} <span>· ${esc(a.place)}</span></div>
+      <div class="map-t">${esc(a.kw)} <span>· ${esc(a.place)}</span></div>
       <iframe class="gmap" src="https://maps.google.com/maps?q=${encodeURIComponent(a.place)}&z=15&hl=ko&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>\n` : ''
   const body = (a.sections || []).map(s => {
@@ -92,7 +92,7 @@ function render(a) {
     const list = (s.list && s.list.length) ? `\n    <ul class="pl">\n${s.list.map(x => `      <li>${x}</li>`).join('\n')}\n    </ul>` : ''
     return `    <h2>${esc(s.h2)}</h2>\n${ps}${list}`
   }).join('\n')
-  const tips = (a.tips && a.tips.length) ? `\n    <div class="tips"><h3>💡 알아두면 좋은 팁</h3><ul>\n${a.tips.map(t => `      <li>${t}</li>`).join('\n')}\n    </ul></div>` : ''
+  const tips = (a.tips && a.tips.length) ? `\n    <div class="tips"><h3>알아두면 좋은 팁</h3><ul>\n${a.tips.map(t => `      <li>${t}</li>`).join('\n')}\n    </ul></div>` : ''
   const faqHtml = (a.faq || []).map(f => `      <details><summary>${esc(f.q)}</summary><p>${f.a}</p></details>`).join('\n')
   const faqLd = (a.faq || []).map(f => `    {"@type":"Question","name":${jstr(f.q)},"acceptedAnswer":{"@type":"Answer","text":${jstr(String(f.a).replace(/<[^>]+>/g, ''))}}}`).join(',\n')
 
