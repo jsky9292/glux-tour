@@ -1,0 +1,233 @@
+/**
+ * GLUX 큐레이션 콘텐츠 생성기 (맛집·온천 등) — AEO + 문의 CTA 다수
+ * 데이터(curation.json) → public/guide/{slug}/index.html
+ * 톤앤매너: DESIGN.md 기준(Pretendard 골드/화이트, 이모지 0, 대비/줄길이 준수)
+ * 실행: node scripts/pseo/build-curation.js
+ */
+const fs = require('fs')
+const path = require('path')
+const KAKAO = 'https://open.kakao.com/o/gjyncvGi'
+const OUT = path.join(__dirname, '..', '..', 'public', 'guide')
+const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+const j = s => JSON.stringify(s)
+
+const STYLE = `*{margin:0;padding:0;box-sizing:border-box;font-variant-numeric:lining-nums}
+:root{--ink:#141720;--sub:#3a3d4a;--mist:#6b7079;--line:#eceae4;--paper:#f7f5f1;--white:#fff;--gold:#b98a3e;--goldd:#8a6427;--gold-b:#e0bd6e;--warm:#c0392b;--sans:'Pretendard','Pretendard Variable',-apple-system,sans-serif}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;word-break:keep-all;padding-bottom:72px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(12,13,18,.95);backdrop-filter:blur(8px)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:54px}
+.brand{font-weight:800;letter-spacing:3px;font-size:18px;color:#fff}.brand span{color:var(--gold-b)}
+.topbar .home{font-size:12.5px;color:rgba(255,255,255,.72)}
+.hero{color:#fff;padding:64px 0 40px;background:linear-gradient(rgba(8,7,14,.74),rgba(8,7,14,.88)),var(--heroimg,linear-gradient(135deg,#2a2620,#12131a)) center/cover}
+.eyebrow{display:inline-block;background:rgba(224,189,110,.14);color:var(--gold-b);border:1px solid rgba(224,189,110,.4);border-radius:20px;padding:6px 14px;font-size:12.5px;font-weight:700;margin-bottom:16px}
+h1{font-size:clamp(26px,6vw,36px);font-weight:900;line-height:1.28;letter-spacing:-.5px;text-shadow:0 2px 16px rgba(0,0,0,.4)}
+.hero .sum{font-size:15.5px;color:rgba(255,255,255,.92);line-height:1.8;margin-top:16px;max-width:600px}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:14px 22px;border-radius:12px;font-size:14.5px;font-weight:800;cursor:pointer;border:none;font-family:inherit;transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.btn-g{background:linear-gradient(135deg,#e0bd6e,#b98a3e);color:#231a08;box-shadow:0 5px 14px rgba(0,0,0,.28)}
+.btn-l{border:1px solid rgba(255,255,255,.45);color:#fff;background:transparent}
+.crumb{font-size:12px;color:rgba(255,255,255,.7);margin-bottom:14px}.crumb a{color:var(--gold-b)}
+.kf{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:26px 0}
+.kf .kt{font-size:12.5px;font-weight:800;color:var(--goldd);margin-bottom:8px}
+.kf ul{list-style:none}.kf li{font-size:14.5px;color:var(--sub);padding:5px 0 5px 16px;position:relative;line-height:1.7;max-width:640px}
+.kf li::before{content:'';position:absolute;left:2px;top:14px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+section{padding:34px 0 6px}
+h2{font-size:clamp(21px,4.6vw,26px);font-weight:900;line-height:1.35;letter-spacing:-.4px;margin-bottom:6px}
+h2 b{color:var(--goldd)}
+.lead{font-size:15px;color:var(--sub);margin-bottom:6px;max-width:600px}
+.item{border-top:1px solid var(--line);padding:22px 0}
+.item:first-of-type{border-top:2px solid var(--goldd)}
+.ihead{display:flex;align-items:baseline;gap:10px}
+.rk{font-size:20px;font-weight:900;color:var(--goldd);flex-shrink:0;min-width:26px}
+.item h3{font-size:18px;font-weight:800;line-height:1.4}
+.item h3 .ja{font-size:12.5px;color:var(--mist);font-weight:500;margin-left:6px}
+.atag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--goldd);background:#f4ecdb;border-radius:6px;padding:3px 9px;margin-top:8px}
+.item p{font-size:15px;color:var(--sub);line-height:1.8;margin-top:10px;max-width:640px}
+.item .pt{font-size:14px;color:var(--ink);margin-top:8px;max-width:640px}.item .pt b{color:var(--goldd)}
+.mini{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:800;color:var(--goldd)}
+.mini::after{content:' →'}
+.banner{background:linear-gradient(135deg,#171922,#12131a);color:#fff;border-radius:16px;padding:24px 22px;margin:30px 0;text-align:center}
+.banner h3{font-size:18px;font-weight:800;margin-bottom:6px}
+.banner p{font-size:13.5px;color:rgba(255,255,255,.78);margin-bottom:16px}
+.tips{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:12px}
+.tips li{list-style:none;font-size:14.5px;color:var(--sub);padding:7px 0 7px 16px;position:relative;line-height:1.7;max-width:640px}
+.tips li::before{content:'';position:absolute;left:2px;top:16px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.faq details{border-top:1px solid var(--line)}.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{padding:16px 2px;font-size:16px;font-weight:700;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq .fa{padding:0 2px 16px;font-size:14.5px;color:var(--sub);line-height:1.75;max-width:640px}
+.cend{background:linear-gradient(rgba(8,7,14,.9),rgba(8,7,14,.94)),var(--heroimg,linear-gradient(135deg,#2a2620,#12131a)) center/cover;color:#fff;border-radius:18px;padding:36px 24px;margin:34px 0;text-align:center}
+.cend h2{color:#fff}.cend h2 b{color:var(--gold-b)}
+.cend p{color:rgba(255,255,255,.85);font-size:14px;margin:8px 0 4px}
+.form{background:#fff;border-radius:16px;padding:22px 20px;margin-top:18px;text-align:left;box-shadow:0 18px 44px rgba(0,0,0,.4)}
+.form label{display:block;font-size:12px;font-weight:600;margin:12px 0 5px;color:var(--ink)}
+.form label:first-of-type{margin-top:0}
+.form input,.form textarea{width:100%;padding:13px 14px;border:1px solid #e2ddd2;background:var(--paper);font-family:inherit;font-size:15px;color:var(--ink);border-radius:9px;outline:none}
+.form input:focus,.form textarea:focus{border-color:var(--gold)}
+.form .r2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.form textarea{min-height:54px;resize:vertical}
+.form button{margin-top:14px;width:100%}
+.form .nt{font-size:12px;color:var(--mist);text-align:center;margin-top:10px}
+.form .ok{display:none;text-align:center;padding:22px 6px}
+.form .ok h3{font-size:19px;font-weight:900;margin-bottom:6px}.form .ok p{color:var(--mist);font-size:13px}
+.rel{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.rel a{border:1px solid var(--line);border-radius:12px;padding:14px 15px;font-size:14px;font-weight:700}
+.rel a .rm{font-size:12px;color:var(--mist);font-weight:400;margin-top:3px}
+.disc{font-size:12px;color:var(--mist);line-height:1.6;margin:22px 0 8px;padding-top:14px;border-top:1px solid var(--line);max-width:640px}
+footer{background:#0c0c14;color:rgba(255,255,255,.6);font-size:12px;padding:26px 20px 34px;text-align:center;line-height:1.7}
+footer a{color:var(--gold-b)}
+.sticky{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(15,14,26,.97);backdrop-filter:blur(6px);display:flex;gap:8px;padding:9px 14px calc(9px + env(safe-area-inset-bottom));max-width:760px;margin:0 auto;box-shadow:0 -4px 20px rgba(0,0,0,.3)}
+.sticky a{flex:1;padding:13px;border-radius:11px;font-size:14px;font-weight:800;text-align:center}
+.sticky .k{flex:0 0 42%;background:rgba(255,255,255,.13);color:#fff}
+.sticky .g{background:linear-gradient(135deg,#e0bd6e,#b98a3e);color:#231a08}`
+
+function render(p) {
+  const url = `https://gluxtour.com/guide/${p.slug}/`
+  const items = p.items.map((it, i) => `  <div class="item">
+    <div class="ihead"><span class="rk">${i + 1}</span><h3>${esc(it.name)}${it.ja ? ` <span class="ja">${esc(it.ja)}</span>` : ''}</h3></div>
+    ${it.area ? `<span class="atag">${esc(it.area)}</span>` : ''}
+    <p>${it.desc}</p>
+    ${it.point ? `<div class="pt"><b>추천 포인트</b> · ${esc(it.point)}</div>` : ''}
+    <a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+  </div>`).join('\n')
+  const kf = p.keyFacts.map(x => `    <li>${esc(x)}</li>`).join('\n')
+  const faqHtml = p.faq.map(f => `  <details><summary>${esc(f.q)}</summary><div class="fa">${esc(f.a)}</div></details>`).join('\n')
+  const faqLd = p.faq.map(f => `    {"@type":"Question","name":${j(f.q)},"acceptedAnswer":{"@type":"Answer","text":${j(f.a)}}}`).join(',\n')
+  const tips = (p.tips || []).map(t => `    <li>${esc(t)}</li>`).join('\n')
+  const rel = (p.related || []).map(r => `  <a href="${r.href}">${esc(r.t)}<div class="rm">${esc(r.d)}</div></a>`).join('\n')
+  const heroCss = p.heroImage ? `style="--heroimg:url('${p.heroImage}')"` : ''
+
+  return `<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>${esc(p.title)}</title>
+<meta name="description" content="${esc(p.description)}">
+<link rel="canonical" href="${url}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="${esc(p.ogTitle || p.title)}">
+<meta property="og:description" content="${esc(p.description)}">
+<meta property="og:url" content="${url}">
+<meta property="og:site_name" content="GLUX Tour">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":${j(p.h1 || p.title)},"description":${j(p.description)},"author":{"@type":"Organization","name":"GLUX Tour"},"publisher":{"@type":"Organization","name":"GLUX Tour"},"mainEntityOfPage":${j(url)}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+${faqLd}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"GLUX 홈","item":"https://gluxtour.com/"},{"@type":"ListItem","position":2,"name":"여행 가이드","item":"https://gluxtour.com/#travel"},{"@type":"ListItem","position":3,"name":${j(p.h1 || p.title)},"item":${j(url)}}]}
+</script>
+<style>${STYLE}</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><a href="https://gluxtour.com/" class="brand">GL<span>U</span>X</a><a href="https://gluxtour.com/" class="home">← GLUX 홈</a></div></div>
+
+<header class="hero" ${heroCss}><div class="wrap">
+  <div class="crumb"><a href="https://gluxtour.com/">홈</a> › 여행 가이드 › ${esc(p.kw)}</div>
+  <span class="eyebrow">${esc(p.eyebrow || 'GLUX 큐레이션')}</span>
+  <h1>${esc(p.h1 || p.title)}</h1>
+  <p class="sum">${p.summary}</p>
+  <div class="cta"><a href="#form" class="btn btn-g">무료 여행 문의하기 →</a><a href="${KAKAO}" target="_blank" rel="noopener" class="btn btn-l">카카오톡 상담</a></div>
+</div></header>
+
+<div class="wrap">
+  <div class="kf"><div class="kt">한눈에 보기</div><ul>
+${kf}
+  </ul></div>
+
+  <section>
+    <h2>${esc(p.listTitle)}</h2>
+    ${p.listLead ? `<p class="lead">${esc(p.listLead)}</p>` : ''}
+${items}
+  </section>
+
+  <div class="banner">
+    <h3>맛집·온천, GLUX가 동선까지 짜드립니다</h3>
+    <p>예약·통역·전용차량 이동까지. 원하는 곳만 알려주세요.</p>
+    <a href="#form" class="btn btn-g" style="display:inline-flex">무료 여행 문의하기 →</a>
+  </div>
+${p.tips && p.tips.length ? `
+  <section>
+    <h2>여행 <b>꿀팁</b></h2>
+    <ul class="tips">
+${tips}
+    </ul>
+  </section>` : ''}
+
+  <section>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq">
+${faqHtml}
+    </div>
+  </section>
+
+  <div class="cend" ${heroCss} id="form">
+    <h2>${esc(p.kw)}, <b>GLUX와 함께</b></h2>
+    <p>현지 30년 직영 · 예약·통역·전용차량 올인원 · 24시간 내 연락</p>
+    <div class="form">
+      <div id="lfArea">
+        <label>이름 *</label><input type="text" id="lN" placeholder="홍길동">
+        <label>연락처 *</label><input type="tel" id="lP" placeholder="010-0000-0000">
+        <label>희망 여행 시기 (선택)</label><div class="r2"><input type="date" id="lCI"><input type="date" id="lCO"></div>
+        <label>인원·요청 (선택)</label><textarea id="lM" placeholder="예: 성인 2명, 야끼니꾸+온천 위주로"></textarea>
+        <button class="btn btn-g" id="lBtn" onclick="submitLead()">무료 여행 문의하기</button>
+        <div class="nt">상담·문의는 무료예요 · 접수 후 24시간 내 연락</div>
+      </div>
+      <div class="ok" id="lOk"><h3>문의가 접수됐어요</h3><p>24시간 내에 연락드릴게요. 감사합니다.</p></div>
+    </div>
+  </div>
+${rel ? `
+  <section>
+    <h2>함께 보면 좋아요</h2>
+    <div class="rel">
+${rel}
+    </div>
+  </section>` : ''}
+  <p class="disc">※ 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권합니다. 평점은 공개 정보를 참고한 것으로 실제와 다를 수 있습니다. 정확한 예약·최신 정보는 문의 시 안내해 드립니다.</p>
+</div>
+
+<footer>© GLUX Tour · 오사카·간사이 현지 직영 여행사 · <a href="https://gluxtour.com/">gluxtour.com</a></footer>
+
+<div class="sticky">
+  <a href="${KAKAO}" target="_blank" rel="noopener" class="k">카톡 상담</a>
+  <a href="#form" class="g">무료 여행 문의 →</a>
+</div>
+
+<script>
+async function submitLead(){
+  var n=document.getElementById('lN').value.trim(), p=document.getElementById('lP').value.trim();
+  if(!n||!p){alert('이름과 연락처는 필수예요.');return;}
+  var ci=document.getElementById('lCI').value, co=document.getElementById('lCO').value, memo=document.getElementById('lM').value.trim();
+  var btn=document.getElementById('lBtn'); btn.disabled=true; btn.textContent='접수 중...';
+  try{
+    var res=await fetch('https://gluxtour.com/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:n,phone:p,departure_date:ci||'미정',return_date:co||'미정',package_type:${j('가이드 문의: ' + p.kw)},requests:memo||null})});
+    if(res.ok){document.getElementById('lfArea').style.display='none';document.getElementById('lOk').style.display='block';document.getElementById('lOk').scrollIntoView({behavior:'smooth',block:'center'});}
+    else{var jr=await res.json().catch(function(){return{};});alert('오류: '+(jr.error||'다시 시도해주세요.'));btn.disabled=false;btn.textContent='무료 여행 문의하기';}
+  }catch(e){document.getElementById('lfArea').style.display='none';document.getElementById('lOk').style.display='block';}
+}
+(function(){var t=new Date().toISOString().split('T')[0];['lCI','lCO'].forEach(function(id){var el=document.getElementById(id);if(el)el.setAttribute('min',t);});})();
+</script>
+</body>
+</html>
+`
+}
+
+const PAGES = JSON.parse(fs.readFileSync(path.join(__dirname, 'curation.json'), 'utf8'))
+let n = 0
+for (const p of PAGES) {
+  const dir = path.join(OUT, p.slug)
+  fs.mkdirSync(dir, { recursive: true })
+  fs.writeFileSync(path.join(dir, 'index.html'), render(p), 'utf8')
+  console.log(`  ✓ /guide/${p.slug}/  (${p.kw})`)
+  n++
+}
+console.log(`\n큐레이션 생성 완료: ${n}개`)
