@@ -51,17 +51,17 @@ h2 b{color:var(--goldd)}
 .mini::after{content:' →'}
 .banner{background:linear-gradient(135deg,#171922,#12131a);color:#fff;border-radius:16px;padding:24px 22px;margin:30px 0;text-align:center}
 .banner h3{font-size:18px;font-weight:800;margin-bottom:6px}
-.banner p{font-size:13.5px;color:rgba(255,255,255,.78);margin-bottom:16px}
+.banner p{font-size:13.5px;color:rgba(255,255,255,.78);margin:0 auto 16px;max-width:460px}
 .tips{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:12px}
 .tips li{list-style:none;font-size:14.5px;color:var(--sub);padding:7px 0 7px 16px;position:relative;line-height:1.7;max-width:560px}
 .tips li::before{content:'';position:absolute;left:2px;top:16px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
 .faq details{border-top:1px solid var(--line)}.faq details:last-child{border-bottom:1px solid var(--line)}
-.faq summary{padding:16px 2px;font-size:16px;font-weight:700;cursor:pointer;list-style:none}
+.faq summary{padding:16px 2px;font-size:16px;font-weight:700;cursor:pointer;list-style:none;max-width:560px}
 .faq summary::-webkit-details-marker{display:none}
 .faq .fa{padding:0 2px 16px;font-size:14.5px;color:var(--sub);line-height:1.75;max-width:560px}
 .cend{background:linear-gradient(rgba(8,7,14,.9),rgba(8,7,14,.94)),var(--heroimg,linear-gradient(135deg,#2a2620,#12131a)) center/cover;color:#fff;border-radius:18px;padding:36px 24px;margin:34px 0;text-align:center}
 .cend h2{color:#fff}.cend h2 b{color:var(--gold-b)}
-.cend p{color:rgba(255,255,255,.85);font-size:14px;margin:8px 0 4px}
+.cend p{color:rgba(255,255,255,.85);font-size:14px;margin:8px auto 4px;max-width:460px}
 .form{background:#fff;border-radius:16px;padding:22px 20px;margin-top:18px;text-align:left;box-shadow:0 18px 44px rgba(0,0,0,.4)}
 .form label{display:block;font-size:12px;font-weight:600;margin:12px 0 5px;color:var(--ink)}
 .form label:first-of-type{margin-top:0}
