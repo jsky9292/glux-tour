@@ -48,7 +48,7 @@
 
 ## impeccable이 잡는 추가 패턴 (실전 확인)
 - **kicker-above-heading**: 제목 위 영문 대문자 라벨("Why ~", "Reviews" 등)은 AI 템플릿 신호 → 제거하거나 한글 키커로. (한글 키커는 통과)
-- **line-length**: 본문 한 줄 80자 초과 금지 → 읽기 컨테이너 `max-width` ~600px.
+- **line-length**: impeccable은 "글자수 = 요소 너비 ÷ 약 6px"로 계산 → 80자 미만이려면 **본문 텍스트 max-width ≤ 460px**(600px은 93자로 잡힘). 중앙정렬 문구도 max-width+margin auto.
 - **wide-tracking**: 본문/라벨 letter-spacing 0.1em 초과 금지 → 0.4~0.5px 수준.
 - **cramped-padding**: 12px 텍스트는 좌우 패딩 ≥8px. 푸터 등 전폭 텍스트에 좌우 패딩 필수.
 - **old-style 숫자**: 세리프(Cormorant 등)의 올드스타일 숫자는 "3박 4일"에서 이상하게 보임 → Pretendard + `font-variant-numeric:lining-nums`.
