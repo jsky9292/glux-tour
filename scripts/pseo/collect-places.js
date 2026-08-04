@@ -1,0 +1,98 @@
+/**
+ * Google Places(New)로 카테고리별 맛집·온천을 구글 평점순으로 수집 → curation.json 갱신
+ * 실행: node scripts/pseo/collect-places.js
+ * 필요: .env GOOGLE_PLACES_KEY (Places API New, 애플리케이션 제한 '없음')
+ * 정직성: 실제 구글 평점만 사용, 표시 시 출처(Google) 명기. 원본 리뷰문 재게시 안 함.
+ */
+require('dotenv').config()
+const fs = require('fs')
+const path = require('path')
+const KEY = process.env.GOOGLE_PLACES_KEY
+const CURATION = path.join(__dirname, 'curation.json')
+
+// slug → 수집 조건. noun=설명용 명사, min=최소 리뷰수, take=노출 개수
+const Q = {
+  'osaka-yakiniku': { query: 'yakiniku restaurant Osaka', noun: '야끼니꾸(불고기) 맛집', min: 500, take: 8 },
+  'osaka-ramen': { query: 'ramen Osaka', noun: '라멘 맛집', min: 500, take: 8 },
+  'osaka-sushi': { query: 'sushi restaurant Osaka', noun: '스시(초밥) 맛집', min: 200, take: 8 },
+  'osaka-wagyu': { query: 'wagyu steak Osaka', noun: '와규 스테이크 맛집', min: 200, take: 8 },
+  'dotonbori-food': { query: 'best restaurant Dotonbori Osaka', noun: '도톤보리 맛집', min: 500, take: 8 },
+  'osaka-onsen': { query: 'onsen spa Osaka', noun: '온천·스파', min: 1000, take: 8 },
+}
+
+const AREAS = [
+  ['난바', ['난바', '難波', 'Namba']], ['도톤보리', ['도톤보리', '道頓堀', 'Dotonbori']],
+  ['신사이바시', ['신사이바시', '心斎橋', 'Shinsaibashi']], ['우메다', ['우메다', '梅田', 'Umeda']],
+  ['닛폰바시', ['닛폰바시', '日本橋', 'Nipponbashi']], ['텐노지', ['텐노지', '天王寺', 'Tennoji']],
+  ['신세카이', ['신세카이', '新世界', 'Shinsekai']], ['츠루하시', ['츠루하시', '鶴橋', 'Tsuruhashi']],
+  ['교바시', ['교바시', '京橋', 'Kyobashi']], ['키타신치', ['키타신치', '北新地', 'Kitashinchi']],
+]
+function areaOf(addr) {
+  const a = addr || ''
+  for (const [ko, keys] of AREAS) if (keys.some(k => a.includes(k))) return ko
+  return '오사카'
+}
+
+// 브랜드 식별키: 지역·업종·수식어를 걷어내고 남는 첫 고유 단어(분점 중복 제거용)
+const STOP = new Set(['osaka', 'halal', 'wagyu', 'beef', 'kobe', 'ramen', 'yakiniku', 'sushi', 'steak', 'restaurant', 'main', 'store', 'branch', 'honten', 'the', 'and', 'vegan', 'gluten', 'free', 'dotonbori', 'namba', 'shinsaibashi', 'umeda', 'osakananba', 'premium', '본점', '분점', '점', '오사카', '난바', '도톤보리', '신사이바시', '우메다', '맛집', '야끼니꾸', '야키니쿠', '라멘', '스시', '와규', '온천', '스테이크'])
+function brandKey(name) {
+  const toks = String(name).toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').split(/\s+/).filter(t => t.length >= 3 && !STOP.has(t))
+  return toks[0] || String(name).toLowerCase().slice(0, 6)
+}
+
+async function search(query) {
+  const res = await fetch('https://places.googleapis.com/v1/places:searchText', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Goog-Api-Key': KEY,
+      'X-Goog-FieldMask': 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.googleMapsUri',
+    },
+    body: JSON.stringify({ textQuery: query, languageCode: 'ko', regionCode: 'JP', maxResultCount: 20 }),
+  })
+  const d = await res.json()
+  if (d.error) throw new Error(d.error.message)
+  return d.places || []
+}
+
+function descOf(p, noun) {
+  const area = p.area && p.area !== '오사카' ? `${p.area}의 ` : ''
+  const love = p.count >= 3000 ? '현지에서 오래도록 사랑받는' : '꾸준히 높은 평가를 받는'
+  return `${area}인기 ${noun}입니다. 구글 평점 ${p.rating}점(리뷰 ${Number(p.count).toLocaleString()}개)으로 ${love} 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.`
+}
+
+;(async () => {
+  if (!KEY) { console.error('GOOGLE_PLACES_KEY 없음'); process.exit(1) }
+  const pages = JSON.parse(fs.readFileSync(CURATION, 'utf8'))
+  const bySlug = Object.fromEntries(pages.map(p => [p.slug, p]))
+  for (const [slug, cfg] of Object.entries(Q)) {
+    const page = bySlug[slug]
+    if (!page) { console.log(`  ! ${slug} 페이지 없음 — 건너뜀`); continue }
+    let places
+    try { places = await search(cfg.query) } catch (e) { console.log(`  ✗ ${slug}: ${e.message}`); continue }
+    const C = 4.2, M = 1000 // 종합점수: (v*R + M*C)/(v+M) — 리뷰 많은 고평점을 상위로
+    const brandSeen = new Set()
+    const items = places
+      .filter(p => p.rating && (p.userRatingCount || 0) >= cfg.min)
+      .map(p => {
+        const name = (p.displayName && p.displayName.text) || ''
+        const v = p.userRatingCount || 0
+        return { name, rating: p.rating, count: v, area: areaOf(p.formattedAddress), maps: p.googleMapsUri || '', score: (v * p.rating + M * C) / (v + M), brand: brandKey(name) }
+      })
+      .filter(p => p.name)
+      .sort((a, b) => b.score - a.score)
+      .filter(p => !brandSeen.has(p.brand) && brandSeen.add(p.brand)) // 같은 브랜드 분점 1곳만
+      .slice(0, cfg.take)
+    if (!items.length) { console.log(`  ! ${slug}: 조건(리뷰 ${cfg.min}+) 충족 결과 없음`); continue }
+    items.forEach(it => { it.desc = descOf(it, cfg.noun) })
+    page.items = items
+    const n = items.length
+    page.h1 = `${page.kw} 구글 평점 순위 TOP ${n}`
+    page.listTitle = `구글 평점 순위 TOP ${n}`
+    page.listLead = `아래 순위는 구글 지도 평점과 리뷰 수를 함께 반영했습니다(출처: Google, 리뷰 ${cfg.min.toLocaleString()}개 이상). 예약이 어려운 곳은 GLUX가 대신 예약·통역해 드립니다.`
+    page.title = `${page.kw} 순위 TOP ${n} | 구글 평점 기준 추천 — GLUX`
+    console.log(`  ✓ ${slug}: ${n}곳 (1위 ${items[0].name} ${items[0].rating}★/${items[0].count})`)
+  }
+  fs.writeFileSync(CURATION, JSON.stringify(pages, null, 2) + '\n', 'utf8')
+  console.log('\ncuration.json 갱신 완료')
+})()

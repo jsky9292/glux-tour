@@ -45,6 +45,10 @@ h2 b{color:var(--goldd)}
 .item h3{font-size:18px;font-weight:800;line-height:1.4}
 .item h3 .ja{font-size:12.5px;color:var(--mist);font-weight:500;margin-left:6px}
 .atag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--goldd);background:#f4ecdb;border-radius:6px;padding:3px 9px;margin-top:8px}
+.rate{display:inline-block;font-size:12.5px;font-weight:800;color:#7a5a1e;background:#f6ecd6;border:1px solid #e7d6ad;border-radius:6px;padding:3px 9px;margin:8px 6px 0 0}
+.rate .rc{font-weight:500;color:var(--mist)}
+.gmap-lnk{display:inline-block;font-size:12.5px;color:var(--mist);margin-top:8px}.gmap-lnk::after{content:' ↗'}
+.src{font-size:12px;color:var(--mist);margin-top:4px}
 .item p{font-size:15px;color:var(--sub);line-height:1.8;margin-top:10px;max-width:460px}
 .item .pt{font-size:14px;color:var(--ink);margin-top:8px;max-width:460px}.item .pt b{color:var(--goldd)}
 .mini{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:800;color:var(--goldd)}
@@ -86,13 +90,18 @@ footer a{color:var(--gold-b)}
 
 function render(p) {
   const url = `https://gluxtour.com/guide/${p.slug}/`
-  const items = p.items.map((it, i) => `  <div class="item">
-    <div class="ihead"><span class="rk">${i + 1}</span><h3>${esc(it.name)}${it.ja ? ` <span class="ja">${esc(it.ja)}</span>` : ''}</h3></div>
-    ${it.area ? `<span class="atag">${esc(it.area)}</span>` : ''}
+  const items = p.items.map((it, i) => {
+    const nameHtml = it.maps ? `<a href="${esc(it.maps)}" target="_blank" rel="noopener nofollow">${esc(it.name)}</a>` : esc(it.name)
+    const rate = it.rating ? `<span class="rate">구글 평점 ${it.rating} ★ <span class="rc">(${Number(it.count || 0).toLocaleString()})</span></span>` : ''
+    const mapLnk = it.maps ? `<a href="${esc(it.maps)}" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a>` : ''
+    return `  <div class="item">
+    <div class="ihead"><span class="rk">${i + 1}</span><h3>${nameHtml}${it.ja ? ` <span class="ja">${esc(it.ja)}</span>` : ''}</h3></div>
+    <div>${it.area ? `<span class="atag">${esc(it.area)}</span> ` : ''}${rate}</div>
     <p>${it.desc}</p>
     ${it.point ? `<div class="pt"><b>추천 포인트</b> · ${esc(it.point)}</div>` : ''}
-    <a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
-  </div>`).join('\n')
+    ${mapLnk ? mapLnk + '<br>' : ''}<a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+  </div>`
+  }).join('\n')
   const kf = p.keyFacts.map(x => `    <li>${esc(x)}</li>`).join('\n')
   const faqHtml = p.faq.map(f => `  <details><summary>${esc(f.q)}</summary><div class="fa">${esc(f.a)}</div></details>`).join('\n')
   const faqLd = p.faq.map(f => `    {"@type":"Question","name":${j(f.q)},"acceptedAnswer":{"@type":"Answer","text":${j(f.a)}}}`).join(',\n')
