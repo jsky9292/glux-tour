@@ -40,6 +40,7 @@ h2 b{color:var(--goldd)}
 .lead{font-size:15px;color:var(--sub);margin-bottom:6px;max-width:460px}
 .item{border-top:1px solid var(--line);padding:22px 0}
 .item:first-of-type{border-top:2px solid var(--goldd)}
+.item .ph{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;margin:12px 0 4px;display:block}
 .ihead{display:flex;align-items:baseline;gap:10px}
 .rk{font-size:20px;font-weight:900;color:var(--goldd);flex-shrink:0;min-width:26px}
 .item h3{font-size:18px;font-weight:800;line-height:1.4}
@@ -94,9 +95,11 @@ function render(p) {
     const nameHtml = it.maps ? `<a href="${esc(it.maps)}" target="_blank" rel="noopener nofollow">${esc(it.name)}</a>` : esc(it.name)
     const rate = it.rating ? `<span class="rate">구글 평점 ${it.rating} ★ <span class="rc">(${Number(it.count || 0).toLocaleString()})</span></span>` : ''
     const mapLnk = it.maps ? `<a href="${esc(it.maps)}" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a>` : ''
+    const ph = it.photo ? `<img class="ph" src="${esc(it.photo)}" alt="${esc(it.name)}" loading="lazy">` : ''
     return `  <div class="item">
     <div class="ihead"><span class="rk">${i + 1}</span><h3>${nameHtml}${it.ja ? ` <span class="ja">${esc(it.ja)}</span>` : ''}</h3></div>
     <div>${it.area ? `<span class="atag">${esc(it.area)}</span> ` : ''}${rate}</div>
+    ${ph}
     <p>${it.desc}</p>
     ${it.point ? `<div class="pt"><b>추천 포인트</b> · ${esc(it.point)}</div>` : ''}
     ${mapLnk ? mapLnk + '<br>' : ''}<a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
@@ -200,7 +203,7 @@ ${rel ? `
 ${rel}
     </div>
   </section>` : ''}
-  <p class="disc">※ 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권합니다. 평점은 공개 정보를 참고한 것으로 실제와 다를 수 있습니다. 정확한 예약·최신 정보는 문의 시 안내해 드립니다.</p>
+  <p class="disc">※ 평점·사진 출처: Google 지도. 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권합니다. 순위는 구글 평점·리뷰 수를 반영한 것으로 참고용이며, 정확한 예약·최신 정보는 문의 시 안내해 드립니다.</p>
 </div>
 
 <footer>© GLUX Tour · 오사카·간사이 현지 직영 여행사 · <a href="https://gluxtour.com/">gluxtour.com</a></footer>

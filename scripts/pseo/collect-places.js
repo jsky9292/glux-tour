@@ -9,6 +9,18 @@ const fs = require('fs')
 const path = require('path')
 const KEY = process.env.GOOGLE_PLACES_KEY
 const CURATION = path.join(__dirname, 'curation.json')
+const IMGDIR = path.join(__dirname, '..', '..', 'public', 'guide', 'img')
+fs.mkdirSync(IMGDIR, { recursive: true })
+const sleep = ms => new Promise(r => setTimeout(r, ms))
+
+// 관광·할랄 특화/체험형 제외(로컬 위주 재정렬) — 이름에 포함되면 제외
+const EXCLUDE = ['halal', 'muslim', 'vegan', 'vegetarian', 'gluten', 'kosher', 'experience', 'making', 'cooking class', 'テマキ', 'ハラル']
+
+async function dlPhoto(pname, dst) {
+  const res = await fetch(`https://places.googleapis.com/v1/${pname}/media?maxWidthPx=800&key=${KEY}`)
+  if (!res.ok) throw new Error('photo ' + res.status)
+  fs.writeFileSync(dst, Buffer.from(await res.arrayBuffer()))
+}
 
 // slug → 수집 조건. noun=설명용 명사, min=최소 리뷰수, take=노출 개수
 const Q = {
@@ -46,7 +58,7 @@ async function search(query) {
     headers: {
       'Content-Type': 'application/json',
       'X-Goog-Api-Key': KEY,
-      'X-Goog-FieldMask': 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.googleMapsUri',
+      'X-Goog-FieldMask': 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.googleMapsUri,places.photos',
     },
     body: JSON.stringify({ textQuery: query, languageCode: 'ko', regionCode: 'JP', maxResultCount: 20 }),
   })
@@ -77,14 +89,22 @@ function descOf(p, noun) {
       .map(p => {
         const name = (p.displayName && p.displayName.text) || ''
         const v = p.userRatingCount || 0
-        return { name, rating: p.rating, count: v, area: areaOf(p.formattedAddress), maps: p.googleMapsUri || '', score: (v * p.rating + M * C) / (v + M), brand: brandKey(name) }
+        return { name, rating: p.rating, count: v, area: areaOf(p.formattedAddress), maps: p.googleMapsUri || '', photoRef: (p.photos && p.photos[0]) ? p.photos[0].name : '', score: (v * p.rating + M * C) / (v + M), brand: brandKey(name) }
       })
-      .filter(p => p.name)
+      .filter(p => p.name && !EXCLUDE.some(k => p.name.toLowerCase().includes(k))) // 관광·할랄 특화 제외
       .sort((a, b) => b.score - a.score)
       .filter(p => !brandSeen.has(p.brand) && brandSeen.add(p.brand)) // 같은 브랜드 분점 1곳만
       .slice(0, cfg.take)
     if (!items.length) { console.log(`  ! ${slug}: 조건(리뷰 ${cfg.min}+) 충족 결과 없음`); continue }
-    items.forEach(it => { it.desc = descOf(it, cfg.noun) })
+    for (let i = 0; i < items.length; i++) {
+      const it = items[i]
+      it.desc = descOf(it, cfg.noun)
+      if (it.photoRef) {
+        try { await dlPhoto(it.photoRef, path.join(IMGDIR, `${slug}-${i + 1}.jpg`)); it.photo = `/guide/img/${slug}-${i + 1}.jpg` } catch (e) {}
+        await sleep(120)
+      }
+      delete it.photoRef; delete it.score; delete it.brand
+    }
     page.items = items
     const n = items.length
     page.h1 = `${page.kw} 구글 평점 순위 TOP ${n}`
