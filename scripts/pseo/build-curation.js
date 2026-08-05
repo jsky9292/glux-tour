@@ -111,6 +111,7 @@ function render(p) {
   const tips = (p.tips || []).map(t => `    <li>${esc(t)}</li>`).join('\n')
   const rel = (p.related || []).map(r => `  <a href="${r.href}">${esc(r.t)}<div class="rm">${esc(r.d)}</div></a>`).join('\n')
   const heroCss = p.heroImage ? `style="--heroimg:url('${p.heroImage}')"` : ''
+  const ogImg = (p.items && p.items[0] && p.items[0].photo) ? ('https://gluxtour.com' + p.items[0].photo) : 'https://gluxtour.com/tour/img/osaka-family.jpg'
 
   return `<!DOCTYPE html>
 <html lang="ko">
@@ -124,6 +125,9 @@ function render(p) {
 <meta property="og:title" content="${esc(p.ogTitle || p.title)}">
 <meta property="og:description" content="${esc(p.description)}">
 <meta property="og:url" content="${url}">
+<meta property="og:image" content="${ogImg}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${ogImg}">
 <meta property="og:site_name" content="GLUX Tour">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css">
 <script type="application/ld+json">

@@ -92,6 +92,9 @@ const html = `<!DOCTYPE html>
 <meta property="og:title" content="오사카·간사이 미식 가이드 · 구글 평점순 — GLUX">
 <meta property="og:description" content="구글 평점순 맛집 큐레이션 + 여행 문의. 오사카·교토·고베·나라 미식여행.">
 <meta property="og:url" content="https://gluxtour.com/guide/">
+<meta property="og:image" content="https://gluxtour.com/guide/img/osaka-yakiniku-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gluxtour.com/guide/img/osaka-yakiniku-1.jpg">
 <meta property="og:site_name" content="GLUX Tour">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css">
 <style>${STYLE}</style>
