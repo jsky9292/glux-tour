@@ -14,7 +14,7 @@ fs.mkdirSync(IMGDIR, { recursive: true })
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
 // 관광·할랄 특화/체험형 제외(로컬 위주 재정렬) — 이름에 포함되면 제외
-const EXCLUDE = ['halal', 'muslim', 'vegan', 'vegetarian', 'gluten', 'kosher', 'experience', 'making', 'cooking class', 'テマキ', 'ハラル', 'observation', '전망대', 'harukas 300', '300 observatory']
+const EXCLUDE = ['halal', 'muslim', 'vegan', 'vegetarian', 'gluten', 'kosher', 'experience', 'making', 'cooking class', 'テマキ', 'ハラル', 'observation', '전망대', 'harukas 300', '300 observatory', 'maid', '메이드', '메이드리밍', 'maidreamin', 'cosplay', 'concept cafe', '메이드카페']
 
 async function dlPhoto(pname, dst) {
   const res = await fetch(`https://places.googleapis.com/v1/${pname}/media?maxWidthPx=800&key=${KEY}`)
@@ -24,28 +24,28 @@ async function dlPhoto(pname, dst) {
 
 // slug → 수집 조건. noun=설명용 명사, min=최소 리뷰수, take=노출 개수
 const Q = {
-  'osaka-yakiniku': { query: 'yakiniku restaurant Osaka', noun: '야끼니꾸(불고기) 맛집', min: 500, take: 8 },
-  'osaka-ramen': { query: 'ramen Osaka', noun: '라멘 맛집', min: 500, take: 8 },
-  'osaka-sushi': { query: 'sushi restaurant Osaka', noun: '스시(초밥) 맛집', min: 200, take: 8 },
-  'osaka-wagyu': { query: 'wagyu steak Osaka', noun: '와규 스테이크 맛집', min: 200, take: 8 },
-  'dotonbori-food': { query: 'best restaurant Dotonbori Osaka', noun: '도톤보리 맛집', min: 500, take: 8 },
-  'osaka-onsen': { query: 'onsen spa Osaka', noun: '온천·스파', min: 1000, take: 8 },
-  'namba-food': { query: 'best restaurant Namba Osaka', noun: '난바 맛집', min: 500, take: 8 },
-  'shinsaibashi-food': { query: 'best restaurant Shinsaibashi Osaka', noun: '신사이바시 맛집', min: 300, take: 8 },
-  'umeda-food': { query: 'best restaurant Umeda Osaka', noun: '우메다 맛집', min: 500, take: 8 },
-  'shinsekai-food': { query: 'kushikatsu restaurant Shinsekai Osaka', noun: '신세카이 맛집', min: 300, take: 8 },
-  'tennoji-food': { query: 'restaurant Tennoji Osaka', noun: '텐노지 맛집', min: 100, take: 8 },
-  'kuromon-food': { query: 'restaurant Kuromon Market Osaka', noun: '맛집', min: 200, take: 8 },
-  'kyobashi-food': { query: 'restaurant Kyobashi Osaka', noun: '맛집', min: 100, take: 8 },
-  'osaka-station-food': { query: 'best restaurant Osaka Station', noun: '맛집', min: 300, take: 8 },
-  'kyoto-food': { query: 'best restaurant Kyoto', noun: '맛집', min: 500, take: 8 },
-  'kobe-food': { query: 'best restaurant Kobe', noun: '맛집', min: 500, take: 8 },
-  'nara-food': { query: 'best restaurant Nara', noun: '맛집', min: 200, take: 8 },
-  'osaka-izakaya': { query: 'izakaya Osaka', noun: '이자카야', min: 300, take: 8 },
-  'osaka-cafe': { query: 'cafe Osaka', noun: '카페', min: 500, take: 8 },
-  'osaka-udon': { query: 'udon Osaka', noun: '우동', min: 200, take: 8 },
-  'osaka-takoyaki': { query: 'takoyaki Osaka', noun: '타코야키', min: 300, take: 8 },
-  'osaka-okonomiyaki': { query: 'okonomiyaki Osaka', noun: '오코노미야키', min: 300, take: 8 },
+  'osaka-yakiniku': { query: 'yakiniku restaurant Osaka', noun: '야끼니꾸(불고기) 맛집', min: 500, take: 10 },
+  'osaka-ramen': { query: 'ramen Osaka', noun: '라멘 맛집', min: 500, take: 10 },
+  'osaka-sushi': { query: 'sushi restaurant Osaka', noun: '스시(초밥) 맛집', min: 200, take: 10 },
+  'osaka-wagyu': { query: 'wagyu steak Osaka', noun: '와규 스테이크 맛집', min: 200, take: 10 },
+  'dotonbori-food': { query: 'best restaurant Dotonbori Osaka', noun: '도톤보리 맛집', min: 500, take: 10 },
+  'osaka-onsen': { query: 'onsen spa Osaka', noun: '온천·스파', min: 1000, take: 10 },
+  'namba-food': { query: 'best restaurant Namba Osaka', noun: '난바 맛집', min: 500, take: 10 },
+  'shinsaibashi-food': { query: 'best restaurant Shinsaibashi Osaka', noun: '신사이바시 맛집', min: 300, take: 10 },
+  'umeda-food': { query: 'best restaurant Umeda Osaka', noun: '우메다 맛집', min: 500, take: 10 },
+  'shinsekai-food': { query: 'kushikatsu restaurant Shinsekai Osaka', noun: '신세카이 맛집', min: 300, take: 10 },
+  'tennoji-food': { query: 'restaurant Tennoji Osaka', noun: '텐노지 맛집', min: 100, take: 10 },
+  'kuromon-food': { query: 'restaurant Kuromon Market Osaka', noun: '맛집', min: 200, take: 10 },
+  'kyobashi-food': { query: 'restaurant Kyobashi Osaka', noun: '맛집', min: 100, take: 10 },
+  'osaka-station-food': { query: 'best restaurant Osaka Station', noun: '맛집', min: 300, take: 10 },
+  'kyoto-food': { query: 'best restaurant Kyoto', noun: '맛집', min: 500, take: 10 },
+  'kobe-food': { query: 'best restaurant Kobe', noun: '맛집', min: 500, take: 10 },
+  'nara-food': { query: 'best restaurant Nara', noun: '맛집', min: 200, take: 10 },
+  'osaka-izakaya': { query: 'izakaya Osaka', noun: '이자카야', min: 300, take: 10 },
+  'osaka-cafe': { query: 'cafe Osaka', noun: '카페', min: 500, take: 10 },
+  'osaka-udon': { query: 'udon Osaka', noun: '우동', min: 200, take: 10 },
+  'osaka-takoyaki': { query: 'takoyaki Osaka', noun: '타코야키', min: 300, take: 10 },
+  'osaka-okonomiyaki': { query: 'okonomiyaki Osaka', noun: '오코노미야키', min: 300, take: 10 },
 }
 
 const AREAS = [
