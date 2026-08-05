@@ -35,6 +35,17 @@ const Q = {
   'umeda-food': { query: 'best restaurant Umeda Osaka', noun: '우메다 맛집', min: 500, take: 8 },
   'shinsekai-food': { query: 'kushikatsu restaurant Shinsekai Osaka', noun: '신세카이 맛집', min: 300, take: 8 },
   'tennoji-food': { query: 'restaurant Tennoji Osaka', noun: '텐노지 맛집', min: 100, take: 8 },
+  'kuromon-food': { query: 'restaurant Kuromon Market Osaka', noun: '맛집', min: 200, take: 8 },
+  'kyobashi-food': { query: 'restaurant Kyobashi Osaka', noun: '맛집', min: 100, take: 8 },
+  'osaka-station-food': { query: 'best restaurant Osaka Station', noun: '맛집', min: 300, take: 8 },
+  'kyoto-food': { query: 'best restaurant Kyoto', noun: '맛집', min: 500, take: 8 },
+  'kobe-food': { query: 'best restaurant Kobe', noun: '맛집', min: 500, take: 8 },
+  'nara-food': { query: 'best restaurant Nara', noun: '맛집', min: 200, take: 8 },
+  'osaka-izakaya': { query: 'izakaya Osaka', noun: '이자카야', min: 300, take: 8 },
+  'osaka-cafe': { query: 'cafe Osaka', noun: '카페', min: 500, take: 8 },
+  'osaka-udon': { query: 'udon Osaka', noun: '우동', min: 200, take: 8 },
+  'osaka-takoyaki': { query: 'takoyaki Osaka', noun: '타코야키', min: 300, take: 8 },
+  'osaka-okonomiyaki': { query: 'okonomiyaki Osaka', noun: '오코노미야키', min: 300, take: 8 },
 }
 
 const AREAS = [
@@ -43,6 +54,8 @@ const AREAS = [
   ['닛폰바시', ['닛폰바시', '日本橋', 'Nipponbashi']], ['텐노지', ['텐노지', '天王寺', 'Tennoji']],
   ['신세카이', ['신세카이', '新世界', 'Shinsekai']], ['츠루하시', ['츠루하시', '鶴橋', 'Tsuruhashi']],
   ['교바시', ['교바시', '京橋', 'Kyobashi']], ['키타신치', ['키타신치', '北新地', 'Kitashinchi']],
+  ['우메다', ['우메다', '梅田', 'Umeda']], ['교토', ['교토', '京都', 'Kyoto']], ['고베', ['고베', '神戸', 'Kobe']],
+  ['나라', ['나라', '奈良', 'Nara']], ['산노미야', ['산노미야', '三宮', 'Sannomiya']], ['기온', ['기온', '祇園', 'Gion']],
 ]
 function areaOf(addr) {
   const a = addr || ''
