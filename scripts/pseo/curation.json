@@ -30,20 +30,11 @@
       {
         "name": "Yakiniku Kurumi Shinsaibashi Main Store",
         "rating": 4.9,
-        "count": 5283,
+        "count": 5284,
         "area": "신사이바시",
         "maps": "https://maps.google.com/?cid=12105503969331054823&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "신사이바시의 인기 야끼니꾸(불고기) 맛집입니다. 구글 평점 4.9점(리뷰 5,283개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "신사이바시의 인기 야끼니꾸(불고기) 맛집입니다. 구글 평점 4.9점(리뷰 5,284개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-yakiniku-2.jpg"
-      },
-      {
-        "name": "Rokunomiya 난바 도톤보리",
-        "rating": 4.9,
-        "count": 4461,
-        "area": "오사카",
-        "maps": "https://maps.google.com/?cid=12232403323816110568&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 야끼니꾸(불고기) 맛집입니다. 구글 평점 4.9점(리뷰 4,461개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
-        "photo": "/guide/img/osaka-yakiniku-3.jpg"
       },
       {
         "name": "야키니쿠 리키마루 센니치마에점",
@@ -52,7 +43,7 @@
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=6633647692440524464&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
         "desc": "인기 야끼니꾸(불고기) 맛집입니다. 구글 평점 4.8점(리뷰 15,444개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
-        "photo": "/guide/img/osaka-yakiniku-4.jpg"
+        "photo": "/guide/img/osaka-yakiniku-3.jpg"
       },
       {
         "name": "마츠자카규 야끼니꾸 M 호젠지하나레",
@@ -61,16 +52,16 @@
         "area": "난바",
         "maps": "https://maps.google.com/?cid=2827550958429058892&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
         "desc": "난바의 인기 야끼니꾸(불고기) 맛집입니다. 구글 평점 4.9점(리뷰 2,831개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
-        "photo": "/guide/img/osaka-yakiniku-5.jpg"
+        "photo": "/guide/img/osaka-yakiniku-4.jpg"
       },
       {
-        "name": "야키니쿠 'Rikimaru' 난바 미나토마치점 Yakiniku Rikimaru Namba Minatomachi",
+        "name": "Daibokujou",
         "rating": 4.8,
-        "count": 5266,
-        "area": "난바",
-        "maps": "https://maps.google.com/?cid=1778027709101665831&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "난바의 인기 야끼니꾸(불고기) 맛집입니다. 구글 평점 4.8점(리뷰 5,266개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
-        "photo": "/guide/img/osaka-yakiniku-6.jpg"
+        "count": 6024,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=7061774465184874280&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 야끼니꾸(불고기) 맛집입니다. 구글 평점 4.8점(리뷰 6,024개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/osaka-yakiniku-5.jpg"
       },
       {
         "name": "MAIDO Wagyuyakiniku",
@@ -79,15 +70,24 @@
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=10837537935880241051&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
         "desc": "인기 야끼니꾸(불고기) 맛집입니다. 구글 평점 4.9점(리뷰 1,631개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/osaka-yakiniku-6.jpg"
+      },
+      {
+        "name": "Yakiniku Lab Umeda",
+        "rating": 4.7,
+        "count": 6049,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=7932679328826801385&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 야끼니꾸(불고기) 맛집입니다. 구글 평점 4.7점(리뷰 6,049개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-yakiniku-7.jpg"
       },
       {
         "name": "Yakiniku Dotombori-Mitsuru Shinsaibashi",
         "rating": 4.7,
-        "count": 5811,
+        "count": 5812,
         "area": "신사이바시",
         "maps": "https://maps.google.com/?cid=4980008302685252879&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "신사이바시의 인기 야끼니꾸(불고기) 맛집입니다. 구글 평점 4.7점(리뷰 5,811개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "신사이바시의 인기 야끼니꾸(불고기) 맛집입니다. 구글 평점 4.7점(리뷰 5,812개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-yakiniku-8.jpg"
       }
     ],
@@ -155,28 +155,28 @@
       {
         "name": "Gyumon Dotonbori 2nd",
         "rating": 4.9,
-        "count": 6442,
+        "count": 6443,
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=6501508730066595991&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 라멘 맛집입니다. 구글 평점 4.9점(리뷰 6,442개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "인기 라멘 맛집입니다. 구글 평점 4.9점(리뷰 6,443개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-ramen-1.jpg"
       },
       {
         "name": "세계에서 가장 저렴하고 맛있는 와규 스키야키 GYUMON",
         "rating": 4.9,
-        "count": 3543,
+        "count": 3544,
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=6199321086007313054&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 라멘 맛집입니다. 구글 평점 4.9점(리뷰 3,543개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "인기 라멘 맛집입니다. 구글 평점 4.9점(리뷰 3,544개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-ramen-2.jpg"
       },
       {
         "name": "라멘 초로",
         "rating": 4.8,
-        "count": 2513,
+        "count": 2515,
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=8200040854787759793&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 라멘 맛집입니다. 구글 평점 4.8점(리뷰 2,513개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "인기 라멘 맛집입니다. 구글 평점 4.8점(리뷰 2,515개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-ramen-3.jpg"
       },
       {
@@ -189,30 +189,30 @@
         "photo": "/guide/img/osaka-ramen-4.jpg"
       },
       {
-        "name": "멘야 쇼스케",
-        "rating": 4.8,
-        "count": 1760,
+        "name": "Kyoto Wamen Yukichi Honpo Namba Sennichimae",
+        "rating": 5,
+        "count": 776,
         "area": "오사카",
-        "maps": "https://maps.google.com/?cid=12008077510785065735&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 라멘 맛집입니다. 구글 평점 4.8점(리뷰 1,760개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "maps": "https://maps.google.com/?cid=14468422320166151533&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 라멘 맛집입니다. 구글 평점 5점(리뷰 776개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-ramen-5.jpg"
       },
       {
-        "name": "Kyoto Wamen Yukichi Honpo Namba Sennichimae",
-        "rating": 5,
-        "count": 775,
+        "name": "넥스트 시카쿠",
+        "rating": 4.6,
+        "count": 1928,
         "area": "오사카",
-        "maps": "https://maps.google.com/?cid=14468422320166151533&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 라멘 맛집입니다. 구글 평점 5점(리뷰 775개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "maps": "https://maps.google.com/?cid=7185207767825424104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 라멘 맛집입니다. 구글 평점 4.6점(리뷰 1,928개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-ramen-6.jpg"
       },
       {
-        "name": "무겐라멘 센니치마에점",
+        "name": "무겐라멘 신사이바시점",
         "rating": 4.7,
-        "count": 1917,
-        "area": "난바",
-        "maps": "https://maps.google.com/?cid=17734894928272100691&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "난바의 인기 라멘 맛집입니다. 구글 평점 4.7점(리뷰 1,917개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "count": 1064,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=13729075848653212176&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 라멘 맛집입니다. 구글 평점 4.7점(리뷰 1,064개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-ramen-7.jpg"
       },
       {
@@ -289,10 +289,10 @@
       {
         "name": "규카츠 모토무라 난바 분점",
         "rating": 4.9,
-        "count": 25290,
+        "count": 25300,
         "area": "난바",
         "maps": "https://maps.google.com/?cid=7393987566766043028&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "난바의 인기 도톤보리 맛집입니다. 구글 평점 4.9점(리뷰 25,290개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "난바의 인기 도톤보리 맛집입니다. 구글 평점 4.9점(리뷰 25,300개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/dotonbori-food-1.jpg"
       },
       {
@@ -307,10 +307,10 @@
       {
         "name": "Gyumon Dotonbori 2nd",
         "rating": 4.9,
-        "count": 6442,
+        "count": 6443,
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=6501508730066595991&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 도톤보리 맛집입니다. 구글 평점 4.9점(리뷰 6,442개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "인기 도톤보리 맛집입니다. 구글 평점 4.9점(리뷰 6,443개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/dotonbori-food-3.jpg"
       },
       {
@@ -323,31 +323,22 @@
         "photo": "/guide/img/dotonbori-food-4.jpg"
       },
       {
-        "name": "마츠자카규 야끼니꾸 M 호젠지하나레",
-        "rating": 4.9,
-        "count": 2831,
-        "area": "난바",
-        "maps": "https://maps.google.com/?cid=2827550958429058892&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "난바의 인기 도톤보리 맛집입니다. 구글 평점 4.9점(리뷰 2,831개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
-        "photo": "/guide/img/dotonbori-food-5.jpg"
-      },
-      {
         "name": "DOTONBORI KUROFUNE Higashishinsaibashi",
         "rating": 4.9,
-        "count": 2536,
+        "count": 2537,
         "area": "신사이바시",
         "maps": "https://maps.google.com/?cid=6605878395083622719&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "신사이바시의 인기 도톤보리 맛집입니다. 구글 평점 4.9점(리뷰 2,536개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
-        "photo": "/guide/img/dotonbori-food-6.jpg"
+        "desc": "신사이바시의 인기 도톤보리 맛집입니다. 구글 평점 4.9점(리뷰 2,537개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/dotonbori-food-5.jpg"
       },
       {
         "name": "고베 규 와노노미야 도톤보리 본점",
         "rating": 4.8,
-        "count": 4657,
+        "count": 4660,
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=10009493317624886686&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 도톤보리 맛집입니다. 구글 평점 4.8점(리뷰 4,657개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
-        "photo": "/guide/img/dotonbori-food-7.jpg"
+        "desc": "인기 도톤보리 맛집입니다. 구글 평점 4.8점(리뷰 4,660개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/dotonbori-food-6.jpg"
       },
       {
         "name": "도톤보리 구로후네 아메무라점",
@@ -356,6 +347,15 @@
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=2596035001467753728&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
         "desc": "인기 도톤보리 맛집입니다. 구글 평점 4.9점(리뷰 1,901개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/dotonbori-food-7.jpg"
+      },
+      {
+        "name": "야키니쿠 리키마루 도톤보리",
+        "rating": 4.7,
+        "count": 4613,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=10180483055054994234&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 도톤보리 맛집입니다. 구글 평점 4.7점(리뷰 4,613개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/dotonbori-food-8.jpg"
       }
     ],
@@ -423,19 +423,19 @@
       {
         "name": "와노미야 난바 미도스지점",
         "rating": 4.9,
-        "count": 4535,
+        "count": 4537,
         "area": "난바",
         "maps": "https://maps.google.com/?cid=14412837383042783088&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "난바의 인기 와규 스테이크 맛집입니다. 구글 평점 4.9점(리뷰 4,535개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "난바의 인기 와규 스테이크 맛집입니다. 구글 평점 4.9점(리뷰 4,537개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-wagyu-1.jpg"
       },
       {
         "name": "고베 규 와노노미야 도톤보리 본점",
         "rating": 4.8,
-        "count": 4657,
+        "count": 4660,
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=10009493317624886686&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 와규 스테이크 맛집입니다. 구글 평점 4.8점(리뷰 4,657개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "인기 와규 스테이크 맛집입니다. 구글 평점 4.8점(리뷰 4,660개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-wagyu-2.jpg"
       },
       {
@@ -450,10 +450,10 @@
       {
         "name": "Kobe Beef Wagyu House Wagyu Kingdom namba yakiniku",
         "rating": 4.9,
-        "count": 1751,
+        "count": 1752,
         "area": "신사이바시",
         "maps": "https://maps.google.com/?cid=14330035678001578539&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "신사이바시의 인기 와규 스테이크 맛집입니다. 구글 평점 4.9점(리뷰 1,751개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "신사이바시의 인기 와규 스테이크 맛집입니다. 구글 평점 4.9점(리뷰 1,752개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-wagyu-4.jpg"
       },
       {
@@ -468,10 +468,10 @@
       {
         "name": "오사카 할랄 와규 스테이크 야키니쿠 Furusato",
         "rating": 4.9,
-        "count": 1326,
+        "count": 1327,
         "area": "신사이바시",
         "maps": "https://maps.google.com/?cid=6498971469145218484&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "신사이바시의 인기 와규 스테이크 맛집입니다. 구글 평점 4.9점(리뷰 1,326개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "신사이바시의 인기 와규 스테이크 맛집입니다. 구글 평점 4.9점(리뷰 1,327개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-wagyu-6.jpg"
       },
       {
@@ -566,28 +566,28 @@
       {
         "name": "UMEKITA ONSEN REN Wellbeing Park",
         "rating": 4.2,
-        "count": 1025,
+        "count": 1027,
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=1590854863522162393&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 온천·스파입니다. 구글 평점 4.2점(리뷰 1,025개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "인기 온천·스파입니다. 구글 평점 4.2점(리뷰 1,027개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-onsen-2.jpg"
       },
       {
         "name": "천연 노천온천 스파 스미노에",
         "rating": 4.1,
-        "count": 3441,
+        "count": 3442,
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=14250646131995258839&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 온천·스파입니다. 구글 평점 4.1점(리뷰 3,441개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "인기 온천·스파입니다. 구글 평점 4.1점(리뷰 3,442개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-onsen-3.jpg"
       },
       {
         "name": "스파월드",
         "rating": 4,
-        "count": 7736,
+        "count": 7735,
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=14023248384873681322&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 온천·스파입니다. 구글 평점 4점(리뷰 7,736개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "인기 온천·스파입니다. 구글 평점 4점(리뷰 7,735개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-onsen-4.jpg"
       },
       {
@@ -602,10 +602,10 @@
       {
         "name": "소라니와온천",
         "rating": 3.9,
-        "count": 5037,
+        "count": 5039,
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=1467265949762250308&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 온천·스파입니다. 구글 평점 3.9점(리뷰 5,037개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "인기 온천·스파입니다. 구글 평점 3.9점(리뷰 5,039개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-onsen-6.jpg"
       }
     ],
@@ -682,10 +682,10 @@
       {
         "name": "Sushi Fukushima",
         "rating": 4.9,
-        "count": 1823,
+        "count": 1828,
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=17751477641051981997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 스시(초밥) 맛집입니다. 구글 평점 4.9점(리뷰 1,823개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "인기 스시(초밥) 맛집입니다. 구글 평점 4.9점(리뷰 1,828개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-sushi-2.jpg"
       },
       {
@@ -700,20 +700,11 @@
       {
         "name": "할랄 스시 오사카 테마키스시 요사쿠라 난바",
         "rating": 4.9,
-        "count": 1186,
+        "count": 1188,
         "area": "난바",
         "maps": "https://maps.google.com/?cid=7141790677351251085&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "난바의 인기 스시(초밥) 맛집입니다. 구글 평점 4.9점(리뷰 1,186개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "desc": "난바의 인기 스시(초밥) 맛집입니다. 구글 평점 4.9점(리뷰 1,188개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-sushi-4.jpg"
-      },
-      {
-        "name": "Sushi × Tempura Akira - Namba Shinsaibashi",
-        "rating": 4.7,
-        "count": 2549,
-        "area": "오사카",
-        "maps": "https://maps.google.com/?cid=15349956356565025972&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-        "desc": "인기 스시(초밥) 맛집입니다. 구글 평점 4.7점(리뷰 2,549개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
-        "photo": "/guide/img/osaka-sushi-5.jpg"
       },
       {
         "name": "Ganko Sushi Dotonbori",
@@ -722,6 +713,15 @@
         "area": "오사카",
         "maps": "https://maps.google.com/?cid=14618036181846060469&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
         "desc": "인기 스시(초밥) 맛집입니다. 구글 평점 4.7점(리뷰 2,531개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/osaka-sushi-5.jpg"
+      },
+      {
+        "name": "SUSHI RESTAURANT HIBI HAREBARE",
+        "rating": 4.7,
+        "count": 2239,
+        "area": "우메다",
+        "maps": "https://maps.google.com/?cid=16414440471786827845&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "우메다의 인기 스시(초밥) 맛집입니다. 구글 평점 4.7점(리뷰 2,239개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
         "photo": "/guide/img/osaka-sushi-6.jpg"
       },
       {
@@ -784,5 +784,650 @@
         "d": "3박4일 맞춤 코스"
       }
     ]
+  },
+  {
+    "slug": "namba-food",
+    "kw": "난바 맛집",
+    "eyebrow": "GLUX 큐레이션 · 오사카 미식여행",
+    "title": "난바 맛집 순위 TOP 8 | 구글 평점 기준 추천 — GLUX",
+    "ogTitle": "난바 맛집 · 구글 평점 순위 — GLUX",
+    "description": "오사카 난바(なんば) 맛집을 구글 평점순으로 정리했습니다. 도톤보리와 이어지는 미식 중심지의 인기 식당을 평점·리뷰수 기준으로. 예약·통역·동선은 GLUX가 도와드립니다. 무료 여행 문의.",
+    "h1": "난바 맛집 구글 평점 순위 TOP 8",
+    "summary": "난바는 오사카 미나미(남부)의 심장으로, 도톤보리·신사이바시와 바로 이어지는 최대 미식·관광 중심지입니다. 야끼니꾸·스시·라멘·이자카야까지 없는 게 없어, 짧은 일정에 미식여행을 몰아 즐기기에 가장 좋습니다.",
+    "keyFacts": [
+      "난바는 미나미(남부) 미식·관광의 중심 — 도톤보리와 도보권",
+      "야끼니꾸·스시·라멘·이자카야까지 밀집",
+      "저녁·주말은 매우 혼잡 — 인기점 예약 권장",
+      "난카이 난바역(간사이공항 직결)이라 도착 당일 미식도 가능"
+    ],
+    "listTitle": "구글 평점 순위 TOP 8",
+    "tips": [
+      "인기점은 저녁 예약이 유리합니다 — 일본어 예약은 GLUX가 대행",
+      "도톤보리·신사이바시가 도보권이라 미식 도보 코스로 묶기 좋음",
+      "간사이공항에서 난카이선으로 바로 — 도착 첫 끼로 제격",
+      "짐이 있으면 코인로커·전용차량을 활용하면 편합니다"
+    ],
+    "faq": [
+      {
+        "q": "난바에서 뭘 먹는 게 좋나요?",
+        "a": "야끼니꾸·스시·라멘·이자카야까지 다양합니다. 아래 구글 평점 순위를 참고하시고, 원하는 조합으로 동선을 짜드릴 수 있습니다."
+      },
+      {
+        "q": "난바 맛집은 예약이 필요한가요?",
+        "a": "상위 인기점은 저녁 예약이 사실상 필수입니다. 일본어 예약이 부담되면 GLUX가 대신 예약·통역해 드립니다."
+      },
+      {
+        "q": "난바 미식 코스도 짜주시나요?",
+        "a": "네. 도톤보리·신사이바시와 묶어 반나절~하루 미식 코스로 설계하고 예약·이동까지 올인원으로 진행합니다."
+      }
+    ],
+    "related": [
+      {
+        "href": "/guide/dotonbori-food/",
+        "t": "도톤보리 맛집",
+        "d": "필수 먹거리 코스"
+      },
+      {
+        "href": "/guide/osaka-yakiniku/",
+        "t": "오사카 야끼니꾸",
+        "d": "평점순 고깃집"
+      },
+      {
+        "href": "/tour/osaka-family/",
+        "t": "오사카 가족여행",
+        "d": "3박4일 맞춤 코스"
+      }
+    ],
+    "items": [
+      {
+        "name": "규카츠 모토무라 난바 분점",
+        "rating": 4.9,
+        "count": 25300,
+        "area": "난바",
+        "maps": "https://maps.google.com/?cid=7393987566766043028&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "난바의 인기 난바 맛집입니다. 구글 평점 4.9점(리뷰 25,300개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/namba-food-1.jpg"
+      },
+      {
+        "name": "와노미야 난바 미도스지점",
+        "rating": 4.9,
+        "count": 4537,
+        "area": "난바",
+        "maps": "https://maps.google.com/?cid=14412837383042783088&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "난바의 인기 난바 맛집입니다. 구글 평점 4.9점(리뷰 4,537개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/namba-food-2.jpg"
+      },
+      {
+        "name": "Rokunomiya 난바 도톤보리",
+        "rating": 4.9,
+        "count": 4461,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=12232403323816110568&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 난바 맛집입니다. 구글 평점 4.9점(리뷰 4,461개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/namba-food-3.jpg"
+      },
+      {
+        "name": "쿠우야",
+        "rating": 4.9,
+        "count": 3955,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=12535019523306422518&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 난바 맛집입니다. 구글 평점 4.9점(리뷰 3,955개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/namba-food-4.jpg"
+      },
+      {
+        "name": "Wagyu Sukiyaki Kyoto Chikarayama Osaka Namba No.1 Store",
+        "rating": 4.9,
+        "count": 3371,
+        "area": "난바",
+        "maps": "https://maps.google.com/?cid=15976576736448166063&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "난바의 인기 난바 맛집입니다. 구글 평점 4.9점(리뷰 3,371개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/namba-food-5.jpg"
+      },
+      {
+        "name": "마츠자카규 야끼니꾸 M 호젠지하나레",
+        "rating": 4.9,
+        "count": 2831,
+        "area": "난바",
+        "maps": "https://maps.google.com/?cid=2827550958429058892&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "난바의 인기 난바 맛집입니다. 구글 평점 4.9점(리뷰 2,831개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/namba-food-6.jpg"
+      },
+      {
+        "name": "Gembe Namba",
+        "rating": 4.8,
+        "count": 1702,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=8790522277533351141&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 난바 맛집입니다. 구글 평점 4.8점(리뷰 1,702개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/namba-food-7.jpg"
+      },
+      {
+        "name": "Kyoto Wamen Yukichi Honpo Namba Sennichimae",
+        "rating": 5,
+        "count": 776,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=14468422320166151533&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 난바 맛집입니다. 구글 평점 5점(리뷰 776개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/namba-food-8.jpg"
+      }
+    ],
+    "listLead": "아래 순위는 구글 지도 평점과 리뷰 수를 함께 반영했습니다(출처: Google, 리뷰 500개 이상). 예약이 어려운 곳은 GLUX가 대신 예약·통역해 드립니다."
+  },
+  {
+    "slug": "shinsaibashi-food",
+    "kw": "신사이바시 맛집",
+    "eyebrow": "GLUX 큐레이션 · 오사카 미식여행",
+    "title": "신사이바시 맛집 순위 TOP 8 | 구글 평점 기준 추천 — GLUX",
+    "ogTitle": "신사이바시 맛집 · 구글 평점 순위 — GLUX",
+    "description": "오사카 신사이바시(心斎橋) 맛집을 구글 평점순으로 정리했습니다. 쇼핑거리 속 인기 레스토랑·카페·와규를 평점·리뷰수 기준으로. 예약·통역은 GLUX가 도와드립니다. 무료 여행 문의.",
+    "h1": "신사이바시 맛집 구글 평점 순위 TOP 8",
+    "summary": "신사이바시는 오사카 최대 쇼핑거리이자 세련된 미식 거리입니다. 프리미엄 와규·스시 오마카세부터 감성 카페까지, 쇼핑과 미식을 함께 즐기기에 좋습니다. 도톤보리·난바와도 바로 이어집니다.",
+    "keyFacts": [
+      "오사카 최대 쇼핑거리 — 미식·카페도 세련된 편",
+      "프리미엄 와규·스시 오마카세 강세",
+      "도톤보리·난바와 도보권",
+      "쇼핑 후 저녁 미식 동선으로 최적"
+    ],
+    "listTitle": "구글 평점 순위 TOP 8",
+    "tips": [
+      "고급 오마카세·철판은 예약 필수 — GLUX가 대행합니다",
+      "쇼핑 아케이드를 따라 미식·카페가 이어져 도보 코스로 좋음",
+      "면세·쇼핑 동선과 저녁 예약을 함께 설계하면 효율적",
+      "복장 규정이 있는 고급점도 있으니 사전 확인 권장"
+    ],
+    "faq": [
+      {
+        "q": "신사이바시에서 뭘 먹으면 좋나요?",
+        "a": "프리미엄 와규·스시 오마카세부터 감성 카페까지 다양합니다. 아래 구글 평점 순위를 참고하세요."
+      },
+      {
+        "q": "쇼핑과 미식을 함께 즐길 수 있나요?",
+        "a": "네. 신사이바시는 쇼핑거리와 미식이 겹쳐 있어 쇼핑 후 저녁 미식 코스로 좋습니다. GLUX가 동선을 짜드립니다."
+      },
+      {
+        "q": "예약·통역도 도와주시나요?",
+        "a": "네. 일본어 예약·현장 통역·전용차량 이동까지 올인원으로 지원합니다."
+      }
+    ],
+    "related": [
+      {
+        "href": "/guide/osaka-wagyu/",
+        "t": "오사카 와규",
+        "d": "평점순 스테이크"
+      },
+      {
+        "href": "/guide/osaka-sushi/",
+        "t": "오사카 스시",
+        "d": "평점순 초밥"
+      },
+      {
+        "href": "/guide/namba-food/",
+        "t": "난바 맛집",
+        "d": "평점순 미식"
+      }
+    ],
+    "items": [
+      {
+        "name": "Shabu-Shabu, Sukiyaki, Crab All-You-Can-Eat Wagyu Beef, Pork, and Crab Shinsaibashi Station Front Store",
+        "rating": 4.9,
+        "count": 4393,
+        "area": "신사이바시",
+        "maps": "https://maps.google.com/?cid=1497333423348704370&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "신사이바시의 인기 신사이바시 맛집입니다. 구글 평점 4.9점(리뷰 4,393개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsaibashi-food-1.jpg"
+      },
+      {
+        "name": "세계에서 가장 저렴하고 맛있는 와규 스키야키 GYUMON",
+        "rating": 4.9,
+        "count": 3544,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=6199321086007313054&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 신사이바시 맛집입니다. 구글 평점 4.9점(리뷰 3,544개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsaibashi-food-2.jpg"
+      },
+      {
+        "name": "Sushi YOSAKURA Shinsaibashi",
+        "rating": 5,
+        "count": 1975,
+        "area": "신사이바시",
+        "maps": "https://maps.google.com/?cid=14723334637796367461&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "신사이바시의 인기 신사이바시 맛집입니다. 구글 평점 5점(리뷰 1,975개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsaibashi-food-3.jpg"
+      },
+      {
+        "name": "Japanese Omakase Restaurant YOSAKURA",
+        "rating": 4.9,
+        "count": 2266,
+        "area": "신사이바시",
+        "maps": "https://maps.google.com/?cid=13232359041822905997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "신사이바시의 인기 신사이바시 맛집입니다. 구글 평점 4.9점(리뷰 2,266개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsaibashi-food-4.jpg"
+      },
+      {
+        "name": "야키니쿠 폰가 신사이바시",
+        "rating": 4.9,
+        "count": 2117,
+        "area": "신사이바시",
+        "maps": "https://maps.google.com/?cid=5541746520092888503&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "신사이바시의 인기 신사이바시 맛집입니다. 구글 평점 4.9점(리뷰 2,117개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsaibashi-food-5.jpg"
+      },
+      {
+        "name": "도톤보리 구로후네 아메무라점",
+        "rating": 4.9,
+        "count": 1901,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=2596035001467753728&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 신사이바시 맛집입니다. 구글 평점 4.9점(리뷰 1,901개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsaibashi-food-6.jpg"
+      },
+      {
+        "name": "킷쇼키치 니시 신사이바시점",
+        "rating": 4.9,
+        "count": 1702,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=14788165757201423919&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 신사이바시 맛집입니다. 구글 평점 4.9점(리뷰 1,702개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsaibashi-food-7.jpg"
+      },
+      {
+        "name": "Yakiniku Dotombori-Mitsuru Shinsaibashi",
+        "rating": 4.7,
+        "count": 5812,
+        "area": "신사이바시",
+        "maps": "https://maps.google.com/?cid=4980008302685252879&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "신사이바시의 인기 신사이바시 맛집입니다. 구글 평점 4.7점(리뷰 5,812개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsaibashi-food-8.jpg"
+      }
+    ],
+    "listLead": "아래 순위는 구글 지도 평점과 리뷰 수를 함께 반영했습니다(출처: Google, 리뷰 300개 이상). 예약이 어려운 곳은 GLUX가 대신 예약·통역해 드립니다."
+  },
+  {
+    "slug": "umeda-food",
+    "kw": "우메다 맛집",
+    "eyebrow": "GLUX 큐레이션 · 오사카 미식여행",
+    "title": "우메다 맛집 순위 TOP 8 | 구글 평점 기준 추천 — GLUX",
+    "ogTitle": "우메다 맛집 · 구글 평점 순위 — GLUX",
+    "description": "오사카 우메다(梅田) 맛집을 구글 평점순으로 정리했습니다. 키타(북부)의 중심, 백화점 다이닝·키타신치 인접 명점을 평점·리뷰수 기준으로. 예약·통역은 GLUX가 도와드립니다. 무료 여행 문의.",
+    "h1": "우메다 맛집 구글 평점 순위 TOP 8",
+    "summary": "우메다는 오사카 키타(북부)의 중심으로, 대형 백화점·역사(驛舍) 다이닝과 고급 미식 거리 키타신치가 인접해 있습니다. 세련된 레스토랑과 접근성이 강점이라 비즈니스·기념일 미식에 잘 어울립니다.",
+    "keyFacts": [
+      "오사카 키타(북부)의 교통·미식 중심",
+      "백화점·역사 다이닝 + 고급 미식거리 키타신치 인접",
+      "오사카역·우메다역이라 교통 접근성 최고",
+      "접대·기념일 미식에 적합한 세련된 분위기"
+    ],
+    "listTitle": "구글 평점 순위 TOP 8",
+    "tips": [
+      "키타신치 고급점은 예약 필수 — GLUX가 대행합니다",
+      "백화점 다이닝은 런치 코스가 합리적",
+      "교통 요지라 신칸센·공항 이동 전 마지막 미식으로도 좋음",
+      "지하로 연결돼 있어 우천 시에도 이동이 편합니다"
+    ],
+    "faq": [
+      {
+        "q": "우메다에서 뭘 먹으면 좋나요?",
+        "a": "백화점 다이닝의 세련된 레스토랑부터 인접한 키타신치의 고급 미식까지 다양합니다. 아래 구글 평점 순위를 참고하세요."
+      },
+      {
+        "q": "우메다 맛집은 예약이 필요한가요?",
+        "a": "키타신치 고급점·인기 레스토랑은 예약이 유리합니다. GLUX가 일본어 예약과 통역을 대신해 드립니다."
+      },
+      {
+        "q": "교통이 편한가요?",
+        "a": "우메다는 오사카역·우메다역이 모인 교통 요지라 접근성이 매우 좋고, 지하 통로로 연결돼 이동이 편합니다."
+      }
+    ],
+    "related": [
+      {
+        "href": "/guide/osaka-wagyu/",
+        "t": "오사카 와규",
+        "d": "평점순 스테이크"
+      },
+      {
+        "href": "/guide/osaka-ramen/",
+        "t": "오사카 라멘",
+        "d": "평점순 라멘"
+      },
+      {
+        "href": "/tour/osaka-family/",
+        "t": "오사카 가족여행",
+        "d": "3박4일 맞춤 코스"
+      }
+    ],
+    "items": [
+      {
+        "name": "규카츠 교토가츠규 요도바시 우메다점",
+        "rating": 4.9,
+        "count": 12172,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=16769330822067924860&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 우메다 맛집입니다. 구글 평점 4.9점(리뷰 12,172개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/umeda-food-1.jpg"
+      },
+      {
+        "name": "모헤지 우메다 루쿠아점",
+        "rating": 4.9,
+        "count": 11397,
+        "area": "우메다",
+        "maps": "https://maps.google.com/?cid=15708186661092328903&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "우메다의 인기 우메다 맛집입니다. 구글 평점 4.9점(리뷰 11,397개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/umeda-food-2.jpg"
+      },
+      {
+        "name": "Kogi Soul Umeda Ohatsu Tenjin Branch",
+        "rating": 4.8,
+        "count": 10569,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=6020290397138043388&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 우메다 맛집입니다. 구글 평점 4.8점(리뷰 10,569개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/umeda-food-3.jpg"
+      },
+      {
+        "name": "야키니쿠 리키마루 우메다-오하츠텐진점",
+        "rating": 4.8,
+        "count": 4414,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=7284332856766312362&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 우메다 맛집입니다. 구글 평점 4.8점(리뷰 4,414개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/umeda-food-4.jpg"
+      },
+      {
+        "name": "스키야키 샤브샤브 츠카다 킷테오사카점",
+        "rating": 4.8,
+        "count": 3898,
+        "area": "우메다",
+        "maps": "https://maps.google.com/?cid=13255363660445188973&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "우메다의 인기 우메다 맛집입니다. 구글 평점 4.8점(리뷰 3,898개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/umeda-food-5.jpg"
+      },
+      {
+        "name": "Hakkakuan Osaka Station City",
+        "rating": 4.7,
+        "count": 8729,
+        "area": "우메다",
+        "maps": "https://maps.google.com/?cid=12324031939607546781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "우메다의 인기 우메다 맛집입니다. 구글 평점 4.7점(리뷰 8,729개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/umeda-food-6.jpg"
+      },
+      {
+        "name": "Umeda Stand",
+        "rating": 4.7,
+        "count": 5996,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=11269336829134438785&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 우메다 맛집입니다. 구글 평점 4.7점(리뷰 5,996개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/umeda-food-7.jpg"
+      },
+      {
+        "name": "SUSHI RESTAURANT HIBI HAREBARE",
+        "rating": 4.7,
+        "count": 2239,
+        "area": "우메다",
+        "maps": "https://maps.google.com/?cid=16414440471786827845&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "우메다의 인기 우메다 맛집입니다. 구글 평점 4.7점(리뷰 2,239개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/umeda-food-8.jpg"
+      }
+    ],
+    "listLead": "아래 순위는 구글 지도 평점과 리뷰 수를 함께 반영했습니다(출처: Google, 리뷰 500개 이상). 예약이 어려운 곳은 GLUX가 대신 예약·통역해 드립니다."
+  },
+  {
+    "slug": "shinsekai-food",
+    "kw": "신세카이 맛집",
+    "eyebrow": "GLUX 큐레이션 · 오사카 미식여행",
+    "title": "신세카이 맛집 순위 TOP 8 | 구글 평점 기준 추천 — GLUX",
+    "ogTitle": "신세카이 맛집 · 구글 평점 순위 — GLUX",
+    "description": "오사카 신세카이(新世界) 맛집을 구글 평점순으로 정리했습니다. 쿠시카츠 성지의 레트로 서민 미식을 평점·리뷰수 기준으로. 예약·동선은 GLUX가 도와드립니다. 무료 여행 문의.",
+    "h1": "신세카이 맛집 구글 평점 순위 TOP 8",
+    "summary": "신세카이는 츠텐카쿠 아래 펼쳐진 레트로 서민 미식의 거리로, 오사카 쿠시카츠(꼬치튀김)의 성지입니다. 저렴하고 푸짐한 서민 음식과 옛 오사카의 정취를 함께 즐길 수 있습니다.",
+    "keyFacts": [
+      "츠텐카쿠 아래 레트로 서민 미식 거리",
+      "오사카 쿠시카츠(꼬치튀김)의 성지",
+      "저렴·푸짐한 서민 음식이 강점",
+      "쿠시카츠 공용 소스는 두 번 찍기 금지"
+    ],
+    "listTitle": "구글 평점 순위 TOP 8",
+    "tips": [
+      "쿠시카츠 공용 소스는 한 번만 — 두 번 찍기 금지",
+      "저녁에는 레트로 네온 분위기가 살아나 사진 명소",
+      "스파월드 온천과 묶어 반나절 코스로 좋음",
+      "현금만 받는 노포도 있어 소액 현금을 준비하세요"
+    ],
+    "faq": [
+      {
+        "q": "신세카이에서 뭘 먹어야 하나요?",
+        "a": "쿠시카츠(꼬치튀김)가 대표 먹거리입니다. 다양한 노포가 있으니 아래 구글 평점 순위를 참고하세요."
+      },
+      {
+        "q": "신세카이는 어떤 분위기인가요?",
+        "a": "츠텐카쿠 아래 옛 오사카의 레트로한 서민 정취가 가득한 거리로, 저렴하고 푸짐한 음식이 많습니다."
+      },
+      {
+        "q": "온천과 함께 즐길 수 있나요?",
+        "a": "네. 신세카이의 스파월드 온천과 묶어 미식+온천 반나절 코스로 짜기 좋습니다. GLUX가 동선을 설계해 드립니다."
+      }
+    ],
+    "related": [
+      {
+        "href": "/guide/dotonbori-food/",
+        "t": "도톤보리 맛집",
+        "d": "쿠시카츠·필수 먹거리"
+      },
+      {
+        "href": "/guide/osaka-onsen/",
+        "t": "오사카 온천",
+        "d": "스파월드·근교 온천"
+      },
+      {
+        "href": "/guide/namba-food/",
+        "t": "난바 맛집",
+        "d": "평점순 미식"
+      }
+    ],
+    "items": [
+      {
+        "name": "잇토쿠 총본점",
+        "rating": 4.5,
+        "count": 9650,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=17386472739885960395&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 신세카이 맛집입니다. 구글 평점 4.5점(리뷰 9,650개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsekai-food-1.jpg"
+      },
+      {
+        "name": "신세카이 쿠시카츠 잇토쿠 츠텐카쿠점",
+        "rating": 4.6,
+        "count": 1167,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=18032474754121226076&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 신세카이 맛집입니다. 구글 평점 4.6점(리뷰 1,167개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsekai-food-2.jpg"
+      },
+      {
+        "name": "Shinsekai Kushikatsu Ittoku, Dotonbori Main Store",
+        "rating": 4.4,
+        "count": 8216,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=7442860726434942931&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 신세카이 맛집입니다. 구글 평점 4.4점(리뷰 8,216개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsekai-food-3.jpg"
+      },
+      {
+        "name": "고에몬",
+        "rating": 4.6,
+        "count": 622,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=15353083071635321887&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 신세카이 맛집입니다. 구글 평점 4.6점(리뷰 622개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsekai-food-4.jpg"
+      },
+      {
+        "name": "Kushikatsu Benkei",
+        "rating": 4.6,
+        "count": 321,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=7519386873776659711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 신세카이 맛집입니다. 구글 평점 4.6점(리뷰 321개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsekai-food-5.jpg"
+      },
+      {
+        "name": "신세계 꼬치 커틀릿 · 오코노미 야키 아파레",
+        "rating": 4.1,
+        "count": 953,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=7830506217098497570&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 신세카이 맛집입니다. 구글 평점 4.1점(리뷰 953개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsekai-food-6.jpg"
+      },
+      {
+        "name": "쿠시카츠 다루마 도부추엔마에점",
+        "rating": 4.1,
+        "count": 1963,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=12439493434729373802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 신세카이 맛집입니다. 구글 평점 4.1점(리뷰 1,963개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsekai-food-7.jpg"
+      },
+      {
+        "name": "야에카츠",
+        "rating": 4,
+        "count": 3861,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=5223555477227955972&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 신세카이 맛집입니다. 구글 평점 4점(리뷰 3,861개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/shinsekai-food-8.jpg"
+      }
+    ],
+    "listLead": "아래 순위는 구글 지도 평점과 리뷰 수를 함께 반영했습니다(출처: Google, 리뷰 300개 이상). 예약이 어려운 곳은 GLUX가 대신 예약·통역해 드립니다."
+  },
+  {
+    "slug": "tennoji-food",
+    "kw": "텐노지 맛집",
+    "eyebrow": "GLUX 큐레이션 · 오사카 미식여행",
+    "title": "텐노지 맛집 순위 TOP 8 | 구글 평점 기준 추천 — GLUX",
+    "ogTitle": "텐노지 맛집 · 구글 평점 순위 — GLUX",
+    "description": "오사카 텐노지·아베노(天王寺·阿倍野) 맛집을 구글 평점순으로 정리했습니다. 하루카스 일대의 인기 식당을 평점·리뷰수 기준으로. 예약·통역은 GLUX가 도와드립니다. 무료 여행 문의.",
+    "h1": "텐노지 맛집 구글 평점 순위 TOP 8",
+    "summary": "텐노지·아베노는 일본 최고층 빌딩 아베노 하루카스를 낀 오사카 남부의 미식·쇼핑 거점입니다. 신세카이와 인접해 서민 미식부터 하루카스 고층 다이닝까지 폭이 넓습니다.",
+    "keyFacts": [
+      "아베노 하루카스(일본 최고층) 일대 미식·쇼핑 거점",
+      "신세카이와 인접 — 서민 미식과도 연결",
+      "하루카스 고층 다이닝의 전망 맛집도 인기",
+      "텐노지역 교통 요지라 접근성 양호"
+    ],
+    "listTitle": "구글 평점 순위 TOP 8",
+    "tips": [
+      "하루카스 전망 레스토랑은 창가석 예약이 유리합니다",
+      "신세카이 쿠시카츠와 묶어 도보 미식 코스로 좋음",
+      "텐노지 동물원·공원과 함께 가족 코스로도 적합",
+      "인기점 저녁 예약은 GLUX가 대행합니다"
+    ],
+    "faq": [
+      {
+        "q": "텐노지에서 뭘 먹으면 좋나요?",
+        "a": "인접한 신세카이의 쿠시카츠부터 아베노 하루카스의 고층 전망 다이닝까지 폭이 넓습니다. 아래 구글 평점 순위를 참고하세요."
+      },
+      {
+        "q": "가족 여행에도 좋은가요?",
+        "a": "네. 텐노지 동물원·공원과 미식을 묶으면 가족 코스로 좋습니다. GLUX가 동선을 설계해 드립니다."
+      },
+      {
+        "q": "예약·통역을 도와주시나요?",
+        "a": "네. 전망 좋은 창가석 예약, 일본어 통역, 전용차량 이동까지 올인원으로 지원합니다."
+      }
+    ],
+    "related": [
+      {
+        "href": "/guide/shinsekai-food/",
+        "t": "신세카이 맛집",
+        "d": "쿠시카츠 성지"
+      },
+      {
+        "href": "/guide/osaka-onsen/",
+        "t": "오사카 온천",
+        "d": "스파월드·근교"
+      },
+      {
+        "href": "/tour/osaka-family/",
+        "t": "오사카 가족여행",
+        "d": "3박4일 맞춤 코스"
+      }
+    ],
+    "items": [
+      {
+        "name": "고기서울 덴노지점",
+        "rating": 4.8,
+        "count": 6984,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=6968201132253837575&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 텐노지 맛집입니다. 구글 평점 4.8점(리뷰 6,984개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/tennoji-food-1.jpg"
+      },
+      {
+        "name": "Genbe Tennoji-abeno",
+        "rating": 4.8,
+        "count": 1240,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=1038893292250754104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 텐노지 맛집입니다. 구글 평점 4.8점(리뷰 1,240개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/tennoji-food-2.jpg"
+      },
+      {
+        "name": "Kichiri Tennoji",
+        "rating": 4.7,
+        "count": 1668,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=3396710997163856712&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 텐노지 맛집입니다. 구글 평점 4.7점(리뷰 1,668개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/tennoji-food-3.jpg"
+      },
+      {
+        "name": "Comma Tennoji",
+        "rating": 4.6,
+        "count": 3055,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=12733940128409234997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 텐노지 맛집입니다. 구글 평점 4.6점(리뷰 3,055개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/tennoji-food-4.jpg"
+      },
+      {
+        "name": "Korean restaurant & bbq harapekosyokudou tennouji",
+        "rating": 4.7,
+        "count": 1326,
+        "area": "텐노지",
+        "maps": "https://maps.google.com/?cid=3513349696079412714&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "텐노지의 인기 텐노지 맛집입니다. 구글 평점 4.7점(리뷰 1,326개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/tennoji-food-5.jpg"
+      },
+      {
+        "name": "카니그릴 텐노지점",
+        "rating": 4.5,
+        "count": 3696,
+        "area": "텐노지",
+        "maps": "https://maps.google.com/?cid=15210040970783577017&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "텐노지의 인기 텐노지 맛집입니다. 구글 평점 4.5점(리뷰 3,696개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/tennoji-food-6.jpg"
+      },
+      {
+        "name": "Samugyopusaru OKOGE Tennojiten Korean Restaurant",
+        "rating": 4.5,
+        "count": 3564,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=12708893585022539441&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 텐노지 맛집입니다. 구글 평점 4.5점(리뷰 3,564개)으로 현지에서 오래도록 사랑받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/tennoji-food-7.jpg"
+      },
+      {
+        "name": "Pizzeria＆Bar Logic Tennoji",
+        "rating": 4.5,
+        "count": 1240,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=16901955606506147278&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "desc": "인기 텐노지 맛집입니다. 구글 평점 4.5점(리뷰 1,240개)으로 꾸준히 높은 평가를 받는 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.",
+        "photo": "/guide/img/tennoji-food-8.jpg"
+      }
+    ],
+    "listLead": "아래 순위는 구글 지도 평점과 리뷰 수를 함께 반영했습니다(출처: Google, 리뷰 100개 이상). 예약이 어려운 곳은 GLUX가 대신 예약·통역해 드립니다."
   }
 ]

@@ -14,7 +14,7 @@ fs.mkdirSync(IMGDIR, { recursive: true })
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
 // 관광·할랄 특화/체험형 제외(로컬 위주 재정렬) — 이름에 포함되면 제외
-const EXCLUDE = ['halal', 'muslim', 'vegan', 'vegetarian', 'gluten', 'kosher', 'experience', 'making', 'cooking class', 'テマキ', 'ハラル']
+const EXCLUDE = ['halal', 'muslim', 'vegan', 'vegetarian', 'gluten', 'kosher', 'experience', 'making', 'cooking class', 'テマキ', 'ハラル', 'observation', '전망대', 'harukas 300', '300 observatory']
 
 async function dlPhoto(pname, dst) {
   const res = await fetch(`https://places.googleapis.com/v1/${pname}/media?maxWidthPx=800&key=${KEY}`)
@@ -30,6 +30,11 @@ const Q = {
   'osaka-wagyu': { query: 'wagyu steak Osaka', noun: '와규 스테이크 맛집', min: 200, take: 8 },
   'dotonbori-food': { query: 'best restaurant Dotonbori Osaka', noun: '도톤보리 맛집', min: 500, take: 8 },
   'osaka-onsen': { query: 'onsen spa Osaka', noun: '온천·스파', min: 1000, take: 8 },
+  'namba-food': { query: 'best restaurant Namba Osaka', noun: '난바 맛집', min: 500, take: 8 },
+  'shinsaibashi-food': { query: 'best restaurant Shinsaibashi Osaka', noun: '신사이바시 맛집', min: 300, take: 8 },
+  'umeda-food': { query: 'best restaurant Umeda Osaka', noun: '우메다 맛집', min: 500, take: 8 },
+  'shinsekai-food': { query: 'kushikatsu restaurant Shinsekai Osaka', noun: '신세카이 맛집', min: 300, take: 8 },
+  'tennoji-food': { query: 'restaurant Tennoji Osaka', noun: '텐노지 맛집', min: 100, take: 8 },
 }
 
 const AREAS = [
@@ -100,8 +105,9 @@ function descOf(p, noun) {
       const it = items[i]
       it.desc = descOf(it, cfg.noun)
       if (it.photoRef) {
-        try { await dlPhoto(it.photoRef, path.join(IMGDIR, `${slug}-${i + 1}.jpg`)); it.photo = `/guide/img/${slug}-${i + 1}.jpg` } catch (e) {}
-        await sleep(120)
+        const dst = path.join(IMGDIR, `${slug}-${i + 1}.jpg`)
+        if (fs.existsSync(dst)) { it.photo = `/guide/img/${slug}-${i + 1}.jpg` }
+        else { try { await dlPhoto(it.photoRef, dst); it.photo = `/guide/img/${slug}-${i + 1}.jpg`; await sleep(120) } catch (e) {} }
       }
       delete it.photoRef; delete it.score; delete it.brand
     }
