@@ -147,6 +147,8 @@ function render(p) {
 ${faqLd}
 ]}
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-480GXTHM5Q"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-480GXTHM5Q')</script>
 <style>
 ${STYLE}
 </style>

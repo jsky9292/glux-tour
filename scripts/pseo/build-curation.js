@@ -141,6 +141,8 @@ ${faqLd}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"GLUX 홈","item":"https://gluxtour.com/"},{"@type":"ListItem","position":2,"name":"여행 가이드","item":"https://gluxtour.com/#travel"},{"@type":"ListItem","position":3,"name":${j(p.h1 || p.title)},"item":${j(url)}}]}
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-480GXTHM5Q"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-480GXTHM5Q')</script>
 <style>${STYLE}</style>
 </head>
 <body>
