@@ -99,8 +99,11 @@ h2 b{color:var(--goldd)}
 .form textarea{min-height:54px;resize:vertical}
 .form button{margin-top:14px;width:100%}
 .form .nt{font-size:12px;color:var(--mist);text-align:center;margin-top:10px}
-.form .ok{display:none;text-align:center;padding:22px 6px}
-.form .ok h3{font-size:19px;font-weight:900;margin-bottom:6px}.form .ok p{color:var(--mist);font-size:13px}
+.form .ok{display:none;text-align:center;padding:26px 12px}
+.form .ok .ic{width:56px;height:56px;border-radius:50%;background:#2b7a4b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;margin:0 auto 14px}
+.form .ok h3{font-size:20px;font-weight:900;color:var(--ink);margin-bottom:8px}
+.form .ok p{color:var(--sub);font-size:14px;line-height:1.75}.form .ok p b{color:var(--goldd)}
+.form .ok .kk{display:inline-block;margin-top:16px;padding:13px 24px;border-radius:11px;background:#fae100;color:#3a1d1d;font-weight:800;font-size:14px}
 .rel{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 .rel a{border:1px solid var(--line);border-radius:12px;padding:14px 15px;font-size:14px;font-weight:700}
 .rel a .rm{font-size:12px;color:var(--mist);font-weight:400;margin-top:3px}
@@ -120,7 +123,7 @@ footer a{color:var(--gold-b)}
   <span class="eyebrow">GLUX 큐레이션 · 오사카 미식여행</span>
   <h1>교바시 맛집 구글 평점 순위 TOP 10</h1>
   <p class="sum">교바시는 JR·게이한·지하철이 만나는 교통 요지이자 오사카 대표 서민 먹자골목입니다. 밤이 되면 이자카야와 서서 마시는 술집(다치노미)이 활기를 띠어, 현지 분위기의 미식을 원하는 분께 좋습니다.</p>
-  <div class="cta"><a href="#form" class="btn btn-g">무료 여행 문의하기 →</a><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-l">카카오톡 상담</a></div>
+  <div class="cta"><a href="#form" class="btn btn-g" onclick="if(window.gtag)gtag('event','cta_click',{from:'hero'})">무료 여행 문의하기 →</a><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-l" onclick="if(window.gtag)gtag('event','click_kakao',{from:'hero'})">카카오톡 상담</a></div>
 </div></header>
 
 <div class="wrap">
@@ -251,7 +254,7 @@ footer a{color:var(--gold-b)}
         <button class="btn btn-g" id="lBtn" onclick="submitLead()">무료 여행 문의하기</button>
         <div class="nt">상담·문의는 무료예요 · 접수 후 24시간 내 연락</div>
       </div>
-      <div class="ok" id="lOk"><h3>문의가 접수됐어요</h3><p>24시간 내에 연락드릴게요. 감사합니다.</p></div>
+      <div class="ok" id="lOk"><div class="ic">✓</div><h3>문의가 접수됐어요!</h3><p>담당자가 확인 후 <b>24시간 내</b>에 연락드릴게요.<br>더 빠른 상담을 원하시면 카카오톡으로 문의하세요.</p><a class="kk" href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" onclick="if(window.gtag)gtag('event','click_kakao',{from:'success'})">카카오톡으로 바로 상담 →</a></div>
     </div>
   </div>
 
@@ -269,8 +272,8 @@ footer a{color:var(--gold-b)}
 <footer>© GLUX Tour · 오사카·간사이 현지 직영 여행사 · <a href="https://gluxtour.com/">gluxtour.com</a></footer>
 
 <div class="sticky">
-  <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="k">카톡 상담</a>
-  <a href="#form" class="g">무료 여행 문의 →</a>
+  <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="k" onclick="if(window.gtag)gtag('event','click_kakao',{from:'sticky'})">카톡 상담</a>
+  <a href="#form" class="g" onclick="if(window.gtag)gtag('event','cta_click',{from:'sticky'})">무료 여행 문의 →</a>
 </div>
 
 <script>

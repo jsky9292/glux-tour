@@ -110,9 +110,11 @@ h2 b{color:var(--goldd)}
 .form textarea{min-height:56px;resize:vertical}
 .form button{margin-top:16px}
 .form .nt{font-size:12px;color:var(--mist);text-align:center;margin-top:10px}
-.form .ok{display:none;text-align:center;padding:26px 6px}
-.form .ok h3{font-size:20px;font-weight:900;margin-bottom:6px}
-.form .ok p{color:var(--mist);font-size:13.5px}
+.form .ok{display:none;text-align:center;padding:26px 12px}
+.form .ok .ic{width:56px;height:56px;border-radius:50%;background:#2b7a4b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;margin:0 auto 14px}
+.form .ok h3{font-size:20px;font-weight:900;color:var(--ink);margin-bottom:8px}
+.form .ok p{color:var(--sub);font-size:14px;line-height:1.75}.form .ok p b{color:var(--gold)}
+.form .ok .kk{display:inline-block;margin-top:16px;padding:13px 24px;border-radius:11px;background:#fae100;color:#3a1d1d;font-weight:800;font-size:14px}
 footer{background:#0c0c14;color:rgba(255,255,255,.6);font-size:12px;padding:26px 22px 34px;text-align:center;line-height:1.7}
 footer a{color:#d9ab55}
 /* sticky */
@@ -263,7 +265,7 @@ footer a{color:#d9ab55}
       <button class="btn btn-g" id="lBtn" onclick="submitLead()">무료 견적 신청하기</button>
       <div class="nt">상담은 무료예요 · 부담 없이 신청하세요</div>
     </div>
-    <div class="ok" id="lOk"><h3>신청이 완료됐어요</h3><p>24시간 내에 연락드릴게요. 감사합니다.</p></div>
+    <div class="ok" id="lOk"><div class="ic">✓</div><h3>신청이 완료됐어요!</h3><p>담당자가 확인 후 <b>24시간 내</b>에 연락드릴게요.<br>더 빠른 상담은 카카오톡으로 문의하세요.</p><a class="kk" href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" onclick="if(window.gtag)gtag('event','click_kakao',{from:'success'})">카카오톡으로 바로 상담 →</a></div>
   </div>
 </section>
 
