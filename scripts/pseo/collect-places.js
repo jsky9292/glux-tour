@@ -14,7 +14,8 @@ fs.mkdirSync(IMGDIR, { recursive: true })
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
 // 관광·할랄 특화/체험형 제외(로컬 위주 재정렬) — 이름에 포함되면 제외
-const EXCLUDE = ['halal', 'muslim', 'vegan', 'vegetarian', 'gluten', 'kosher', 'experience', 'making', 'cooking class', 'テマキ', 'ハラル', 'observation', '전망대', 'harukas 300', '300 observatory', 'maid', '메이드', '메이드리밍', 'maidreamin', 'cosplay', 'concept cafe', '메이드카페']
+const EXCLUDE = ['halal', 'muslim', 'vegan', 'vegetarian', 'gluten', 'kosher', 'experience', 'making', 'cooking class', 'テマキ', 'ハラル', 'observation', '전망대', 'harukas 300', '300 observatory', 'maid', '메이드', '메이드리밍', 'maidreamin', 'cosplay', 'concept cafe', '메이드카페',
+  'micropig', 'micro pig', 'pig cafe', '돼지카페', '미피그', 'animal cafe', 'cat cafe', '고양이카페', 'hedgehog', 'owl cafe', 'うさぎ', 'ふくろう', '동물카페']
 
 async function dlPhoto(pname, dst) {
   const res = await fetch(`https://places.googleapis.com/v1/${pname}/media?maxWidthPx=800&key=${KEY}`)
@@ -46,6 +47,15 @@ const Q = {
   'osaka-udon': { query: 'udon Osaka', noun: '우동', min: 200, take: 10 },
   'osaka-takoyaki': { query: 'takoyaki Osaka', noun: '타코야키', min: 300, take: 10 },
   'osaka-okonomiyaki': { query: 'okonomiyaki Osaka', noun: '오코노미야키', min: 300, take: 10 },
+  'horie-food': { query: 'restaurant cafe Horie Osaka', noun: '맛집', min: 200, take: 10 },
+  'tenma-food': { query: 'izakaya restaurant Tenma Osaka', noun: '맛집', min: 200, take: 10 },
+  'gion-food': { query: 'restaurant Gion Kyoto', noun: '맛집', min: 300, take: 10 },
+  'arashiyama-food': { query: 'restaurant soba tofu Arashiyama Kyoto', noun: '맛집', min: 80, take: 10 },
+  'kyoto-nishiki': { query: 'Nishiki Market Kyoto food', noun: '맛집', min: 200, take: 10 },
+  'kyoto-cafe': { query: 'cafe Kyoto', noun: '카페', min: 500, take: 10 },
+  'sannomiya-food': { query: 'restaurant Sannomiya Kobe', noun: '맛집', min: 300, take: 10 },
+  'nankinmachi-food': { query: 'Nankinmachi Chinatown Kobe restaurant', noun: '맛집', min: 150, take: 10 },
+  'kobe-sweets': { query: 'sweets patisserie cake Kobe', noun: '디저트', min: 100, take: 10 },
 }
 
 const AREAS = [
@@ -56,6 +66,8 @@ const AREAS = [
   ['교바시', ['교바시', '京橋', 'Kyobashi']], ['키타신치', ['키타신치', '北新地', 'Kitashinchi']],
   ['우메다', ['우메다', '梅田', 'Umeda']], ['교토', ['교토', '京都', 'Kyoto']], ['고베', ['고베', '神戸', 'Kobe']],
   ['나라', ['나라', '奈良', 'Nara']], ['산노미야', ['산노미야', '三宮', 'Sannomiya']], ['기온', ['기온', '祇園', 'Gion']],
+  ['호리에', ['호리에', '堀江', 'Horie']], ['텐마', ['텐마', '天満', 'Tenma']], ['니시키', ['니시키', '錦', 'Nishiki']],
+  ['아라시야마', ['아라시야마', '嵐山', 'Arashiyama']], ['난킨마치', ['난킨마치', '南京町', 'Nankinmachi', 'Chinatown']], ['기타노', ['기타노', '北野', 'Kitano']],
 ]
 function areaOf(addr) {
   const a = addr || ''

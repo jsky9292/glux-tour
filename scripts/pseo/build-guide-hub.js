@@ -11,8 +11,10 @@ const bySlug = Object.fromEntries(cur.map(p => [p.slug, p]))
 
 const GROUPS = [
   ['음식별 맛집', ['osaka-yakiniku', 'osaka-wagyu', 'osaka-sushi', 'osaka-ramen', 'osaka-udon', 'osaka-okonomiyaki', 'osaka-takoyaki', 'osaka-izakaya', 'osaka-cafe']],
-  ['오사카 지역별', ['dotonbori-food', 'namba-food', 'shinsaibashi-food', 'umeda-food', 'osaka-station-food', 'shinsekai-food', 'tennoji-food', 'kuromon-food', 'kyobashi-food']],
-  ['간사이 도시 미식', ['kyoto-food', 'kobe-food', 'nara-food']],
+  ['오사카 지역별', ['dotonbori-food', 'namba-food', 'shinsaibashi-food', 'umeda-food', 'osaka-station-food', 'shinsekai-food', 'tennoji-food', 'kuromon-food', 'kyobashi-food', 'horie-food', 'tenma-food']],
+  ['교토 미식', ['kyoto-food', 'gion-food', 'arashiyama-food', 'kyoto-nishiki', 'kyoto-cafe']],
+  ['고베 미식', ['kobe-food', 'sannomiya-food', 'nankinmachi-food', 'kobe-sweets']],
+  ['나라 미식', ['nara-food']],
   ['온천·힐링', ['osaka-onsen']],
 ]
 const GUIDES = [
