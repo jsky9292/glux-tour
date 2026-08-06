@@ -59,6 +59,7 @@ tr:hover td{background:#fcfbf8}
   <div class="t">GL<b>U</b>X 견적 고객 CRM</div>
   <div class="sp"></div>
   <a href="/admin">← 신청목록</a>
+  <button onclick="openNew()">＋ 견적 직접 추가</button>
   <a href="/admin/quote" class="gold">＋ 새 견적서</a>
 </div>
 <div class="wrap">
@@ -152,6 +153,32 @@ async function del(id) {
   if (!confirm('이 견적을 삭제할까요?')) return
   const res = await fetch('/api/quotes/' + id, { method: 'DELETE' })
   if (res.ok) load(); else alert('삭제 실패')
+}
+function openNew() {
+  document.getElementById('mc').innerHTML = `
+    <h3>견적 직접 추가</h3><div class="msub">과거 견적·신규 고객을 직접 입력해 이력에 쌓습니다.</div>
+    <label>고객명 *</label><input id="n_name" placeholder="홍길동">
+    <div class="r2"><div><label>연락처</label><input id="n_phone" placeholder="010-0000-0000"></div><div><label>인원</label><input id="n_people" type="number" value="2"></div></div>
+    <label>여행명</label><input id="n_trip" placeholder="예: 오사카 3박4일 골프">
+    <div class="r2"><div><label>엔화(JPY)</label><input id="n_jpy" placeholder="숫자만"></div><div><label>환율</label><input id="n_rate" placeholder="예: 9.3"></div></div>
+    <div class="r2"><div><label>확정금액(원)</label><input id="n_krw" placeholder="숫자만"></div><div><label>상태</label>
+      <select id="n_status">${['quote', 'contract', 'completed', 'canceled'].map(s => `<option value="${s}">${STATUS_L[s]}</option>`).join('')}</select></div></div>
+    <div class="r2"><div><label>계약금(원)</label><input id="n_dep" placeholder="숫자만"></div><div><label>잔금(원)</label><input id="n_bal" placeholder="숫자만"></div></div>
+    <label>메모</label><textarea id="n_memo" placeholder="상담 내용·요청사항"></textarea>
+    <div class="mact"><button class="save" onclick="saveNew()">저장</button><button class="cancel" onclick="closeM()">닫기</button></div>`
+  document.getElementById('modal').classList.add('on')
+}
+async function saveNew() {
+  const g = i => document.getElementById(i).value
+  if (!g('n_name').trim()) { alert('고객명은 필수입니다.'); return }
+  const body = { name: g('n_name'), phone: g('n_phone'), passengers: g('n_people'), trip_name: g('n_trip'),
+    amount_jpy: g('n_jpy'), exchange_rate: g('n_rate'), amount_krw: g('n_krw'), deposit: g('n_dep'), balance: g('n_bal'), memo: g('n_memo') }
+  const res = await fetch('/api/quotes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+  if (res.ok) {
+    const id = (await res.json()).id
+    if (g('n_status') && g('n_status') !== 'quote') await fetch('/api/quotes/' + id, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ status: g('n_status') }) })
+    closeM(); load()
+  } else { alert('저장 실패') }
 }
 function closeM() { document.getElementById('modal').classList.remove('on') }
 document.getElementById('modal').onclick = e => { if (e.target.id === 'modal') closeM() }
