@@ -176,7 +176,7 @@ async function submitInquiry(e){
   try{
     var res=await fetch('https://gluxtour.com/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({name:n,phone:p,departure_date:d||'미정',return_date:'미정',package_type:'골프장 예약문의: 有馬冨士カンツリークラブ',requests:reqs||null})});
-    if(res.ok){document.getElementById('iForm').style.display='none';document.getElementById('iSent').style.display='block';}
+    if(res.ok){if(window.gtag)gtag('event','generate_lead',{form:'golf',page:document.title});document.getElementById('iForm').style.display='none';document.getElementById('iSent').style.display='block';}
     else{var j=await res.json().catch(function(){return{};});alert('오류: '+(j.error||'다시 시도해주세요.'));btn.disabled=false;btn.textContent='무료 예약 문의하기';}
   }catch(err){document.getElementById('iForm').style.display='none';document.getElementById('iSent').style.display='block';}
   return false;

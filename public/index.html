@@ -754,7 +754,7 @@ async function subF(){
       body:JSON.stringify({name:n,phone:p,departure_date:ci||'미정',return_date:co||'미정',package_type:'문의',requests:requests||null})
     });
     const json=await res.json();
-    if(res.ok){showS();}
+    if(res.ok){if(window.gtag)gtag('event','generate_lead',{form:'home'});showS();}
     else{alert('오류: '+(json.error||'다시 시도해주세요.'));btn.disabled=false;document.getElementById('bTxt').style.display='';document.getElementById('bSpn').style.display='none';}
   }catch(err){
     console.error(err);showS();
@@ -783,7 +783,7 @@ async function subFc(){
   try{
     const res=await postInquiry(n,p,ci,co,ppl,memo);
     const json=await res.json().catch(()=>({}));
-    if(res.ok){document.getElementById('cfArea').style.display='none';document.getElementById('cS').classList.add('show');}
+    if(res.ok){if(window.gtag)gtag('event','generate_lead',{form:'home-contact'});document.getElementById('cfArea').style.display='none';document.getElementById('cS').classList.add('show');}
     else{alert('오류: '+(json.error||'다시 시도해주세요.'));btn.disabled=false;document.getElementById('cbTxt').textContent='상담 신청하기';}
   }catch(err){console.error(err);document.getElementById('cfArea').style.display='none';document.getElementById('cS').classList.add('show');}
 }

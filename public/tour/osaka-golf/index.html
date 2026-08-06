@@ -264,7 +264,7 @@ async function submitLead(){
   try{
     var res=await fetch('https://gluxtour.com/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({name:n,phone:p,departure_date:ci||'미정',return_date:co||'미정',package_type:"오사카 골프여행",requests:requests||null})});
-    if(res.ok){document.getElementById('lfArea').style.display='none';document.getElementById('lOk').style.display='block';}
+    if(res.ok){if(window.gtag)gtag('event','generate_lead',{form:'tour',page:document.title});document.getElementById('lfArea').style.display='none';document.getElementById('lOk').style.display='block';}
     else{var j=await res.json().catch(function(){return{};});alert('오류: '+(j.error||'다시 시도해주세요.'));btn.disabled=false;btn.textContent='무료 상담 신청하기';}
   }catch(e){document.getElementById('lfArea').style.display='none';document.getElementById('lOk').style.display='block';}
 }

@@ -43,11 +43,15 @@ h2 b{color:var(--goldd)}
 .item .ph{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;margin:12px 0 4px;display:block}
 .ihead{display:flex;align-items:baseline;gap:10px}
 .rk{font-size:20px;font-weight:900;color:var(--goldd);flex-shrink:0;min-width:26px}
-.item h3{font-size:18px;font-weight:800;line-height:1.4}
+.item h3{font-size:18px;font-weight:800;line-height:1.4;overflow-wrap:anywhere;word-break:keep-all}
+.ihead{flex-wrap:wrap}
 .item h3 .ja{font-size:12.5px;color:var(--mist);font-weight:500;margin-left:6px}
 .atag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--goldd);background:#f4ecdb;border-radius:6px;padding:3px 9px;margin-top:8px}
 .rate{display:inline-block;font-size:12.5px;font-weight:800;color:#7a5a1e;background:#f6ecd6;border:1px solid #e7d6ad;border-radius:6px;padding:3px 9px;margin:8px 6px 0 0}
 .rate .rc{font-weight:500;color:var(--mist)}
+.price{display:inline-block;font-size:12px;font-weight:700;color:#4a5a72;background:#eef2f7;border-radius:6px;padding:3px 9px;margin:8px 0 0}
+.edsum{font-size:13.5px;color:var(--goldd);background:#faf6ec;border:1px solid #efe2c6;border-radius:8px;padding:9px 12px;margin:12px 0 0;line-height:1.65;max-width:460px}
+.edsum .src2{color:var(--mist);font-weight:400;font-size:11.5px}
 .gmap-lnk{display:inline-block;font-size:12.5px;color:var(--mist);margin-top:8px}.gmap-lnk::after{content:' ↗'}
 .src{font-size:12px;color:var(--mist);margin-top:4px}
 .item p{font-size:15px;color:var(--sub);line-height:1.8;margin-top:10px;max-width:460px}
@@ -96,10 +100,12 @@ function render(p) {
     const rate = it.rating ? `<span class="rate">구글 평점 ${it.rating} ★ <span class="rc">(${Number(it.count || 0).toLocaleString()})</span></span>` : ''
     const mapLnk = it.maps ? `<a href="${esc(it.maps)}" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a>` : ''
     const ph = it.photo ? `<img class="ph" src="${esc(it.photo)}" alt="${esc(it.name)}" loading="lazy">` : ''
+    const price = it.price ? ` <span class="price">${esc(it.price)}</span>` : ''
+    const ed = it.editorial ? `<div class="edsum">${esc(it.editorial)} <span class="src2">— Google 요약</span></div>` : ''
     return `  <div class="item">
     <div class="ihead"><span class="rk">${i + 1}</span><h3>${nameHtml}${it.ja ? ` <span class="ja">${esc(it.ja)}</span>` : ''}</h3></div>
-    <div>${it.area ? `<span class="atag">${esc(it.area)}</span> ` : ''}${rate}</div>
-    ${ph}
+    <div>${it.area ? `<span class="atag">${esc(it.area)}</span> ` : ''}${rate}${price}</div>
+    ${ph}${ed}
     <p>${it.desc}</p>
     ${it.point ? `<div class="pt"><b>추천 포인트</b> · ${esc(it.point)}</div>` : ''}
     ${mapLnk ? mapLnk + '<br>' : ''}<a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
@@ -228,7 +234,7 @@ async function submitLead(){
   try{
     var res=await fetch('https://gluxtour.com/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({name:n,phone:p,departure_date:ci||'미정',return_date:co||'미정',package_type:${j('가이드 문의: ' + p.kw)},requests:memo||null})});
-    if(res.ok){document.getElementById('lfArea').style.display='none';document.getElementById('lOk').style.display='block';document.getElementById('lOk').scrollIntoView({behavior:'smooth',block:'center'});}
+    if(res.ok){if(window.gtag)gtag('event','generate_lead',{form:'curation',page:document.title});document.getElementById('lfArea').style.display='none';document.getElementById('lOk').style.display='block';document.getElementById('lOk').scrollIntoView({behavior:'smooth',block:'center'});}
     else{var jr=await res.json().catch(function(){return{};});alert('오류: '+(jr.error||'다시 시도해주세요.'));btn.disabled=false;btn.textContent='무료 여행 문의하기';}
   }catch(e){document.getElementById('lfArea').style.display='none';document.getElementById('lOk').style.display='block';}
 }

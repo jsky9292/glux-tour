@@ -8,7 +8,40 @@ require('dotenv').config()
 const fs = require('fs')
 const path = require('path')
 const KEY = process.env.GOOGLE_PLACES_KEY
+const GKEY = process.env.GEMINI_API_KEY
 const CURATION = path.join(__dirname, 'curation.json')
+const PRICE = { PRICE_LEVEL_INEXPENSIVE: '₩ 저렴', PRICE_LEVEL_MODERATE: '₩₩ 보통', PRICE_LEVEL_EXPENSIVE: '₩₩₩ 고급', PRICE_LEVEL_VERY_EXPENSIVE: '₩₩₩₩ 최고급' }
+
+// 한 카테고리(약 10곳)의 리뷰·요약을 근거로 Gemini가 가게별 소개를 한 번에 작성 → 배열 반환
+async function geminiDescs(items, noun) {
+  const fallback = items.map(it => descOf(it, noun))
+  if (!GKEY) return fallback
+  const list = items.map((it, i) => {
+    const rev = (it.reviews || []).slice(0, 3).map(r => (r || '').replace(/\s+/g, ' ').slice(0, 140)).join(' || ')
+    return `${i + 1}) ${it.name} | 지역:${it.area} | 요약:${it.editorial || '없음'} | 리뷰: ${rev || '없음'}`
+  }).join('\n')
+  const prompt = `너는 한국인 여행객을 위한 일본 ${noun} 큐레이터다. 아래 각 가게를 '구글 리뷰·요약'에 근거해 2~3문장 한국어 소개로 써라.
+규칙:
+- 리뷰에서 실제 언급된 대표 메뉴·강점·분위기를 구체적으로 반영(뚜렷한 단점이 반복되면 균형있게 한마디). 리뷰에 없는 사실은 지어내지 말 것.
+- 평점 숫자는 반복하지 말 것. 자연스러운 구어체.
+- 각 소개 마지막 문장은 "예약·통역·이동은 GLUX가 도와드려요" 취지로.
+- 출력은 JSON 배열만: [{"i":1,"desc":"..."}]
+가게:
+${list}`
+  try {
+    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GKEY}`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0.7 } })
+    })
+    const d = await r.json()
+    let t = d?.candidates?.[0]?.content?.parts?.[0]?.text || ''
+    t = t.replace(/```json|```/g, '').trim()
+    const arr = JSON.parse(t)
+    const out = fallback.slice()
+    for (const o of arr) if (o && o.i >= 1 && o.i <= items.length && o.desc) out[o.i - 1] = String(o.desc).trim()
+    return out
+  } catch (e) { console.log('   (gemini 실패 → 기본 문구): ' + e.message); return fallback }
+}
 const IMGDIR = path.join(__dirname, '..', '..', 'public', 'guide', 'img')
 fs.mkdirSync(IMGDIR, { recursive: true })
 const sleep = ms => new Promise(r => setTimeout(r, ms))
@@ -88,7 +121,7 @@ async function search(query) {
     headers: {
       'Content-Type': 'application/json',
       'X-Goog-Api-Key': KEY,
-      'X-Goog-FieldMask': 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.googleMapsUri,places.photos',
+      'X-Goog-FieldMask': 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.googleMapsUri,places.photos,places.editorialSummary,places.reviews,places.priceLevel',
     },
     body: JSON.stringify({ textQuery: query, languageCode: 'ko', regionCode: 'JP', maxResultCount: 20 }),
   })
@@ -119,22 +152,23 @@ function descOf(p, noun) {
       .map(p => {
         const name = (p.displayName && p.displayName.text) || ''
         const v = p.userRatingCount || 0
-        return { name, rating: p.rating, count: v, area: areaOf(p.formattedAddress), maps: p.googleMapsUri || '', photoRef: (p.photos && p.photos[0]) ? p.photos[0].name : '', score: (v * p.rating + M * C) / (v + M), brand: brandKey(name) }
+        return { name, rating: p.rating, count: v, area: areaOf(p.formattedAddress), maps: p.googleMapsUri || '', photoRef: (p.photos && p.photos[0]) ? p.photos[0].name : '', editorial: (p.editorialSummary && p.editorialSummary.text) || '', price: PRICE[p.priceLevel] || '', reviews: (p.reviews || []).map(rv => rv.text && rv.text.text).filter(Boolean), score: (v * p.rating + M * C) / (v + M), brand: brandKey(name) }
       })
       .filter(p => p.name && !EXCLUDE.some(k => p.name.toLowerCase().includes(k))) // 관광·할랄 특화 제외
       .sort((a, b) => b.score - a.score)
       .filter(p => !brandSeen.has(p.brand) && brandSeen.add(p.brand)) // 같은 브랜드 분점 1곳만
       .slice(0, cfg.take)
     if (!items.length) { console.log(`  ! ${slug}: 조건(리뷰 ${cfg.min}+) 충족 결과 없음`); continue }
+    const descs = await geminiDescs(items, cfg.noun)   // 리뷰 분석 기반 소개
     for (let i = 0; i < items.length; i++) {
       const it = items[i]
-      it.desc = descOf(it, cfg.noun)
+      it.desc = descs[i] || descOf(it, cfg.noun)
       if (it.photoRef) {
         const dst = path.join(IMGDIR, `${slug}-${i + 1}.jpg`)
         if (fs.existsSync(dst)) { it.photo = `/guide/img/${slug}-${i + 1}.jpg` }
         else { try { await dlPhoto(it.photoRef, dst); it.photo = `/guide/img/${slug}-${i + 1}.jpg`; await sleep(120) } catch (e) {} }
       }
-      delete it.photoRef; delete it.score; delete it.brand
+      delete it.photoRef; delete it.score; delete it.brand; delete it.reviews
     }
     page.items = items
     const n = items.length
