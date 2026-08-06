@@ -55,3 +55,22 @@ CREATE TABLE IF NOT EXISTS vouchers (
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+-- 견적 고객 (CRM) — 견적서 저장 시 기록, 문의→견적→계약 흐름 관리
+CREATE TABLE IF NOT EXISTS quotes (
+  id SERIAL PRIMARY KEY,
+  customer_id INTEGER REFERENCES customers(id),
+  name TEXT NOT NULL,
+  phone TEXT,
+  trip_name TEXT,
+  passengers INTEGER DEFAULT 1,
+  amount_jpy BIGINT,
+  amount_krw BIGINT,
+  exchange_rate NUMERIC,
+  deposit BIGINT,
+  balance BIGINT,
+  status TEXT DEFAULT 'quote',   -- quote(견적) | contract(계약) | completed(완료) | canceled(취소)
+  memo TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);

@@ -61,6 +61,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // ── API 라우터 ───────────────────────────────────────────────
 app.use('/api/applications', require('./routes/applications'))
 app.use('/api/vouchers', require('./routes/vouchers'))
+app.use('/api/quotes', require('./routes/quotes'))
 
 // ── 관리자 페이지 경로 ───────────────────────────────────────
 app.get('/admin/login', (req, res) =>
@@ -73,6 +74,8 @@ app.get('/admin/estimate', (req, res) =>
   res.sendFile(path.join(__dirname, 'public/admin/estimate.html')))
 app.get('/admin/quote', (req, res) =>
   res.sendFile(path.join(__dirname, 'public/admin/quote.html')))
+app.get('/admin/crm', (req, res) =>
+  res.sendFile(path.join(__dirname, 'public/admin/crm.html')))
 
 app.get('/health', (req, res) => res.json({ status: 'ok', time: new Date().toISOString() }))
 

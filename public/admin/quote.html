@@ -69,9 +69,26 @@ tr.diff td{color:var(--gold-d);font-weight:600}
   <div class="t">GL<b>U</b>X 고객 견적서</div>
   <div class="sp"></div>
   <a class="btn ghost" href="/admin">← 관리자</a>
-  <a class="btn ghost" href="/admin/estimate">내부 원가명세</a>
+  <a class="btn ghost" href="/admin/crm">견적 고객(CRM)</a>
+  <button class="btn" style="background:#2b7a4b;color:#fff" onclick="openSave()">＋ 고객으로 저장</button>
   <button onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
-  <div class="hint">여행명·엔화총액·환율·확정금액·인원·계좌만 입력하면 원화환산·1인당·계약금·잔금·조정차액이 자동 계산됩니다.</div>
+  <div class="hint">여행명·엔화총액·환율·확정금액·인원·계좌만 입력하면 원화환산·1인당·계약금·잔금·조정차액이 자동 계산됩니다. <b>고객으로 저장</b>하면 CRM에 이력이 쌓입니다.</div>
+</div>
+<div id="saveModal" style="position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:100;padding:16px">
+  <div style="background:#fff;border-radius:14px;width:min(400px,96vw);padding:22px;font-family:'Noto Sans KR',sans-serif">
+    <h3 style="font-size:17px;margin-bottom:4px">견적 고객으로 저장</h3>
+    <div style="font-size:12.5px;color:#9aa0ad;margin-bottom:14px">여행명·금액은 현재 견적서에서 자동으로 담깁니다.</div>
+    <label style="font-size:12px;font-weight:600;display:block;margin:8px 0 5px">고객명 *</label>
+    <input id="svName" placeholder="홍길동" style="width:100%;padding:11px 12px;border:1px solid #e4e5ea;border-radius:8px;font-size:14px">
+    <label style="font-size:12px;font-weight:600;display:block;margin:11px 0 5px">연락처 *</label>
+    <input id="svPhone" placeholder="010-0000-0000" style="width:100%;padding:11px 12px;border:1px solid #e4e5ea;border-radius:8px;font-size:14px">
+    <label style="font-size:12px;font-weight:600;display:block;margin:11px 0 5px">메모 (선택)</label>
+    <textarea id="svMemo" placeholder="상담 내용·요청사항" style="width:100%;padding:11px 12px;border:1px solid #e4e5ea;border-radius:8px;font-size:14px;min-height:52px"></textarea>
+    <div style="display:flex;gap:8px;margin-top:16px">
+      <button id="svBtn" onclick="doSave()" style="flex:1;background:#2b7a4b;color:#fff;border:none;border-radius:9px;padding:13px;font-size:14px;font-weight:800;cursor:pointer">저장</button>
+      <button onclick="document.getElementById('saveModal').style.display='none'" style="background:#eee;border:none;border-radius:9px;padding:13px 18px;font-weight:700;cursor:pointer">닫기</button>
+    </div>
+  </div>
 </div>
 
 <div class="doc">
@@ -140,6 +157,26 @@ function calc(){
   g('rowDiff').textContent=(diff>=0?'₩':'-₩')+Math.abs(Math.round(diff)).toLocaleString('ko-KR');
 }
 calc();
+function gv(id){var e=document.getElementById(id);if(!e)return '';return (e.value!==undefined&&e.value!=='')?e.value:(e.textContent||'')}
+function digits(v){var n=parseInt(String(v).replace(/[^0-9]/g,''),10);return isNaN(n)?0:n}
+function openSave(){document.getElementById('saveModal').style.display='flex'}
+async function doSave(){
+  var name=document.getElementById('svName').value.trim();
+  var phone=document.getElementById('svPhone').value.trim();
+  if(!name||!phone){alert('고객명과 연락처는 필수입니다.');return;}
+  var krw=gv('finalKrw')||gv('krwConv');
+  var kn=digits(krw), dn=digits(gv('deposit'));
+  var body={name:name,phone:phone,trip_name:gv('tripName'),passengers:gv('people'),
+    amount_jpy:gv('jpyTotal'),exchange_rate:gv('rate'),amount_krw:krw,deposit:gv('deposit'),
+    balance:(kn&&dn)?(kn-dn):'',memo:document.getElementById('svMemo').value.trim()};
+  var btn=document.getElementById('svBtn');btn.disabled=true;btn.textContent='저장 중...';
+  try{
+    var res=await fetch('/api/quotes',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    if(res.ok){alert('저장 완료! 상단 [견적 고객(CRM)]에서 확인·수정할 수 있어요.');document.getElementById('saveModal').style.display='none';['svName','svPhone','svMemo'].forEach(function(i){document.getElementById(i).value='';});}
+    else{var j=await res.json().catch(function(){return{};});alert('저장 실패: '+(j.error||'다시 시도해주세요.'));}
+  }catch(e){alert('오류: '+e.message);}
+  btn.disabled=false;btn.textContent='저장';
+}
 </script>
 </body>
 </html>

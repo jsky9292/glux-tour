@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GLUX 견적 고객 CRM</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-variant-numeric:lining-nums}
+:root{--ink:#12131a;--sub:#3a3d4a;--mist:#7a7e8c;--line:#e7e5df;--paper:#f6f5f2;--gold:#b8956a;--goldd:#8a6427;--warm:#c0392b}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,sans-serif;background:var(--paper);color:var(--ink);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.bar{background:#12131a;color:#fff;height:56px;display:flex;align-items:center;gap:14px;padding:0 18px;position:sticky;top:0;z-index:10}
+.bar .t{font-weight:800;letter-spacing:1px;font-size:16px}.bar .t b{color:var(--gold)}
+.bar .sp{flex:1}
+.bar a,.bar button{background:rgba(255,255,255,.1);color:#fff;border:none;border-radius:7px;padding:8px 14px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none}
+.bar a.gold{background:linear-gradient(135deg,#e0bd6e,#b8956a);color:#231a08}
+.wrap{max-width:1120px;margin:20px auto;padding:0 16px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;min-width:110px}
+.stat .n{font-size:22px;font-weight:800}.stat .l{font-size:12px;color:var(--mist);margin-top:2px}
+.tools{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.tools input{flex:1;min-width:200px;padding:11px 14px;border:1px solid var(--line);border-radius:9px;font-size:14px;font-family:inherit;outline:none}
+.tools input:focus{border-color:var(--gold)}
+.tools select{padding:11px 12px;border:1px solid var(--line);border-radius:9px;font-family:inherit;font-size:13.5px}
+.tbl{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+th{background:#faf9f6;text-align:left;font-size:12px;color:var(--mist);font-weight:700;padding:11px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:12px;border-bottom:1px solid var(--line);font-size:13.5px;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#fcfbf8}
+.nm{font-weight:700}
+.ph{color:var(--sub);font-size:12.5px}
+.amt{font-weight:700;white-space:nowrap}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:20px}
+.b-quote{background:#eef2f7;color:#4a5a72}.b-contract{background:#e8f4ec;color:#2b7a4b}.b-completed{background:#f4ecdb;color:var(--goldd)}.b-canceled{background:#f7ecea;color:var(--warm)}
+.act{display:flex;gap:6px}
+.act button{border:1px solid var(--line);background:#fff;border-radius:7px;padding:6px 10px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600}
+.act .del{color:var(--warm);border-color:#f0d7d2}
+.empty{text-align:center;color:var(--mist);padding:40px}
+.hist{background:#faf9f6;font-size:12.5px;color:var(--sub)}
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.on{display:flex}
+.mc{background:#fff;border-radius:14px;width:min(460px,96vw);max-height:92vh;overflow-y:auto;padding:22px}
+.mc h3{font-size:17px;font-weight:800;margin-bottom:4px}
+.mc .msub{font-size:12.5px;color:var(--mist);margin-bottom:14px}
+.mc label{display:block;font-size:12px;font-weight:600;margin:11px 0 5px}
+.mc input,.mc select,.mc textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:inherit;outline:none}
+.mc input:focus,.mc textarea:focus{border-color:var(--gold)}
+.mc .r2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mc textarea{min-height:56px;resize:vertical}
+.mc .mact{display:flex;gap:8px;margin-top:16px}
+.mc .save{flex:1;background:linear-gradient(135deg,#e0bd6e,#b8956a);color:#231a08;border:none;border-radius:9px;padding:13px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit}
+.mc .cancel{background:#eee;border:none;border-radius:9px;padding:13px 18px;font-weight:700;cursor:pointer;font-family:inherit}
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="t">GL<b>U</b>X 견적 고객 CRM</div>
+  <div class="sp"></div>
+  <a href="/admin">← 신청목록</a>
+  <a href="/admin/quote" class="gold">＋ 새 견적서</a>
+</div>
+<div class="wrap">
+  <div class="stats" id="stats"></div>
+  <div class="tools">
+    <input id="q" placeholder="고객명 · 연락처 · 여행명 검색">
+    <select id="fStatus" onchange="applyF()">
+      <option value="">상태 전체</option>
+      <option value="quote">견적</option>
+      <option value="contract">계약</option>
+      <option value="completed">완료</option>
+      <option value="canceled">취소</option>
+    </select>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>고객</th><th>여행명</th><th>금액(원화)</th><th>인원</th><th>상태</th><th>날짜</th><th></th></tr></thead>
+      <tbody id="rows"><tr><td colspan="7" class="empty">불러오는 중…</td></tr></tbody>
+    </table>
+  </div>
+  <p style="font-size:12px;color:var(--mist);margin-top:12px">※ 같은 연락처의 고객은 과거 견적 이력이 함께 쌓입니다. 재문의 시 검색으로 이전 견적을 찾아 수정하세요.</p>
+</div>
+
+<div class="modal" id="modal"><div class="mc" id="mc"></div></div>
+
+<script>
+let ALL = [], STATUS_L = { quote: '견적', contract: '계약', completed: '완료', canceled: '취소' }
+const won = v => v == null ? '-' : Number(v).toLocaleString() + '원'
+const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+
+async function load() {
+  const [rows, stats] = await Promise.all([
+    fetch('/api/quotes').then(r => r.json()),
+    fetch('/api/quotes/stats').then(r => r.json()).catch(() => ({}))
+  ])
+  ALL = Array.isArray(rows) ? rows : []
+  document.getElementById('stats').innerHTML =
+    `<div class="stat"><div class="n">${stats.total || 0}</div><div class="l">전체</div></div>
+     <div class="stat"><div class="n">${stats.quote || 0}</div><div class="l">견적</div></div>
+     <div class="stat"><div class="n">${stats.contract || 0}</div><div class="l">계약</div></div>
+     <div class="stat"><div class="n">${stats.completed || 0}</div><div class="l">완료</div></div>`
+  applyF()
+}
+function applyF() {
+  const q = (document.getElementById('q').value || '').toLowerCase().trim()
+  const st = document.getElementById('fStatus').value
+  let list = ALL
+  if (st) list = list.filter(r => r.status === st)
+  if (q) list = list.filter(r => `${r.name || ''}${r.phone || ''}${r.trip_name || ''}`.toLowerCase().includes(q))
+  const tb = document.getElementById('rows')
+  if (!list.length) { tb.innerHTML = '<tr><td colspan="7" class="empty">견적 고객이 없습니다.</td></tr>'; return }
+  tb.innerHTML = list.map(r => {
+    const d = (r.created_at || '').slice(0, 10)
+    return `<tr>
+      <td><div class="nm">${esc(r.name)}</div><div class="ph">${esc(r.phone) || '-'}</div></td>
+      <td>${esc(r.trip_name) || '-'}</td>
+      <td class="amt">${won(r.amount_krw)}</td>
+      <td>${r.passengers || 1}명</td>
+      <td><span class="badge b-${r.status}">${STATUS_L[r.status] || r.status}</span></td>
+      <td style="color:#7a7e8c;font-size:12.5px">${d}</td>
+      <td><div class="act"><button onclick="edit(${r.id})">수정</button><button class="del" onclick="del(${r.id})">삭제</button></div></td>
+    </tr>`
+  }).join('')
+}
+document.getElementById('q').oninput = applyF
+
+function edit(id) {
+  const r = ALL.find(x => x.id === id); if (!r) return
+  document.getElementById('mc').innerHTML = `
+    <h3>견적 수정</h3><div class="msub">${esc(r.phone) || ''} · 최초 저장 ${(r.created_at || '').slice(0, 10)}</div>
+    <label>고객명</label><input id="e_name" value="${esc(r.name)}">
+    <div class="r2"><div><label>연락처</label><input id="e_phone" value="${esc(r.phone)}"></div><div><label>인원</label><input id="e_people" type="number" value="${r.passengers || 1}"></div></div>
+    <label>여행명</label><input id="e_trip" value="${esc(r.trip_name)}">
+    <div class="r2"><div><label>엔화(JPY)</label><input id="e_jpy" value="${r.amount_jpy ?? ''}"></div><div><label>환율</label><input id="e_rate" value="${r.exchange_rate ?? ''}"></div></div>
+    <div class="r2"><div><label>확정금액(원)</label><input id="e_krw" value="${r.amount_krw ?? ''}"></div><div><label>상태</label>
+      <select id="e_status">${['quote', 'contract', 'completed', 'canceled'].map(s => `<option value="${s}"${s === r.status ? ' selected' : ''}>${STATUS_L[s]}</option>`).join('')}</select></div></div>
+    <div class="r2"><div><label>계약금(원)</label><input id="e_dep" value="${r.deposit ?? ''}"></div><div><label>잔금(원)</label><input id="e_bal" value="${r.balance ?? ''}"></div></div>
+    <label>메모</label><textarea id="e_memo">${esc(r.memo)}</textarea>
+    <div class="mact"><button class="save" onclick="saveEdit(${r.id})">저장</button><button class="cancel" onclick="closeM()">닫기</button></div>`
+  document.getElementById('modal').classList.add('on')
+}
+async function saveEdit(id) {
+  const g = i => document.getElementById(i).value
+  const body = { name: g('e_name'), phone: g('e_phone'), passengers: g('e_people'), trip_name: g('e_trip'),
+    amount_jpy: g('e_jpy'), exchange_rate: g('e_rate'), amount_krw: g('e_krw'), status: g('e_status'),
+    deposit: g('e_dep'), balance: g('e_bal'), memo: g('e_memo') }
+  const res = await fetch('/api/quotes/' + id, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+  if (res.ok) { closeM(); load() } else { alert('저장 실패') }
+}
+async function del(id) {
+  if (!confirm('이 견적을 삭제할까요?')) return
+  const res = await fetch('/api/quotes/' + id, { method: 'DELETE' })
+  if (res.ok) load(); else alert('삭제 실패')
+}
+function closeM() { document.getElementById('modal').classList.remove('on') }
+document.getElementById('modal').onclick = e => { if (e.target.id === 'modal') closeM() }
+load()
+</script>
+</body>
+</html>
