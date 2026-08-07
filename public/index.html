@@ -142,13 +142,15 @@ section{padding:clamp(60px,10vw,110px) clamp(16px,4vw,48px)}
 .dest-s{background:var(--white)}
 .dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
 .dest-card{position:relative;height:clamp(240px,28vw,340px);overflow:hidden;cursor:pointer;background-size:cover;background-position:center;background-color:#1a1520}
-.dest-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,9,12,.88) 0%,rgba(8,9,12,.3) 40%,rgba(8,9,12,.08) 100%);transition:all .4s}
+.dest-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,9,12,.88) 0%,rgba(8,9,12,.3) 40%,rgba(8,9,12,.08) 100%);transition:all .4s;pointer-events:none}
+.dest-cover{position:absolute;inset:0;z-index:1}
 .dest-card:hover::after{background:linear-gradient(to top,rgba(8,9,12,.75) 0%,rgba(8,9,12,.15) 40%,rgba(8,9,12,0) 100%)}
 .dest-inner{position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,2.5vw,28px);z-index:2;min-height:130px;display:flex;flex-direction:column;justify-content:flex-end}
 .dest-en{font-family:var(--serif);font-size:10px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;font-weight:500}
 .dest-card h4{font-family:var(--serif);font-size:clamp(22px,3vw,32px);color:var(--white);font-weight:500;margin-bottom:6px}
 .dest-card p{font-size:clamp(11px,1.2vw,12.5px);color:rgba(255,255,255,.5);font-weight:300;line-height:1.7}
-.dest-spots{margin-top:8px;display:flex;flex-wrap:wrap;gap:4px}
+.dest-spots{margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;min-height:44px;align-content:flex-start}
+.dest-spot{position:relative;z-index:2}
 .dest-spot{font-size:10px;padding:4px 9px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.62);cursor:pointer;transition:all .2s;border-radius:3px}
 .dest-spot:hover{background:rgba(184,149,106,.4);color:#fff}
 
@@ -421,10 +423,10 @@ body{padding-bottom:var(--bar)}
   <div class="inner">
     <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Destinations</span></div><h2 class="st">간사이의 매력적인 도시들</h2><p class="ss">각 도시만의 특별한 경험을 GLUX가 코디합니다.</p></div>
     <div class="dest-grid rv">
-      <div class="dest-card" style="background-image:url('/img/city-osaka.jpg')"><div class="dest-inner"><div class="dest-en">Osaka</div><a href="/tour/osaka-family/"><h4>오사카</h4></a><p>일본 제2의 도시, 먹거리와 활기의 천국</p><div class="dest-spots"><a class="dest-spot" href="/guide/dotonbori/">도톤보리</a><a class="dest-spot" href="/guide/kuromon-market/">쿠로몬시장</a><a class="dest-spot" href="/guide/universal-studios-japan/">유니버설</a><a class="dest-spot" href="/guide/shinsekai/">신세카이</a></div></div></div>
-      <div class="dest-card" style="background-image:url('/img/city-kyoto.jpg')"><div class="dest-inner"><div class="dest-en">Kyoto</div><a href="/tour/kyoto-ryokan/"><h4>교토</h4></a><p>천년 고도의 전통미, 료칸과 기모노의 도시</p><div class="dest-spots"><a class="dest-spot" href="/guide/fushimi-inari/">후시미이나리</a><a class="dest-spot" href="/guide/arashiyama/">아라시야마</a><a class="dest-spot" href="/guide/gion/">기온거리</a><a class="dest-spot" href="/guide/kinkakuji/">금각사</a></div></div></div>
-      <div class="dest-card" style="background-image:url('/img/city-nara.jpg')"><div class="dest-inner"><div class="dest-en">Nara</div><a href="/tour/nara-family/"><h4>나라</h4></a><p>사슴과 함께하는 평화로운 가족 여행지</p><div class="dest-spots"><a class="dest-spot" href="/guide/nara-park/">사슴공원</a><a class="dest-spot" href="/guide/todaiji/">도다이지</a><a class="dest-spot" href="/guide/naramachi/">나라마치</a><a class="dest-spot" href="/guide/isuien/">이스이엔</a></div></div></div>
-      <div class="dest-card" style="background-image:url('/img/city-kobe.jpg')"><div class="dest-inner"><div class="dest-en">Kobe</div><a href="/tour/kobe-food/"><h4>고베</h4></a><p>고베규와 항구 야경, 아리마온천의 도시</p><div class="dest-spots"><a class="dest-spot" href="/guide/kobe-beef-guide/">고베규</a><a class="dest-spot" href="/guide/harborland/">하버랜드</a><a class="dest-spot" href="/guide/arima-onsen-guide/">아리마온천</a><a class="dest-spot" href="/guide/rokko/">롯코산</a></div></div></div>
+      <div class="dest-card" style="background-image:url('/img/city-osaka.jpg')"><a class="dest-cover" href="/tour/osaka-family/" aria-label="오사카 여행"></a><div class="dest-inner"><div class="dest-en">Osaka</div><a href="/tour/osaka-family/"><h4>오사카</h4></a><p>일본 제2의 도시, 먹거리와 활기의 천국</p><div class="dest-spots"><a class="dest-spot" href="/guide/dotonbori/">도톤보리</a><a class="dest-spot" href="/guide/kuromon-market/">쿠로몬시장</a><a class="dest-spot" href="/guide/universal-studios-japan/">유니버설</a><a class="dest-spot" href="/guide/shinsekai/">신세카이</a></div></div></div>
+      <div class="dest-card" style="background-image:url('/img/city-kyoto.jpg')"><a class="dest-cover" href="/tour/kyoto-ryokan/" aria-label="교토 여행"></a><div class="dest-inner"><div class="dest-en">Kyoto</div><a href="/tour/kyoto-ryokan/"><h4>교토</h4></a><p>천년 고도의 전통미, 료칸과 기모노의 도시</p><div class="dest-spots"><a class="dest-spot" href="/guide/fushimi-inari/">후시미이나리</a><a class="dest-spot" href="/guide/arashiyama/">아라시야마</a><a class="dest-spot" href="/guide/gion/">기온거리</a><a class="dest-spot" href="/guide/kinkakuji/">금각사</a></div></div></div>
+      <div class="dest-card" style="background-image:url('/img/city-nara.jpg')"><a class="dest-cover" href="/tour/nara-family/" aria-label="나라 여행"></a><div class="dest-inner"><div class="dest-en">Nara</div><a href="/tour/nara-family/"><h4>나라</h4></a><p>사슴과 함께하는 평화로운 가족 여행지</p><div class="dest-spots"><a class="dest-spot" href="/guide/nara-park/">사슴공원</a><a class="dest-spot" href="/guide/todaiji/">도다이지</a><a class="dest-spot" href="/guide/naramachi/">나라마치</a><a class="dest-spot" href="/guide/isuien/">이스이엔</a></div></div></div>
+      <div class="dest-card" style="background-image:url('/img/city-kobe.jpg')"><a class="dest-cover" href="/tour/kobe-food/" aria-label="고베 여행"></a><div class="dest-inner"><div class="dest-en">Kobe</div><a href="/tour/kobe-food/"><h4>고베</h4></a><p>고베규와 항구 야경, 아리마온천의 도시</p><div class="dest-spots"><a class="dest-spot" href="/guide/kobe-beef-guide/">고베규</a><a class="dest-spot" href="/guide/harborland/">하버랜드</a><a class="dest-spot" href="/guide/arima-onsen-guide/">아리마온천</a><a class="dest-spot" href="/guide/rokko/">롯코산</a></div></div></div>
     </div>
   </div>
 </section>
