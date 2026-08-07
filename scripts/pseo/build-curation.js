@@ -100,21 +100,23 @@ footer a{color:var(--gold-b)}
 
 function render(p) {
   const url = `https://gluxtour.com/guide/${p.slug}/`
+  const isSpot = p.kind === 'spot'
   const items = p.items.map((it, i) => {
     const nameHtml = it.maps ? `<a href="${esc(it.maps)}" target="_blank" rel="noopener nofollow">${esc(it.name)}</a>` : esc(it.name)
     const rate = it.rating ? `<span class="rate">구글 평점 ${it.rating} ★ <span class="rc">(${Number(it.count || 0).toLocaleString()})</span></span>` : ''
     const mapLnk = it.maps ? `<a href="${esc(it.maps)}" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a>` : ''
-    const tabLnk = `<a href="https://www.google.com/search?q=${encodeURIComponent(it.name + ' 食べログ')}" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a>`
+    const tabLnk = isSpot ? '' : `<a href="https://www.google.com/search?q=${encodeURIComponent(it.name + ' 食べログ')}" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a>`
     const ph = it.photo ? `<img class="ph" src="${esc(it.photo)}" alt="${esc(it.name)}" loading="lazy">` : ''
     const price = it.price ? ` <span class="price">${esc(it.price)}</span>` : ''
     const ed = it.editorial ? `<div class="edsum">${esc(it.editorial)} <span class="src2">— Google 요약</span></div>` : ''
+    const miniTxt = isSpot ? '여기 궁금하면 톡으로 물어보기' : '이 가게 궁금하면 톡으로 물어보기'
     return `  <div class="item">
     <div class="ihead"><span class="rk">${i + 1}</span><h3>${nameHtml}${it.ja ? ` <span class="ja">${esc(it.ja)}</span>` : ''}</h3></div>
     <div>${it.area ? `<span class="atag">${esc(it.area)}</span> ` : ''}${rate}${price}</div>
     ${ph}${ed}
     <p>${it.desc}</p>
     ${it.point ? `<div class="pt"><b>추천 포인트</b> · ${esc(it.point)}</div>` : ''}
-    ${mapLnk}${tabLnk}<br><a href="${KAKAO}" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
+    ${mapLnk}${tabLnk}<br><a href="${KAKAO}" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">${miniTxt}</a>
   </div>`
   }).join('\n')
   const kf = p.keyFacts.map(x => `    <li>${esc(x)}</li>`).join('\n')
@@ -165,7 +167,7 @@ ${faqLd}
   <span class="eyebrow">${esc(p.eyebrow || 'GLUX 큐레이션')}</span>
   <h1>${esc(p.h1 || p.title)}</h1>
   <p class="sum">${p.summary}</p>
-  <p class="pos">오사카 현지 30년. 거품 없이, 진짜 괜찮은 곳만 골라 알려드려요.</p>
+  <p class="pos">간사이 현지 30년. 거품 없이, 진짜 괜찮은 곳만 골라 알려드려요.</p>
   <div class="cta"><a href="${KAKAO}" target="_blank" rel="noopener" class="btn btn-g" onclick="if(window.gtag)gtag('event','click_kakao',{from:'hero'})">현지인에게 톡으로 물어보기</a><a href="#form" class="btn btn-l" onclick="if(window.gtag)gtag('event','cta_click',{from:'hero'})">여행 문의 남기기</a></div>
 </div></header>
 
@@ -224,7 +226,9 @@ ${rel ? `
 ${rel}
     </div>
   </section>` : ''}
-  <p class="disc">※ 평점·사진 출처: Google 지도. 타베로그 평점은 현지 기준이 엄격해 <b>3.5 이상이면 우수</b>합니다(구글 평점과 스케일이 달라요). 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권하며, 정확한 예약·최신 정보는 톡으로 물어보시면 거품 없이 알려드립니다.</p>
+  <p class="disc">${isSpot
+    ? '※ 평점·사진 출처: Google 지도. 개장·폐장 시간, 입장료, 휴무는 변동될 수 있어 방문 전 확인을 권하며, 동선·최신 정보는 톡으로 물어보시면 거품 없이 알려드립니다.'
+    : '※ 평점·사진 출처: Google 지도. 타베로그 평점은 현지 기준이 엄격해 <b>3.5 이상이면 우수</b>합니다(구글 평점과 스케일이 달라요). 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권하며, 정확한 예약·최신 정보는 톡으로 물어보시면 거품 없이 알려드립니다.'}</p>
 </div>
 
 <footer>© GLUX Tour · 오사카·간사이 현지 직영 여행사 · <a href="https://gluxtour.com/">gluxtour.com</a></footer>

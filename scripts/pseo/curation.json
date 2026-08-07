@@ -4975,5 +4975,758 @@
       }
     ],
     "listLead": "구글 지도 평점과 리뷰 수를 함께 반영한 순위예요. (출처: Google)"
+  },
+  {
+    "slug": "osaka-spots",
+    "kw": "오사카 관광명소",
+    "kind": "spot",
+    "eyebrow": "오사카 관광 큐레이션",
+    "title": "오사카 관광명소 순위 TOP 9 | 구글 평점 기준 추천 — GLUX",
+    "ogTitle": "오사카 관광명소 TOP — 구글 평점 기준 가볼만한 곳",
+    "description": "오사카성·도톤보리·우메다 스카이빌딩까지, 오사카에서 꼭 가볼 명소를 구글 평점·리뷰 수 기준으로 정리했습니다. 첫 방문 동선까지 한눈에.",
+    "summary": "오사카성·도톤보리·우메다 스카이빌딩까지, 오사카에서 꼭 가볼 명소를 구글 평점·리뷰 수 기준으로 정리했어요. 처음이라면 이 순서대로만 봐도 후회 없습니다.",
+    "keyFacts": [
+      "오사카성·우메다·신세카이가 3대 핵심 권역 — 지하철 미도스지선으로 대부분 연결됩니다",
+      "도톤보리·신사이바시는 저녁~야경이 하이라이트, 오사카성은 오전이 한산합니다",
+      "오사카주유패스로 명소 입장·교통을 묶으면 알뜰합니다"
+    ],
+    "tips": [
+      "오사카성 천수각은 엘리베이터 대기줄이 길어 개장 직후(09:00)가 가장 여유롭습니다",
+      "우메다 스카이빌딩 공중정원은 일몰 30분 전 입장하면 노을·야경을 다 볼 수 있습니다",
+      "명소 간 이동은 지하철이 정확합니다 — 동선이 애매하면 톡으로 물어보세요"
+    ],
+    "faq": [
+      {
+        "q": "오사카 관광은 며칠이면 충분한가요?",
+        "a": "핵심 명소만이라면 2일, 유니버설 스튜디오·근교(고베·나라·교토)를 더하면 3~4일이 적당합니다."
+      },
+      {
+        "q": "오사카성은 실내 관람인가요?",
+        "a": "천수각 내부는 박물관(엘리베이터·전시)이고, 공원·해자·성곽은 무료 야외 산책 코스입니다. 벚꽃·단풍 시즌이 특히 아름답습니다."
+      },
+      {
+        "q": "오사카 야경 명소는 어디가 좋나요?",
+        "a": "우메다 스카이빌딩 공중정원, 도톤보리 강변, 츠텐카쿠(신세카이)가 대표적입니다. 도톤보리는 글리코 간판 주변이 가장 붐빕니다."
+      },
+      {
+        "q": "명소 위주로 동선을 짜고 싶어요",
+        "a": "권역별로 묶으면 이동이 줄어듭니다. 톡으로 물어보시면 현지 기준으로 동선을 정리해 드려요."
+      }
+    ],
+    "related": [
+      {
+        "t": "교토 관광명소",
+        "d": "후시미이나리·기요미즈데라",
+        "href": "/guide/kyoto-spots/"
+      },
+      {
+        "t": "나라 관광명소",
+        "d": "사슴공원·도다이지",
+        "href": "/guide/nara-spots/"
+      },
+      {
+        "t": "도톤보리 맛집",
+        "d": "구글 평점 순위",
+        "href": "/guide/dotonbori-food/"
+      },
+      {
+        "t": "오사카 온천·스파",
+        "d": "구글 평점 순위",
+        "href": "/guide/osaka-onsen/"
+      }
+    ],
+    "items": [
+      {
+        "name": "해유관",
+        "rating": 4.5,
+        "count": 60417,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=8035482904308493516&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "세계에서 가장 큰 수족관 중 하나로 북극부터 열대 해양생물에 이르는 다양한 종을 볼 수 있습니다.",
+        "price": "",
+        "desc": "오사카의 대표적인 대형 수족관으로, 고래상어를 비롯한 다양한 해양 생물들을 나선형 동선을 따라 관람할 수 있습니다. 주말이나 피크 시간대를 피하거나, 미리 온라인 예매를 하면 긴 줄을 서지 않고 여유롭게 즐길 수 있습니다.",
+        "photo": "/guide/img/osaka-spots-1.jpg"
+      },
+      {
+        "name": "오사카성 천수각",
+        "rating": 4.5,
+        "count": 5789,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=4831865609044200129&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "오사카성 단지에 우뚝 솟아 있는 인상적인 다층탑으로 금박 세공으로 장식했으며 박물관이 있습니다.",
+        "price": "",
+        "desc": "오사카성 천수각은 웅장한 해자와 성벽을 자랑하며, 내부에서는 박물관 전시와 함께 멋진 전망을 즐길 수 있습니다. 오사카 주유패스를 이용하면 입장 줄을 절약하고 나룻배 등 주변 시설도 함께 이용하기 좋습니다.",
+        "photo": "/guide/img/osaka-spots-2.jpg"
+      },
+      {
+        "name": "오사카 성",
+        "rating": 4.4,
+        "count": 98405,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=1081374622389182017&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "1597년에 지어진 이후 복원된 성으로 정원과 다양한 전시물을 갖춘 박물관이 있습니다.",
+        "price": "",
+        "desc": "오사카의 상징적인 랜드마크인 오사카 성은 다양한 교통편으로 접근성이 좋으며, 특히 아이들과 함께라면 공원 내 트레인을 이용해 편하게 둘러볼 수 있습니다. 다만, 천수각 내부는 현대식으로 꾸며져 있고 좁고 붐빌 수 있으니 외부 경관을 감상하는 것만으로도 충분하다는 의견도 있습니다.",
+        "photo": "/guide/img/osaka-spots-3.jpg"
+      },
+      {
+        "name": "도톤보리",
+        "rating": 4.4,
+        "count": 85124,
+        "area": "도톤보리",
+        "maps": "https://maps.google.com/?cid=13311254180582368656&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "현란한 광고판, 레스토랑, 극장으로 유명한 활기 넘치는 엔터테인먼트 지구입니다.",
+        "price": "",
+        "desc": "오사카의 상징적인 번화가인 도톤보리는 화려한 간판과 네온사인, 글리코상 앞에서 기념사진을 찍으려는 사람들로 낮부터 밤까지 활기 넘치는 곳입니다. 드럭스토어 쇼핑부터 다양한 맛집 탐방까지 즐길 거리가 많지만, 평일에도 인파가 매우 많으니 유의하세요.",
+        "photo": "/guide/img/osaka-spots-4.jpg"
+      },
+      {
+        "name": "오사카 성 공원",
+        "rating": 4.4,
+        "count": 51401,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=7491349504525130123&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "벚꽃, 운동장, 야외극장 등과 더불어 정원이 있는 광활한 녹지 공간입니다.",
+        "price": "",
+        "desc": "오사카 성 공원은 넓은 녹지 공간으로, 역사적인 배경을 지니고 있어 외부 산책만으로도 볼거리가 충분합니다. 낮에는 단체 관광객으로 붐비고 다소 시끄러울 수 있으니, 더운 날씨에는 시원한 저녁에 방문하여 야경과 함께 여유로운 산책을 즐기는 것을 추천합니다.",
+        "photo": "/guide/img/osaka-spots-5.jpg"
+      },
+      {
+        "name": "우메다 스카이빌딩",
+        "rating": 4.4,
+        "count": 42799,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=6323866581023509245&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "루프톱 정원 전망대와 연결되어 있는 고층 건물로 도시 전망을 즐길 수 있는 레스토랑과 라운지가 있습니다.",
+        "price": "",
+        "desc": "오사카역·우메다역에서 도보로 이동 가능한 우메다 스카이빌딩은 통유리 엘리베이터와 공중 에스컬레이터가 인상적인 건축물입니다. 루프톱 정원 전망대에서는 시원한 도시 전망을 야외에서 즐길 수 있지만, 피크 시간대에는 엘리베이터 대기 시간이 길어질 수 있으니 참고하세요.",
+        "photo": "/guide/img/osaka-spots-6.jpg"
+      },
+      {
+        "name": "호젠지",
+        "rating": 4.4,
+        "count": 4476,
+        "area": "난바",
+        "maps": "https://maps.google.com/?cid=17670300510256525139&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "예스러운 골목길을 따라가면 나타나는 친근한 분위기의 불교 사원으로 이끼로 덮인 부동명왕상이 유명합니다.",
+        "price": "",
+        "desc": "도톤보리 뒷골목에 위치한 호젠지는 이끼로 뒤덮인 부동명왕상이 유명한 작은 사찰입니다. 번화가와는 다른 고즈넉하고 평화로운 분위기를 느낄 수 있어 잠시 들러 마음을 다스리거나 이색적인 경험을 하기에 좋습니다.",
+        "photo": "/guide/img/osaka-spots-7.jpg"
+      },
+      {
+        "name": "구로몬 시장",
+        "rating": 4.1,
+        "count": 20668,
+        "area": "닛폰바시",
+        "maps": "https://maps.google.com/?cid=12402117845945925953&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "길거리 음식, 신선한 농산물, 갑각류, 기념품을 판매하는 드넓은 시장입니다.",
+        "price": "",
+        "desc": "오사카의 활기찬 분위기를 느낄 수 있는 구로몬 시장은 잘 정돈된 다양한 상점들과 화려한 간판이 인상적인 미식 거리입니다. 신선한 해산물과 길거리 음식을 맛보고 주방용품 등 기념품을 구경하며, 천장이 막혀있어 날씨에 상관없이 쾌적하게 즐길 수 있습니다.",
+        "photo": "/guide/img/osaka-spots-8.jpg"
+      },
+      {
+        "name": "쓰텐카쿠 전망대",
+        "rating": 4.1,
+        "count": 42852,
+        "area": "오사카",
+        "maps": "https://maps.google.com/?cid=16558556426972448087&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "네온 조명으로 유명한 이 랜드마크는 대중에게 개방된 전망대를 갖추고 있습니다.",
+        "price": "",
+        "desc": "네온 불빛으로 유명한 쓰텐카쿠 전망대는 도톤보리에서 가까워 야경을 감상하기 좋은 랜드마크입니다. 최근 생긴 미끄럼틀을 즐기거나 다양한 사진을 남기기 좋지만, 정상 공간이 좁고 앉을 의자가 없어 일몰까지 기다리기에 다소 불편할 수 있습니다.",
+        "photo": "/guide/img/osaka-spots-9.jpg"
+      }
+    ],
+    "h1": "오사카 관광명소 구글 평점 순위 TOP 9",
+    "listTitle": "구글 평점 순위 TOP 9",
+    "listLead": "구글 지도 평점과 리뷰 수를 함께 반영한 순위예요. (출처: Google)"
+  },
+  {
+    "slug": "kyoto-spots",
+    "kw": "교토 관광명소",
+    "kind": "spot",
+    "eyebrow": "교토 관광 큐레이션",
+    "title": "교토 관광명소 순위 TOP 6 | 구글 평점 기준 추천 — GLUX",
+    "ogTitle": "교토 관광명소 TOP — 구글 평점 기준 가볼만한 곳",
+    "description": "후시미이나리·기요미즈데라·아라시야마까지, 교토에서 놓치면 아쉬운 명소를 구글 평점·리뷰 수 기준으로 정리했습니다. 권역별 동선까지.",
+    "summary": "후시미이나리·기요미즈데라·아라시야마까지, 교토에서 놓치면 아쉬운 명소를 구글 평점·리뷰 수 기준으로 모았어요. 사찰·신사가 많아 동선 순서가 특히 중요합니다.",
+    "keyFacts": [
+      "후시미이나리(남)·기요미즈데라(동)·킨카쿠지(북)·아라시야마(서)로 방위가 흩어져 하루 2~3권역이 현실적입니다",
+      "주요 사찰은 대개 09:00 개문 — 붐비는 곳은 개문 직후가 사진·산책에 좋습니다",
+      "시내는 버스가 촘촘하지만 정체가 있어 지하철·전철과 섞어 타는 게 빠릅니다"
+    ],
+    "tips": [
+      "후시미이나리 천본토리이는 이른 아침(07~08시)이 인파가 적어 사진이 잘 나옵니다",
+      "기요미즈데라~기온~야사카는 걸어서 이어지는 골목 코스라 반나절 도보로 묶기 좋습니다",
+      "아라시야마 대나무숲·도게츠교·원숭이공원은 서쪽 반나절 코스로 따로 빼는 게 편합니다"
+    ],
+    "faq": [
+      {
+        "q": "교토 명소는 하루에 다 볼 수 있나요?",
+        "a": "방위가 흩어져 있어 하루엔 2~3권역이 현실적입니다. 1박 2일이면 동·남 하루, 북·서 하루로 나누면 무리가 없습니다."
+      },
+      {
+        "q": "기모노 입고 다니기 좋은 곳은?",
+        "a": "기요미즈데라·기온·아라시야마 골목이 대표적입니다. 대여점이 많고 반납 시간이 정해져 있어 오전 착용을 추천합니다."
+      },
+      {
+        "q": "사찰 입장료가 있나요?",
+        "a": "기요미즈데라·킨카쿠지 등 유명 사찰은 대개 400~600엔 내외, 후시미이나리 신사는 무료입니다."
+      },
+      {
+        "q": "교토 동선을 짜기 어려워요",
+        "a": "권역·이동수단이 얽혀 첫 방문엔 헷갈리기 쉽습니다. 톡으로 물어보시면 현지 기준으로 순서를 정리해 드려요."
+      }
+    ],
+    "related": [
+      {
+        "t": "교토 신사·사찰",
+        "d": "사찰·신사만 모아보기",
+        "href": "/guide/kyoto-temple/"
+      },
+      {
+        "t": "교토 맛집",
+        "d": "구글 평점 순위",
+        "href": "/guide/kyoto-food/"
+      },
+      {
+        "t": "아라시야마 맛집",
+        "d": "소바·두부요리",
+        "href": "/guide/arashiyama-food/"
+      },
+      {
+        "t": "오사카 관광명소",
+        "d": "오사카성·도톤보리",
+        "href": "/guide/osaka-spots/"
+      }
+    ],
+    "items": [
+      {
+        "name": "후시미 이나리 신사",
+        "rating": 4.6,
+        "count": 90236,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=8870624639634301673&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "산 중턱에 있는 신사로 711년에 지어졌으며 수백 개의 전통적인 문이 있는 길이 특징입니다.",
+        "price": "",
+        "desc": "교토를 대표하는 붉은 토리이 길이 인상적인 후시미 이나리 신사는 정상까지 오르면 인파를 피해 고즈넉한 힐링 산책을 즐길 수 있어요. 다만, 꽤 긴 산행이니 꼭 편한 신발을 준비하시고, 이른 새벽에도 방문객이 많으니 참고하세요.",
+        "photo": "/guide/img/kyoto-spots-1.jpg"
+      },
+      {
+        "name": "기요미즈데라",
+        "rating": 4.6,
+        "count": 71412,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=7111013964196361402&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "탁 트인 베란다에서 보는 경관이 유명한 오토와 산의 상징적인 불교 사원입니다.",
+        "price": "",
+        "desc": "교토 방문객이라면 꼭 들러야 할 대표 명소인 기요미즈데라는 아름다운 주황색 목조 건물과 고즈넉한 분위기가 일품입니다. 특히 비 오는 날에는 영화 속 한 장면처럼 운치 있지만, 방문객이 매우 많으니 여유로운 관람을 위해 아침 일찍 가보시는 걸 추천해요.",
+        "photo": "/guide/img/kyoto-spots-2.jpg"
+      },
+      {
+        "name": "금각사",
+        "rating": 4.6,
+        "count": 69467,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=1073025677330113631&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "유서 깊은 고요한 사원으로 조경 정원과 연못 사이에 금박 누각이 있습니다.",
+        "price": "",
+        "desc": "교토 최고의 명승지인 금각사는 연못 위에 화려하게 빛나는 황금빛 누각이 압도적인 풍경을 선사합니다. 흐린 날에도 그 아름다움이 더욱 돋보이며, 입장권 대신 부적을 받는 특별한 경험도 할 수 있어요.",
+        "photo": "/guide/img/kyoto-spots-3.jpg"
+      },
+      {
+        "name": "지쇼지",
+        "rating": 4.5,
+        "count": 17666,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=2705196751698570185&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "이 15세기 일본 선종 불교 사원에 아름다운 정원과 후지산 모양의 모래 언덕이 있습니다.",
+        "price": "",
+        "desc": "금각사의 화려함과는 다른 '여백의 미'를 느낄 수 있는 지쇼지는 입구부터 청량하고 고즈넉한 분위기가 매력적인 곳이에요. 하지만 일부 방문객은 입장료에 비해 정원 규모나 특별함이 아쉽다는 의견도 있으니 참고해서 방문해 보세요.",
+        "photo": "/guide/img/kyoto-spots-4.jpg"
+      },
+      {
+        "name": "니조 성",
+        "rating": 4.4,
+        "count": 42569,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=1183188145859604271&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "1603년에 사이프러스 나무로 지은 성으로 광대한 정원을 갖추고 있으며 쇼군 이에야스의 거처로 이용되었습니다.",
+        "price": "",
+        "desc": "교토 중심에 위치한 니조 성은 도쿠가와 막부 쇼군의 거처였던 곳으로, 어마어마한 규모와 잘 정비된 아름다운 건물, 정원이 인상적입니다. 에도 시대의 역사를 품은 세계문화유산이며, 내부 촬영은 불가하지만 넓고 접근성이 좋아 편하게 둘러보기 좋아요.",
+        "photo": "/guide/img/kyoto-spots-5.jpg"
+      },
+      {
+        "name": "교토 타워",
+        "rating": 4.2,
+        "count": 18159,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=17017157882742292436&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "탑에 있는 전망대에 망원경과 터치스크린 가이드, 푸드 코트가 마련되어 있습니다.",
+        "price": "",
+        "desc": "교토역 광장의 랜드마크인 교토 타워는 고즈넉한 교토 여행의 하루를 마무리하며 도시 전경을 감상하기 좋은 곳입니다. 성인 900엔의 입장료가 아깝지 않다는 평이 많고, 지하에는 저렴한 바 형식의 술집도 있어 가볍게 즐기기 좋아요.",
+        "photo": "/guide/img/kyoto-spots-6.jpg"
+      }
+    ],
+    "h1": "교토 관광명소 구글 평점 순위 TOP 6",
+    "listTitle": "구글 평점 순위 TOP 6",
+    "listLead": "구글 지도 평점과 리뷰 수를 함께 반영한 순위예요. (출처: Google)"
+  },
+  {
+    "slug": "kyoto-temple",
+    "kw": "교토 신사·사찰",
+    "kind": "spot",
+    "eyebrow": "교토 사찰 큐레이션",
+    "title": "교토 신사·사찰 순위 TOP 10 | 구글 평점 기준 추천 — GLUX",
+    "ogTitle": "교토 신사·사찰 TOP — 구글 평점 기준 명소",
+    "description": "천년 고도 교토의 사찰·신사만 따로 모았습니다. 후시미이나리·킨카쿠지·기요미즈데라 등 구글 평점·리뷰 수가 검증한 명소 순으로.",
+    "summary": "천년 고도 교토의 사찰·신사만 따로 모았어요. 후시미이나리·킨카쿠지·기요미즈데라 등 구글 평점·리뷰 수가 검증한 명소 순으로 정리했습니다.",
+    "keyFacts": [
+      "유네스코 세계유산 사찰이 다수 — 각기 개문·폐문 시간이 달라 방문 전 확인이 필요합니다",
+      "신사(진자)는 대개 무료, 사찰(오테라)은 배관료가 있는 곳이 많습니다",
+      "촬영 금지 구역(불상·본당 내부)이 있어 안내판을 확인하세요"
+    ],
+    "tips": [
+      "붐비는 킨카쿠지·기요미즈데라는 개문 직후가 가장 한산합니다",
+      "본당 입장 시 신발을 벗는 곳이 많으니 편한 신발이 좋습니다",
+      "슈인(참배 도장)을 모으면 여행 기념이 됩니다 — 슈인초는 현장에서 구입 가능"
+    ],
+    "faq": [
+      {
+        "q": "신사와 사찰은 어떻게 다른가요?",
+        "a": "신사(神社)는 일본 신도의 참배 공간(도리이가 상징), 사찰(寺)은 불교 사원(불상·본당)입니다. 참배 예법도 조금 다릅니다."
+      },
+      {
+        "q": "사찰 참배에 복장 규정이 있나요?",
+        "a": "대부분 자유롭지만 노출이 심한 복장은 피하는 게 좋고, 본당 입장 시 신발을 벗는 곳이 많습니다."
+      },
+      {
+        "q": "단풍·벚꽃 시즌은 언제인가요?",
+        "a": "벚꽃은 3월 말~4월 초, 단풍은 11월 중순~12월 초가 절정입니다. 이 시기 유명 사찰은 매우 붐빕니다."
+      }
+    ],
+    "related": [
+      {
+        "t": "교토 관광명소",
+        "d": "명소 전체 보기",
+        "href": "/guide/kyoto-spots/"
+      },
+      {
+        "t": "기온 맛집",
+        "d": "구글 평점 순위",
+        "href": "/guide/gion-food/"
+      },
+      {
+        "t": "교토 맛집",
+        "d": "구글 평점 순위",
+        "href": "/guide/kyoto-food/"
+      },
+      {
+        "t": "아라시야마 맛집",
+        "d": "소바·두부요리",
+        "href": "/guide/arashiyama-food/"
+      }
+    ],
+    "items": [
+      {
+        "name": "센본토리이",
+        "rating": 4.7,
+        "count": 14418,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=6711092486904733207&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "산에 위치한 신사로 산책로를 따라 수천 개의 붉은 전통문과 계단이 있습니다.",
+        "price": "",
+        "desc": "영화 '게이샤의 추억'에 나온 유명한 장소로, 산책로를 따라 끝없이 늘어선 수천 개의 붉은 토리이가 장관을 이룹니다. 입구는 인파로 북적이지만, 40분 정도 더 걸어 들어가면 한적하게 예쁜 사진을 찍을 수 있으며, 왕복 2~3시간의 등산 코스이니 아침 일찍 방문을 추천합니다.",
+        "photo": "/guide/img/kyoto-temple-1.jpg"
+      },
+      {
+        "name": "후시미 이나리 신사",
+        "rating": 4.6,
+        "count": 90236,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=8870624639634301673&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "산 중턱에 있는 신사로 711년에 지어졌으며 수백 개의 전통적인 문이 있는 길이 특징입니다.",
+        "price": "",
+        "desc": "수백 개의 붉은 토리이 문이 이어지는 길로 유명하며, 이른 아침에도 사람이 많아 한적한 분위기를 원한다면 정상까지 올라가 보길 추천합니다. 바글거리는 인파를 피해 힐링하며 산책할 수 있으니, 등산할 각오로 편한 신발을 신고 방문하세요.",
+        "photo": "/guide/img/kyoto-temple-2.jpg"
+      },
+      {
+        "name": "기요미즈데라",
+        "rating": 4.6,
+        "count": 71412,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=7111013964196361402&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "탁 트인 베란다에서 보는 경관이 유명한 오토와 산의 상징적인 불교 사원입니다.",
+        "price": "",
+        "desc": "교토에 오면 꼭 들러야 할 필수 코스로, 탁 트인 베란다에서 바라보는 경관이 특히 아름다운 곳입니다. 비 오는 날에는 고즈넉한 분위기가 더욱 살아나 영화 속 한 장면 같다는 평이 많으며, 주황색 목조 건물과 함께 늘 인파가 많으니 아침 일찍 방문하는 것을 추천합니다.",
+        "photo": "/guide/img/kyoto-temple-3.jpg"
+      },
+      {
+        "name": "금각사",
+        "rating": 4.6,
+        "count": 69467,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=1073025677330113631&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "유서 깊은 고요한 사원으로 조경 정원과 연못 사이에 금박 누각이 있습니다.",
+        "price": "",
+        "desc": "연못 위에 금박으로 덮인 3층 누각이 자리해 황금빛 찬란한 화려함에 압도되는 교토 최고의 명승지입니다. 흐린 날씨에도 금빛 건물이 더욱 돋보인다는 평이 있으며, 고즈넉한 정원과 어우러진 풍경이 아름다워 방문객들의 만족도가 높습니다.",
+        "photo": "/guide/img/kyoto-temple-4.jpg"
+      },
+      {
+        "name": "호칸지",
+        "rating": 4.6,
+        "count": 5946,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=12811373430337320265&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "5층 불탑이 있는 아름다운 사찰로 위에서 내려다보는 탁 트인 전망이 멋집니다.",
+        "price": "",
+        "desc": "600년 된 고풍스러운 5층 불탑이 인상적인 사찰로, 주변 상점가와 기모노 대여점과 어우러져 멋진 풍경을 자아냅니다. 특히 해 질 녘 야경이 아름답다는 평이 많아 낮보다는 저녁에 방문하는 것을 추천하며, 산넨자카와 니넨자카 사이에 위치해 접근성도 좋습니다.",
+        "photo": "/guide/img/kyoto-temple-5.jpg"
+      },
+      {
+        "name": "도지(교왕호국사)",
+        "rating": 4.5,
+        "count": 19784,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=15271193799445412112&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "5층 목조 탑과 8세기에 만든 신상이 있는 유서 깊은 불교 사원입니다.",
+        "price": "",
+        "desc": "교토역에서 멀지 않은 곳에 위치한 천 년 고도의 깊은 역사와 평온함을 느낄 수 있는 명소입니다. 상징적인 5층 목조탑은 압도적인 웅장함을 자랑하며, 특히 밤에 진행되는 라이트업은 환상적인 풍경을 선사하니 꼭 경험해 보시길 추천합니다.",
+        "photo": "/guide/img/kyoto-temple-6.jpg"
+      },
+      {
+        "name": "지쇼지",
+        "rating": 4.5,
+        "count": 17666,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=2705196751698570185&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "이 15세기 일본 선종 불교 사원에 아름다운 정원과 후지산 모양의 모래 언덕이 있습니다.",
+        "price": "",
+        "desc": "아름다운 정원과 후지산 모양의 모래 언덕이 인상적인 15세기 선종 사찰로, 청량하고 고요한 분위기가 매력적입니다. 금각사의 화려함과는 또 다른 깊이와 여백을 느낄 수 있지만, 1,000엔의 입장료에 비해 특별함이 부족하다는 의견도 있으니 참고하세요.",
+        "photo": "/guide/img/kyoto-temple-7.jpg"
+      },
+      {
+        "name": "텐류지",
+        "rating": 4.5,
+        "count": 16864,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=14815785984447432896&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "산기슭에 자리한 이 유서 깊은 일본 선종 사원에는 찻집과 넓고 고요한 정원이 있습니다.",
+        "price": "",
+        "desc": "아라시야마를 대표하는 선종 사찰로, 일본 최초의 사적명승으로 지정된 '소겐치 정원'의 수려한 풍광이 특히 아름답습니다. 넓고 고요한 정원에는 다양하고 예쁜 식물들이 잘 가꿔져 있어 마음이 편안해지며, 정원을 둘러본 후 북문으로 나가 대나무숲으로 이어지는 길은 놓치지 말아야 할 코스입니다.",
+        "photo": "/guide/img/kyoto-temple-8.jpg"
+      },
+      {
+        "name": "기타노텐만구",
+        "rating": 4.5,
+        "count": 16764,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=6568217213263605274&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "10세기에 지은 신사로 자연 및 역사 행사를 기념하는 연례 축제가 열립니다.",
+        "price": "",
+        "desc": "학문의 신 '스가와라노 미치자네'를 모시는 일본 텐만구의 총본산으로, 학업과 합격의 기운을 얻고자 하는 이들에게 인기 있는 명소입니다. 매년 2월 25일 열리는 매화제는 특히 감동적이라는 평이 많으니, 일몰 시간 전에 미리 방문하여 그 아름다움을 만끽해 보시길 추천합니다.",
+        "photo": "/guide/img/kyoto-temple-9.jpg"
+      },
+      {
+        "name": "가모미오야 신사 (시모가모 신사)",
+        "rating": 4.5,
+        "count": 15425,
+        "area": "교토",
+        "maps": "https://maps.google.com/?cid=268029265908714956&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "2,000년 된 전설적인 사원이자 발굴지로 고요한 강가의 숲에 있습니다.",
+        "price": "",
+        "desc": "2,000년의 역사를 지닌 고요한 강가의 숲에 자리한 신사로, 이웃한 가와이 신사에서 이어지는 고즈넉한 숲길이 특히 인상적입니다. 신사 앞 강가와 시원한 풍경이 어우러져 자연 속에서 평화로운 시간을 보낼 수 있으며, 냇물에 적셔 길운을 비는 독특한 부적 체험도 해볼 수 있습니다.",
+        "photo": "/guide/img/kyoto-temple-10.jpg"
+      }
+    ],
+    "h1": "교토 신사·사찰 구글 평점 순위 TOP 10",
+    "listTitle": "구글 평점 순위 TOP 10",
+    "listLead": "구글 지도 평점과 리뷰 수를 함께 반영한 순위예요. (출처: Google)"
+  },
+  {
+    "slug": "kobe-spots",
+    "kw": "고베 관광명소",
+    "kind": "spot",
+    "eyebrow": "고베 관광 큐레이션",
+    "title": "고베 관광명소 순위 TOP 7 | 구글 평점 기준 추천 — GLUX",
+    "ogTitle": "고베 관광명소 TOP — 구글 평점 기준 가볼만한 곳",
+    "description": "기타노 이진칸·하버랜드·롯코산 야경까지, 고베의 대표 명소를 구글 평점·리뷰 수 기준으로 정리했습니다. 오사카에서 30분 당일치기.",
+    "summary": "기타노 이진칸·하버랜드·롯코산 야경까지, 고베의 대표 명소를 구글 평점·리뷰 수 기준으로 정리했어요. 오사카에서 30분, 반나절~하루 코스로 좋습니다.",
+    "keyFacts": [
+      "산노미야·모토마치·하버랜드가 도보권으로 이어지는 핵심 권역입니다",
+      "롯코산·마야산 야경은 일본 3대 야경으로 꼽힙니다 — 저녁 방문 추천",
+      "오사카 우메다에서 전철 30분 거리라 당일치기가 충분합니다"
+    ],
+    "tips": [
+      "기타노 이진칸(옛 외국인 저택 거리)은 언덕이라 편한 신발이 좋습니다",
+      "하버랜드·메리켄파크는 해질녘~야경이 하이라이트입니다",
+      "고베규 스테이크는 인기점 예약이 필수 — 미리 정하면 편합니다"
+    ],
+    "faq": [
+      {
+        "q": "고베는 오사카에서 얼마나 걸리나요?",
+        "a": "우메다에서 한큐·JR로 약 30분입니다. 당일치기로 충분하며, 하버랜드 야경까지 보고 돌아오는 코스가 인기입니다."
+      },
+      {
+        "q": "고베에서 꼭 봐야 할 곳은?",
+        "a": "기타노 이진칸, 하버랜드·모토마치, 난킨마치(차이나타운), 롯코산 야경이 대표적입니다."
+      },
+      {
+        "q": "롯코산 야경은 어떻게 가나요?",
+        "a": "롯코 케이블카와 산상 버스로 전망대에 오릅니다. 날씨·운행 시간을 미리 확인하는 게 좋습니다."
+      }
+    ],
+    "related": [
+      {
+        "t": "고베 맛집",
+        "d": "구글 평점 순위",
+        "href": "/guide/kobe-food/"
+      },
+      {
+        "t": "산노미야 맛집",
+        "d": "구글 평점 순위",
+        "href": "/guide/sannomiya-food/"
+      },
+      {
+        "t": "난킨마치 맛집",
+        "d": "차이나타운",
+        "href": "/guide/nankinmachi-food/"
+      },
+      {
+        "t": "고베 디저트",
+        "d": "구글 평점 순위",
+        "href": "/guide/kobe-sweets/"
+      }
+    ],
+    "items": [
+      {
+        "name": "고베 동물왕국",
+        "rating": 4.5,
+        "count": 17118,
+        "area": "고베",
+        "maps": "https://maps.google.com/?cid=642437142301656004&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "열대 식물, 조류, 작은 포유류가 있는 온실 공원으로 체험형 쇼도 볼 수 있습니다.",
+        "price": "",
+        "desc": "고베 공항 근처에 있어 귀국 전 들르기 좋은 이곳은 소동물들을 매우 가까이서 볼 수 있는 점이 큰 장점이에요. 렛서판다처럼 처음 보는 동물들도 많고 공간 구성도 알차지만, 입장료가 다소 비싸다는 의견도 있습니다. 캐리어 보관 서비스도 잘 되어 있어 편리합니다.",
+        "photo": "/guide/img/kobe-spots-1.jpg"
+      },
+      {
+        "name": "고베 누노비키 허브엔/로프웨이",
+        "rating": 4.5,
+        "count": 6827,
+        "area": "고베",
+        "maps": "https://maps.google.com/?cid=9393563791333494613&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "다양한 꽃과 허브가 자생하는 테마 공간, 레스토랑, 기념품점이 있는 대규모 식물원입니다.",
+        "price": "",
+        "desc": "고베 전경을 한눈에 내려다볼 수 있는 누노비키 허브엔은 길고 재미있는 로프웨이를 타고 정상까지 올라가는 경험이 특별해요. 테마별로 잘 나누어진 정원에서 쉬며 라벤더와 같은 다양한 꽃들을 감상하기 좋지만, 꽃이 풍성한 시기를 맞춰 방문하는 것이 좋습니다.",
+        "photo": "/guide/img/kobe-spots-2.jpg"
+      },
+      {
+        "name": "메리켄 파크",
+        "rating": 4.3,
+        "count": 12147,
+        "area": "고베",
+        "maps": "https://maps.google.com/?cid=9515080856934503895&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "관측소, 지진 기념관, 해사 박물관이 있는 도심의 해안 공원입니다.",
+        "price": "",
+        "desc": "고베의 랜드마크인 메리켄 파크는 낮부터 밤까지 모든 순간이 아름다워 산책하기 좋은 해안 공원입니다. 산노미야역에서 도보로 이동하기 편리하며, 이곳에 위치한 스타벅스에서 멋진 전망을 즐길 수 있지만, 바닷바람이 다소 강하게 불 수 있으니 참고하세요.",
+        "photo": "/guide/img/kobe-spots-3.jpg"
+      },
+      {
+        "name": "고베 하버랜드",
+        "rating": 4.3,
+        "count": 11838,
+        "area": "고베",
+        "maps": "https://maps.google.com/?cid=12749193704110128037&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "오래된 기차역에 들어선 해변의 상업 및 엔터테인먼트 지역에 쇼핑가, 호텔, 식당이 있습니다.",
+        "price": "",
+        "desc": "고베의 랜드마크인 하버랜드는 아름다운 바다 경치와 화려한 야경을 자랑하며, 쇼핑과 식사를 한 번에 해결하기 좋은 곳이에요. 관람차를 타고 해 질 무렵 풍경을 감상하거나 호빵맨 박물관 덕분에 가족 단위 여행객도 하루 종일 즐거운 시간을 보낼 수 있습니다.",
+        "photo": "/guide/img/kobe-spots-4.jpg"
+      },
+      {
+        "name": "고베 포트 타워",
+        "rating": 4.2,
+        "count": 11687,
+        "area": "고베",
+        "maps": "https://maps.google.com/?cid=13253604249006812290&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "108m에 이르는 화려한 타워로 탁 트인 도시 전망을 갖춘 전망대가 있습니다.",
+        "price": "",
+        "desc": "고베의 랜드마크인 포트 타워는 훌륭한 야경을 자랑하며, 특히 해 질 무렵부터 완전히 어두워질 때까지 머물며 하늘색이 변하는 풍경을 감상하는 것이 가장 좋다는 평이 많아요. 다만, 전망대 유리에 가려져 사진 찍기가 다소 불편할 수 있으니 참고하는 것이 좋습니다.",
+        "photo": "/guide/img/kobe-spots-5.jpg"
+      },
+      {
+        "name": "기타노이진칸",
+        "rating": 4.1,
+        "count": 5716,
+        "area": "고베",
+        "maps": "https://maps.google.com/?cid=14802820810607101306&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "아름다운 언덕 위에 외국인 무역상과 외교 사절들이 지은 유서 깊은 서양식 저택들이 곳곳에 자리해 있습니다.",
+        "price": "",
+        "desc": "산노미야역에서 도보 10분 거리에 있는 기타노이진칸은 동서양의 건물이 어우러져 이국적인 정서를 느낄 수 있는 마을이에요. 벚꽃뿐만 아니라 다양한 예쁜 꽃들을 감상하기 좋고 주변 스타벅스도 함께 방문하기 좋지만, 일부 유료 관람관은 기대에 못 미친다는 평도 있으니 참고하세요.",
+        "photo": "/guide/img/kobe-spots-6.jpg"
+      },
+      {
+        "name": "난킨마치(차이나타운)",
+        "rating": 3.9,
+        "count": 24241,
+        "area": "고베",
+        "maps": "https://maps.google.com/?cid=2120940345687480577&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "1868년에 설립된 중국 문화 지구로 식당, 기념품 가게, 마작 클럽 등이 있습니다.",
+        "price": "",
+        "desc": "세계 3대 차이나타운 중 하나인 난킨마치는 밤이 되면 등불이 켜져 화려한 분위기를 자랑해요. 규모나 볼거리는 기대보다 작을 수 있지만, 다양한 길거리 음식을 맛보며 먹방 투어를 즐기기 좋고, 메인 거리보다 작은 골목에 숨은 맛집들이 많다는 평입니다.",
+        "photo": "/guide/img/kobe-spots-7.jpg"
+      }
+    ],
+    "h1": "고베 관광명소 구글 평점 순위 TOP 7",
+    "listTitle": "구글 평점 순위 TOP 7",
+    "listLead": "구글 지도 평점과 리뷰 수를 함께 반영한 순위예요. (출처: Google)"
+  },
+  {
+    "slug": "nara-spots",
+    "kw": "나라 관광명소",
+    "kind": "spot",
+    "eyebrow": "나라 관광 큐레이션",
+    "title": "나라 관광명소 순위 TOP 8 | 구글 평점 기준 추천 — GLUX",
+    "ogTitle": "나라 관광명소 TOP — 사슴공원·도다이지",
+    "description": "사슴공원·도다이지 대불·가스가타이샤까지, 나라의 명소를 구글 평점·리뷰 수 기준으로 모았습니다. 오사카·교토에서 반나절 코스.",
+    "summary": "사슴공원·도다이지 대불·가스가타이샤까지, 나라의 명소를 구글 평점·리뷰 수 기준으로 모았어요. 오사카·교토에서 반나절이면 충분합니다.",
+    "keyFacts": [
+      "나라공원 안에 도다이지·사슴·가스가타이샤가 모여 있어 도보로 순환됩니다",
+      "사슴 센베(먹이)는 공원 노점에서 구입 — 사슴이 몰려오니 주의하세요",
+      "오사카 난바에서 긴테츠로 약 40분, 교토에서도 40~50분 거리입니다"
+    ],
+    "tips": [
+      "도다이지 대불전은 개장 직후가 한산하고, 사슴은 오전에 더 활발합니다",
+      "센베를 손에 들면 사슴이 몰려오니 줄 준비가 되면 꺼내세요",
+      "여름엔 그늘이 적어 모자·물이 필요합니다"
+    ],
+    "faq": [
+      {
+        "q": "나라는 반나절이면 되나요?",
+        "a": "나라공원 핵심(도다이지·사슴·가스가타이샤)만이라면 반나절로 충분합니다. 여유롭게 보려면 하루를 권합니다."
+      },
+      {
+        "q": "사슴에게 먹이를 줘도 되나요?",
+        "a": "공원에서 파는 '시카센베'만 주는 게 원칙입니다. 봉지·지도 등은 사슴이 먹을 수 있으니 주의하세요."
+      },
+      {
+        "q": "오사카·교토에서 어떻게 가나요?",
+        "a": "오사카 난바에서 긴테츠나라선 약 40분, 교토에서 긴테츠·JR로 40~50분입니다. 당일치기 코스로 인기입니다."
+      }
+    ],
+    "related": [
+      {
+        "t": "나라 맛집",
+        "d": "구글 평점 순위",
+        "href": "/guide/nara-food/"
+      },
+      {
+        "t": "오사카 관광명소",
+        "d": "오사카성·도톤보리",
+        "href": "/guide/osaka-spots/"
+      },
+      {
+        "t": "교토 관광명소",
+        "d": "후시미이나리·기요미즈데라",
+        "href": "/guide/kyoto-spots/"
+      },
+      {
+        "t": "도톤보리 맛집",
+        "d": "구글 평점 순위",
+        "href": "/guide/dotonbori-food/"
+      }
+    ],
+    "items": [
+      {
+        "name": "도다이지",
+        "rating": 4.7,
+        "count": 31596,
+        "area": "나라",
+        "maps": "https://maps.google.com/?cid=17911005107283377295&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "일본 최대 규모의 청동 불상이 있는 불교 사찰로 700년대 중반에 세워졌습니다.",
+        "price": "",
+        "desc": "나라 시대에 창건된 도다이지는 세계 최대 목조 건물인 대불전 안에 거대한 청동 비로자나불이 모셔져 있어 웅장함에 압도됩니다. 기둥 구멍 통과하기 체험도 재미있고, 사찰 안에서도 사슴들을 만날 수 있어 특별한 경험을 선사합니다.",
+        "photo": "/guide/img/nara-spots-1.jpg"
+      },
+      {
+        "name": "나라 공원",
+        "rating": 4.6,
+        "count": 75482,
+        "area": "나라",
+        "maps": "https://maps.google.com/?cid=17972930374069941334&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "고대 사원과 나라 국립 미술관이 있는 조경 공원이며 길들인 사슴도 볼 수 있습니다.",
+        "price": "",
+        "desc": "나라 공원은 온순한 사슴들과 교감하며 먹이를 줄 수 있어 특별한 추억을 만들 수 있는 곳입니다. 사슴들이 센베이를 받기 위해 고개를 숙이며 인사하는 모습은 무척 귀엽지만, 먹이를 줄 때는 다소 적극적일 수 있고 길에 사슴 똥이 많으니 주의하세요.",
+        "photo": "/guide/img/nara-spots-2.jpg"
+      },
+      {
+        "name": "대불전",
+        "rating": 4.7,
+        "count": 3412,
+        "area": "나라",
+        "maps": "https://maps.google.com/?cid=2132977154054323495&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "Historic Buddhist temple featuring a large Buddha statue & deer roaming the grounds.",
+        "price": "",
+        "desc": "거대한 규모의 대불전은 나라를 대표하는 명소로, 압도적인 크기의 비로자나불과 웅장한 사천왕 조각상들을 직접 볼 수 있습니다. 대불전 자체도 멋지지만, 주변의 이월당으로 향하면 탁 트인 전경을 내려다보며 조용히 산책하기에도 좋습니다.",
+        "photo": "/guide/img/nara-spots-3.jpg"
+      },
+      {
+        "name": "카스가타이샤",
+        "rating": 4.5,
+        "count": 15261,
+        "area": "나라",
+        "maps": "https://maps.google.com/?cid=5519134420388517270&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "768년에 건립된 신사로 밝은 주홍빛 기둥이 지붕을 지지하고 있습니다.",
+        "price": "",
+        "desc": "세계문화유산으로 지정된 카스가타이샤는 울창한 숲길을 따라 늘어선 수많은 석등이 장관을 이루는 신비로운 분위기의 신사입니다. 특히 석등에 불이 켜지는 시간대에 방문하면 더욱 아름답지만, 신사 내부 일부는 관람이 제한될 수 있으니 참고하세요.",
+        "photo": "/guide/img/nara-spots-4.jpg"
+      },
+      {
+        "name": "도쇼다이지",
+        "rating": 4.5,
+        "count": 4713,
+        "area": "나라",
+        "maps": "https://maps.google.com/?cid=6324804816071940654&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "국보로 지정된 8세기 황금 사원으로 유명한 불교 사원 단지입니다.",
+        "price": "",
+        "desc": "유네스코 세계문화유산이자 일본 국보인 도쇼다이지는 당나라 고승 감진과 깊은 인연이 있는 사찰로, 아름다운 정원과 고즈넉한 분위기가 인상적입니다. 경내에서는 일본 건축 양식과 더불어 한국적인 곡선미가 느껴지는 절집도 볼 수 있어 특별한 감동을 선사합니다.",
+        "photo": "/guide/img/nara-spots-5.jpg"
+      },
+      {
+        "name": "고후쿠지",
+        "rating": 4.4,
+        "count": 12924,
+        "area": "나라",
+        "maps": "https://maps.google.com/?cid=1261869119142315411&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "불교 사찰, 탑, 국가 보물을 소장한 박물관이 있는 사찰 단지입니다.",
+        "price": "",
+        "desc": "나라 역에서 가까워 접근성이 좋은 고후쿠지는 붉고 웅장한 기둥의 중금당과 깊은 색감의 목조 건물들이 인상적인 유네스코 세계문화유산입니다. 유료인 보물관에서는 다양한 국보급 전시품들을 만날 수 있어, 나라 사슴공원과 함께 하루 일정으로 둘러보기 좋습니다.",
+        "photo": "/guide/img/nara-spots-6.jpg"
+      },
+      {
+        "name": "녹원",
+        "rating": 4.6,
+        "count": 742,
+        "area": "나라",
+        "maps": "https://maps.google.com/?cid=8526435458450427534&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "",
+        "price": "",
+        "desc": "녹원은 사슴을 가까이에서 만날 수 있는 곳으로 아이들과 함께 방문하기 좋지만, 아기 사슴은 보기가 어렵고 일반 사슴들도 공원 곳곳에서 쉽게 만날 수 있어 굳이 입장할 필요가 없다는 의견도 있습니다.",
+        "photo": "/guide/img/nara-spots-7.jpg"
+      },
+      {
+        "name": "노보리오지 원지",
+        "rating": 4.4,
+        "count": 661,
+        "area": "나라",
+        "maps": "https://maps.google.com/?cid=7072118915842190321&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "editorial": "",
+        "price": "",
+        "desc": "고후쿠지와 도다이지 근처에 위치한 노보리오지 원지는 사슴들이 사람을 두려워하지 않고 함께 어울려 지내는 평화로운 공원입니다. 사슴 전병을 구매해 먹이를 주면 고개를 숙여 인사하는 귀여운 사슴들과 교감하며 즐거운 시간을 보낼 수 있습니다.",
+        "photo": "/guide/img/nara-spots-8.jpg"
+      }
+    ],
+    "h1": "나라 관광명소 구글 평점 순위 TOP 8",
+    "listTitle": "구글 평점 순위 TOP 8",
+    "listLead": "구글 지도 평점과 리뷰 수를 함께 반영한 순위예요. (출처: Google)"
   }
 ]

@@ -89,6 +89,12 @@ const Q = {
   'sannomiya-food': { query: 'restaurant Sannomiya Kobe', noun: '맛집', min: 300, take: 10 },
   'nankinmachi-food': { query: 'Nankinmachi Chinatown Kobe restaurant', noun: '맛집', min: 150, take: 10 },
   'kobe-sweets': { query: 'sweets patisserie cake Kobe', noun: '디저트', min: 100, take: 10 },
+  // 관광명소(spot): 타베로그·EXCLUDE 미적용, 리뷰 수 높게
+  'osaka-spots': { query: 'tourist attractions landmarks Osaka', noun: '관광 명소', min: 3000, take: 10, spot: true },
+  'kyoto-spots': { query: 'tourist attractions landmarks Kyoto', noun: '관광 명소', min: 3000, take: 10, spot: true },
+  'kyoto-temple': { query: 'famous temple shrine Kyoto', noun: '사찰·신사', min: 2000, take: 10, spot: true },
+  'kobe-spots': { query: 'tourist attractions sightseeing Kobe', noun: '관광 명소', min: 1000, take: 10, spot: true },
+  'nara-spots': { query: 'Nara sightseeing Todaiji Kasuga deer park temple', noun: '관광 명소', min: 500, take: 10, spot: true },
 }
 
 const AREAS = [
@@ -140,7 +146,9 @@ function descOf(p, noun) {
   if (!KEY) { console.error('GOOGLE_PLACES_KEY 없음'); process.exit(1) }
   const pages = JSON.parse(fs.readFileSync(CURATION, 'utf8'))
   const bySlug = Object.fromEntries(pages.map(p => [p.slug, p]))
+  const ONLY = process.argv.slice(2) // 인자 지정 시 해당 슬러그만 수집(기존 페이지 보존)
   for (const [slug, cfg] of Object.entries(Q)) {
+    if (ONLY.length && !ONLY.includes(slug)) continue
     const page = bySlug[slug]
     if (!page) { console.log(`  ! ${slug} 페이지 없음 — 건너뜀`); continue }
     let places
@@ -154,7 +162,7 @@ function descOf(p, noun) {
         const v = p.userRatingCount || 0
         return { name, rating: p.rating, count: v, area: areaOf(p.formattedAddress), maps: p.googleMapsUri || '', photoRef: (p.photos && p.photos[0]) ? p.photos[0].name : '', editorial: (p.editorialSummary && p.editorialSummary.text) || '', price: PRICE[p.priceLevel] || '', reviews: (p.reviews || []).map(rv => rv.text && rv.text.text).filter(Boolean), score: (v * p.rating + M * C) / (v + M), brand: brandKey(name) }
       })
-      .filter(p => p.name && !EXCLUDE.some(k => p.name.toLowerCase().includes(k))) // 관광·할랄 특화 제외
+      .filter(p => p.name && (cfg.spot || !EXCLUDE.some(k => p.name.toLowerCase().includes(k)))) // 맛집만 관광·할랄 특화 제외(spot은 유지)
       .sort((a, b) => b.score - a.score)
       .filter(p => !brandSeen.has(p.brand) && brandSeen.add(p.brand)) // 같은 브랜드 분점 1곳만
       .slice(0, cfg.take)
