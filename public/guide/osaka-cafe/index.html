@@ -43,7 +43,8 @@ a{color:inherit;text-decoration:none}
 .eyebrow{display:inline-block;background:rgba(224,189,110,.14);color:var(--gold-b);border:1px solid rgba(224,189,110,.4);border-radius:20px;padding:6px 14px;font-size:12.5px;font-weight:700;margin-bottom:16px}
 h1{font-size:clamp(26px,6vw,36px);font-weight:900;line-height:1.28;letter-spacing:-.5px;text-shadow:0 2px 16px rgba(0,0,0,.4)}
 .hero .sum{font-size:15.5px;color:rgba(255,255,255,.92);line-height:1.8;margin-top:16px;max-width:460px}
-.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hero .pos{font-size:13.5px;color:var(--gold-b);margin-top:10px;font-weight:600;max-width:460px}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:14px 22px;border-radius:12px;font-size:14.5px;font-weight:800;cursor:pointer;border:none;font-family:inherit;transition:transform .15s}
 .btn:active{transform:scale(.98)}
 .btn-g{background:linear-gradient(135deg,#e0bd6e,#b98a3e);color:#231a08;box-shadow:0 5px 14px rgba(0,0,0,.28)}
@@ -72,6 +73,7 @@ h2 b{color:var(--goldd)}
 .edsum{font-size:13.5px;color:var(--goldd);background:#faf6ec;border:1px solid #efe2c6;border-radius:8px;padding:9px 12px;margin:12px 0 0;line-height:1.65;max-width:460px}
 .edsum .src2{color:var(--mist);font-weight:400;font-size:11.5px}
 .gmap-lnk{display:inline-block;font-size:12.5px;color:var(--mist);margin-top:8px}.gmap-lnk::after{content:' ↗'}
+.tab-lnk{display:inline-block;font-size:12.5px;color:#c85a1e;font-weight:600;margin:8px 0 0 14px}.tab-lnk::after{content:' ↗'}
 .src{font-size:12px;color:var(--mist);margin-top:4px}
 .item p{font-size:15px;color:var(--sub);line-height:1.8;margin-top:10px;max-width:460px}
 .item .pt{font-size:14px;color:var(--ink);margin-top:8px;max-width:460px}.item .pt b{color:var(--goldd)}
@@ -123,7 +125,8 @@ footer a{color:var(--gold-b)}
   <span class="eyebrow">GLUX 큐레이션 · 오사카 미식여행</span>
   <h1>오사카 카페 구글 평점 순위 TOP 10</h1>
   <p class="sum">오사카에는 레트로 킷사텐부터 감성 디저트 카페까지 다양한 카페가 있습니다. 신사이바시·나카자키초·호리에 일대가 특히 카페 거리로 유명해, 관광 사이 쉬어가기 좋습니다.</p>
-  <div class="cta"><a href="#form" class="btn btn-g" onclick="if(window.gtag)gtag('event','cta_click',{from:'hero'})">무료 여행 문의하기 →</a><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-l" onclick="if(window.gtag)gtag('event','click_kakao',{from:'hero'})">카카오톡 상담</a></div>
+  <p class="pos">오사카 현지 30년. 거품 없이, 진짜 괜찮은 곳만 골라 알려드려요.</p>
+  <div class="cta"><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" onclick="if(window.gtag)gtag('event','click_kakao',{from:'hero'})">현지인에게 톡으로 물어보기</a><a href="#form" class="btn btn-l" onclick="if(window.gtag)gtag('event','cta_click',{from:'hero'})">여행 문의 남기기</a></div>
 </div></header>
 
 <div class="wrap">
@@ -142,7 +145,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-cafe-1.jpg" alt="COLONY by EQI Shinsaibashi Amemura" loading="lazy">
     <p>오사카 여행 중 매일 찾고 싶을 만큼 촉촉한 수플레 팬케이크가 일품인 곳이에요. 특히 딸기 팬케이크는 비주얼도 예쁘고, 오므라이스 등 식사 메뉴도 훌륭해 디저트와 식사 모두 만족스럽습니다. 밝고 친절한 한국인 종업원도 있어 편안하게 즐길 수 있어요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=6105506207318340221&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=6105506207318340221&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=COLONY%20by%20EQI%20Shinsaibashi%20Amemura%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">2</span><h3><a href="https://maps.google.com/?cid=16291659530834990214&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">릴로 커피 로스터즈</a></h3></div>
@@ -150,7 +153,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-cafe-2.jpg" alt="릴로 커피 로스터즈" loading="lazy"><div class="edsum">2014년에 문을 연 아늑한 커피 바로 갓 로스팅한 커피와 무료 Wi-Fi를 즐길 수 있습니다. <span class="src2">— Google 요약</span></div>
     <p>오사카에서 가장 맛있는 커피를 만날 수 있는 곳으로, 다양한 원두 중 취향에 맞춰 친절하게 추천해주는 바리스타의 스페셜티 커피가 일품입니다. 특히 산미 있는 콜롬비아 원두는 라즈베리 향이 살아있어 인상적이며, 아늑한 분위기에서 즐기기 좋아요. 다만, 현금 결제만 가능하니 참고해주세요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=16291659530834990214&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=16291659530834990214&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EB%A6%B4%EB%A1%9C%20%EC%BB%A4%ED%94%BC%20%EB%A1%9C%EC%8A%A4%ED%84%B0%EC%A6%88%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">3</span><h3><a href="https://maps.google.com/?cid=10084572345540086908&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">Cafe LA</a></h3></div>
@@ -158,7 +161,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-cafe-3.jpg" alt="Cafe LA" loading="lazy">
     <p>지하로 내려가면 조용하고 아늑한 분위기가 펼쳐지는 곳으로, 특히 진하고 깊은 맛의 호지차 라떼와 쓰지 않아 맛있는 아이스 카페라떼가 인기입니다. 친절하고 스윗한 미국인 여성 바리스타가 직접 자리까지 음료를 가져다주며, 잠시 쉬어가기 좋은 편안함을 선사합니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=10084572345540086908&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=10084572345540086908&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=Cafe%20LA%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">4</span><h3><a href="https://maps.google.com/?cid=2889940901792614203&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">maZe nishihorie</a></h3></div>
@@ -166,7 +169,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-cafe-4.jpg" alt="maZe nishihorie" loading="lazy">
     <p>디저트 맛집으로 소문난 이곳은 특히 아이스크림이 정말 맛있고, 말차 케이크와 커피도 훌륭합니다. 따뜻한 햇살이 들어오는 아늑한 분위기에서 여유를 즐기기 좋지만, 주말에는 웨이팅이 필수이며 가게 규모가 다소 작은 점은 참고해주세요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=2889940901792614203&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=2889940901792614203&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=maZe%20nishihorie%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">5</span><h3><a href="https://maps.google.com/?cid=7228361764195579680&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">멜 커피 로스터스</a></h3></div>
@@ -174,7 +177,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-cafe-5.jpg" alt="멜 커피 로스터스" loading="lazy">
     <p>커피 애호가들의 천국이라 불리는 이곳은 맛, 향, 서비스 모두 최고로 꼽히며, 특히 아이스로 마실 때 커피의 깊고 풍부한 향을 제대로 느낄 수 있습니다. 친절한 직원분이 게이샤 등 다양한 스페셜티 원두에 대해 자세히 설명해주니, 오픈런을 추천해요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=7228361764195579680&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=7228361764195579680&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EB%A9%9C%20%EC%BB%A4%ED%94%BC%20%EB%A1%9C%EC%8A%A4%ED%84%B0%EC%8A%A4%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">6</span><h3><a href="https://maps.google.com/?cid=1218081193174592033&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">Animeal</a></h3></div>
@@ -182,7 +185,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-cafe-6.jpg" alt="Animeal" loading="lazy">
     <p>다양한 동물을 만날 수 있는 애니멀 카페로, 거대한 카피바라와 개냥이 고양이, 부드러운 토끼들에게 먹이주기 체험도 가능해 즐거운 시간을 보낼 수 있습니다. 다만, 후각에 예민하거나 가격에 민감하시다면 고려가 필요하며, 입장료 외 음료 주문이 필수이고 예약 없이 방문 시 웨이팅이 있을 수 있습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=1218081193174592033&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=1218081193174592033&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=Animeal%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">7</span><h3><a href="https://maps.google.com/?cid=17230698452970661769&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">릴로커피 킷사</a></h3></div>
@@ -190,7 +193,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-cafe-7.jpg" alt="릴로커피 킷사" loading="lazy">
     <p>장인정신이 돋보이는 커피 맛집으로, 친절한 바리스타가 커피 내리는 방식에 대해 자세히 설명해주는 특별한 경험을 할 수 있습니다. 치즈케이크도 시나몬 향 쿠키 바닥으로 독특한 매력이 있지만, 2층에 위치해 짐을 들고 가기 어렵고, 현금 결제만 가능하며 아이스 커피 종류가 적은 점은 아쉬울 수 있습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=17230698452970661769&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=17230698452970661769&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EB%A6%B4%EB%A1%9C%EC%BB%A4%ED%94%BC%20%ED%82%B7%EC%82%AC%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">8</span><h3><a href="https://maps.google.com/?cid=3143396422888168986&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">브루클린 로스팅 컴퍼니 기타하마</a></h3></div>
@@ -198,7 +201,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-cafe-8.jpg" alt="브루클린 로스팅 컴퍼니 기타하마" loading="lazy">
     <p>강변 야외 테라스에서 아름다운 뷰를 즐기며 평화로운 시간을 보낼 수 있는 곳으로, 맛있는 라떼와 아메리카노는 물론 산미 있는 드립 커피와 포카치아 샌드위치도 일품입니다. 바리스타와 소통하며 커피를 즐기는 단골 분위기가 매력적이며, 오사카 여행 중 만족스러운 휴식을 선사할 거예요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=3143396422888168986&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=3143396422888168986&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EB%B8%8C%EB%A3%A8%ED%81%B4%EB%A6%B0%20%EB%A1%9C%EC%8A%A4%ED%8C%85%20%EC%BB%B4%ED%8D%BC%EB%8B%88%20%EA%B8%B0%ED%83%80%ED%95%98%EB%A7%88%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">9</span><h3><a href="https://maps.google.com/?cid=6806706993377406620&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">GLITCH COFFEE OSAKA</a></h3></div>
@@ -206,7 +209,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-cafe-9.jpg" alt="GLITCH COFFEE OSAKA" loading="lazy">
     <p>도쿄 글리치 커피의 명성을 오사카에서도 이어가는 곳으로, 친절한 직원들이 원두 향을 맡아보고 취향에 맞춰 스페셜티 커피를 추천해줍니다. 한국어 응대도 가능해 편안하게 즐길 수 있으며, 가격대는 다소 높지만 그만큼 가치 있는 특별한 커피 경험을 선사할 거예요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=6806706993377406620&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=6806706993377406620&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=GLITCH%20COFFEE%20OSAKA%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">10</span><h3><a href="https://maps.google.com/?cid=4517156398101501590&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">블루보틀커피 우메다차야마치카페</a></h3></div>
@@ -214,14 +217,14 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-cafe-10.jpg" alt="블루보틀커피 우메다차야마치카페" loading="lazy"><div class="edsum">고급 커피와 페이스트리, 원두 및 핸드드립 용품을 판매하는 트렌디한 카페 체인점입니다. <span class="src2">— Google 요약</span></div>
     <p>깔끔하고 모던한 인테리어와 넉넉한 좌석 간격으로 쾌적하게 커피를 즐길 수 있는 블루보틀이에요. 특히 산미가 풍부하고 적당한 온도의 라떼는 물론, 와플 같은 간식도 함께 즐기며 여행의 여유를 만끽하기 좋습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=4517156398101501590&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=4517156398101501590&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EB%B8%94%EB%A3%A8%EB%B3%B4%ED%8B%80%EC%BB%A4%ED%94%BC%20%EC%9A%B0%EB%A9%94%EB%8B%A4%EC%B0%A8%EC%95%BC%EB%A7%88%EC%B9%98%EC%B9%B4%ED%8E%98%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   </section>
 
   <div class="banner">
-    <h3>맛집·온천, GLUX가 동선까지 짜드립니다</h3>
-    <p>예약·통역·전용차량 이동까지. 원하는 곳만 알려주세요.</p>
-    <a href="#form" class="btn btn-g" style="display:inline-flex">무료 여행 문의하기 →</a>
+    <h3>어디로 갈지 애매하면, 현지인에게 물어보세요</h3>
+    <p>30년 현지에서 거품 없이 진짜만 알려드려요. 톡으로 편하게 물어보시면 됩니다.</p>
+    <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" style="display:inline-flex" onclick="if(window.gtag)gtag('event','click_kakao',{from:'banner'})">톡으로 물어보기</a>
   </div>
 
   <section>
@@ -243,15 +246,17 @@ footer a{color:var(--gold-b)}
   </section>
 
   <div class="cend"  id="form">
-    <h2>오사카 카페, <b>GLUX와 함께</b></h2>
-    <p>현지 30년 직영 · 예약·통역·전용차량 올인원 · 24시간 내 연락</p>
+    <h2>오사카 카페, <b>현지인에게 물어보세요</b></h2>
+    <p>카톡이 제일 빨라요. 폼으로 남기셔도 24시간 내에, 거품 없이 알려드립니다.</p>
+    <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" style="display:inline-flex;margin:6px auto 0" onclick="if(window.gtag)gtag('event','click_kakao',{from:'cend'})">카톡으로 바로 물어보기</a>
     <div class="form">
       <div id="lfArea">
+        <div class="ft" style="font-size:14px;font-weight:700;color:var(--mist);text-align:center;margin-bottom:12px">또는 여기에 남겨주세요</div>
         <label>이름 *</label><input type="text" id="lN" placeholder="홍길동">
         <label>연락처 *</label><input type="tel" id="lP" placeholder="010-0000-0000">
         <label>희망 여행 시기 (선택)</label><div class="r2"><input type="date" id="lCI"><input type="date" id="lCO"></div>
-        <label>인원·요청 (선택)</label><textarea id="lM" placeholder="예: 성인 2명, 야끼니꾸+온천 위주로"></textarea>
-        <button class="btn btn-g" id="lBtn" onclick="submitLead()">무료 여행 문의하기</button>
+        <label>궁금한 점·요청 (선택)</label><textarea id="lM" placeholder="예: 야끼니꾸 위주로 2명, 예약 되나요?"></textarea>
+        <button class="btn btn-g" id="lBtn" onclick="submitLead()">문의 남기기</button>
         <div class="nt">상담·문의는 무료예요 · 접수 후 24시간 내 연락</div>
       </div>
       <div class="ok" id="lOk"><div class="ic">✓</div><h3>문의가 접수됐어요!</h3><p>담당자가 확인 후 <b>24시간 내</b>에 연락드릴게요.<br>더 빠른 상담을 원하시면 카카오톡으로 문의하세요.</p><a class="kk" href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" onclick="if(window.gtag)gtag('event','click_kakao',{from:'success'})">카카오톡으로 바로 상담 →</a></div>
@@ -266,14 +271,14 @@ footer a{color:var(--gold-b)}
   <a href="/tour/osaka-family/">오사카 가족여행<div class="rm">3박4일 코스</div></a>
     </div>
   </section>
-  <p class="disc">※ 평점·사진 출처: Google 지도. 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권합니다. 순위는 구글 평점·리뷰 수를 반영한 것으로 참고용이며, 정확한 예약·최신 정보는 문의 시 안내해 드립니다.</p>
+  <p class="disc">※ 평점·사진 출처: Google 지도. 타베로그 평점은 현지 기준이 엄격해 <b>3.5 이상이면 우수</b>합니다(구글 평점과 스케일이 달라요). 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권하며, 정확한 예약·최신 정보는 톡으로 물어보시면 거품 없이 알려드립니다.</p>
 </div>
 
 <footer>© GLUX Tour · 오사카·간사이 현지 직영 여행사 · <a href="https://gluxtour.com/">gluxtour.com</a></footer>
 
 <div class="sticky">
   <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="k" onclick="if(window.gtag)gtag('event','click_kakao',{from:'sticky'})">카톡 상담</a>
-  <a href="#form" class="g" onclick="if(window.gtag)gtag('event','cta_click',{from:'sticky'})">무료 여행 문의 →</a>
+  <a href="#form" class="g" onclick="if(window.gtag)gtag('event','cta_click',{from:'sticky'})">여행 문의 남기기</a>
 </div>
 
 <script>

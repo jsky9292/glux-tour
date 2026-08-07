@@ -43,7 +43,8 @@ a{color:inherit;text-decoration:none}
 .eyebrow{display:inline-block;background:rgba(224,189,110,.14);color:var(--gold-b);border:1px solid rgba(224,189,110,.4);border-radius:20px;padding:6px 14px;font-size:12.5px;font-weight:700;margin-bottom:16px}
 h1{font-size:clamp(26px,6vw,36px);font-weight:900;line-height:1.28;letter-spacing:-.5px;text-shadow:0 2px 16px rgba(0,0,0,.4)}
 .hero .sum{font-size:15.5px;color:rgba(255,255,255,.92);line-height:1.8;margin-top:16px;max-width:460px}
-.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hero .pos{font-size:13.5px;color:var(--gold-b);margin-top:10px;font-weight:600;max-width:460px}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:14px 22px;border-radius:12px;font-size:14.5px;font-weight:800;cursor:pointer;border:none;font-family:inherit;transition:transform .15s}
 .btn:active{transform:scale(.98)}
 .btn-g{background:linear-gradient(135deg,#e0bd6e,#b98a3e);color:#231a08;box-shadow:0 5px 14px rgba(0,0,0,.28)}
@@ -72,6 +73,7 @@ h2 b{color:var(--goldd)}
 .edsum{font-size:13.5px;color:var(--goldd);background:#faf6ec;border:1px solid #efe2c6;border-radius:8px;padding:9px 12px;margin:12px 0 0;line-height:1.65;max-width:460px}
 .edsum .src2{color:var(--mist);font-weight:400;font-size:11.5px}
 .gmap-lnk{display:inline-block;font-size:12.5px;color:var(--mist);margin-top:8px}.gmap-lnk::after{content:' ↗'}
+.tab-lnk{display:inline-block;font-size:12.5px;color:#c85a1e;font-weight:600;margin:8px 0 0 14px}.tab-lnk::after{content:' ↗'}
 .src{font-size:12px;color:var(--mist);margin-top:4px}
 .item p{font-size:15px;color:var(--sub);line-height:1.8;margin-top:10px;max-width:460px}
 .item .pt{font-size:14px;color:var(--ink);margin-top:8px;max-width:460px}.item .pt b{color:var(--goldd)}
@@ -123,7 +125,8 @@ footer a{color:var(--gold-b)}
   <span class="eyebrow">GLUX 큐레이션 · 오사카 미식여행</span>
   <h1>신사이바시 맛집 구글 평점 순위 TOP 10</h1>
   <p class="sum">신사이바시는 오사카 최대 쇼핑거리이자 세련된 미식 거리입니다. 프리미엄 와규·스시 오마카세부터 감성 카페까지, 쇼핑과 미식을 함께 즐기기에 좋습니다. 도톤보리·난바와도 바로 이어집니다.</p>
-  <div class="cta"><a href="#form" class="btn btn-g" onclick="if(window.gtag)gtag('event','cta_click',{from:'hero'})">무료 여행 문의하기 →</a><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-l" onclick="if(window.gtag)gtag('event','click_kakao',{from:'hero'})">카카오톡 상담</a></div>
+  <p class="pos">오사카 현지 30년. 거품 없이, 진짜 괜찮은 곳만 골라 알려드려요.</p>
+  <div class="cta"><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" onclick="if(window.gtag)gtag('event','click_kakao',{from:'hero'})">현지인에게 톡으로 물어보기</a><a href="#form" class="btn btn-l" onclick="if(window.gtag)gtag('event','cta_click',{from:'hero'})">여행 문의 남기기</a></div>
 </div></header>
 
 <div class="wrap">
@@ -143,7 +146,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/shinsaibashi-food-1.jpg" alt="Shabu-Shabu, Sukiyaki, Crab All-You-Can-Eat Wagyu Beef, Pork, and Crab Shinsaibashi Station Front Store" loading="lazy">
     <p>신사이바시 역 바로 앞에 위치한 이곳은 와규, 돼지고기, 그리고 대게까지 무한리필로 즐길 수 있는 호화로운 샤브샤브, 스키야키 전문점입니다. 무한리필임에도 고기 질이 매우 좋고 부드러우며, 손질된 대게까지 편하게 맛볼 수 있어 만족도가 높아요. 한국어 메뉴판과 QR 주문 시스템으로 편리하게 이용할 수 있습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=1497333423348704370&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=1497333423348704370&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=Shabu-Shabu%2C%20Sukiyaki%2C%20Crab%20All-You-Can-Eat%20Wagyu%20Beef%2C%20Pork%2C%20and%20Crab%20Shinsaibashi%20Station%20Front%20Store%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">2</span><h3><a href="https://maps.google.com/?cid=6199321086007313054&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">세계에서 가장 저렴하고 맛있는 와규 스키야키 GYUMON</a></h3></div>
@@ -151,7 +154,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/shinsaibashi-food-2.jpg" alt="세계에서 가장 저렴하고 맛있는 와규 스키야키 GYUMON" loading="lazy">
     <p>작지만 아늑한 일본 감성의 스키야키 맛집, 규몬입니다. 사장님의 친절한 응대에 기분 좋게 식사할 수 있으며, 저렴한 가격으로 믿을 수 없는 퀄리티의 와규 스키야키를 맛볼 수 있다고 해요. 푸짐한 야채와 부드러운 고기가 어우러진 깊은 국물 맛이 일품입니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=6199321086007313054&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=6199321086007313054&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EC%84%B8%EA%B3%84%EC%97%90%EC%84%9C%20%EA%B0%80%EC%9E%A5%20%EC%A0%80%EB%A0%B4%ED%95%98%EA%B3%A0%20%EB%A7%9B%EC%9E%88%EB%8A%94%20%EC%99%80%EA%B7%9C%20%EC%8A%A4%ED%82%A4%EC%95%BC%ED%82%A4%20GYUMON%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">3</span><h3><a href="https://maps.google.com/?cid=14723334637796367461&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">Sushi YOSAKURA Shinsaibashi</a></h3></div>
@@ -159,7 +162,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/shinsaibashi-food-3.jpg" alt="Sushi YOSAKURA Shinsaibashi" loading="lazy">
     <p>스시 요자쿠라는 신선한 재료와 함께 스시에 다시(육수)를 페어링하여 감칠맛을 극대화하는 독특한 오마카세 경험을 선사합니다. 2시간 동안 다채로운 스시와 덴뿌라, 그리고 마지막 디저트까지 완벽한 코스 구성으로 즐거운 식사 시간을 보낼 수 있습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=14723334637796367461&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=14723334637796367461&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=Sushi%20YOSAKURA%20Shinsaibashi%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">4</span><h3><a href="https://maps.google.com/?cid=13232359041822905997&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">Japanese Omakase Restaurant YOSAKURA</a></h3></div>
@@ -167,7 +170,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/shinsaibashi-food-4.jpg" alt="Japanese Omakase Restaurant YOSAKURA" loading="lazy">
     <p>일본 오마카세 레스토랑 요자쿠라는 손말이 스시 체험부터 신선한 스시, 고기 요리, 스키야키, 장어덮밥까지 다채로운 코스 요리를 맛볼 수 있는 곳입니다. 한국어가 가능한 친절한 직원분들이 계셔서 편안하게 소통하며 정갈하고 세련된 분위기에서 즐거운 식사 경험을 할 수 있습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=13232359041822905997&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=13232359041822905997&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=Japanese%20Omakase%20Restaurant%20YOSAKURA%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">5</span><h3><a href="https://maps.google.com/?cid=5541746520092888503&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">야키니쿠 폰가 신사이바시</a></h3></div>
@@ -175,7 +178,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/shinsaibashi-food-5.jpg" alt="야키니쿠 폰가 신사이바시" loading="lazy">
     <p>신사이바시 폰가는 얇게 썬 우설 위에 다진 파를 듬뿍 올려 구워 먹는 '파우설'로 유명한 야키니쿠 전문점입니다. A5 등급 최고급 와규를 사용하며, 트러플을 직접 갈아주는 특별한 서비스와 코스 구성으로 질리지 않고 다채로운 맛을 즐길 수 있습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=5541746520092888503&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=5541746520092888503&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EC%95%BC%ED%82%A4%EB%8B%88%EC%BF%A0%20%ED%8F%B0%EA%B0%80%20%EC%8B%A0%EC%82%AC%EC%9D%B4%EB%B0%94%EC%8B%9C%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">6</span><h3><a href="https://maps.google.com/?cid=2596035001467753728&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">도톤보리 구로후네 아메무라점</a></h3></div>
@@ -183,7 +186,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/shinsaibashi-food-6.jpg" alt="도톤보리 구로후네 아메무라점" loading="lazy">
     <p>도톤보리 구로후네 아메무라점은 글리코상과 가까운 번화가에 위치해 활기찬 분위기에서 장어덮밥을 즐길 수 있는 곳입니다. 장어를 즐겨 먹지 않는 사람도 맛있게 먹을 만큼 호평이 많으며, 특히 오차즈케로 먹을 때 진가를 발휘한다는 평이 있습니다. 다만, 일부는 장어의 두께나 장인의 맛이 아쉽다는 의견도 있으니 참고하세요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=2596035001467753728&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=2596035001467753728&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EB%8F%84%ED%86%A4%EB%B3%B4%EB%A6%AC%20%EA%B5%AC%EB%A1%9C%ED%9B%84%EB%84%A4%20%EC%95%84%EB%A9%94%EB%AC%B4%EB%9D%BC%EC%A0%90%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">7</span><h3><a href="https://maps.google.com/?cid=14788165757201423919&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">킷쇼키치 니시 신사이바시점</a></h3></div>
@@ -191,7 +194,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/shinsaibashi-food-7.jpg" alt="킷쇼키치 니시 신사이바시점" loading="lazy">
     <p>킷쇼키치 니시 신사이바시점은 고베규의 부드러움과 감칠맛을 최상급으로 맛볼 수 있는 곳입니다. 친절한 여성 셰프님이 한국 드라마를 좋아하고 손님 취향에 맞춰 응대해주셔서 편안하고 만족스러운 식사를 즐길 수 있으며, 특히 런치 코스는 합리적인 가격으로 고베규를 경험하기 좋습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=14788165757201423919&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=14788165757201423919&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%ED%82%B7%EC%87%BC%ED%82%A4%EC%B9%98%20%EB%8B%88%EC%8B%9C%20%EC%8B%A0%EC%82%AC%EC%9D%B4%EB%B0%94%EC%8B%9C%EC%A0%90%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">8</span><h3><a href="https://maps.google.com/?cid=4980008302685252879&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">Yakiniku Dotombori-Mitsuru Shinsaibashi</a></h3></div>
@@ -199,7 +202,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/shinsaibashi-food-8.jpg" alt="Yakiniku Dotombori-Mitsuru Shinsaibashi" loading="lazy">
     <p>야키니쿠 도톤보리 미츠루 신사이바시점은 현지인과 관광객이 어우러져 활기찬 분위기에서 고품질 와규를 맛볼 수 있는 야키니쿠 전문점입니다. 터치패드로 외국어 메뉴를 쉽게 주문할 수 있으며, 기차 레일로 음식이 서빙되는 이색적인 경험과 친절한 직원들의 서비스가 인상 깊은 곳입니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=4980008302685252879&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=4980008302685252879&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=Yakiniku%20Dotombori-Mitsuru%20Shinsaibashi%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">9</span><h3><a href="https://maps.google.com/?cid=15410754157536866974&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">쇼군버거 신사이바시점</a></h3></div>
@@ -207,7 +210,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/shinsaibashi-food-9.jpg" alt="쇼군버거 신사이바시점" loading="lazy">
     <p>쇼군버거 신사이바시점은 육즙 가득한 와규 패티로 만든 일본식 수제버거를 맛볼 수 있는 곳입니다. 친절한 직원들의 서비스 덕분에 기분 좋은 식사를 할 수 있으며, 밀크쉐이크에 일본식 감자튀김을 찍어 먹는 특별한 조합도 놓치지 마세요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=15410754157536866974&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=15410754157536866974&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EC%87%BC%EA%B5%B0%EB%B2%84%EA%B1%B0%20%EC%8B%A0%EC%82%AC%EC%9D%B4%EB%B0%94%EC%8B%9C%EC%A0%90%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">10</span><h3><a href="https://maps.google.com/?cid=6498971469145218484&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">오사카 할랄 와규 스테이크 야키니쿠 Furusato</a></h3></div>
@@ -215,14 +218,14 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/shinsaibashi-food-10.jpg" alt="오사카 할랄 와규 스테이크 야키니쿠 Furusato" loading="lazy">
     <p>오사카 할랄 와규 스테이크 야키니쿠 후루사토는 할랄 인증을 받은 최고급 와규 야키니쿠를 맛볼 수 있는 곳입니다. 직원분들이 각 부위 설명을 해주시고 고기를 직접 구워주셔서 가장 맛있게 즐길 수 있으며, 친절한 서비스 덕분에 만족스러운 식사를 경험할 수 있습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=6498971469145218484&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=6498971469145218484&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EC%98%A4%EC%82%AC%EC%B9%B4%20%ED%95%A0%EB%9E%84%20%EC%99%80%EA%B7%9C%20%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%81%AC%20%EC%95%BC%ED%82%A4%EB%8B%88%EC%BF%A0%20Furusato%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   </section>
 
   <div class="banner">
-    <h3>맛집·온천, GLUX가 동선까지 짜드립니다</h3>
-    <p>예약·통역·전용차량 이동까지. 원하는 곳만 알려주세요.</p>
-    <a href="#form" class="btn btn-g" style="display:inline-flex">무료 여행 문의하기 →</a>
+    <h3>어디로 갈지 애매하면, 현지인에게 물어보세요</h3>
+    <p>30년 현지에서 거품 없이 진짜만 알려드려요. 톡으로 편하게 물어보시면 됩니다.</p>
+    <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" style="display:inline-flex" onclick="if(window.gtag)gtag('event','click_kakao',{from:'banner'})">톡으로 물어보기</a>
   </div>
 
   <section>
@@ -245,15 +248,17 @@ footer a{color:var(--gold-b)}
   </section>
 
   <div class="cend"  id="form">
-    <h2>신사이바시 맛집, <b>GLUX와 함께</b></h2>
-    <p>현지 30년 직영 · 예약·통역·전용차량 올인원 · 24시간 내 연락</p>
+    <h2>신사이바시 맛집, <b>현지인에게 물어보세요</b></h2>
+    <p>카톡이 제일 빨라요. 폼으로 남기셔도 24시간 내에, 거품 없이 알려드립니다.</p>
+    <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" style="display:inline-flex;margin:6px auto 0" onclick="if(window.gtag)gtag('event','click_kakao',{from:'cend'})">카톡으로 바로 물어보기</a>
     <div class="form">
       <div id="lfArea">
+        <div class="ft" style="font-size:14px;font-weight:700;color:var(--mist);text-align:center;margin-bottom:12px">또는 여기에 남겨주세요</div>
         <label>이름 *</label><input type="text" id="lN" placeholder="홍길동">
         <label>연락처 *</label><input type="tel" id="lP" placeholder="010-0000-0000">
         <label>희망 여행 시기 (선택)</label><div class="r2"><input type="date" id="lCI"><input type="date" id="lCO"></div>
-        <label>인원·요청 (선택)</label><textarea id="lM" placeholder="예: 성인 2명, 야끼니꾸+온천 위주로"></textarea>
-        <button class="btn btn-g" id="lBtn" onclick="submitLead()">무료 여행 문의하기</button>
+        <label>궁금한 점·요청 (선택)</label><textarea id="lM" placeholder="예: 야끼니꾸 위주로 2명, 예약 되나요?"></textarea>
+        <button class="btn btn-g" id="lBtn" onclick="submitLead()">문의 남기기</button>
         <div class="nt">상담·문의는 무료예요 · 접수 후 24시간 내 연락</div>
       </div>
       <div class="ok" id="lOk"><div class="ic">✓</div><h3>문의가 접수됐어요!</h3><p>담당자가 확인 후 <b>24시간 내</b>에 연락드릴게요.<br>더 빠른 상담을 원하시면 카카오톡으로 문의하세요.</p><a class="kk" href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" onclick="if(window.gtag)gtag('event','click_kakao',{from:'success'})">카카오톡으로 바로 상담 →</a></div>
@@ -268,14 +273,14 @@ footer a{color:var(--gold-b)}
   <a href="/guide/namba-food/">난바 맛집<div class="rm">평점순 미식</div></a>
     </div>
   </section>
-  <p class="disc">※ 평점·사진 출처: Google 지도. 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권합니다. 순위는 구글 평점·리뷰 수를 반영한 것으로 참고용이며, 정확한 예약·최신 정보는 문의 시 안내해 드립니다.</p>
+  <p class="disc">※ 평점·사진 출처: Google 지도. 타베로그 평점은 현지 기준이 엄격해 <b>3.5 이상이면 우수</b>합니다(구글 평점과 스케일이 달라요). 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권하며, 정확한 예약·최신 정보는 톡으로 물어보시면 거품 없이 알려드립니다.</p>
 </div>
 
 <footer>© GLUX Tour · 오사카·간사이 현지 직영 여행사 · <a href="https://gluxtour.com/">gluxtour.com</a></footer>
 
 <div class="sticky">
   <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="k" onclick="if(window.gtag)gtag('event','click_kakao',{from:'sticky'})">카톡 상담</a>
-  <a href="#form" class="g" onclick="if(window.gtag)gtag('event','cta_click',{from:'sticky'})">무료 여행 문의 →</a>
+  <a href="#form" class="g" onclick="if(window.gtag)gtag('event','cta_click',{from:'sticky'})">여행 문의 남기기</a>
 </div>
 
 <script>

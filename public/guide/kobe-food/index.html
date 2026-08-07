@@ -43,7 +43,8 @@ a{color:inherit;text-decoration:none}
 .eyebrow{display:inline-block;background:rgba(224,189,110,.14);color:var(--gold-b);border:1px solid rgba(224,189,110,.4);border-radius:20px;padding:6px 14px;font-size:12.5px;font-weight:700;margin-bottom:16px}
 h1{font-size:clamp(26px,6vw,36px);font-weight:900;line-height:1.28;letter-spacing:-.5px;text-shadow:0 2px 16px rgba(0,0,0,.4)}
 .hero .sum{font-size:15.5px;color:rgba(255,255,255,.92);line-height:1.8;margin-top:16px;max-width:460px}
-.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hero .pos{font-size:13.5px;color:var(--gold-b);margin-top:10px;font-weight:600;max-width:460px}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:14px 22px;border-radius:12px;font-size:14.5px;font-weight:800;cursor:pointer;border:none;font-family:inherit;transition:transform .15s}
 .btn:active{transform:scale(.98)}
 .btn-g{background:linear-gradient(135deg,#e0bd6e,#b98a3e);color:#231a08;box-shadow:0 5px 14px rgba(0,0,0,.28)}
@@ -72,6 +73,7 @@ h2 b{color:var(--goldd)}
 .edsum{font-size:13.5px;color:var(--goldd);background:#faf6ec;border:1px solid #efe2c6;border-radius:8px;padding:9px 12px;margin:12px 0 0;line-height:1.65;max-width:460px}
 .edsum .src2{color:var(--mist);font-weight:400;font-size:11.5px}
 .gmap-lnk{display:inline-block;font-size:12.5px;color:var(--mist);margin-top:8px}.gmap-lnk::after{content:' ↗'}
+.tab-lnk{display:inline-block;font-size:12.5px;color:#c85a1e;font-weight:600;margin:8px 0 0 14px}.tab-lnk::after{content:' ↗'}
 .src{font-size:12px;color:var(--mist);margin-top:4px}
 .item p{font-size:15px;color:var(--sub);line-height:1.8;margin-top:10px;max-width:460px}
 .item .pt{font-size:14px;color:var(--ink);margin-top:8px;max-width:460px}.item .pt b{color:var(--goldd)}
@@ -123,7 +125,8 @@ footer a{color:var(--gold-b)}
   <span class="eyebrow">GLUX 큐레이션 · 간사이 미식여행</span>
   <h1>고베 맛집 구글 평점 순위 TOP 10</h1>
   <p class="sum">고베는 최고급 와규 고베규의 본고장이자, 중화거리 난킨마치와 항구 베이 뷰 다이닝으로 유명한 미식 도시입니다. 오사카에서 30분 거리라 미식+야경 코스로 인기입니다.</p>
-  <div class="cta"><a href="#form" class="btn btn-g" onclick="if(window.gtag)gtag('event','cta_click',{from:'hero'})">무료 여행 문의하기 →</a><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-l" onclick="if(window.gtag)gtag('event','click_kakao',{from:'hero'})">카카오톡 상담</a></div>
+  <p class="pos">오사카 현지 30년. 거품 없이, 진짜 괜찮은 곳만 골라 알려드려요.</p>
+  <div class="cta"><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" onclick="if(window.gtag)gtag('event','click_kakao',{from:'hero'})">현지인에게 톡으로 물어보기</a><a href="#form" class="btn btn-l" onclick="if(window.gtag)gtag('event','cta_click',{from:'hero'})">여행 문의 남기기</a></div>
 </div></header>
 
 <div class="wrap">
@@ -142,7 +145,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-food-1.jpg" alt="겐키치" loading="lazy">
     <p>겐키치는 어린이와 함께 방문하기 좋고, 합리적인 가격에 최상급 고베규를 즐길 수 있는 곳이에요. 오너 셰프님의 유쾌한 퍼포먼스와 최상급 고기가 입에서 살살 녹아내려 편안하고 즐거운 식사를 선사합니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=14421076655407843803&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=14421076655407843803&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EA%B2%90%ED%82%A4%EC%B9%98%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">2</span><h3><a href="https://maps.google.com/?cid=1379734323732265440&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">코우쥬</a></h3></div>
@@ -150,7 +153,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-food-2.jpg" alt="코우쥬" loading="lazy">
     <p>코우쥬는 최상급 고베규를 대접받는 기분으로 즐길 수 있는 곳이에요. 입안에서 살살 녹아내리는 프리미엄 고베규와 함께 분위기 좋은 식사를 경험하고 싶다면 후회하지 않으실 거예요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=1379734323732265440&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=1379734323732265440&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EC%BD%94%EC%9A%B0%EC%A5%AC%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">3</span><h3><a href="https://maps.google.com/?cid=1297901749864225921&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">타카쿠라</a></h3></div>
@@ -158,7 +161,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-food-3.jpg" alt="타카쿠라" loading="lazy">
     <p>고베역 근처의 타카쿠라는 눈앞에서 철판에 구워주는 양질의 고베규를 훌륭한 서비스와 함께 즐길 수 있는 곳이에요. 특히 A5 등급 서로인의 육향과 지방이 입안에서 톡톡 터지는 경험은 고베규의 진수를 느끼게 해줄 겁니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=1297901749864225921&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=1297901749864225921&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%ED%83%80%EC%B9%B4%EC%BF%A0%EB%9D%BC%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">4</span><h3><a href="https://maps.google.com/?cid=6063076410210390084&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">다이치</a></h3></div>
@@ -166,7 +169,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-food-4.jpg" alt="다이치" loading="lazy">
     <p>다이치는 친절한 직원분들이 눈앞에서 직접 구워주는 코스 요리를 맛볼 수 있는 곳으로, 가격 대비 양도 많고 맛도 훌륭하다는 평이 많아요. 다만, 프리미엄 메뉴는 가격대가 높을 수 있으니 주문 전에 꼭 확인하시는 것을 추천합니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=6063076410210390084&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=6063076410210390084&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EB%8B%A4%EC%9D%B4%EC%B9%98%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">5</span><h3><a href="https://maps.google.com/?cid=12911166532687467298&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">KOBE BEEF EiKiChi</a></h3></div>
@@ -174,7 +177,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-food-5.jpg" alt="KOBE BEEF EiKiChi" loading="lazy">
     <p>KOBE BEEF EiKiChi는 친절한 직원들과 셰프님들이 직접 구워주며 세심한 설명을 곁들여주는 고품질 고베규 전문점이에요. 분위기 좋은 곳에서 와인과 함께 고베규를 즐기기 좋지만, 코스 메뉴는 예약이 필수이니 참고하세요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=12911166532687467298&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=12911166532687467298&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=KOBE%20BEEF%20EiKiChi%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">6</span><h3><a href="https://maps.google.com/?cid=14446075056382800374&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">Kobe Beef Kurosawa</a></h3></div>
@@ -182,7 +185,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-food-6.jpg" alt="Kobe Beef Kurosawa" loading="lazy">
     <p>Kobe Beef Kurosawa는 맛과 분위기, 서비스 삼박자가 완벽한 곳으로, 특히 고베규 덮밥으로 고베규를 색다르고 합리적인 가격에 즐길 수 있어요. 친절한 사장님이 직접 메뉴 설명과 사진까지 찍어주셔서 더욱 즐거운 식사를 경험할 수 있습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=14446075056382800374&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=14446075056382800374&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=Kobe%20Beef%20Kurosawa%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">7</span><h3><a href="https://maps.google.com/?cid=9738445734160883730&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">고베 소고기 철판구이 스테이크 쥬직</a></h3></div>
@@ -190,7 +193,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-food-7.jpg" alt="고베 소고기 철판구이 스테이크 쥬직" loading="lazy">
     <p>고베 소고기 철판구이 스테이크 쥬직은 완벽한 굽기의 고베규 스테이크가 입안에서 살살 녹는 경험을 선사하는 곳이에요. 특히 마늘 칩과 와사비를 곁들이면 풍미가 극대화되며, 친절한 직원들이 사진까지 찍어주어 더욱 즐거운 식사를 할 수 있습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=9738445734160883730&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=9738445734160883730&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EA%B3%A0%EB%B2%A0%20%EC%86%8C%EA%B3%A0%EA%B8%B0%20%EC%B2%A0%ED%8C%90%EA%B5%AC%EC%9D%B4%20%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%81%AC%20%EC%A5%AC%EC%A7%81%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">8</span><h3><a href="https://maps.google.com/?cid=7189071467985532570&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">고베규 스테이크 이시다 본점</a></h3></div>
@@ -198,7 +201,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-food-8.jpg" alt="고베규 스테이크 이시다 본점" loading="lazy">
     <p>고베규 스테이크 이시다 본점은 입안에서 살살 녹는 부드러운 고베규를 경험할 수 있는 곳으로, 한국어 가능한 셰프님이 직접 고기를 구워주며 친절한 서비스와 함께 다양한 소스와 곁들임 메뉴를 즐길 수 있어요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=7189071467985532570&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=7189071467985532570&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EA%B3%A0%EB%B2%A0%EA%B7%9C%20%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%81%AC%20%EC%9D%B4%EC%8B%9C%EB%8B%A4%20%EB%B3%B8%EC%A0%90%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">9</span><h3><a href="https://maps.google.com/?cid=10847728973507517591&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">미야비 키타노자카 점</a></h3></div>
@@ -206,7 +209,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-food-9.jpg" alt="미야비 키타노자카 점" loading="lazy">
     <p>미야비 키타노자카 점은 한국인 여행객들에게 특히 인기 있는 고베 규카츠 전문점으로, 유쾌하고 친절한 셰프님들이 멋진 실력으로 구워주는 맛있는 고베규를 최고의 서비스와 함께 즐길 수 있어요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=10847728973507517591&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=10847728973507517591&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EB%AF%B8%EC%95%BC%EB%B9%84%20%ED%82%A4%ED%83%80%EB%85%B8%EC%9E%90%EC%B9%B4%20%EC%A0%90%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">10</span><h3><a href="https://maps.google.com/?cid=3555295244253514415&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">Kobe Beef Kiyama</a></h3></div>
@@ -214,14 +217,14 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-food-10.jpg" alt="Kobe Beef Kiyama" loading="lazy">
     <p>Kobe Beef Kiyama는 기타노이진칸 근처에 위치한 고품격 고베규 전문점으로, 엄선된 최상급 고베규를 분위기 좋은 곳에서 친절한 직원들의 서비스와 함께 맛볼 수 있어요. 한국어 메뉴판은 없지만 영어 메뉴판이 있어 주문은 어렵지 않습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=3555295244253514415&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=3555295244253514415&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=Kobe%20Beef%20Kiyama%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   </section>
 
   <div class="banner">
-    <h3>맛집·온천, GLUX가 동선까지 짜드립니다</h3>
-    <p>예약·통역·전용차량 이동까지. 원하는 곳만 알려주세요.</p>
-    <a href="#form" class="btn btn-g" style="display:inline-flex">무료 여행 문의하기 →</a>
+    <h3>어디로 갈지 애매하면, 현지인에게 물어보세요</h3>
+    <p>30년 현지에서 거품 없이 진짜만 알려드려요. 톡으로 편하게 물어보시면 됩니다.</p>
+    <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" style="display:inline-flex" onclick="if(window.gtag)gtag('event','click_kakao',{from:'banner'})">톡으로 물어보기</a>
   </div>
 
   <section>
@@ -243,15 +246,17 @@ footer a{color:var(--gold-b)}
   </section>
 
   <div class="cend"  id="form">
-    <h2>고베 맛집, <b>GLUX와 함께</b></h2>
-    <p>현지 30년 직영 · 예약·통역·전용차량 올인원 · 24시간 내 연락</p>
+    <h2>고베 맛집, <b>현지인에게 물어보세요</b></h2>
+    <p>카톡이 제일 빨라요. 폼으로 남기셔도 24시간 내에, 거품 없이 알려드립니다.</p>
+    <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" style="display:inline-flex;margin:6px auto 0" onclick="if(window.gtag)gtag('event','click_kakao',{from:'cend'})">카톡으로 바로 물어보기</a>
     <div class="form">
       <div id="lfArea">
+        <div class="ft" style="font-size:14px;font-weight:700;color:var(--mist);text-align:center;margin-bottom:12px">또는 여기에 남겨주세요</div>
         <label>이름 *</label><input type="text" id="lN" placeholder="홍길동">
         <label>연락처 *</label><input type="tel" id="lP" placeholder="010-0000-0000">
         <label>희망 여행 시기 (선택)</label><div class="r2"><input type="date" id="lCI"><input type="date" id="lCO"></div>
-        <label>인원·요청 (선택)</label><textarea id="lM" placeholder="예: 성인 2명, 야끼니꾸+온천 위주로"></textarea>
-        <button class="btn btn-g" id="lBtn" onclick="submitLead()">무료 여행 문의하기</button>
+        <label>궁금한 점·요청 (선택)</label><textarea id="lM" placeholder="예: 야끼니꾸 위주로 2명, 예약 되나요?"></textarea>
+        <button class="btn btn-g" id="lBtn" onclick="submitLead()">문의 남기기</button>
         <div class="nt">상담·문의는 무료예요 · 접수 후 24시간 내 연락</div>
       </div>
       <div class="ok" id="lOk"><div class="ic">✓</div><h3>문의가 접수됐어요!</h3><p>담당자가 확인 후 <b>24시간 내</b>에 연락드릴게요.<br>더 빠른 상담을 원하시면 카카오톡으로 문의하세요.</p><a class="kk" href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" onclick="if(window.gtag)gtag('event','click_kakao',{from:'success'})">카카오톡으로 바로 상담 →</a></div>
@@ -266,14 +271,14 @@ footer a{color:var(--gold-b)}
   <a href="/guide/harborland/">하버랜드 가이드<div class="rm">고베 항구 야경</div></a>
     </div>
   </section>
-  <p class="disc">※ 평점·사진 출처: Google 지도. 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권합니다. 순위는 구글 평점·리뷰 수를 반영한 것으로 참고용이며, 정확한 예약·최신 정보는 문의 시 안내해 드립니다.</p>
+  <p class="disc">※ 평점·사진 출처: Google 지도. 타베로그 평점은 현지 기준이 엄격해 <b>3.5 이상이면 우수</b>합니다(구글 평점과 스케일이 달라요). 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권하며, 정확한 예약·최신 정보는 톡으로 물어보시면 거품 없이 알려드립니다.</p>
 </div>
 
 <footer>© GLUX Tour · 오사카·간사이 현지 직영 여행사 · <a href="https://gluxtour.com/">gluxtour.com</a></footer>
 
 <div class="sticky">
   <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="k" onclick="if(window.gtag)gtag('event','click_kakao',{from:'sticky'})">카톡 상담</a>
-  <a href="#form" class="g" onclick="if(window.gtag)gtag('event','cta_click',{from:'sticky'})">무료 여행 문의 →</a>
+  <a href="#form" class="g" onclick="if(window.gtag)gtag('event','cta_click',{from:'sticky'})">여행 문의 남기기</a>
 </div>
 
 <script>

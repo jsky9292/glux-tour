@@ -44,7 +44,8 @@ a{color:inherit;text-decoration:none}
 .eyebrow{display:inline-block;background:rgba(224,189,110,.14);color:var(--gold-b);border:1px solid rgba(224,189,110,.4);border-radius:20px;padding:6px 14px;font-size:12.5px;font-weight:700;margin-bottom:16px}
 h1{font-size:clamp(26px,6vw,36px);font-weight:900;line-height:1.28;letter-spacing:-.5px;text-shadow:0 2px 16px rgba(0,0,0,.4)}
 .hero .sum{font-size:15.5px;color:rgba(255,255,255,.92);line-height:1.8;margin-top:16px;max-width:460px}
-.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hero .pos{font-size:13.5px;color:var(--gold-b);margin-top:10px;font-weight:600;max-width:460px}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:14px 22px;border-radius:12px;font-size:14.5px;font-weight:800;cursor:pointer;border:none;font-family:inherit;transition:transform .15s}
 .btn:active{transform:scale(.98)}
 .btn-g{background:linear-gradient(135deg,#e0bd6e,#b98a3e);color:#231a08;box-shadow:0 5px 14px rgba(0,0,0,.28)}
@@ -73,6 +74,7 @@ h2 b{color:var(--goldd)}
 .edsum{font-size:13.5px;color:var(--goldd);background:#faf6ec;border:1px solid #efe2c6;border-radius:8px;padding:9px 12px;margin:12px 0 0;line-height:1.65;max-width:460px}
 .edsum .src2{color:var(--mist);font-weight:400;font-size:11.5px}
 .gmap-lnk{display:inline-block;font-size:12.5px;color:var(--mist);margin-top:8px}.gmap-lnk::after{content:' ↗'}
+.tab-lnk{display:inline-block;font-size:12.5px;color:#c85a1e;font-weight:600;margin:8px 0 0 14px}.tab-lnk::after{content:' ↗'}
 .src{font-size:12px;color:var(--mist);margin-top:4px}
 .item p{font-size:15px;color:var(--sub);line-height:1.8;margin-top:10px;max-width:460px}
 .item .pt{font-size:14px;color:var(--ink);margin-top:8px;max-width:460px}.item .pt b{color:var(--goldd)}
@@ -124,7 +126,8 @@ footer a{color:var(--gold-b)}
   <span class="eyebrow">GLUX 큐레이션 · 오사카 힐링</span>
   <h1>오사카 근교 온천 구글 평점 순위 TOP 5</h1>
   <p class="sum">시내에서 간단히 즐기려면 신세카이의 스파월드나 나니와노유가 편하고, 온천마을의 정취를 원하면 30~90분 거리의 아리마·기노사키가 정답입니다. 문신·타투 입장 규정이 곳마다 달라 미리 확인하는 게 좋습니다.</p>
-  <div class="cta"><a href="#form" class="btn btn-g" onclick="if(window.gtag)gtag('event','cta_click',{from:'hero'})">무료 여행 문의하기 →</a><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-l" onclick="if(window.gtag)gtag('event','click_kakao',{from:'hero'})">카카오톡 상담</a></div>
+  <p class="pos">오사카 현지 30년. 거품 없이, 진짜 괜찮은 곳만 골라 알려드려요.</p>
+  <div class="cta"><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" onclick="if(window.gtag)gtag('event','click_kakao',{from:'hero'})">현지인에게 톡으로 물어보기</a><a href="#form" class="btn btn-l" onclick="if(window.gtag)gtag('event','cta_click',{from:'hero'})">여행 문의 남기기</a></div>
 </div></header>
 
 <div class="wrap">
@@ -145,7 +148,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-onsen-1.jpg" alt="UMEKITA ONSEN REN Wellbeing Park" loading="lazy">
     <p>우메키타 온센 렌 웰빙 파크는 단순한 온천을 넘어 건강에 초점을 둔 조용하고 힐링되는 웰니스 센터예요. 수영장 옆 워터 짐과 독특한 온천탕들 덕분에 여행 중 3일 내내 이용했다는 후기도 많지만, 노천탕은 없으니 이 점은 참고해주세요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=1590854863522162393&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=1590854863522162393&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=UMEKITA%20ONSEN%20REN%20Wellbeing%20Park%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">2</span><h3><a href="https://maps.google.com/?cid=6238628220838193217&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">천연온천 나니와노유</a></h3></div>
@@ -153,7 +156,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-onsen-2.jpg" alt="천연온천 나니와노유" loading="lazy"><div class="edsum">천연 온천수를 활용한 다양한 시설과 마사지 서비스를 갖춘 도심 온천입니다. <span class="src2">— Google 요약</span></div>
     <p>천연온천 나니와노유는 오사카 현지인들이 가족들과 즐겨 찾는 도심 온천으로, 큰 규모는 아니지만 다양한 온도의 실내외 탕과 노천탕이 잘 갖춰져 있어 가격 대비 만족도가 높아요. 키오스크와 직원 모두 한국어 지원이 가능해 편리하게 이용할 수 있습니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=6238628220838193217&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=6238628220838193217&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EC%B2%9C%EC%97%B0%EC%98%A8%EC%B2%9C%20%EB%82%98%EB%8B%88%EC%99%80%EB%85%B8%EC%9C%A0%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">3</span><h3><a href="https://maps.google.com/?cid=14250646131995258839&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">천연 노천온천 스파 스미노에</a></h3></div>
@@ -161,7 +164,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-onsen-3.jpg" alt="천연 노천온천 스파 스미노에" loading="lazy"><div class="edsum">실내외 수영장을 갖춘 대중 온천탕으로 치료사의 반사 요법과 마사지를 받을 수 있습니다. <span class="src2">— Google 요약</span></div>
     <p>천연 노천온천 스파 스미노에는 물이 부들부들하고 매끈해서 '천국 같다'는 평이 많은 가성비 좋은 온천이에요. 야외 노천탕이 특히 좋고 물 온도도 적당해서 아이들과 함께 방문하기에도 좋으며, 수건은 챙겨가시는 걸 추천합니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=14250646131995258839&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=14250646131995258839&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EC%B2%9C%EC%97%B0%20%EB%85%B8%EC%B2%9C%EC%98%A8%EC%B2%9C%20%EC%8A%A4%ED%8C%8C%20%EC%8A%A4%EB%AF%B8%EB%85%B8%EC%97%90%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">4</span><h3><a href="https://maps.google.com/?cid=14023248384873681322&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">스파월드</a></h3></div>
@@ -169,7 +172,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-onsen-4.jpg" alt="스파월드" loading="lazy"><div class="edsum">실내 어린이 워터파크, 온수 욕조, 스파 관리와 간식을 제공하는 현대적인 스파 시설입니다. <span class="src2">— Google 요약</span></div>
     <p>스파월드는 오사카 주요 관광지와 역에서 가까워 여행 마지막 날 피로를 풀기에 최적의 장소로 꼽힙니다. 나라별 콘셉트로 꾸며진 이색적인 암반욕과 프라이빗하게 온천과 사우나를 즐길 수 있는 가족탕까지 갖춰 다양한 휴식을 선사해요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=14023248384873681322&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=14023248384873681322&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EC%8A%A4%ED%8C%8C%EC%9B%94%EB%93%9C%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">5</span><h3><a href="https://maps.google.com/?cid=1467265949762250308&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">소라니와온천</a></h3></div>
@@ -177,14 +180,14 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/osaka-onsen-5.jpg" alt="소라니와온천" loading="lazy"><div class="edsum">주로 호텔과 사무실 공간으로 사용되고 높이가 199.9m에 달하는 다목적 고층 건물입니다. <span class="src2">— Google 요약</span></div>
     <p>소라니와 온천은 온천물로 피로를 풀고 예쁜 유카타를 빌려 입고 스티커 사진을 찍는 등 특별한 경험을 할 수 있는 곳이에요. 다양한 탕과 노천탕, 사우나는 물론 야외 포토존과 족욕탕까지 갖춰 친구, 연인, 가족과 함께 즐기기 좋으며, 간사이 조이패스 이용도 가능합니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=1467265949762250308&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=1467265949762250308&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EC%86%8C%EB%9D%BC%EB%8B%88%EC%99%80%EC%98%A8%EC%B2%9C%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   </section>
 
   <div class="banner">
-    <h3>맛집·온천, GLUX가 동선까지 짜드립니다</h3>
-    <p>예약·통역·전용차량 이동까지. 원하는 곳만 알려주세요.</p>
-    <a href="#form" class="btn btn-g" style="display:inline-flex">무료 여행 문의하기 →</a>
+    <h3>어디로 갈지 애매하면, 현지인에게 물어보세요</h3>
+    <p>30년 현지에서 거품 없이 진짜만 알려드려요. 톡으로 편하게 물어보시면 됩니다.</p>
+    <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" style="display:inline-flex" onclick="if(window.gtag)gtag('event','click_kakao',{from:'banner'})">톡으로 물어보기</a>
   </div>
 
   <section>
@@ -208,15 +211,17 @@ footer a{color:var(--gold-b)}
   </section>
 
   <div class="cend"  id="form">
-    <h2>오사카 근교 온천, <b>GLUX와 함께</b></h2>
-    <p>현지 30년 직영 · 예약·통역·전용차량 올인원 · 24시간 내 연락</p>
+    <h2>오사카 근교 온천, <b>현지인에게 물어보세요</b></h2>
+    <p>카톡이 제일 빨라요. 폼으로 남기셔도 24시간 내에, 거품 없이 알려드립니다.</p>
+    <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" style="display:inline-flex;margin:6px auto 0" onclick="if(window.gtag)gtag('event','click_kakao',{from:'cend'})">카톡으로 바로 물어보기</a>
     <div class="form">
       <div id="lfArea">
+        <div class="ft" style="font-size:14px;font-weight:700;color:var(--mist);text-align:center;margin-bottom:12px">또는 여기에 남겨주세요</div>
         <label>이름 *</label><input type="text" id="lN" placeholder="홍길동">
         <label>연락처 *</label><input type="tel" id="lP" placeholder="010-0000-0000">
         <label>희망 여행 시기 (선택)</label><div class="r2"><input type="date" id="lCI"><input type="date" id="lCO"></div>
-        <label>인원·요청 (선택)</label><textarea id="lM" placeholder="예: 성인 2명, 야끼니꾸+온천 위주로"></textarea>
-        <button class="btn btn-g" id="lBtn" onclick="submitLead()">무료 여행 문의하기</button>
+        <label>궁금한 점·요청 (선택)</label><textarea id="lM" placeholder="예: 야끼니꾸 위주로 2명, 예약 되나요?"></textarea>
+        <button class="btn btn-g" id="lBtn" onclick="submitLead()">문의 남기기</button>
         <div class="nt">상담·문의는 무료예요 · 접수 후 24시간 내 연락</div>
       </div>
       <div class="ok" id="lOk"><div class="ic">✓</div><h3>문의가 접수됐어요!</h3><p>담당자가 확인 후 <b>24시간 내</b>에 연락드릴게요.<br>더 빠른 상담을 원하시면 카카오톡으로 문의하세요.</p><a class="kk" href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" onclick="if(window.gtag)gtag('event','click_kakao',{from:'success'})">카카오톡으로 바로 상담 →</a></div>
@@ -231,14 +236,14 @@ footer a{color:var(--gold-b)}
   <a href="/guide/arima-onsen-guide/">아리마온천 가이드<div class="rm">금천·은천 정보</div></a>
     </div>
   </section>
-  <p class="disc">※ 평점·사진 출처: Google 지도. 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권합니다. 순위는 구글 평점·리뷰 수를 반영한 것으로 참고용이며, 정확한 예약·최신 정보는 문의 시 안내해 드립니다.</p>
+  <p class="disc">※ 평점·사진 출처: Google 지도. 타베로그 평점은 현지 기준이 엄격해 <b>3.5 이상이면 우수</b>합니다(구글 평점과 스케일이 달라요). 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권하며, 정확한 예약·최신 정보는 톡으로 물어보시면 거품 없이 알려드립니다.</p>
 </div>
 
 <footer>© GLUX Tour · 오사카·간사이 현지 직영 여행사 · <a href="https://gluxtour.com/">gluxtour.com</a></footer>
 
 <div class="sticky">
   <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="k" onclick="if(window.gtag)gtag('event','click_kakao',{from:'sticky'})">카톡 상담</a>
-  <a href="#form" class="g" onclick="if(window.gtag)gtag('event','cta_click',{from:'sticky'})">무료 여행 문의 →</a>
+  <a href="#form" class="g" onclick="if(window.gtag)gtag('event','cta_click',{from:'sticky'})">여행 문의 남기기</a>
 </div>
 
 <script>

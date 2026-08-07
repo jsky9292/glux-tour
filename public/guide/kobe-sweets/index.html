@@ -43,7 +43,8 @@ a{color:inherit;text-decoration:none}
 .eyebrow{display:inline-block;background:rgba(224,189,110,.14);color:var(--gold-b);border:1px solid rgba(224,189,110,.4);border-radius:20px;padding:6px 14px;font-size:12.5px;font-weight:700;margin-bottom:16px}
 h1{font-size:clamp(26px,6vw,36px);font-weight:900;line-height:1.28;letter-spacing:-.5px;text-shadow:0 2px 16px rgba(0,0,0,.4)}
 .hero .sum{font-size:15.5px;color:rgba(255,255,255,.92);line-height:1.8;margin-top:16px;max-width:460px}
-.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hero .pos{font-size:13.5px;color:var(--gold-b);margin-top:10px;font-weight:600;max-width:460px}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:14px 22px;border-radius:12px;font-size:14.5px;font-weight:800;cursor:pointer;border:none;font-family:inherit;transition:transform .15s}
 .btn:active{transform:scale(.98)}
 .btn-g{background:linear-gradient(135deg,#e0bd6e,#b98a3e);color:#231a08;box-shadow:0 5px 14px rgba(0,0,0,.28)}
@@ -72,6 +73,7 @@ h2 b{color:var(--goldd)}
 .edsum{font-size:13.5px;color:var(--goldd);background:#faf6ec;border:1px solid #efe2c6;border-radius:8px;padding:9px 12px;margin:12px 0 0;line-height:1.65;max-width:460px}
 .edsum .src2{color:var(--mist);font-weight:400;font-size:11.5px}
 .gmap-lnk{display:inline-block;font-size:12.5px;color:var(--mist);margin-top:8px}.gmap-lnk::after{content:' ↗'}
+.tab-lnk{display:inline-block;font-size:12.5px;color:#c85a1e;font-weight:600;margin:8px 0 0 14px}.tab-lnk::after{content:' ↗'}
 .src{font-size:12px;color:var(--mist);margin-top:4px}
 .item p{font-size:15px;color:var(--sub);line-height:1.8;margin-top:10px;max-width:460px}
 .item .pt{font-size:14px;color:var(--ink);margin-top:8px;max-width:460px}.item .pt b{color:var(--goldd)}
@@ -123,7 +125,8 @@ footer a{color:var(--gold-b)}
   <span class="eyebrow">GLUX 큐레이션 · 고베 미식여행</span>
   <h1>고베 디저트 구글 평점 순위 TOP 6</h1>
   <p class="sum">고베는 개항 도시의 서양 문화가 뿌리내려 '스위츠의 도시'로 불립니다. 정통 양과자·베이커리·치즈케이크 명점이 많아, 디저트 투어와 카페 타임을 즐기기에 최적입니다.</p>
-  <div class="cta"><a href="#form" class="btn btn-g" onclick="if(window.gtag)gtag('event','cta_click',{from:'hero'})">무료 여행 문의하기 →</a><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-l" onclick="if(window.gtag)gtag('event','click_kakao',{from:'hero'})">카카오톡 상담</a></div>
+  <p class="pos">오사카 현지 30년. 거품 없이, 진짜 괜찮은 곳만 골라 알려드려요.</p>
+  <div class="cta"><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" onclick="if(window.gtag)gtag('event','click_kakao',{from:'hero'})">현지인에게 톡으로 물어보기</a><a href="#form" class="btn btn-l" onclick="if(window.gtag)gtag('event','cta_click',{from:'hero'})">여행 문의 남기기</a></div>
 </div></header>
 
 <div class="wrap">
@@ -142,7 +145,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-sweets-1.jpg" alt="파티세리 그레고리 콜렛" loading="lazy">
     <p>산노미야 역에서 기타노이진칸 가는 길목에 위치한 파티세리 그레고리 콜렛은 남프랑스 유명 호텔 총제과장 출신 파티시에가 선보이는 정통 프랑스 디저트 맛집이에요. 특히 진한 초코 맛의 ABSOLU와 상큼한 시트롱 네이드는 꼭 맛봐야 할 추천 메뉴입니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=17300647097438754755&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=17300647097438754755&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%ED%8C%8C%ED%8B%B0%EC%84%B8%EB%A6%AC%20%EA%B7%B8%EB%A0%88%EA%B3%A0%EB%A6%AC%20%EC%BD%9C%EB%A0%9B%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">2</span><h3><a href="https://maps.google.com/?cid=14579899270889674513&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">라비뉴</a></h3></div>
@@ -150,7 +153,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-sweets-2.jpg" alt="라비뉴" loading="lazy"><div class="edsum">Pastries &amp; chocolate-based desserts at an elegant French-influenced cake shop with cafe seating. <span class="src2">— Google 요약</span></div>
     <p>쇼콜라티에가 운영하는 라비뉴는 2012년부터 꾸준히 상위권을 지켜온 고베의 대표적인 프렌치 디저트 전문점입니다. 특히 풍미 깊은 휘낭시에 같은 구움과자류와 Mode, L'hymne 같은 초코 기반 케이크가 유명하지만, 가격대가 다소 높아 오픈런이나 웨이팅이 있을 수 있으니 참고하세요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=14579899270889674513&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=14579899270889674513&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EB%9D%BC%EB%B9%84%EB%89%B4%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">3</span><h3><a href="https://maps.google.com/?cid=3964935204419959295&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">Pâtisserie KITAMURA</a></h3></div>
@@ -158,7 +161,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-sweets-3.jpg" alt="Pâtisserie KITAMURA" loading="lazy">
     <p>탄 경찰서 근처에 위치한 아담한 파티세리 키타무라는 단맛이 겸손하면서도 맛있는 케이크와 구운 과자로 사랑받는 곳입니다. 특히 바삭한 천 속에 밤이 가득한 계절 한정 밤 디저트와 코스파 좋은 생일 케이크 '크레페 버스디'를 추천해요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=3964935204419959295&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=3964935204419959295&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=P%C3%A2tisserie%20KITAMURA%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">4</span><h3><a href="https://maps.google.com/?cid=2012811803866226299&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">Patisserie SATO</a></h3></div>
@@ -166,7 +169,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-sweets-4.jpg" alt="Patisserie SATO" loading="lazy">
     <p>카스미가오카 역 근처의 귀여운 파티세리 사토는 다양한 종류의 카누레와 맛있는 케이크, 마카롱으로 유명한 디저트 맛집이에요. 특히 플레인, 딸기, 홍차 맛 카누레와 베이크드 치즈 케이크를 추천하며, 신용카드 결제도 가능합니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=2012811803866226299&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=2012811803866226299&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=Patisserie%20SATO%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">5</span><h3><a href="https://maps.google.com/?cid=13374274258373822288&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">몽플류</a></h3></div>
@@ -174,7 +177,7 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-sweets-5.jpg" alt="몽플류" loading="lazy">
     <p>고베 타베로그 케이크 부문 상위권에 랭크된 몽플류는 2005년부터 클래식 갸또부터 구움과자, 마카롱 등 다양한 디저트로 꾸준히 사랑받아온 곳입니다. Sully와 Tarte Fromage, Opera 케이크가 추천 메뉴로 꼽히지만, 일부 외국인 고객에게 세금을 이중으로 청구하는 등 불쾌한 경험이 있었다는 후기가 있으니 주의가 필요합니다. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=13374274258373822288&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=13374274258373822288&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=%EB%AA%BD%ED%94%8C%EB%A5%98%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   <div class="item">
     <div class="ihead"><span class="rk">6</span><h3><a href="https://maps.google.com/?cid=13283177617550719771&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow">sucrer</a></h3></div>
@@ -182,14 +185,14 @@ footer a{color:var(--gold-b)}
     <img class="ph" src="/guide/img/kobe-sweets-6.jpg" alt="sucrer" loading="lazy">
     <p>산노미야역 내에 위치한 sucrer는 저렴한 가격에 퀄리티 좋은 디저트를 만날 수 있는 가성비 맛집입니다. 특히 180엔 크레페, 400엔 미니 애플 파이, 1300엔 과일 듬뿍 롤케이크 등 파격적인 가격으로 다양한 디저트를 즐길 수 있으나, 현금 결제만 가능하니 참고해 주세요. 예약·통역·이동은 GLUX가 도와드려요.</p>
     
-    <a href="https://maps.google.com/?cid=13283177617550719771&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><br><a href="#form" class="mini">이 코스로 여행/예약 문의하기</a>
+    <a href="https://maps.google.com/?cid=13283177617550719771&amp;g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener nofollow" class="gmap-lnk">구글 지도에서 보기</a><a href="https://www.google.com/search?q=sucrer%20%E9%A3%9F%E3%81%B9%E3%83%AD%E3%82%B0" target="_blank" rel="noopener nofollow" class="tab-lnk" onclick="if(window.gtag)gtag('event','click_tabelog')">타베로그 평점 보기</a><br><a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="mini" onclick="if(window.gtag)gtag('event','click_kakao',{from:'item'})">이 가게 궁금하면 톡으로 물어보기</a>
   </div>
   </section>
 
   <div class="banner">
-    <h3>맛집·온천, GLUX가 동선까지 짜드립니다</h3>
-    <p>예약·통역·전용차량 이동까지. 원하는 곳만 알려주세요.</p>
-    <a href="#form" class="btn btn-g" style="display:inline-flex">무료 여행 문의하기 →</a>
+    <h3>어디로 갈지 애매하면, 현지인에게 물어보세요</h3>
+    <p>30년 현지에서 거품 없이 진짜만 알려드려요. 톡으로 편하게 물어보시면 됩니다.</p>
+    <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" style="display:inline-flex" onclick="if(window.gtag)gtag('event','click_kakao',{from:'banner'})">톡으로 물어보기</a>
   </div>
 
   <section>
@@ -211,15 +214,17 @@ footer a{color:var(--gold-b)}
   </section>
 
   <div class="cend"  id="form">
-    <h2>고베 디저트, <b>GLUX와 함께</b></h2>
-    <p>현지 30년 직영 · 예약·통역·전용차량 올인원 · 24시간 내 연락</p>
+    <h2>고베 디저트, <b>현지인에게 물어보세요</b></h2>
+    <p>카톡이 제일 빨라요. 폼으로 남기셔도 24시간 내에, 거품 없이 알려드립니다.</p>
+    <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="btn btn-g" style="display:inline-flex;margin:6px auto 0" onclick="if(window.gtag)gtag('event','click_kakao',{from:'cend'})">카톡으로 바로 물어보기</a>
     <div class="form">
       <div id="lfArea">
+        <div class="ft" style="font-size:14px;font-weight:700;color:var(--mist);text-align:center;margin-bottom:12px">또는 여기에 남겨주세요</div>
         <label>이름 *</label><input type="text" id="lN" placeholder="홍길동">
         <label>연락처 *</label><input type="tel" id="lP" placeholder="010-0000-0000">
         <label>희망 여행 시기 (선택)</label><div class="r2"><input type="date" id="lCI"><input type="date" id="lCO"></div>
-        <label>인원·요청 (선택)</label><textarea id="lM" placeholder="예: 성인 2명, 야끼니꾸+온천 위주로"></textarea>
-        <button class="btn btn-g" id="lBtn" onclick="submitLead()">무료 여행 문의하기</button>
+        <label>궁금한 점·요청 (선택)</label><textarea id="lM" placeholder="예: 야끼니꾸 위주로 2명, 예약 되나요?"></textarea>
+        <button class="btn btn-g" id="lBtn" onclick="submitLead()">문의 남기기</button>
         <div class="nt">상담·문의는 무료예요 · 접수 후 24시간 내 연락</div>
       </div>
       <div class="ok" id="lOk"><div class="ic">✓</div><h3>문의가 접수됐어요!</h3><p>담당자가 확인 후 <b>24시간 내</b>에 연락드릴게요.<br>더 빠른 상담을 원하시면 카카오톡으로 문의하세요.</p><a class="kk" href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" onclick="if(window.gtag)gtag('event','click_kakao',{from:'success'})">카카오톡으로 바로 상담 →</a></div>
@@ -234,14 +239,14 @@ footer a{color:var(--gold-b)}
   <a href="/guide/osaka-cafe/">오사카 카페<div class="rm">평점순 카페</div></a>
     </div>
   </section>
-  <p class="disc">※ 평점·사진 출처: Google 지도. 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권합니다. 순위는 구글 평점·리뷰 수를 반영한 것으로 참고용이며, 정확한 예약·최신 정보는 문의 시 안내해 드립니다.</p>
+  <p class="disc">※ 평점·사진 출처: Google 지도. 타베로그 평점은 현지 기준이 엄격해 <b>3.5 이상이면 우수</b>합니다(구글 평점과 스케일이 달라요). 가격·영업시간·메뉴는 변동될 수 있어 방문 전 확인을 권하며, 정확한 예약·최신 정보는 톡으로 물어보시면 거품 없이 알려드립니다.</p>
 </div>
 
 <footer>© GLUX Tour · 오사카·간사이 현지 직영 여행사 · <a href="https://gluxtour.com/">gluxtour.com</a></footer>
 
 <div class="sticky">
   <a href="https://open.kakao.com/o/gjyncvGi" target="_blank" rel="noopener" class="k" onclick="if(window.gtag)gtag('event','click_kakao',{from:'sticky'})">카톡 상담</a>
-  <a href="#form" class="g" onclick="if(window.gtag)gtag('event','cta_click',{from:'sticky'})">무료 여행 문의 →</a>
+  <a href="#form" class="g" onclick="if(window.gtag)gtag('event','cta_click',{from:'sticky'})">여행 문의 남기기</a>
 </div>
 
 <script>
