@@ -24,7 +24,7 @@ async function geminiDescs(items, noun) {
 규칙:
 - 리뷰에서 실제 언급된 대표 메뉴·강점·분위기를 구체적으로 반영(뚜렷한 단점이 반복되면 균형있게 한마디). 리뷰에 없는 사실은 지어내지 말 것.
 - 평점 숫자는 반복하지 말 것. 자연스러운 구어체.
-- 각 소개 마지막 문장은 "예약·통역·이동은 GLUX가 도와드려요" 취지로.
+- 순수 정보만 쓸 것. 예약 대행·통역·GLUX 언급·홍보 문구는 절대 넣지 말 것.
 - 출력은 JSON 배열만: [{"i":1,"desc":"..."}]
 가게:
 ${list}`
@@ -133,7 +133,7 @@ async function search(query) {
 function descOf(p, noun) {
   const area = p.area && p.area !== '오사카' ? `${p.area}의 ` : ''
   const love = p.count >= 3000 ? '현지에서 오래도록 사랑받는' : '꾸준히 높은 평가를 받는'
-  return `${area}인기 ${noun}입니다. 구글 평점 ${p.rating}점(리뷰 ${Number(p.count).toLocaleString()}개)으로 ${love} 곳입니다. 예약이 어렵거나 통역이 필요하면 GLUX가 대신 예약해 드립니다.`
+  return `${area}인기 ${noun}입니다. 구글 평점 ${p.rating}점(리뷰 ${Number(p.count).toLocaleString()}개)으로 ${love} 곳입니다.`
 }
 
 ;(async () => {
@@ -174,7 +174,7 @@ function descOf(p, noun) {
     const n = items.length
     page.h1 = `${page.kw} 구글 평점 순위 TOP ${n}`
     page.listTitle = `구글 평점 순위 TOP ${n}`
-    page.listLead = `아래 순위는 구글 지도 평점과 리뷰 수를 함께 반영했습니다(출처: Google, 리뷰 ${cfg.min.toLocaleString()}개 이상). 예약이 어려운 곳은 GLUX가 대신 예약·통역해 드립니다.`
+    page.listLead = `구글 지도 평점과 리뷰 수를 함께 반영한 순위예요. (출처: Google)`
     page.title = `${page.kw} 순위 TOP ${n} | 구글 평점 기준 추천 — GLUX`
     console.log(`  ✓ ${slug}: ${n}곳 (1위 ${items[0].name} ${items[0].rating}★/${items[0].count})`)
   }
