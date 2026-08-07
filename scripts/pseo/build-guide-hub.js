@@ -10,6 +10,7 @@ const cur = JSON.parse(fs.readFileSync(path.join(__dirname, 'curation.json'), 'u
 const bySlug = Object.fromEntries(cur.map(p => [p.slug, p]))
 
 const GROUPS = [
+  ['관광명소', ['osaka-spots', 'kyoto-spots', 'kyoto-temple', 'kobe-spots', 'nara-spots']],
   ['음식별 맛집', ['osaka-yakiniku', 'osaka-wagyu', 'osaka-sushi', 'osaka-ramen', 'osaka-udon', 'osaka-okonomiyaki', 'osaka-takoyaki', 'osaka-izakaya', 'osaka-cafe']],
   ['오사카 지역별', ['dotonbori-food', 'namba-food', 'shinsaibashi-food', 'umeda-food', 'osaka-station-food', 'shinsekai-food', 'tennoji-food', 'kuromon-food', 'kyobashi-food', 'horie-food', 'tenma-food']],
   ['교토 미식', ['kyoto-food', 'gion-food', 'arashiyama-food', 'kyoto-nishiki', 'kyoto-cafe']],
