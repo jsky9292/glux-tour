@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const db = require('../db/store')
 const { sendConfirmationEmail } = require('../utils/mailer')
+const { notifyNewApplication } = require('../utils/notify')
 
 // 전체 목록
 router.get('/', async (req, res) => {
@@ -95,6 +96,10 @@ router.post('/', async (req, res) => {
       sendConfirmationEmail({ name, email, phone, package_type, departure_date, return_date, passengers, reservation_no: rno })
         .catch(err => console.error('[이메일 오류]', err.message))
     }
+
+    // 관리자 텔레그램 알림(새 문의)
+    notifyNewApplication({ name, phone, package_type, departure_date, return_date, requests, reservation_no: rno })
+      .catch(err => console.error('[텔레그램 오류]', err.message))
 
     res.json({ id: app.id, reservation_no: rno })
   } catch (err) {
