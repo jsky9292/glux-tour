@@ -97,9 +97,10 @@ router.post('/', async (req, res) => {
         .catch(err => console.error('[이메일 오류]', err.message))
     }
 
-    // 관리자 텔레그램 알림(새 문의)
-    notifyNewApplication({ name, phone, package_type, departure_date, return_date, requests, reservation_no: rno })
-      .catch(err => console.error('[텔레그램 오류]', err.message))
+    // 관리자 텔레그램 알림(새 문의) — 서버리스에서 끊기지 않도록 await
+    try {
+      await notifyNewApplication({ name, phone, package_type, departure_date, return_date, requests, reservation_no: rno })
+    } catch (err) { console.error('[텔레그램 오류]', err.message) }
 
     res.json({ id: app.id, reservation_no: rno })
   } catch (err) {

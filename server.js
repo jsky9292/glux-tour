@@ -79,6 +79,16 @@ app.get('/admin/crm', (req, res) =>
 
 app.get('/health', (req, res) => res.json({ status: 'ok', time: new Date().toISOString() }))
 
+// 텔레그램 알림 진단(환경변수 확인 + 테스트 발송)
+app.get('/api/notify-test', async (req, res) => {
+  const { sendTelegram } = require('./utils/notify')
+  const token_set = !!process.env.TELEGRAM_BOT_TOKEN
+  const chat_set = !!process.env.TELEGRAM_CHAT_ID
+  let sent = false
+  try { await sendTelegram('<b>[GLUX 테스트]</b> 프로덕션 알림 연결이 정상입니다.'); sent = token_set && chat_set } catch (e) {}
+  res.json({ token_set, chat_set, sent })
+})
+
 // Vercel serverless exports
 module.exports = app
 
