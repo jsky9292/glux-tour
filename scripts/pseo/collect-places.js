@@ -58,12 +58,12 @@ async function dlPhoto(pname, dst) {
 
 // slug → 수집 조건. noun=설명용 명사, min=최소 리뷰수, take=노출 개수
 const Q = {
-  'osaka-yakiniku': { query: 'yakiniku restaurant Osaka', noun: '야끼니꾸(불고기) 맛집', min: 500, take: 10 },
-  'osaka-ramen': { query: 'ramen Osaka', noun: '라멘 맛집', min: 500, take: 10 },
-  'osaka-sushi': { query: 'sushi restaurant Osaka', noun: '스시(초밥) 맛집', min: 200, take: 10 },
-  'osaka-wagyu': { query: 'wagyu steak Osaka', noun: '와규 스테이크 맛집', min: 200, take: 10 },
+  'osaka-yakiniku': { query: 'yakiniku restaurant Osaka', noun: '야끼니꾸(불고기) 맛집', min: 400, take: 10, pages: 3, deny: ['스키야키', 'sukiyaki', 'ramen', '라멘', 'sushi', '스시'] },
+  'osaka-ramen': { query: 'ramen noodle Osaka', noun: '라멘 맛집', min: 300, take: 10, type: 'ramen_restaurant', strict: true, pages: 3, deny: ['gyumon', '규몬', '스키야키', 'sukiyaki', '와규', 'wagyu', '스테이크', 'steak', 'beef', '야끼니꾸', 'yakiniku', '불고기', '스시', 'sushi', '오마카세', 'omakase'] },
+  'osaka-sushi': { query: 'sushi restaurant Osaka', noun: '스시(초밥) 맛집', min: 150, take: 10, type: 'sushi_restaurant', strict: true, pages: 3, deny: ['ramen', '라멘', '스키야키', 'sukiyaki', 'yakiniku', '야끼니꾸'] },
+  'osaka-wagyu': { query: 'wagyu beef steak Osaka', noun: '와규 스테이크 맛집', min: 100, take: 10, pages: 3 },
   'dotonbori-food': { query: 'best restaurant Dotonbori Osaka', noun: '도톤보리 맛집', min: 500, take: 10 },
-  'osaka-onsen': { query: 'onsen spa Osaka', noun: '온천·스파', min: 1000, take: 10 },
+  'osaka-onsen': { query: 'onsen spa sauna bath Osaka', noun: '온천·스파', min: 300, take: 10, pages: 3 },
   'namba-food': { query: 'best restaurant Namba Osaka', noun: '난바 맛집', min: 500, take: 10 },
   'shinsaibashi-food': { query: 'best restaurant Shinsaibashi Osaka', noun: '신사이바시 맛집', min: 300, take: 10 },
   'umeda-food': { query: 'best restaurant Umeda Osaka', noun: '우메다 맛집', min: 500, take: 10 },
@@ -76,25 +76,25 @@ const Q = {
   'kobe-food': { query: 'best restaurant Kobe', noun: '맛집', min: 500, take: 10 },
   'nara-food': { query: 'best restaurant Nara', noun: '맛집', min: 200, take: 10 },
   'osaka-izakaya': { query: 'izakaya Osaka', noun: '이자카야', min: 300, take: 10 },
-  'osaka-cafe': { query: 'cafe Osaka', noun: '카페', min: 500, take: 10 },
+  'osaka-cafe': { query: 'cafe Osaka', noun: '카페', min: 400, take: 10, type: 'cafe', strict: true, pages: 3 },
   'osaka-udon': { query: 'udon Osaka', noun: '우동', min: 200, take: 10 },
   'osaka-takoyaki': { query: 'takoyaki Osaka', noun: '타코야키', min: 300, take: 10 },
   'osaka-okonomiyaki': { query: 'okonomiyaki Osaka', noun: '오코노미야키', min: 300, take: 10 },
   'horie-food': { query: 'restaurant cafe Horie Osaka', noun: '맛집', min: 200, take: 10 },
-  'tenma-food': { query: 'izakaya restaurant Tenma Osaka', noun: '맛집', min: 200, take: 10 },
+  'tenma-food': { query: 'izakaya restaurant Tenma Osaka', noun: '맛집', min: 100, take: 10, pages: 3 },
   'gion-food': { query: 'restaurant Gion Kyoto', noun: '맛집', min: 300, take: 10 },
   'arashiyama-food': { query: 'restaurant soba tofu Arashiyama Kyoto', noun: '맛집', min: 80, take: 10 },
-  'kyoto-nishiki': { query: 'Nishiki Market Kyoto food', noun: '맛집', min: 200, take: 10 },
-  'kyoto-cafe': { query: 'cafe Kyoto', noun: '카페', min: 500, take: 10 },
+  'kyoto-nishiki': { query: 'Nishiki Market Kyoto food restaurant', noun: '맛집', min: 100, take: 10, pages: 3 },
+  'kyoto-cafe': { query: 'cafe Kyoto', noun: '카페', min: 400, take: 10, type: 'cafe', strict: true, pages: 3 },
   'sannomiya-food': { query: 'restaurant Sannomiya Kobe', noun: '맛집', min: 300, take: 10 },
   'nankinmachi-food': { query: 'Nankinmachi Chinatown Kobe restaurant', noun: '맛집', min: 150, take: 10 },
-  'kobe-sweets': { query: 'sweets patisserie cake Kobe', noun: '디저트', min: 100, take: 10 },
+  'kobe-sweets': { query: 'cake patisserie sweets dessert cafe Kobe', noun: '디저트', min: 50, take: 10, pages: 3 },
   // 관광명소(spot): 타베로그·EXCLUDE 미적용, 리뷰 수 높게
-  'osaka-spots': { query: 'tourist attractions landmarks Osaka', noun: '관광 명소', min: 3000, take: 10, spot: true },
-  'kyoto-spots': { query: 'tourist attractions landmarks Kyoto', noun: '관광 명소', min: 3000, take: 10, spot: true },
-  'kyoto-temple': { query: 'famous temple shrine Kyoto', noun: '사찰·신사', min: 2000, take: 10, spot: true },
-  'kobe-spots': { query: 'tourist attractions sightseeing Kobe', noun: '관광 명소', min: 1000, take: 10, spot: true },
-  'nara-spots': { query: 'Nara sightseeing Todaiji Kasuga deer park temple', noun: '관광 명소', min: 500, take: 10, spot: true },
+  'osaka-spots': { query: 'tourist attractions landmarks Osaka', noun: '관광 명소', min: 1000, take: 10, spot: true, pages: 3, deny: ['kimono', '기모노', 'tea ceremony', 'ceremony', '다도', '닌자', 'ninja', '사무라이', 'samurai', 'maikoya', 'cooking', '쿠킹', '체험', 'experience', 'class', 'workshop'] },
+  'kyoto-spots': { query: 'tourist attractions landmarks sightseeing Kyoto', noun: '관광 명소', min: 1000, take: 10, spot: true, pages: 3, deny: ['kimono', '기모노', 'tea ceremony', 'ceremony', '다도', '닌자', 'ninja', '사무라이', 'samurai', 'maikoya', 'cooking', '쿠킹', '체험', 'experience', 'class', 'workshop'] },
+  'kyoto-temple': { query: 'famous temple shrine Kyoto', noun: '사찰·신사', min: 1000, take: 10, spot: true, pages: 3, deny: ['kimono', '기모노', 'tea ceremony', 'ceremony', '다도', '닌자', 'ninja', '사무라이', 'samurai', 'maikoya', 'cooking', '체험', 'experience', 'class', 'workshop', '뮤지엄', 'museum'] },
+  'kobe-spots': { query: 'tourist attractions sightseeing Kobe', noun: '관광 명소', min: 400, take: 10, spot: true, pages: 3, deny: ['kimono', '기모노', 'tea ceremony', 'ceremony', '다도', '닌자', 'ninja', '사무라이', 'samurai', 'maikoya', 'cooking', '체험', 'experience', 'class', 'workshop', 'mosque', '모스크'] },
+  'nara-spots': { query: 'Nara sightseeing Todaiji Kasuga Kofukuji deer park temple garden', noun: '관광 명소', min: 150, take: 10, spot: true, pages: 3, deny: ['kimono', '기모노', 'tea ceremony', 'ceremony', '다도', '닌자', 'ninja', '사무라이', 'samurai', 'maikoya', 'cooking', '체험', 'experience', 'class', 'workshop'] },
 }
 
 const AREAS = [
@@ -121,19 +121,33 @@ function brandKey(name) {
   return toks[0] || String(name).toLowerCase().slice(0, 6)
 }
 
-async function search(query) {
-  const res = await fetch('https://places.googleapis.com/v1/places:searchText', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Goog-Api-Key': KEY,
-      'X-Goog-FieldMask': 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.googleMapsUri,places.photos,places.editorialSummary,places.reviews,places.priceLevel',
-    },
-    body: JSON.stringify({ textQuery: query, languageCode: 'ko', regionCode: 'JP', maxResultCount: 20 }),
-  })
-  const d = await res.json()
-  if (d.error) throw new Error(d.error.message)
-  return d.places || []
+// 페이지네이션(최대 3페이지=60곳) + 카테고리 타입 강제(includedType/strictTypeFiltering)
+async function search(query, opt = {}) {
+  const pages = opt.pages || 2
+  let all = [], token = null
+  for (let i = 0; i < pages; i++) {
+    const body = { textQuery: query, languageCode: 'ko', regionCode: 'JP', maxResultCount: 20 }
+    if (opt.type) { body.includedType = opt.type; if (opt.strict) body.strictTypeFiltering = true }
+    if (token) body.pageToken = token
+    const res = await fetch('https://places.googleapis.com/v1/places:searchText', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': KEY,
+        'X-Goog-FieldMask': 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.googleMapsUri,places.photos,places.editorialSummary,places.reviews,places.priceLevel,places.primaryType,nextPageToken',
+      },
+      body: JSON.stringify(body),
+    })
+    const d = await res.json()
+    if (d.error) throw new Error(d.error.message)
+    all = all.concat(d.places || [])
+    token = d.nextPageToken
+    if (!token) break
+    await sleep(2200) // pageToken 활성화 지연
+  }
+  // 이름 중복 제거(페이지 간 중복 방지)
+  const seen = new Set()
+  return all.filter(p => { const n = (p.displayName && p.displayName.text) || ''; if (seen.has(n)) return false; seen.add(n); return true })
 }
 
 function descOf(p, noun) {
@@ -152,7 +166,7 @@ function descOf(p, noun) {
     const page = bySlug[slug]
     if (!page) { console.log(`  ! ${slug} 페이지 없음 — 건너뜀`); continue }
     let places
-    try { places = await search(cfg.query) } catch (e) { console.log(`  ✗ ${slug}: ${e.message}`); continue }
+    try { places = await search(cfg.query, { type: cfg.type, strict: cfg.strict, pages: cfg.pages }) } catch (e) { console.log(`  ✗ ${slug}: ${e.message}`); continue }
     const C = 4.2, M = 1000 // 종합점수: (v*R + M*C)/(v+M) — 리뷰 많은 고평점을 상위로
     const brandSeen = new Set()
     const items = places
@@ -163,6 +177,7 @@ function descOf(p, noun) {
         return { name, rating: p.rating, count: v, area: areaOf(p.formattedAddress), maps: p.googleMapsUri || '', photoRef: (p.photos && p.photos[0]) ? p.photos[0].name : '', editorial: (p.editorialSummary && p.editorialSummary.text) || '', price: PRICE[p.priceLevel] || '', reviews: (p.reviews || []).map(rv => rv.text && rv.text.text).filter(Boolean), score: (v * p.rating + M * C) / (v + M), brand: brandKey(name) }
       })
       .filter(p => p.name && (cfg.spot || !EXCLUDE.some(k => p.name.toLowerCase().includes(k)))) // 맛집만 관광·할랄 특화 제외(spot은 유지)
+      .filter(p => !cfg.deny || !cfg.deny.some(k => p.name.toLowerCase().includes(k.toLowerCase()))) // 카테고리별 오분류 이름 제외
       .sort((a, b) => b.score - a.score)
       .filter(p => !brandSeen.has(p.brand) && brandSeen.add(p.brand)) // 같은 브랜드 분점 1곳만
       .slice(0, cfg.take)
