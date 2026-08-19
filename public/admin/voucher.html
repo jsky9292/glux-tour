@@ -393,6 +393,24 @@ async function saveToAPI() {
   btn.disabled = true
 
   try {
+    // 고객·신청 핵심정보 저장(예약자명·연락처·인원·여행날짜·요청) — 편집값 반영
+    const isoLocal = d => { if (!d) return undefined; const p = n => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) }
+    const appPatch = {
+      name: gv('rnm').trim(),
+      phone: gv('rct').trim(),
+      passengers: parseInt((gv('rpp') || '').replace(/[^0-9]/g, '')) || 1,
+      requests: gv('sreq')
+    }
+    if (startDt) appPatch.departure_date = isoLocal(startDt)
+    if (endDt) appPatch.return_date = isoLocal(endDt)
+    if (startDt && endDt) appPatch.nights = Math.round((endDt - startDt) / 86400000)
+    const r0 = await fetch(`/api/applications/${APP_ID}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(appPatch)
+    })
+    if (!r0.ok) throw new Error('고객정보 저장 실패')
+
     // 일정 저장
     const r1 = await fetch(`/api/applications/${APP_ID}/itinerary`, {
       method: 'POST',

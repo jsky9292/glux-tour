@@ -109,17 +109,42 @@ router.post('/', async (req, res) => {
   }
 })
 
-// 상태/메모 업데이트
+// 상태/메모 + 고객·신청 핵심정보 업데이트
 router.patch('/:id', async (req, res) => {
   try {
     const id = parseInt(req.params.id)
-    const { status, admin_notes } = req.body
-    const patch = {}
-    if (status !== undefined) patch.status = status
-    if (admin_notes !== undefined) patch.admin_notes = admin_notes
-    await db.update('applications', a => a.id === id, patch)
+    const {
+      status, admin_notes,
+      name, phone, email,
+      passengers, departure_date, return_date, nights, package_type, requests, channel
+    } = req.body
+
+    // applications 테이블 필드(제공된 것만 갱신)
+    const appPatch = {}
+    if (status !== undefined) appPatch.status = status
+    if (admin_notes !== undefined) appPatch.admin_notes = admin_notes
+    if (passengers !== undefined) appPatch.passengers = parseInt(passengers) || 1
+    if (departure_date !== undefined) appPatch.departure_date = departure_date
+    if (return_date !== undefined) appPatch.return_date = return_date
+    if (nights !== undefined) appPatch.nights = parseInt(nights) || 0
+    if (package_type !== undefined) appPatch.package_type = package_type
+    if (requests !== undefined) appPatch.requests = requests
+    if (channel !== undefined) appPatch.channel = channel
+    if (Object.keys(appPatch).length) await db.update('applications', a => a.id === id, appPatch)
+
+    // customers 테이블 필드(이름·연락처·이메일)
+    const custPatch = {}
+    if (name !== undefined) custPatch.name = name
+    if (phone !== undefined) custPatch.phone = phone
+    if (email !== undefined) custPatch.email = email
+    if (Object.keys(custPatch).length) {
+      const app = await db.findOne('applications', a => a.id === id)
+      if (app && app.customer_id) await db.update('customers', c => c.id === app.customer_id, custPatch)
+    }
+
     res.json({ success: true })
   } catch (err) {
+    console.error('[applications PATCH]', err)
     res.status(500).json({ error: err.message })
   }
 })
