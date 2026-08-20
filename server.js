@@ -58,10 +58,23 @@ app.use('/admin', (req, res, next) => {
 // ── 정적 파일 ────────────────────────────────────────────────
 app.use(express.static(path.join(__dirname, 'public')))
 
+// ── API 인증 가드(고객정보 보호) ─────────────────────────────
+// 관리자 로그인 쿠키가 있어야만 접근 허용
+function requireAdmin(req, res, next) {
+  if (parseCookies(req).glux_admin === ADMIN_PASS) return next()
+  return res.status(401).json({ error: '관리자 인증이 필요합니다.' })
+}
+
 // ── API 라우터 ───────────────────────────────────────────────
+// applications: 신규 신청 제출(POST /)만 공개, 조회·수정·삭제·일정은 관리자 전용
+app.use('/api/applications', (req, res, next) => {
+  if (req.method === 'POST' && (req.path === '/' || req.path === '')) return next() // 폼 제출 공개
+  return requireAdmin(req, res, next)
+})
 app.use('/api/applications', require('./routes/applications'))
-app.use('/api/vouchers', require('./routes/vouchers'))
-app.use('/api/quotes', require('./routes/quotes'))
+// vouchers·quotes: 전면 관리자 전용
+app.use('/api/vouchers', requireAdmin, require('./routes/vouchers'))
+app.use('/api/quotes', requireAdmin, require('./routes/quotes'))
 
 // ── 관리자 페이지 경로 ───────────────────────────────────────
 app.get('/admin/login', (req, res) =>
