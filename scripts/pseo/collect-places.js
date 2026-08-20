@@ -55,6 +55,28 @@ async function dlPhoto(pname, dst) {
   if (!res.ok) throw new Error('photo ' + res.status)
   fs.writeFileSync(dst, Buffer.from(await res.arrayBuffer()))
 }
+const mediaUrl = ref => `https://places.googleapis.com/v1/${ref}/media?maxWidthPx=800&key=${KEY}`
+async function fetchBuf(ref) {
+  const res = await fetch(mediaUrl(ref))
+  if (!res.ok) throw new Error('photo ' + res.status)
+  return Buffer.from(await res.arrayBuffer())
+}
+// 사진 후보들 중 '음식/요리'가 가장 잘 보이는 사진 번호를 Gemini 비전으로 선택(0-index)
+async function pickFoodIdx(buffers, name, noun) {
+  if (!GKEY || buffers.length <= 1) return 0
+  const parts = [{ text: `아래는 일본 음식점 '${name}'(${noun})의 사진 후보 ${buffers.length}장이다. 이 가게의 대표 '음식/요리'가 접시·그릇에 담겨 가장 잘 보이는 사진 한 장의 번호를 1~${buffers.length} 중 숫자만으로 답하라. 간판·외관·내부·메뉴판만 있고 요리가 담긴 사진이 하나도 없으면 1이라고 답하라.` }]
+  buffers.forEach(b => parts.push({ inline_data: { mime_type: 'image/jpeg', data: b.toString('base64') } }))
+  try {
+    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GKEY}`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ contents: [{ parts }], generationConfig: { temperature: 0 } })
+    })
+    const d = await r.json()
+    const t = (d?.candidates?.[0]?.content?.parts?.[0]?.text || '1').trim()
+    const n = parseInt((t.match(/\d+/) || ['1'])[0])
+    return (n >= 1 && n <= buffers.length) ? n - 1 : 0
+  } catch (e) { return 0 }
+}
 
 // slug → 수집 조건. noun=설명용 명사, min=최소 리뷰수, take=노출 개수
 const Q = {
@@ -174,7 +196,7 @@ function descOf(p, noun) {
       .map(p => {
         const name = (p.displayName && p.displayName.text) || ''
         const v = p.userRatingCount || 0
-        return { name, rating: p.rating, count: v, area: areaOf(p.formattedAddress), maps: p.googleMapsUri || '', photoRef: (p.photos && p.photos[0]) ? p.photos[0].name : '', editorial: (p.editorialSummary && p.editorialSummary.text) || '', price: PRICE[p.priceLevel] || '', reviews: (p.reviews || []).map(rv => rv.text && rv.text.text).filter(Boolean), score: (v * p.rating + M * C) / (v + M), brand: brandKey(name) }
+        return { name, rating: p.rating, count: v, area: areaOf(p.formattedAddress), maps: p.googleMapsUri || '', photoRefs: (p.photos || []).slice(0, 4).map(x => x.name), editorial: (p.editorialSummary && p.editorialSummary.text) || '', price: PRICE[p.priceLevel] || '', reviews: (p.reviews || []).map(rv => rv.text && rv.text.text).filter(Boolean), score: (v * p.rating + M * C) / (v + M), brand: brandKey(name) }
       })
       .filter(p => p.name && (cfg.spot || !EXCLUDE.some(k => p.name.toLowerCase().includes(k)))) // 맛집만 관광·할랄 특화 제외(spot은 유지)
       .filter(p => !cfg.deny || !cfg.deny.some(k => p.name.toLowerCase().includes(k.toLowerCase()))) // 카테고리별 오분류 이름 제외
@@ -186,12 +208,21 @@ function descOf(p, noun) {
     for (let i = 0; i < items.length; i++) {
       const it = items[i]
       it.desc = descs[i] || descOf(it, cfg.noun)
-      if (it.photoRef) {
+      if (it.photoRefs && it.photoRefs.length) {
         const dst = path.join(IMGDIR, `${slug}-${i + 1}.jpg`)
-        if (fs.existsSync(dst)) { it.photo = `/guide/img/${slug}-${i + 1}.jpg` }
-        else { try { await dlPhoto(it.photoRef, dst); it.photo = `/guide/img/${slug}-${i + 1}.jpg`; await sleep(120) } catch (e) {} }
+        const cand = []
+        for (const ref of it.photoRefs) {
+          try { cand.push(await fetchBuf(ref)); await sleep(90) } catch (e) {}
+        }
+        if (cand.length) {
+          // 맛집(비spot)만 음식 사진 자동선택, 관광명소는 대표사진 사용
+          let idx = 0
+          if (!cfg.spot && cand.length > 1) idx = await pickFoodIdx(cand, it.name, cfg.noun)
+          fs.writeFileSync(dst, cand[idx])
+          it.photo = `/guide/img/${slug}-${i + 1}.jpg`
+        }
       }
-      delete it.photoRef; delete it.score; delete it.brand; delete it.reviews
+      delete it.photoRefs; delete it.score; delete it.brand; delete it.reviews
     }
     page.items = items
     const n = items.length
