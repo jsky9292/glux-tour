@@ -70,6 +70,19 @@ article ul.pl li::before{content:'✦';position:absolute;left:0;color:var(--gold
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:34px 0}
 .gi{padding-top:68%;background-size:cover;background-position:center;border-radius:10px;background:#e9e7e2}
 @media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}
+.fig{margin:22px 0}.fig img{width:100%;border-radius:12px;display:block}.fig figcaption{font-size:13px;color:var(--mist);margin-top:8px;text-align:center}
+.tblwrap{overflow-x:auto;margin:22px 0;-webkit-overflow-scrolling:touch}
+table.tbl{width:100%;border-collapse:collapse;font-size:15px;min-width:420px}
+table.tbl th{background:var(--paper);color:var(--ink);font-weight:700;text-align:left;padding:11px 12px;border-bottom:2px solid var(--gold);white-space:nowrap}
+table.tbl td{padding:10px 12px;border-bottom:1px solid #eee;color:#33363f;vertical-align:top;line-height:1.6}
+table.tbl tr:last-child td{border-bottom:none}
+.route{list-style:none;margin:22px 0;padding:0}
+.route li{position:relative;padding:0 0 20px 28px;border-left:2px solid #e7ddcf;margin-left:6px}
+.route li:last-child{border-left-color:transparent;padding-bottom:0}
+.route li::before{content:'';position:absolute;left:-8px;top:1px;width:13px;height:13px;border-radius:50%;background:var(--gold);border:2px solid #fff;box-shadow:0 0 0 1px #e7ddcf}
+.route .rt{display:inline-block;font-weight:800;color:var(--gold);font-size:13px;min-width:52px}
+.route .rp{font-weight:700;color:var(--ink)}
+.route .rn{display:block;font-size:14.5px;color:#5a5d68;margin-top:4px;line-height:1.65}
 footer{background:var(--ink);color:rgba(255,255,255,.55);font-size:12px;padding:30px 0;text-align:center;margin-top:40px}
 footer a{color:var(--gold-b)}`
 
@@ -89,8 +102,11 @@ function render(a) {
     </div>\n` : ''
   const body = (a.sections || []).map(s => {
     const ps = (s.body || []).map(p => `    <p>${p}</p>`).join('\n')
+    const img = s.img ? `\n    <figure class="fig"><img src="${esc(s.img)}" alt="${esc(s.cap || s.h2 || '')}" loading="lazy">${s.cap ? `<figcaption>${esc(s.cap)}</figcaption>` : ''}</figure>` : ''
+    const route = (s.route && s.route.length) ? `\n    <ul class="route">\n${s.route.map(r => `      <li>${r.t ? `<span class="rt">${esc(r.t)}</span> ` : ''}<span class="rp">${esc(r.p)}</span>${r.n ? `<span class="rn">${r.n}</span>` : ''}</li>`).join('\n')}\n    </ul>` : ''
+    const table = (s.table && s.table.rows) ? `\n    <div class="tblwrap"><table class="tbl">${s.table.headers ? `<thead><tr>${s.table.headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>` : ''}<tbody>${s.table.rows.map(row => `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>` : ''
     const list = (s.list && s.list.length) ? `\n    <ul class="pl">\n${s.list.map(x => `      <li>${x}</li>`).join('\n')}\n    </ul>` : ''
-    return `    <h2>${esc(s.h2)}</h2>\n${ps}${list}`
+    return `    <h2>${esc(s.h2)}</h2>\n${ps}${img}${route}${table}${list}`
   }).join('\n')
   const tips = (a.tips && a.tips.length) ? `\n    <div class="tips"><h3>알아두면 좋은 팁</h3><ul>\n${a.tips.map(t => `      <li>${t}</li>`).join('\n')}\n    </ul></div>` : ''
   const faqHtml = (a.faq || []).map(f => `      <details><summary>${esc(f.q)}</summary><p>${f.a}</p></details>`).join('\n')
