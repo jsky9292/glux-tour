@@ -20,6 +20,7 @@ const GROUPS = [
 ]
 const GUIDES = [
   ['osaka-local-food', '오사카 숨은 맛집'], ['japan-must-buy', '일본 여행 필수템'], ['japan-travel-tips', '간사이 여행 준비물·꿀팁'],
+  ['osaka-like-local', '오사카 현지인처럼'], ['osaka-rainy-day', '비 오는 날 오사카'], ['osaka-neighborhoods', '오사카 골목 동네'],
   ['dotonbori', '도톤보리'], ['kuromon-market', '쿠로몬시장'], ['shinsekai', '신세카이'], ['universal-studios-japan', '유니버설 스튜디오'],
   ['kinkakuji', '금각사'], ['fushimi-inari', '후시미이나리'], ['gion', '기온'], ['arashiyama', '아라시야마'], ['kyoto-ryokan-guide', '교토 료칸'],
   ['nara-park', '나라공원'], ['todaiji', '도다이지'], ['naramachi', '나라마치'], ['nara-day-trip', '나라 당일치기'], ['isuien', '이스이엔'],
