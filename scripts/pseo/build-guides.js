@@ -114,12 +114,13 @@ function render(a) {
     </div>\n` : ''
   const body = (a.sections || []).map(s => {
     const ps = (s.body || []).map(p => `    <p>${p}</p>`).join('\n')
+    const rawhtml = s.html ? `\n    ${s.html}` : ''
     const flow = (s.flow && s.flow.length) ? `\n    <div class="flow">${s.flow.map(f => `<div class="fstep"><div class="fd">${esc(f.day)}</div><div class="ft">${esc(f.title)}</div><div class="fs">${(f.spots || []).map(esc).join(' · ')}</div></div>`).join('')}</div>` : ''
     const img = s.img ? `\n    <figure class="fig"><img src="${esc(s.img)}" alt="${esc(s.cap || s.h2 || '')}" loading="lazy">${s.cap ? `<figcaption>${esc(s.cap)}</figcaption>` : ''}</figure>` : ''
     const route = (s.route && s.route.length) ? `\n    <ul class="route">\n${s.route.map(r => `      <li>${r.t ? `<span class="rt">${esc(r.t)}</span> ` : ''}<span class="rp">${esc(r.p)}</span>${r.n ? `<span class="rn">${r.n}</span>` : ''}</li>`).join('\n')}\n    </ul>` : ''
     const table = (s.table && s.table.rows) ? `\n    <div class="tblwrap"><table class="tbl">${s.table.headers ? `<thead><tr>${s.table.headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>` : ''}<tbody>${s.table.rows.map(row => `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>` : ''
     const list = (s.list && s.list.length) ? `\n    <ul class="pl">\n${s.list.map(x => `      <li>${x}</li>`).join('\n')}\n    </ul>` : ''
-    return `    <h2>${esc(s.h2)}</h2>\n${ps}${flow}${img}${route}${table}${list}`
+    return `    <h2>${esc(s.h2)}</h2>\n${ps}${rawhtml}${flow}${img}${route}${table}${list}`
   }).join('\n')
   const tips = (a.tips && a.tips.length) ? `\n    <div class="tips"><h3>알아두면 좋은 팁</h3><ul>\n${a.tips.map(t => `      <li>${t}</li>`).join('\n')}\n    </ul></div>` : ''
   const faqHtml = (a.faq || []).map(f => `      <details><summary>${esc(f.q)}</summary><p>${f.a}</p></details>`).join('\n')
