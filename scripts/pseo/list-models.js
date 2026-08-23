@@ -5,9 +5,10 @@ const KEY = process.env.GEMINI_API_KEY
   const d = await r.json()
   if (d.error) { console.log('ERR', JSON.stringify(d.error).slice(0, 200)); return }
   const models = d.models || []
+  const isImg = m => /image|imagen/i.test(m.name)
   console.log('총 모델:', models.length)
-  console.log('=== 이미지 관련 모델 ===')
-  models.filter(m => /image|imagen|nano|3-pro/i.test(m.name)).forEach(m => {
-    console.log(m.name.replace('models/', ''), '|', m.displayName || '', '|', (m.supportedGenerationMethods || []).join(','))
-  })
+  console.log('\n=== [이미지 생성 모델] (이게 지도용) ===')
+  models.filter(isImg).forEach(m => console.log('  ' + m.name.replace('models/', '').padEnd(34), '|', m.displayName || ''))
+  console.log('\n=== [텍스트/기타 모델 — 이미지 생성 불가] 이름에 버전만 발췌 ===')
+  models.filter(m => !isImg(m)).forEach(m => console.log('  ' + m.name.replace('models/', '').padEnd(34), '|', m.displayName || ''))
 })()

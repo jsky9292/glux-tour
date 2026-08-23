@@ -8,10 +8,11 @@ const fs = require('fs')
 const KEY = process.env.GEMINI_API_KEY
 const promptFile = process.argv[2]
 const outFile = process.argv[3]
-const MODELS = [
-  'gemini-3-pro-image',        // Nano Banana Pro (최신·텍스트 정확)
-  'gemini-3.1-flash-image',    // Nano Banana 2
-  'gemini-2.5-flash-image',    // 폴백
+const forceModel = process.argv[4] // 선택: 특정 모델 강제
+const MODELS = forceModel ? [forceModel] : [
+  'gemini-3.1-flash-image',    // Nano Banana 2 (기본 — 아기자기·디테일, 한글 정확)
+  'gemini-3-pro-image',        // Nano Banana Pro (폴백)
+  'gemini-2.5-flash-image',    // 폴백2
 ]
 ;(async () => {
   if (!KEY) { console.error('GEMINI_API_KEY 없음'); process.exit(1) }
