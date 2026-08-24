@@ -104,8 +104,22 @@ const jstr = s => JSON.stringify(s)
 function render(a) {
   const url = `https://gluxtour.com/guide/${a.slug}/`
   const tour = (a.related || '').replace('/tour/', '').replace(/\//g, '')
-  const heroImg = tour ? `/tour/img/${tour}.jpg` : '/glux_thumbnail.png'
-  const gal = tour ? `\n    <div class="gal">${[1, 2, 3].map(i => `<div class="gi" style="background-image:url(/tour/img/gallery/${tour}-${i}.jpg)"></div>`).join('')}</div>` : ''
+  const PUB = path.join(__dirname, '..', '..', 'public')
+  // 파일이 실제로 있을 때만 사진 사용(없으면 깨짐 방지)
+  const firstItemImg = (a.sections || []).map(s => s.img).find(Boolean) || ''
+  const heroExists = tour && fs.existsSync(path.join(PUB, 'tour', 'img', tour + '.jpg'))
+  // 옛 가이드 슬러그 → 큐레이션 실사진 히어로 매핑
+  const HEROMAP = {
+    dotonbori: '/guide/img/dotonbori-food-1.jpg', 'kuromon-market': '/guide/img/kuromon-food-1.jpg', shinsekai: '/guide/img/shinsekai-food-1.jpg',
+    gion: '/guide/img/gion-food-1.jpg', arashiyama: '/guide/img/arashiyama-food-1.jpg', 'fushimi-inari': '/guide/img/kyoto-spots-1.jpg',
+    kinkakuji: '/guide/img/kyoto-spots-3.jpg', 'nara-park': '/guide/img/nara-spots-2.jpg', todaiji: '/guide/img/nara-spots-1.jpg',
+    naramachi: '/guide/img/nara-spots-1.jpg', 'kobe-beef-guide': '/guide/img/kobe-food-1.jpg', harborland: '/guide/img/kobe-spots-4.jpg',
+    rokko: '/guide/img/kobe-spots-4.jpg', isuien: '/guide/img/nara-spots-2.jpg',
+  }
+  const pick = p => (p && fs.existsSync(path.join(PUB, p.replace(/^\//, ''))) ? p : '')
+  // 주제 사진(HEROMAP) 최우선 → tour 대표사진 → 본문 첫 이미지 순
+  const heroImg = pick(HEROMAP[a.slug]) || (heroExists ? `/tour/img/${tour}.jpg` : '') || pick(firstItemImg)
+  const gal = '' // 자동 갤러리는 엉뚱·깨짐 방지 위해 사용 안 함(본문 사진/지도 사용)
   const summaryHtml = a.summary ? `    <div class="summary"><span class="lbl">핵심 요약</span>${a.summary}</div>\n` : ''
   const keyFactsHtml = (a.keyFacts && a.keyFacts.length) ? `    <div class="keyfacts"><h3>한눈에 보기</h3><ul>\n${a.keyFacts.map(f => `      <li>${f}</li>`).join('\n')}\n    </ul></div>\n` : ''
   const mapHtml = a.place ? `\n    <div class="mapbox">
@@ -161,7 +175,7 @@ ${STYLE}
 
 <div class="top"><div class="wrap"><a href="https://gluxtour.com/" class="logo">GL<span>U</span>X</a><a href="https://gluxtour.com/" class="home">← GLUX 홈</a></div></div>
 
-<header class="hero" style="background:linear-gradient(rgba(15,15,26,.7),rgba(15,15,26,.86)),url(${heroImg}) center/cover"><div class="wrap">
+<header class="hero"${heroImg ? ` style="background:linear-gradient(rgba(15,15,26,.7),rgba(15,15,26,.86)),url(${heroImg}) center/cover"` : ''}><div class="wrap">
   <div class="crumb"><a href="https://gluxtour.com/">홈</a> › 여행 가이드 › ${esc(a.kw)}</div>
   <span class="tag">TRAVEL GUIDE</span>
   <h1>${esc(a.title)}</h1>
