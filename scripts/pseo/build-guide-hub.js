@@ -83,7 +83,20 @@ const sections = GROUPS.map(([title, slugs]) => `  <section class="sec"><div cla
 ${slugs.map(card).filter(Boolean).join('\n')}
     </div>
   </div></section>`).join('\n')
-const guideLinks = GUIDES.map(([s, l]) => `    <a href="/guide/${s}/">${esc(l)}</a>`).join('\n')
+const GLABEL = Object.fromEntries(GUIDES)
+const GGROUPS = [
+  ['일자별 코스 (지도 포함)', ['osaka-3d4n-course', 'kyoto-1n2d-course', 'kobe-day-trip-course', 'nara-day-trip-course', 'osaka-family-3d4n-course']],
+  ['교통·이동', ['kansai-airport-access', 'osaka-transit', 'kansai-day-trip-trains']],
+  ['역·지역·동네', ['namba-area', 'umeda-area', 'osaka-station-area', 'tennoji-area', 'shin-osaka-area', 'shinsaibashi-area', 'osaka-neighborhoods']],
+  ['테마·계절', ['osaka-with-kids', 'osaka-parents', 'osaka-shopping', 'osaka-must-eat', 'osaka-night-view', 'osaka-cherry-autumn', 'kyoto-cherry-autumn', 'kyoto-kimono', 'usj-guide', 'rinku-outlet']],
+  ['현지 감성·준비물', ['osaka-like-local', 'osaka-rainy-day', 'osaka-local-food', 'osaka-hotel', 'japan-must-buy', 'japan-travel-tips']],
+  ['명소·스팟', ['dotonbori', 'kuromon-market', 'shinsekai', 'universal-studios-japan', 'kinkakuji', 'fushimi-inari', 'gion', 'arashiyama', 'nara-park', 'todaiji', 'naramachi', 'isuien', 'harborland', 'rokko']],
+  ['료칸·온천·골프', ['kyoto-ryokan-guide', 'arima-onsen-guide', 'kobe-beef-guide', 'kansai-golf-course-guide']],
+]
+const guideSection = GGROUPS.map(([t, slugs]) => `  <section class="sec"><div class="wrap"><h3 style="font-size:15px;color:var(--goldd);font-weight:800;margin:20px 0 2px">${esc(t)}</h3>
+    <div class="guides">
+${slugs.map(s => GLABEL[s] ? `      <a href="/guide/${s}/">${esc(GLABEL[s])}</a>` : '').filter(Boolean).join('\n')}
+    </div></div></section>`).join('\n')
 
 const html = `<!DOCTYPE html>
 <html lang="ko">
@@ -115,18 +128,14 @@ const html = `<!DOCTYPE html>
   <p>구글 평점순으로 고른 진짜 맛집. 마음에 드는 곳을 골라 문의하면, 예약·통역·전용차량 동선까지 GLUX가 도와드립니다.</p>
   <div class="cta"><a href="https://gluxtour.com/#contact" class="btn btn-g">무료 여행 문의하기 →</a><a href="${KAKAO}" target="_blank" rel="noopener" class="btn btn-l">카카오톡 상담</a></div>
 </div></header>
+  <section class="sec"><div class="wrap"><h2>여행 <b>정보 가이드</b> <span style="font-size:14px;color:var(--mist);font-weight:600">— 코스·교통·명소·테마 ${Object.keys(GLABEL).length}편</span></h2></div></section>
+${guideSection}
 ${sections}
   <div class="wrap"><div class="banner">
     <h3>맛집만 고르셨나요? 여행은 GLUX가 완성합니다</h3>
     <p>원하는 맛집·온천만 알려주세요. 예약·통역·전용차량 동선까지 올인원으로 짜드립니다.</p>
     <a href="https://gluxtour.com/#contact" class="btn btn-g" style="display:inline-flex">무료 여행 문의하기 →</a>
   </div></div>
-  <section class="sec"><div class="wrap">
-    <h2>여행 <b>정보 가이드</b></h2>
-    <div class="guides">
-${guideLinks}
-    </div>
-  </div></section>
 <footer>© GLUX Tour · 오사카·간사이 현지 직영 여행사 · <a href="https://gluxtour.com/">gluxtour.com</a></footer>
 <div class="sticky">
   <a href="${KAKAO}" target="_blank" rel="noopener" class="k">카톡 상담</a>
