@@ -106,27 +106,24 @@ function captions(p, items) {
   fs.writeFileSync(path.join(CAPOUT, p.slug + '.txt'), `===== 인스타그램 캡션 =====\n\n${ig}\n\n\n===== 유튜브 =====\n\n${yt}`, 'utf8')
 }
 
+// export용: vmin → px 고정(100vmin=1080px 기준) → 뷰포트와 무관하게 1080×1080 고정
+const STYLE_EXPORT = STYLE.replace(/([\d.]+)vmin/g, (m, n) => (parseFloat(n) * 10.8).toFixed(1) + 'px')
+const HEAD = `<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css">`
+
 function build(p) {
   const items = (p.items || []).slice(0, 5)
   if (!items.length) return false
   captions(p, items)
-  const cards = [coverCard(p, items.length), ...items.map(itemCard), ctaCard(p)].join('\n')
-  const html = `<!DOCTYPE html>
-<html lang="ko"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(p.kw)} 카드뉴스 — GLUX</title>
-<meta name="robots" content="noindex">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css">
-<style>${STYLE}</style></head>
-<body>
-<div class="hint">인스타용 1:1 카드 — 각 카드를 캡처하거나 저장해 캐러셀로 올리세요 (표지→TOP5→문의)</div>
-<div class="deck">
-${cards}
-</div>
-</body></html>`
+  const cardsArr = [coverCard(p, items.length), ...items.map(itemCard), ctaCard(p)]
   const dir = path.join(OUT, p.slug)
   fs.mkdirSync(dir, { recursive: true })
-  fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8')
+  // 미리보기 덱(반응형)
+  fs.writeFileSync(path.join(dir, 'index.html'), `<!DOCTYPE html><html lang="ko"><head>${HEAD}<title>${esc(p.kw)} 카드뉴스 — GLUX</title><style>${STYLE}</style></head><body><div class="hint">인스타용 1:1 카드 (표지→TOP5→문의)</div><div class="deck">\n${cardsArr.join('\n')}\n</div></body></html>`, 'utf8')
+  // export용 개별 카드(1080×1080 고정)
+  cardsArr.forEach((c, i) => {
+    fs.writeFileSync(path.join(dir, `card-${i}.html`), `<!DOCTYPE html><html lang="ko"><head>${HEAD}<style>${STYLE_EXPORT}\nbody{margin:0;background:#0a0a0f}.card{width:1080px;height:1080px;max-width:none;max-height:none}</style></head><body>\n${c}\n</body></html>`, 'utf8')
+  })
+  fs.writeFileSync(path.join(dir, 'count.txt'), String(cardsArr.length), 'utf8')
   return true
 }
 
