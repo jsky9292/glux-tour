@@ -85,15 +85,16 @@ function tagsFor(p) {
 }
 function captions(p, items) {
   const kw = p.kw
+  const emo = p.kind === 'spot' ? '📸' : '🍽️'
   // 인스타 캡션(상세: 위치+리뷰)
-  let ig = `🍽️ ${kw} 현지 TOP ${items.length} — 구글 평점·리뷰로 검증했어요\n(오사카 현지 30년 가이드가 관광객 말고 '진짜'만 골랐습니다)\n\n`
+  let ig = `${emo} ${kw} 현지 TOP ${items.length} — 구글 평점·리뷰로 검증했어요\n(오사카 현지 30년 가이드가 관광객 말고 '진짜'만 골랐습니다)\n\n`
   items.forEach((it, i) => {
     ig += `${NUM[i]} ${it.name}\n`
     ig += `⭐ 구글 평점 ${it.rating} (${Number(it.count || 0).toLocaleString()}개)\n`
     ig += `📍 위치: ${it.area || '오사카'} · 구글맵에 '${it.name}' 검색\n`
     ig += `💬 ${it.desc}\n\n`
   })
-  ig += `✔️ 예약이 어렵거나 일본어가 부담되면, 현지 30년 GLUX가 맛집 예약·통역·전용차량까지 도와드려요.\n👉 프로필 링크에서 무료 견적 문의\n\n${tagsFor(p)}\n`
+  ig += `✔️ 예약이 어렵거나 일본어가 부담되면, 현지 30년 GLUX가 예약·통역·전용차량까지 도와드려요.\n👉 프로필 링크에서 무료 견적 문의\n\n${tagsFor(p)}\n`
 
   // 유튜브(커뮤니티/설명)용
   let yt = `[유튜브 제목]\n${kw} 현지인 추천 TOP ${items.length} (구글 평점순) | 오사카 현지 가이드\n\n[설명/커뮤니티 글]\n오사카 현지 30년 가이드가 구글 평점·리뷰로 검증한 ${kw} ${items.length}곳입니다.\n\n`

@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css"><title>오사카 야끼니꾸 맛집 카드뉴스 — GLUX</title><style>*{margin:0;padding:0;box-sizing:border-box;font-variant-numeric:lining-nums}
+:root{--ink:#12131a;--gold:#d9b45a;--goldd:#b98a3e;--sans:'Pretendard','Pretendard Variable',-apple-system,sans-serif}
+body{background:#0a0a0f;font-family:var(--sans);-webkit-font-smoothing:antialiased}
+.deck{display:flex;flex-direction:column;align-items:center;gap:14px;padding:14px 0 40px}
+.card{position:relative;width:100vmin;height:100vmin;max-width:1080px;max-height:1080px;overflow:hidden;background:#12131a;color:#fff;scroll-snap-align:center;flex:none}
+.hint{color:#8a8a92;font-size:13px;text-align:center;padding:10px}
+/* 커버 */
+.cover{display:flex;flex-direction:column;justify-content:center;padding:0 9%;background:radial-gradient(120% 90% at 50% 0%,#20222e,#0d0e15)}
+.cover .brand{position:absolute;top:6.5%;left:9%;font-weight:800;letter-spacing:4px;font-size:2.4vmin;color:#fff}.cover .brand b{color:var(--gold)}
+.cover .kick{color:var(--gold);font-weight:800;font-size:3.1vmin;letter-spacing:.5px;margin-bottom:2.2vmin}
+.cover h1{font-size:8.6vmin;font-weight:900;line-height:1.18;letter-spacing:-.5px}
+.cover h1 em{font-style:normal;color:var(--gold)}
+.cover .sub{color:rgba(255,255,255,.8);font-size:3.1vmin;margin-top:3vmin;line-height:1.6}
+.cover .swipe{position:absolute;bottom:7%;left:9%;color:rgba(255,255,255,.85);font-size:3vmin;font-weight:700}
+.cover .swipe::after{content:' →'}
+/* 아이템 */
+.ph{position:absolute;inset:0;background-size:cover;background-position:center}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(0,0,0,.55) 66%,rgba(10,10,15,.96) 100%)}
+.rk{position:absolute;top:6%;left:8%;width:11vmin;height:11vmin;border-radius:50%;background:linear-gradient(135deg,#e7c877,#b98a3e);color:#231a08;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:6vmin;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.tag{position:absolute;top:8.4%;left:22%;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:2.6vmin;font-weight:700;padding:1vmin 2.4vmin;border-radius:20px;backdrop-filter:blur(4px)}
+.info{position:absolute;left:8%;right:8%;bottom:8%}
+.info .nm{font-size:6.4vmin;font-weight:900;line-height:1.2;letter-spacing:-.3px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.info .rt{display:inline-block;margin-top:2.4vmin;background:rgba(217,180,90,.16);border:1px solid rgba(217,180,90,.6);color:#f0d79c;font-weight:800;font-size:3vmin;padding:1vmin 2.6vmin;border-radius:10px}
+.info .ds{color:rgba(255,255,255,.9);font-size:3.1vmin;line-height:1.55;margin-top:2.4vmin;word-break:keep-all}
+/* CTA */
+.cta{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 10%;background:radial-gradient(120% 90% at 50% 100%,#20222e,#0d0e15)}
+.cta .brand{font-weight:800;letter-spacing:4px;font-size:3vmin;color:#fff;margin-bottom:4vmin}.cta .brand b{color:var(--gold)}
+.cta h2{font-size:6.6vmin;font-weight:900;line-height:1.3}
+.cta h2 em{font-style:normal;color:var(--gold)}
+.cta p{color:rgba(255,255,255,.82);font-size:3.2vmin;line-height:1.7;margin-top:3.4vmin}
+.cta .pill{margin-top:5vmin;background:linear-gradient(135deg,#e7c877,#b98a3e);color:#231a08;font-weight:900;font-size:3.4vmin;padding:2.4vmin 5vmin;border-radius:14px}
+@media print{.hint{display:none}}</style></head><body><div class="hint">인스타용 1:1 카드 (표지→TOP5→문의)</div><div class="deck">
+  <div class="card cover">
+    <div class="brand">GL<b>U</b>X · 오사카 현지 큐레이션</div>
+    <div class="kick">구글 평점·리뷰로 검증</div>
+    <h1>오사카 야끼니꾸 맛집<br><em>현지 TOP 5</em></h1>
+    <div class="sub">관광객 말고, 현지 기준으로 고른 진짜.<br>넘겨서 확인하세요.</div>
+    <div class="swipe">SWIPE</div>
+  </div>
+  <div class="card">
+    <div class="ph" style="background-image:url('/guide/img/osaka-yakiniku-1.jpg')"></div><div class="shade"></div>
+    <div class="rk">1</div><div class="tag">신사이바시</div>
+    <div class="info">
+      <div class="nm">야키니쿠 로쿠노미야 난바 신사이바시스지점</div>
+      <span class="rt">구글 평점 4.9 ★ (16,241)</span>
+      <div class="ds">가격대가 있지만 신선하고 퀄리티 좋은 고기를 무한리필로 즐길 수 있는 곳입니다.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ph" style="background-image:url('/guide/img/osaka-yakiniku-2.jpg')"></div><div class="shade"></div>
+    <div class="rk">2</div><div class="tag">신사이바시</div>
+    <div class="info">
+      <div class="nm">야키니쿠 하나미치</div>
+      <span class="rt">구글 평점 4.9 ★ (7,276)</span>
+      <div class="ds">무한리필임에도 불구하고 고기 퀄리티가 매우 좋고 신선하며 부드러워 어떤 부위를 먹어도 만족…</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ph" style="background-image:url('/guide/img/osaka-yakiniku-3.jpg')"></div><div class="shade"></div>
+    <div class="rk">3</div><div class="tag">신사이바시</div>
+    <div class="info">
+      <div class="nm">Yakiniku Kurumi Shinsaibashi Main Store</div>
+      <span class="rt">구글 평점 4.9 ★ (5,428)</span>
+      <div class="ds">고급스러운 목조 인테리어와 수묵화로 꾸며진 프라이빗한 공간에서 고베규/와규를 즐길 수 있는…</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ph" style="background-image:url('/guide/img/osaka-yakiniku-4.jpg')"></div><div class="shade"></div>
+    <div class="rk">4</div><div class="tag">오사카</div>
+    <div class="info">
+      <div class="nm">야키니쿠 호르몬 우치다 오사카</div>
+      <span class="rt">구글 평점 4.9 ★ (4,943)</span>
+      <div class="ds">고기 퀄리티가 기대 이상으로 좋고 육즙이 풍부하며, 특히 타다키와 특 와규 갈비는 입에서 …</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ph" style="background-image:url('/guide/img/osaka-yakiniku-5.jpg')"></div><div class="shade"></div>
+    <div class="rk">5</div><div class="tag">오사카</div>
+    <div class="info">
+      <div class="nm">Rokunomiya 난바 도톤보리</div>
+      <span class="rt">구글 평점 4.9 ★ (4,561)</span>
+      <div class="ds">친절하고 세심한 직원들의 서비스가 돋보이는 곳으로, 고기 추천부터 길 안내까지 다양한 도움…</div>
+    </div>
+  </div>
+  <div class="card cta">
+    <div class="brand">GL<b>U</b>X</div>
+    <h2>전체 순위·예약은<br><em>GLUX가 도와드려요</em></h2>
+    <p>오사카 현지 30년. 맛집 예약·통역·전용차량까지<br>A to Z로 케어합니다. 프로필 링크에서 문의하세요.</p>
+    <div class="pill">프로필 링크 → 무료 견적</div>
+  </div>
+</div></body></html>
