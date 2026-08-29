@@ -159,7 +159,7 @@ section{padding:clamp(60px,10vw,110px) clamp(16px,4vw,48px)}
 
 /* TWO PATHS — with photos */
 .path-s{background:var(--cream)}
-.path-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.path-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
 .path-card{border:1px solid var(--silk);background:var(--white);overflow:hidden;transition:all .5s}
 .path-card:hover{border-color:var(--gold-l);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.06)}
 .path-img{height:220px;background-size:cover;background-position:center;position:relative;background-color:#1a1a1a}
@@ -463,15 +463,19 @@ body{padding-bottom:var(--bar)}
 <!-- TWO PATHS — with photos -->
 <section class="path-s" id="travel">
   <div class="inner">
-    <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Travel Style</span></div><h2 class="st">어떤 여행을 원하시나요?</h2><p class="ss">가족·연인 럭셔리 여행과 프리미엄 골프 여행. 혹은 둘 다.</p></div>
+    <div class="sh rv"><div class="sov"><div class="sov-l"></div><span class="sov-t">Travel Style</span></div><h2 class="st">어떤 여행을 원하시나요?</h2><p class="ss">공항 픽업부터 송영까지, 컨셉에 맞춰 A to Z로 케어합니다. 가족·골프·부모님 — 각자에게 딱 맞게.</p></div>
     <div class="path-grid">
       <div class="path-card rv d1">
-        <div class="path-img" style="background-image:url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=800&q=80')"><div class="path-img-tag">Family · Couple</div></div>
-        <div class="path-body"><h3>프라이빗 가족 · 연인 여행</h3><p class="path-desc">프라이빗 온천 료칸에서 가족과 편안한 휴식을, 교토에서 기모노 산책을, 오사카에서 현지인만 아는 맛집을. 나이 있는 분도 아이도 편안하게 즐기는 프리미엄 여행을 설계합니다.</p><div class="path-feats"><span class="pf">프라이빗 료칸</span><span class="pf">맞춤 맛집</span><span class="pf">전용차량</span><span class="pf">교토·나라·고베</span><span class="pf">기모노 체험</span></div><a href="#pkg" class="path-cta">패키지 보기 →</a></div>
+        <div class="path-img" style="background-image:url('/tour/img/osaka-family.jpg')"><div class="path-img-tag">Family</div></div>
+        <div class="path-body"><h3>가족 여행</h3><p class="path-desc">아이·부모님과 줄서기·환승·예약 걱정 없이. 공항 픽업부터 USJ·맛집 예약, 통역, 송영까지 A to Z로 케어합니다. 아이 낮잠·부모님 체력까지 계산한 동선.</p><div class="path-feats"><span class="pf">공항 픽업·송영</span><span class="pf">전용차량</span><span class="pf">예약 대행</span><span class="pf">한일 가이드</span></div><a href="/private/family/" class="path-cta">실제 일정·견적 보기 →</a></div>
       </div>
       <div class="path-card rv d2">
-        <div class="path-img" style="background-image:url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=800&q=80')"><div class="path-img-tag">Premium Golf</div></div>
-        <div class="path-body"><h3>프리미엄 골프 여행</h3><p class="path-desc">간사이 100여개 명문 CC 중 컨디션·난이도·위치에 맞는 최적의 골프장을 직접 부킹. 전용차량과 코디네이터가 라운딩 전 과정을 케어합니다. 골프+관광 복합 일정도 가능합니다.</p><div class="path-feats"><span class="pf">100+ 골프장</span><span class="pf">컨디션별 추천</span><span class="pf">전용차량</span><span class="pf">료칸 연계</span><span class="pf">직접 부킹</span></div><a href="#golf" class="path-cta">골프장 보기 →</a></div>
+        <div class="path-img" style="background-image:url('/tour/img/kansai-golf.jpg')"><div class="path-img-tag">Golf</div></div>
+        <div class="path-body"><h3>골프 여행</h3><p class="path-desc">일본어 부킹·시외 이동·그린피 걱정 없이. 현지 30년 네트워크로 명문 코스 직접 부킹, 전용차량 이동·라운딩 매너 안내·통역까지 통째로 케어합니다.</p><div class="path-feats"><span class="pf">명문 코스 부킹</span><span class="pf">전용차량</span><span class="pf">그린피 비교</span><span class="pf">골프+관광</span></div><a href="/private/golf/" class="path-cta">실제 일정·견적 보기 →</a></div>
+      </div>
+      <div class="path-card rv d3">
+        <div class="path-img" style="background-image:url('/tour/img/arima-onsen.jpg')"><div class="path-img-tag">Parents</div></div>
+        <div class="path-body"><h3>부모님 효도여행</h3><p class="path-desc">계단·환승·긴 도보 없이. 완만한 동선·대욕장 온천·전용차량으로 부모님을 편하게 모십니다. 예약·통역·속도 조절까지 — "편했다"는 말씀을 듣는 여행.</p><div class="path-feats"><span class="pf">완만한 동선</span><span class="pf">온천·대욕장</span><span class="pf">전용차량</span><span class="pf">예약·통역</span></div><a href="/private/parents/" class="path-cta">실제 일정·견적 보기 →</a></div>
       </div>
     </div>
   </div>
