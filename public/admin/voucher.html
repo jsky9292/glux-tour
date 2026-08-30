@@ -806,6 +806,7 @@ function scaleA4(){
   }else{w.style.transform='';w.style.height='auto';w.style.marginBottom='0'}
 }
 window.addEventListener('resize',scaleA4)
+window.addEventListener('resize',layout)
 
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){clearTimeout(_st);save()}})
 window.addEventListener('pagehide',()=>{clearTimeout(_st);save()})
