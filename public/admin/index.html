@@ -86,6 +86,25 @@ body{font-family:'Noto Sans KR',sans-serif;font-size:13px;background:#f0f2f5;col
 
 /* toast */
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f0f1a;color:#fff;padding:8px 20px;border-radius:20px;font-size:12px;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none}
+
+/* 모바일 뒤로가기 버튼(기본 숨김, 모바일서만 표시) */
+#mback{display:none;background:transparent;border:none;color:#fff;font-size:22px;cursor:pointer;padding:0 6px 0 0;line-height:1;flex-shrink:0}
+
+/* ===== 모바일 반응형 ===== */
+@media (max-width:768px){
+  #wrap{display:block;height:auto}
+  #left{width:100%;min-width:0;height:100dvh;border-right:none}
+  .stats .stat .n{font-size:18px}
+  .left-footer .btn{flex:1 1 30%}
+  /* 우측 상세: 기본은 화면 밖, 신청 선택 시 전체화면 오버레이로 슬라이드 */
+  #right{position:fixed;inset:0;z-index:500;height:100dvh;transform:translateX(100%);transition:transform .22s ease}
+  body.detail-open #right{transform:translateX(0)}
+  #mback{display:inline-flex;align-items:center}
+  #right-head{gap:6px}
+  #right-title{font-size:12px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #right-actions{flex-shrink:0}
+  #right-actions .btn-sm{padding:5px 8px;font-size:10px}
+}
 </style>
 </head>
 <body>
@@ -132,6 +151,7 @@ body{font-family:'Noto Sans KR',sans-serif;font-size:13px;background:#f0f2f5;col
 <!-- 오른쪽: 바우처 빌더 -->
 <div id="right">
   <div id="right-head">
+    <button id="mback" onclick="closeDetail()" title="목록으로">←</button>
     <div id="right-title">← 왼쪽에서 신청을 선택하세요</div>
     <div id="right-actions" style="display:none">
       <button class="btn btn-gray btn-sm" onclick="updateStatus('confirmed')">✅ 확정</button>
@@ -230,7 +250,10 @@ function selectApp(id){
   document.getElementById('right-title').innerHTML=`<span class="badge ${st.cls}">${st.label}</span> &nbsp; <strong>${app.name}</strong> &nbsp; <span style="font-weight:400;color:#6b7280">${app.reservation_no||''}</span>`
   document.getElementById('right-actions').style.display='flex'
   document.getElementById('voucher-frame').src=`/admin/voucher?appId=${id}`
+  document.body.classList.add('detail-open')
 }
+
+function closeDetail(){document.body.classList.remove('detail-open')}
 
 function onFrameLoad(){
   // iframe 로드 후 저장 시 목록 갱신
